@@ -19,6 +19,10 @@ class Controller_Profile extends Controller_App {
             $this->request->redirect('/404');
         }
 
+	if($this->template->member->id == 4) {
+		echo 'Git test';
+	}
+
         $this->template->blabs = Model_Feed::getFeedContent('*', "'STATUS' OR type = 'PHOTO'", $this->template->member->id);
     }
     
