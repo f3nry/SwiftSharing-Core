@@ -1,0 +1,5397 @@
+body {
+    font-family: Helvetica, Verdana, Arial, sans-serif;
+    font-size: 13px;
+    color: #5a5858;
+    background-color: #FFFFFF;
+    margin: 0;
+}
+
+div {
+    margin: 0;
+    padding: 0;
+}
+
+h1.big {
+    color: #555555;
+    font-size: 36px;
+    font-height: bold;
+    margin: 0px;
+}
+
+h2 {
+    text-align: center;
+}
+
+h3.header {
+    font-size: 14px;
+    line-height: 19px;
+    color: #555555;
+    margin-top: 10px;
+}
+
+img {
+    border: 0;
+}
+
+form {
+    display: inline;
+    margin: 0;
+    padding: 0;
+}
+
+table {
+    border-collapse: collapse;
+}
+
+th, td {
+    padding: 0;
+}
+
+:focus {
+    outline: 0;
+}
+
+.rel {
+    position: relative;
+}
+
+input[type=text], input[type=password], textarea {
+    padding: 0px;
+    background: white url(/content/images/form_input_bg.gif) repeat-x;
+    border-color: #7C7C7C #C3C3C3 #DDD;
+    border-style: solid;
+    border-width: 1px;
+    padding: 2px 0px;
+}
+
+input[type=submit] {
+    display: block;
+    margin: 4px 1px;
+}
+
+div#container {
+    margin-left: auto;
+    margin-right: auto;
+    width: 948px;
+    position: relative;
+}
+
+.outsideContainer {
+    margin-left: auto;
+    margin-right: auto;
+    width: 865px;
+    position: relative;
+}
+
+.clearfix:after {
+    visibility: hidden;
+    display: block;
+    font-size: 0;
+    content: " ";
+    clear: both;
+    height: 0;
+}
+
+.clearfix {
+    display: inline-block;
+}
+
+/* start commented backslash hack */
+* html .clearfix {
+    height: 1%;
+}
+
+.clearfix {
+    display: block;
+}
+
+/* close commented backslash hack */
+
+/* LOGGED IN HEADER ELEMENTS */
+
+#header {
+    background-color: #eee;
+    height: 75px;
+    width: 100%;
+}
+
+#header ul#topNav {
+    float: right;
+    margin: 30px 0 0;
+    padding: 0;
+}
+
+#header ul#topNav li {
+    color: #474747;
+    float: left;
+    font-size: 12px;
+    font-weight: bold;
+    list-style: none;
+    margin: 0;
+    padding-right: 7px;
+}
+
+#header #topNav li a {
+    border-left: 1px solid #ccc;
+    border-left: 1px solid rgba(0, 0, 0, .2);
+    color: #3AA9D6;
+    padding-left: 7px;
+}
+
+#header #topNav li:first-child a {
+    border: none;
+}
+
+#header #topNav #nameLocal {
+    position: relative;
+}
+
+#header #topNav #nameLocal a {
+    color: #474747;
+    text-decoration: none;
+    padding-left: 1px;
+}
+
+#header #topNav #nameLocal a:hover {
+    text-decoration: underline;
+}
+
+#header #topNav #nameLocal em {
+    color: #777;
+    font-style: normal;
+    font-weight: normal;
+}
+
+#header #topNav #nameLocal input[type=text] {
+    background: #fff;
+    border: 1px solid #d9d9d9;
+    color: #555;
+    font: inherit;
+    font-size: 12px;
+    font-weight: bold;
+    margin: -6px 0 0 7px;
+    padding: 5px;
+    width: 100px;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+}
+
+#changeLocationTip .hoverTip {
+    right: -10px;
+    top: 18px;
+    width: 265px;
+}
+
+#changeLocationTip:hover .hoverTip {
+    display: block
+}
+
+#changeLocationTip .hoverTipTop {
+    background-position: 200px top
+}
+
+#header #bottom {
+}
+
+#nav {
+    background: #4DB8E0 url('/static/img/bg-nav.png') top left repeat-x;
+    border-bottom: 1px solid #45A5C9;
+    font-weight: bold;
+    height: 38px;
+    -webkit-text-stroke: 1px transparent;
+}
+
+#nav #mainNav {
+    float: left;
+    margin: 9px 0 0 4px;
+    padding: 0;
+}
+
+#nav #mainNav li {
+    border-left: 1px solid #86c4e3;
+    border-left: 1px solid rgba(255, 255, 255, .3);
+    border-right: 1px solid #5f9ec5;
+    border-right: 1px solid rgba(0, 0, 0, .1);
+    float: left;
+    list-style: none;
+    position: relative;
+}
+
+#nav #mainNav li:first-child {
+    border-left: none;
+}
+
+#nav #mainNav li.lastitem {
+    border-right: none;
+}
+
+#nav #mainNav li a {
+    color: #FFFFFF;
+    float: left;
+    font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
+    font-size: 14px;
+    font-weight: bold;
+    height: 20px;
+    line-height: 20px;
+    margin: 0 5px;
+    padding: 0 8px;
+    text-decoration: none;
+    text-shadow: #0ba7c8 0 1px 0;
+}
+
+#nav #mainNav li a:hover {
+    text-decoration: underline;
+}
+
+#bottomGrad {
+    background: #FFFFFF url(/static/img/headerGrad.png) repeat scroll 0 0;
+    clear: both;
+    height: 9px;
+}
+
+#nav #carrot {
+    bottom: -11px;
+    left: 50%;
+    margin-left: -8px;
+    position: absolute;
+}
+
+#header #logo {
+    display: block;
+    height: 48px;
+    padding-top: 13px;
+    width: 180px;
+}
+
+/* Header Search Box  */
+#searchbox {
+    float: right;
+}
+
+#searchbox #searchEntry {
+    background: #fff;
+    border: none;
+    color: #666;
+    float: left;
+    font: inherit;
+    font-size: 12px;
+    font-weight: normal;
+    margin: 6px;
+    padding: 6px 27px 6px 6px;
+    width: 180px;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+}
+
+#searchbox #searchEntry:hover, #searchbox #searchEntry:focus {
+    color: #333;
+}
+
+#searchbox button {
+    background: url('/static/img/icon-search.gif') center center no-repeat;
+    border: none;
+    cursor: pointer;
+    display: block;
+    float: left;
+    height: 25px;
+    margin: 6px 0 0 -32px;
+    text-indent: -9999px;
+    width: 25px;
+}
+
+#searchbox button:active {
+    margin: 7px 0 0 -32px;
+}
+
+#nav #location {
+    color: #FFFFFF;
+    position: absolute;
+    right: 3px;
+    top: 12px;
+    margin-right: 28px;
+}
+
+#nav #location a {
+    border-bottom: 1px dotted;
+    color: #FFFFFF;
+}
+
+#nav #location input {
+    border: 1px solid #CCCCCC;
+    font-size: 10px;
+    padding: 5px;
+    color: #555555;
+    margin: -5px 0px 0px 5px;
+
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+}
+
+#nav #location a:hover {
+    border-bottom: 1px solid;
+    color: #FFFFFF;
+    text-decoration: none;
+}
+
+#nav #noLocation {
+    background-color: #FDF99A;
+    border: 1px solid #D2CE67;
+    border-top: 0px;
+    color: #555555;
+    font-size: 12px;
+    padding: 4px 12px;
+    position: absolute;
+    right: 0;
+    text-shadow: none;
+    top: 27px;
+    z-index: 1;
+
+    -moz-box-shadow: 0 1px 8px #BBBBBB;
+    -webkit-box-shadow: 0 1px 8px #BBBBBB;
+
+    -moz-border-radius-bottomleft: 5px;
+    -webkit-border-bottom-left-radius: 5px;
+    -moz-border-radius-bottomright: 5px;
+    -webkit-border-bottom-right-radius: 5px;
+}
+
+/* LOGGED OUT HEADER ELEMENTS */
+
+div#tagline {
+    color: black;
+    font-size: 15px;
+    font-weight: bold;
+    position: absolute;
+    top: 40px;
+    left: 28px;
+}
+
+div#login_nav {
+    position: absolute;
+    top: 75px;
+    left: 28px;
+}
+
+div#join_now {
+    position: absolute;
+    top: 265px;
+    right: 54px;
+}
+
+div#searchbox_out {
+    position: absolute;
+    top: 60px;
+    right: 24px;
+}
+
+input.searchbox_out {
+    color: #999999;
+    float: left;
+    margin: 3px;
+    font-size: 19px;
+}
+
+/************************************************************
+* Logged out signup alert
+************************************************************/
+
+#signupAlert {
+    clear: both;
+    overflow: hidden;
+    position: relative;
+
+    margin-bottom: 20px;
+}
+
+#signupAlert .content {
+    background: #fdf7af;
+    border: 1px solid #f1e997;
+    padding: 20px;
+    overflow: hidden;
+    height: 113px;
+
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+}
+
+#signupAlert h3 {
+    color: #444444;
+    font-size: 26px;
+    font-weight: bold;
+}
+
+#signupAlert p {
+    font-size: 15px;
+    line-height: 20px;
+    margin: 5px 0 0;
+    margin-bottom: 10px;
+}
+
+#signupAlert .newGreenButton {
+    font-size: 18px;
+    height: 40px;
+    line-height: 40px;
+    text-transform: none;
+    width: 140px;
+    float: right;
+    margin-top: 14px;
+}
+
+#signupAlert.b .content {
+    height: 103px;
+}
+
+#signupAlert.b .container {
+    width: 550px;
+    float: left;
+}
+
+#signupAlert.b h3 {
+    font-size: 25px;
+    margin-bottom: 5px;
+}
+
+#signupAlert.b #join {
+    float: left;
+    margin-left: 13px;
+    width: 230px;
+    padding-left: 23px;
+    border-left: 1px solid #F1E997;
+}
+
+#signupAlert.b #join p {
+    margin-bottom: 0px;
+}
+
+#signupAlert.b #join input {
+    background: #fff;
+    border: 1px solid #ccc;
+    color: #666;
+    font-size: 13px;
+    font-weight: normal;
+    margin: 0px;
+    margin-bottom: 5px;
+    padding: 5px;
+    width: 205px;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+}
+
+#signupAlert.b #join .newGreenButton {
+    float: none;
+    clear: both;
+    font-size: 14px;
+    height: 28px;
+    line-height: 28px;
+    margin-top: 5px;
+    width: 217px;
+}
+
+#signupAlert.b #join p {
+    margin-top: 0px;
+}
+
+div#body_header {
+    font-size: 13px;
+}
+
+select#switch_city, select#switch_city option {
+    font-size: 11px;
+}
+
+div#body_out {
+    position: relative;
+    top: 0;
+    left: 24px;
+    padding: 0 0 10px 0;
+    width: 900px;
+    background-color: white;
+}
+
+div#body {
+    position: relative;
+    top: 0;
+    left: 24px;
+    padding: 20px 20px 10px;
+    width: 860px;
+    background-color: white;
+    clear: both;
+
+    -moz-border-radius-bottomleft: 5px;
+    -webkit-border-bottom-left-radius: 5px;
+    -moz-border-radius-bottomright: 5px;
+    -webkit-border-bottom-right-radius: 5px;
+}
+
+#footer {
+    margin-top: 30px;
+    display:inline;
+}
+
+#brandsFooter #tag {
+    position: absolute;
+    top: -21px;
+}
+
+#brandsFooter {
+    background-color: #E6EFF2;
+    height: 123px;
+    position: relative;
+    border-bottom: 1px solid #FFFFFF;
+    border-top: 1px solid #DCE8EC;
+    top: 30px;
+}
+
+#brandsFooter p {
+    left: 43px;
+    margin: 0px;
+    padding: 0px;
+    position: absolute;
+    top: 15px;
+}
+
+#brandsFooter ul {
+    border-left: 1px solid #FFFFFF;
+    border-right: 1px solid #A1C5D3;
+    left: 28px;
+    margin: 0;
+    padding: 0;
+    position: absolute;
+    top: 47px;
+}
+
+#brandsFooter li {
+    float: left;
+    list-style: none;
+}
+
+#brandsFooter li a {
+    border-left: 1px solid #A1C5D3;
+    border-right: 1px solid #FFFFFF;
+    float: left;
+    padding: 0 18px;
+    width: 80px;
+    height: 50px;
+    text-align: center;
+}
+
+#brandsFooter li img {
+    height: 50px;
+    max-width: 75px;
+}
+
+#footer .links {
+    background: #3e3e3e url('/static/img/bg-footer.png') top left repeat-x;
+    height: 35px;
+}
+
+#footer .links .outsideContainer {
+}
+
+#footer .links ul {
+    font-size: 12px;
+    line-height: 35px;
+    margin: 0;
+    padding: 0;
+    -webkit-text-stroke: 1px transparent;
+}
+
+#footer .links ul li {
+    border-left: 1px solid rgba(255, 255, 255, .15);
+    color: #999;
+    display: inline;
+    list-style: none;
+    padding: 0 7px 0 8px;
+}
+
+#footer .links ul li:first-child {
+    border-left: none;
+}
+
+#footer .links ul li a {
+    color: #0cbadf;
+    text-transform: capitalize;
+}
+
+#footer .links ul li img {
+    margin-left: 4px;
+}
+
+#footer .links ul li.right {
+    border-left: none;
+    float: right;
+}
+
+#footer .links ul li.newbadge {
+    background: url('/static/img/newBadge.png') right no-repeat;
+    margin-right: 5px;
+    padding-right: 30px;
+}
+
+a:link {
+    color: #2398c9;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+a:visited {
+    color: #2398c9;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+a:active {
+    color: #2398c9;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+a:hover {
+    color: #2398c9;
+    text-decoration: underline;
+    font-weight: bold;
+}
+
+h1 {
+    font-size: 24px;
+    color: #0066cc;
+    font-weight: bold;
+    margin: 0;
+}
+
+h2 {
+    font-size: 24px;
+    color: #0066cc;
+    font-weight: normal;
+    margin: 0;
+}
+
+h3 {
+    font-size: 18px;
+    color: #888888;
+    font-weight: normal;
+    line-height: 20pt;
+    margin: 0;
+}
+
+div.hcenter {
+    margin-left: auto;
+    margin-right: auto;
+    overflow: hidden;
+}
+
+.mainColumn {
+    width: 800px;
+    overflow: hidden;
+    margin: 0px auto;
+}
+
+div.errorbox {
+    padding: 5px;
+    border: 2px solid red;
+}
+
+div.errormsg {
+    font-size: 14px;
+    color: red;
+    margin-top: 3px;
+}
+
+span.ajax_checkbox_msg {
+    display: none;
+    left: -19px;
+    position: absolute;
+    top: 2px;
+}
+
+div.alerts_notice {
+    font-size: 20px;
+    color: #FFFFFF;
+    background-color: #ffcc33;
+    font-weight: bold;
+    padding: 5px 8px 5px 8px;
+    display: table;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 10px;
+}
+
+div.section {
+    margin: 0 0 20px 0;
+}
+
+div.section_content {
+    margin: 5px 0 5px 0;
+}
+
+div.section_title {
+    font-size: 24px;
+    color: #888888;
+    line-height: 20pt;
+    border-bottom: 1px solid #888888;
+}
+
+div.hash {
+    font-size: 16px;
+    font-weight: bold;
+    color: #222222;
+    background: #EEEEEE;
+    padding-top: 6px;
+    padding-bottom: 6px;
+}
+
+/********************************************************************************
+* Login
+********************************************************************************/
+#login {
+    min-height: 400px;
+}
+
+#login form {
+    -moz-border-radius: 10px 10px 10px 10px;
+    -webkit-border-radius: 10px 10px 10px 10px;
+    background-color: #F9F8F7;
+    border: 1px solid #CCCCCC;
+    display: block;
+    margin: 0 auto;
+    padding: 20px;
+    width: 450px;
+    overflow: hidden;
+    margin-top: 30px;
+}
+
+#login h2 {
+    color: #444444;
+    font-size: 22px;
+    font-weight: bold;
+    left: 5px;
+    margin-bottom: 25px;
+    position: relative;
+}
+
+#login #fb_login_form {
+    border: medium none;
+    padding: 0;
+    position: absolute;
+    right: 221px;
+    top: 38px;
+    width: 161px;
+}
+
+#login label {
+    display: block;
+    float: left;
+    position: relative;
+    text-align: right;
+    top: 8px;
+    width: 145px;
+}
+
+#login .section input {
+    margin-left: 15px;
+    padding: 5px;
+    width: 272px;
+    font-size: 12px;
+}
+
+#login .section a {
+    display: block;
+    font-weight: normal;
+    left: 160px;
+    position: relative;
+    top: 5px;
+}
+
+#login .green_button {
+    float: right;
+}
+
+/********************************************************************************
+* Status Sections (Primarily for /stats)
+********************************************************************************/
+
+div.stats_section_title {
+    font-size: 12px;
+    color: #777777;
+    font-weight: bold;
+    border-bottom: 1px solid #888888;
+    margin-bottom: 10px;
+}
+
+div.stats_section_content {
+    color: #AAAAAA;
+    font-weight: bold;
+}
+
+span.big_number {
+    font-size: 90px;
+}
+
+span.bigger_number {
+    font-size: 120px;
+}
+
+span.biggest_number {
+    font-size: 180px;
+}
+
+span.stats_mini_text {
+    font-size: 12px;
+    color: #BBBBBB;
+}
+
+span.stats_small_text {
+    font-size: 18px;
+    color: #BBBBBB;
+}
+
+div.stats_medium_text {
+    font-size: 22px;
+    line-height: 20pt;
+    font-weight: 600;
+}
+
+div.stats_big_text {
+    font-size: 35px;
+    line-height: 25pt;
+    font-weight: 600;
+}
+
+div.ul {
+    margin: 0 0 3px 0;
+}
+
+span.blue {
+    color: #2398c9;
+}
+
+div.gray_content {
+    font-size: 24px;
+    color: #888888;
+    line-height: 24pt;
+}
+
+table.user_grid tr td {
+    padding: 0 5px 2px 0;
+    width: 30px;
+    max-width: 30px;
+    overflow: hidden;
+}
+
+table.badge_grid tr td {
+    padding: 0 5px 2px 0;
+}
+
+div.stat_bubble {
+    color: #FFFFFF;
+    background-color: #999999;
+    height: 75px;
+    float: left;
+    margin: 0 0 10px 10px;
+    padding: 8px;
+}
+
+div.stat_bubble_title {
+    font-size: 10px;
+    text-align: center;
+    margin-bottom: 5px;
+}
+
+div.stat_bubble_content {
+    font-size: 70px;
+    font-weight: bold;
+    text-align: center;
+}
+
+/* Safari only hack */
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+    div.stat_bubble_content {
+        position: relative;
+        top: -10px;
+    }
+}
+
+div.venue_special {
+    font-size: 14px;
+    background-color: white;
+    border: 1px #bbb solid;
+    padding: 12px;
+    padding-top: 0px;
+    margin-top: 27px;
+}
+
+.venue_special p {
+    margin-left: 4px;
+    margin-top: 10px;
+    margin-bottom: 5px;
+}
+
+.venue_special a {
+    line-height: 40px;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+div.tip_block {
+    padding: 8px 8px 8px 8px;
+}
+
+div.tip_pic {
+    float: left;
+    width: 30px;
+    height:;
+    margin: 0 8px 0 0;
+    overflow: hidden;
+}
+
+div.tip_num {
+    float: left;
+    font-size: 30px;
+    color: #999999;
+    line-height: 20pt;
+    font-weight: bold;
+    margin: 0 8px 0 0;
+}
+
+div.tip_text {
+    display: table-cell;
+}
+
+.tip_activity_buttons {
+    float: right;
+    text-align: right;
+    max-width: 100px;
+    margin: 0 0 0 8px;
+}
+
+.tip_activity_buttons a,
+.venueInfo .embed {
+    display: block;
+    width: 22px;
+    height: 22px;
+    text-indent: -9999px;
+    text-align: left;
+    float: left;
+    margin-right: 2px;
+
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+}
+
+.tip_activity_buttons a.delete {
+    background: url("/static/img/tips-delete.png") no-repeat scroll 0 0 transparent;
+}
+
+.tip_activity_buttons a.delete:hover {
+    background: url("/static/img/tips-delete.png") no-repeat scroll 0 -22px transparent;
+}
+
+.tip_activity_buttons a.todo {
+    background: url("/static/img/addToDoButtonPlus.png") no-repeat scroll 0 0 transparent;
+}
+
+.tip_activity_buttons a.todo:hover {
+    background: url("/static/img/addToDoButtonPlus.png") no-repeat scroll 0 -22px transparent;
+}
+
+.tip_activity_buttons a.todo.checked {
+    background: url("/static/img/addToDoButtonPlus.png") no-repeat scroll 0 -44px transparent;
+}
+
+.tip_activity_buttons a.todo.disabled {
+    background: url("/static/img/addToDoButtonPlus.png") no-repeat scroll 0 -66px transparent;
+    display: none;
+}
+
+.tip_activity_buttons a.done {
+    background: url("/static/img/doneButtonCheck.png") no-repeat scroll 0 0 transparent;
+}
+
+.tip_activity_buttons a.done:hover {
+    background: url("/static/img/doneButtonCheck.png") no-repeat scroll 0 -22px transparent;
+}
+
+.tip_activity_buttons a.done.checked {
+    background: url("/static/img/doneButtonCheck.png") no-repeat scroll 0 -44px transparent;
+}
+
+.tip_activity_buttons a.embed,
+.venueInfo .embed {
+    border: 1px solid #BDBDBD;
+    height: 20px;
+    position: relative;
+    text-indent: 0;
+    width: 29px;
+    background: #eaeaea;
+    background: -webkit-gradient(linear, left top, left bottom, from(#fefefe), to(#d8d8d8));
+    background: -moz-linear-gradient(top, #fefefe, #d8d8d8);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr = '#fefefe', endColorstr = '#d8d8d8');
+}
+
+.tip_activity_buttons a.embed img,
+.venueInfo .embed img {
+    position: absolute;
+    top: 6px;
+    left: 5px;
+}
+
+.tip_activity_buttons a.embed:hover,
+.venueInfo .embed:hover {
+    background: #d4d4d4;
+    background: -webkit-gradient(linear, left top, left bottom, from(#e7e7e7), to(#c4c4c4));
+    background: -moz-linear-gradient(top, #e7e7e7, #c4c4c4);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr = '#e7e7e7', endColorstr = '#c4c4c4');
+}
+
+div.tip_done_unchecked, div.tip_todo_unchecked, div.tip_checked {
+    text-align: left;
+    font-size: 11px;
+    width: 100px;
+    padding: 3px 0 3px 0;
+    margin: 0 0 5px 0;
+}
+
+div.tip_done_unchecked {
+    color: white;
+    background-color: #b1c858;
+}
+
+div.tip_todo_unchecked {
+    color: white;
+    background-color: #237cc9;
+}
+
+div.tip_checked {
+    color: #959595;
+    background-color: #d5d5d5;
+}
+
+div.tip_hidden {
+    display: none;
+}
+
+div.tips_group {
+    border: 2px solid #dddddd;
+
+    -moz-border-radius-bottomleft: 5px;
+    -webkit-border-bottom-left-radius: 5px;
+    -moz-border-radius-topright: 5px;
+    -webkit-border-top-right-radius: 5px;
+    -moz-border-radius-bottomright: 5px;
+    -webkit-border-bottom-right-radius: 5px;
+}
+
+div.inactive_tips_tab, div.active_tips_tab {
+    font-size: 22px;
+    float: left;
+    padding: 4px 8px 1px 8px;
+    margin: 0 10px 0 0;
+    position: relative;
+
+    -moz-border-radius-topleft: 5px;
+    -webkit-border-top-left-radius: 5px;
+    -moz-border-radius-topright: 5px;
+    -webkit-border-top-right-radius: 5px;
+}
+
+div.inactive_tips_tab {
+    background-color: #eeeeee;
+    border: 2px solid #dddddd;
+    top: 2px;
+    height: 20px;
+}
+
+div.inactive_tips_tab a {
+    color: #999999;
+}
+
+div.active_tips_tab {
+    color: #2398c9;
+    background-color: white;
+    border-top: 2px solid #dddddd;
+    border-right: 2px solid #dddddd;
+    border-left: 2px solid #dddddd;
+    top: 2px;
+    height: 22px;
+}
+
+div.rounded, div.alerts_notice, div.stat_bubble, div.tip_block,
+div.tip_done_unchecked, div.tip_todo_unchecked, div.tip_checked {
+    -moz-border-radius-topleft: 5px;
+    -webkit-border-top-left-radius: 5px;
+    -moz-border-radius-bottomleft: 5px;
+    -webkit-border-bottom-left-radius: 5px;
+
+    -moz-border-radius-topright: 5px;
+    -webkit-border-top-right-radius: 5px;
+    -moz-border-radius-bottomright: 5px;
+    -webkit-border-bottom-right-radius: 5px;
+}
+
+.text_bigger {
+    font-size: 16px;
+    line-height: 16pt;
+}
+
+.login_title {
+    font-size: 20px;
+    color: #000000;
+    line-height: 20pt;
+}
+
+.login_box {
+    font-size: 25px;
+    color: #000000;
+    line-height: 25pt;
+}
+
+.reminder {
+    font-size: 22px;
+    color: #ff6666;
+    font-weight: bold;
+    line-height: 20pt;
+}
+
+.text {
+    font-size: 13px;
+    line-height: 13pt;
+}
+
+.text_bold {
+    font-size: 13px;
+    color: #5a5858;
+    line-height: 13pt;
+    font-weight: bold;
+}
+
+.text_mini {
+    font-size: 10px;
+    color: #5a5858;
+    line-height: 10pt;
+}
+
+.text_top12rank {
+    font-size: 30px;
+    color: #999999;
+    line-height: 20pt;
+    font-weight: bold;
+}
+
+.text_header_light {
+    font-size: 24px;
+    color: #0066cc;
+    line-height: 20pt;
+}
+
+.text_header_light_gray {
+    font-size: 24px;
+    color: #888888;
+    line-height: 24pt;
+}
+
+.text_header_mini {
+    font-size: 18px;
+    color: #0066cc;
+    font-weight: bold;
+    line-height: 20pt;
+}
+
+.text_white {
+    font-size: 13px;
+    color: #FFFFFF;
+    line-height: 13pt;
+}
+
+.text_statusmsg {
+    font-size: 15px;
+    color: #FFFFFF;
+    line-height: 13pt;
+}
+
+.text_header_sidenav {
+    font-size: 14px;
+    color: #AAAAAA;
+    font-weight: bold;
+}
+
+.stats_header {
+    font-size: 10px;
+    color: #999999;
+}
+
+.stats_header_white {
+    font-size: 10px;
+    color: #FFFFFF;
+}
+
+.stats_headerXXXXX {
+    font-size: 10px;
+    color: #999999;
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+.stats_number_big {
+    font-size: 60px;
+    color: #999999;
+    font-weight: bold;
+    line-height: 40pt;
+}
+
+.stats_number_big_white {
+    font-size: 60px;
+    color: #FFFFFF;
+    font-weight: bold;
+    line-height: 40pt;
+}
+
+.input {
+    color: #666666;
+    font-size: 16px;
+}
+
+.input_smaller {
+    color: #666666;
+    font-size: 14px;
+}
+
+.input_button {
+    background-color: #0066cc;
+    color: #FFFFFF;
+    font-size: 20px;
+}
+
+.input_example {
+    color: #999999;
+    font-size: 13px;
+}
+
+div.autocomplete {
+    position: absolute;
+    width: 250px;
+    background-color: white;
+    border: 1px solid #888;
+    margin: 0px;
+    padding: 0px;
+}
+
+div.autocomplete ul {
+    list-style-type: none;
+    margin: 0px;
+    padding: 0px;
+}
+
+div.autocomplete ul li.selected {
+    background-color: #ffb;
+}
+
+div.autocomplete ul li {
+    list-style-type: none;
+    display: block;
+    margin: 0;
+    padding: 2px;
+    height: 32px;
+    cursor: pointer;
+}
+
+.informal {
+    display: block;
+    color: #aaa;
+    font-size: 70%;
+}
+
+/********************************************************************************
+* General (new styling)
+********************************************************************************/
+
+.titleBar {
+    background-color: #F3F7F8;
+    border: 1px solid #D1E2E8;
+    border-bottom: 2px solid #97c0cf;
+    clear: both;
+    padding: 5px 10px;
+    color: #5A5A5A;
+    font-weight: bold;
+    margin-top: 30px;
+    -moz-border-radius-topleft: 5px;
+    -moz-border-radius-topright: 5px;
+    -webkit-border-top-left-radius: 5px;
+    -webkit-border-top-right-radius: 5px;
+}
+
+.relContainer {
+    position: relative;
+}
+
+.clear {
+    clear: both;
+}
+
+.green_button, a.green_button {
+    background-color: #A9CD20;
+    cursor: pointer;
+    border: 3px solid #CBEB7F;
+    color: #FFFFFF;
+    font-size: 16px;
+    font-weight: bold;
+    padding: 3px 8px;
+    text-transform: uppercase;
+    text-shadow: #777 0px -1px 1px;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+}
+
+.green_button:hover, a.green_button:hover {
+    background-color: #b0d819;
+    text-decoration: none;
+}
+
+.big_button, a.big_button {
+    font-size: 15px;
+    padding: 3px 20px;
+}
+
+a.big_button {
+    padding-top: 7px;
+}
+
+/********************************************************************************
+* Settings Page (new styling)
+********************************************************************************/
+
+.settings {
+    overflow: hidden;
+    background-color: #F3F7F8;
+}
+
+.settings .main {
+    background-color: #FFFFFF;
+    float: left;
+    width: 575px;
+    padding-right: 17px;
+}
+
+.settings .sidebar {
+    float: right;
+    padding: 20px;
+    width: 225px;
+}
+
+.settings h2 {
+    color: #5A5A5A;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.settings ul li {
+    list-style: none;
+    margin-bottom: 7px;
+    position: relative;
+}
+
+.settings ul li.outlined {
+    border: 1px solid #D1E2E8;
+    padding: 8px 5px;
+    position: relative;
+    left: -6px;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+}
+
+.settings ul li.outlined input {
+    float: left;
+    position: relative;
+    top: -3px;
+    margin-right: 6px;
+}
+
+.settings ul li.outlined p {
+    color: #888888;
+    margin: 2px;
+}
+
+.settings .header {
+    overflow: hidden;
+    margin-bottom: 20px;
+}
+
+.settings .header img {
+    float: left;
+    margin-right: 10px;
+}
+
+.settings .header h2 {
+    position: relative;
+    top: 10px;
+}
+
+.settings .account {
+    margin-top: 15px;
+}
+
+.settings .account .banner {
+    margin-left: 15px;
+    margin-bottom: 5px;
+    position: relative;
+}
+
+.settings .account .banner p {
+    left: 150px;
+    position: absolute;
+    top: 0;
+}
+
+.settings .small {
+    font-size: 11px;
+    font-weight: normal;
+}
+
+.settings .account .bold {
+    font-weight: bold;
+    margin-left: 43px;
+    margin-top: 5px;
+}
+
+.settings .account ul {
+    margin-top: 3px;
+}
+
+.settings .account ul li {
+    margin-bottom: 2px;
+}
+
+.settings .sidebar .relContainer a {
+    position: absolute;
+    right: 0;
+    top: 3px;
+}
+
+.settings .sidebar img {
+    float: left;
+    margin-right: 10px;
+}
+
+.settings .sidebar .name {
+    margin-bottom: 15px;
+}
+
+.settings .sidebar .label,
+.settings .sidebar .label_inline {
+    color: #777777;
+    font-size: 11px;
+    margin-bottom: 1px;
+    margin-top: 10px;
+    text-transform: uppercase;
+}
+
+.settings .sidebar .label_inline {
+    clear: left;
+    width: 60px;
+    margin-top: 18px;
+}
+
+.settings .sidebar hr {
+    margin-bottom: 3px;
+    margin-top: 10px;
+    border: none;
+    border-bottom: 1px dotted #AAA;
+}
+
+.settings .sidebar #edit .text input {
+    color: #333333;
+    padding: 3px;
+    width: 95%;
+}
+
+.settings .sidebar #edit select {
+    margin-top: 3px;
+    width: 215px;
+}
+
+.settings .input_button {
+    background-color: #A9CD20;
+    cursor: pointer;
+    border: 3px solid #CBEB7F;
+    color: #FFFFFF;
+    font-size: 16px;
+    font-weight: bold;
+    padding: 3px 8px;
+    text-transform: uppercase;
+    text-shadow: #777 0px -1px 1px;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+}
+
+.settings #changePassword {
+    display: block;
+    margin: 10px 0;
+}
+
+.settings .input_button:hover {
+    background-color: #b0d819;
+}
+
+.settings li.connection {
+
+}
+
+.settings .conn_name a {
+    font-weight: normal;
+}
+
+.settings .revoke_conn a {
+    float: right;
+    font-size: 11px;
+    margin-right: 15px;
+}
+
+.settings div.errorbox {
+    border: none;
+    padding: 0px;
+}
+
+/********************************************************************************
+* Signup Shared Styles (new styling)
+********************************************************************************/
+
+#joinSteps {
+    background-color: #F2F2F2;
+    float: left;
+    margin-right: 40px;
+    height: 510px;
+    width: 220px;
+}
+
+#joinSteps .step {
+    background-color: #CCCCCC;
+    padding: 22px 0;
+    text-align: center;
+    border-bottom: 5px solid white;
+    position: relative;
+}
+
+#joinSteps .step.selected {
+    background-color: #4DB8E0;
+}
+
+#joinSteps .step h2 {
+    color: #FFFFFF;
+    font-size: 20px;
+    font-weight: bold;
+    text-shadow: 0 -1px 1px #777777;
+    text-transform: uppercase;
+}
+
+#joinSteps .step img.selected {
+    height: 65px;
+    position: absolute;
+    right: -15px;
+    top: 0;
+    width: 15px;
+}
+
+.signup,
+.friends,
+.link,
+.done,
+.overview {
+    overflow: hidden;
+}
+
+.signup #mainContainer,
+.friends #mainContainer,
+.link #mainContainer,
+.done #mainContainer {
+    float: left;
+    width: 600px;
+}
+
+.signup h1,
+.friends h1,
+.link h1,
+.done h1,
+.overview h1 {
+    color: #555555;
+    font-size: 23px;
+    font-weight: bold;
+    letter-spacing: -0.5px;
+}
+
+.signup h3,
+.friends h3,
+.link h3,
+.done h3,
+.overview h3 {
+    font-size: 16px;
+}
+
+/********************************************************************************
+* Signup Page (new styling)
+********************************************************************************/
+
+.signup h1 {
+
+}
+
+.signup h3 {
+    margin-top: 3px;
+    line-height: 22px;
+    margin-bottom: 20px;
+}
+
+.signup .form .label {
+    clear: both;
+    color: #777777;
+    float: left;
+    font-size: 13px;
+    margin-top: 6px;
+    padding-right: 10px;
+    text-align: right;
+    text-transform: uppercase;
+    width: 150px;
+}
+
+.signup .form input, .signup .form select {
+    float: left;
+    font-size: 13px;
+    margin-bottom: 10px;
+    padding: 3px 7px;
+    width: 250px;
+}
+
+.signup #fb {
+    margin-bottom: 20px;
+    margin-left: 160px;
+    height: 25px;
+    color: #888888;
+}
+
+.signup #fb img {
+    position: relative;
+    top: 2px;
+}
+
+.signup .green_button {
+    margin-left: 160px;
+    margin-top: 20px;
+}
+
+.signup p {
+    font-size: 11px;
+    margin-left: 160px;
+}
+
+.signup p a {
+    color: #666;
+    font-weight: normal;
+    text-decoration: underline;
+}
+
+.signup .errorbox,
+#appgallery .errorbox {
+    border: medium none;
+    float: left;
+    padding: 0 0 5px;
+}
+
+.signup .errorbox .errormsg,
+#appgallery .errorbox .errormsg {
+    clear: both;
+    float: left;
+    position: relative;
+    top: -5px;
+}
+
+.signup .inputContainer {
+    float: left;
+    position: relative;
+}
+
+.signup .helper {
+    color: #777777;
+    font-size: 11px;
+    position: absolute;
+    right: -120px;
+    top: 8px;
+}
+
+.signup .birthdayNotice {
+    display: block;
+    float: left;
+    font-size: 11px;
+    margin-top: -6px;
+    padding-bottom: 8px;
+    padding-left: 160px;
+}
+
+.friends #services,
+.link #services {
+    border-bottom: 1px dotted #888888;
+    margin-bottom: 25px;
+    margin-top: 15px;
+    padding-bottom: 20px;
+    overflow: hidden;
+}
+
+.friends #services a,
+.link #services img {
+    margin-right: 30px;
+}
+
+.link #services img .service {
+    width: 170px;
+}
+
+/********************************************************************************
+* Friends Page (new styling)
+********************************************************************************/
+
+.friends .service {
+
+}
+
+.friends h3 {
+    margin-top: 3px;
+    line-height: 22px;
+}
+
+.friends h4 {
+    color: #888888;
+    font-size: 14px;
+    font-weight: normal;
+}
+
+.friends #loadingFbFriends img {
+    float: left;
+    margin-right: 10px;
+    position: relative;
+    top: 4px;
+}
+
+.user_results .import_user {
+    float: left;
+    margin-bottom: 25px;
+    position: relative;
+    width: 180px;
+}
+
+.user_results .import_user .avatar img {
+    border: 1px solid #BBBBBB;
+    padding: 2px;
+    width: 60px;
+    height: 60px;
+    display: block;
+}
+
+.user_results .import_user .avatar {
+    float: left;
+    margin-right: 7px;
+}
+
+.user_results .import_user .info {
+    float: left;
+}
+
+.user_results .import_user .name {
+    width: 50px;
+}
+
+.user_results .import_user .add img {
+    bottom: 2px;
+    left: 72px;
+    position: absolute;
+}
+
+.friends a.green_button {
+    clear: both;
+    float: left;
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
+
+/********************************************************************************
+* Link Page (new styling)
+********************************************************************************/
+
+.link h3 {
+    margin-top: 3px;
+    line-height: 22px;
+}
+
+.link .service {
+    float: left;
+    position: relative;
+    text-align: center;
+}
+
+.service .connectSettings {
+    text-align: left;
+}
+
+.link .service input {
+    float: left;
+    margin-top: 5px;
+}
+
+.link .service .optIn {
+    display: block;
+    float: left;
+    line-height: 16px;
+    margin-left: 5px;
+    margin-top: 4px;
+    width: 130px;
+}
+
+.link #services img.spinner {
+    bottom: 3px;
+    height: 14px;
+    left: 0;
+    margin-right: 0;
+    position: absolute;
+    width: 14px;
+}
+
+.link .clickToConnect {
+    left: -15px;
+    position: relative;
+    text-align: center;
+    font-weight: bold;
+}
+
+/********************************************************************************
+* Done Page (new styling)
+********************************************************************************/
+
+.done .green_button {
+    clear: both;
+}
+
+.done #blueGroups {
+    float: left;
+    margin-bottom: 30px;
+    margin-top: 20px;
+}
+
+.done .blueGroup {
+    float: left;
+    margin-right: 18px;
+    width: 180px;
+}
+
+.done .blueGroup h2,
+.blueHeader {
+    background: #4DB8E0 url(/static/img/blue_header_tip.png) no-repeat scroll right 0;
+    color: #FFFFFF;
+    font-size: 14px;
+    font-weight: bold;
+    padding: 6px 8px 4px;
+}
+
+.done .blueGroup p {
+    font-size: 12px;
+    line-height: 17px;
+}
+
+.done .blueGroup .heading {
+    border-bottom: 1px dotted #999999;
+    margin-bottom: 7px;
+    overflow: hidden;
+    padding-bottom: 5px;
+    width: 175px;
+}
+
+.done .blueGroup .heading img {
+    max-width: 225px;
+}
+
+/********************************************************************************
+* Overview Page (new styling)
+********************************************************************************/
+
+.overview .blueHeader {
+    margin-top: 15px;
+}
+
+.overview p, .overview li {
+    font-size: 14px;
+}
+
+.overview li {
+    margin-bottom: 0px;
+}
+
+.overview .green_button {
+    display: block;
+    float: left;
+    margin-bottom: 15px;
+    margin-left: 40px;
+    margin-top: 10px;
+}
+
+.staff {
+    border-bottom: 1px dotted #CCCCCC;
+    padding: 5px 0;
+    position: relative;
+    width: 100%;
+}
+
+.staff img {
+    height: 20px;
+    width: 20px;
+}
+
+.staff .name {
+    position: relative;
+    top: -5px;
+}
+
+.staff .role {
+    font-size: 12px;
+    font-style: italic;
+    position: absolute;
+    right: 30px;
+    top: 10px;
+}
+
+.staff .delete {
+    position: absolute;
+    right: 0;
+    top: 10px;
+}
+
+.categories {
+    overflow: hidden;
+}
+
+.categories label {
+    display: block;
+    float: left;
+    width: 100px;
+}
+
+.categories .categoriesGroup {
+    float: left;
+    width: 230px;
+}
+
+.categories .categoriesGroup input {
+    margin-top: 10px;
+}
+
+.categories select {
+    clear: left;
+    display: block;
+    width: 200px;
+}
+
+.categories .addCategory {
+    margin-top: 10px;
+}
+
+span.fancyfield {
+    float: left;
+    display: block;
+    height: 40px;
+    padding: 0px;
+    background: url(/static/img/specials/field-left.png) no-repeat top left;
+}
+
+span.fancyfield input {
+    padding: 11px;
+    margin: 0px;
+    background: url(/static/img/specials/field-right.png) no-repeat top right;
+    border: none;
+    font-size: 14px;
+}
+
+span.fancyfield2 {
+    float: left;
+    display: block;
+    height: 60px;
+    padding: 0px;
+    background: url(/static/img/specials/field2-left.png) no-repeat top left;
+}
+
+span.fancyfield2 input {
+    padding: 11px;
+    margin: 0px;
+    background: url(/static/img/specials/field2-right.png) no-repeat top right;
+    border: none;
+    font-size: 32px;
+}
+
+/********************************************************************************
+* App Gallery
+********************************************************************************/
+#appgallery {
+    font: 13px/150% "Helvetica Neue", Helvetica, Arial, sans-serif;
+    position: relative;
+    width: 840px;
+}
+
+#appgallery a {
+    color: #2bb8e1;
+}
+
+#appgallery h2 {
+    color: #2bb8e1;
+    font-size: 25px;
+    font-weight: bold;
+}
+
+#appgallery h3 {
+    color: #555;
+    font-size: 15px;
+    font-weight: bold;
+    margin-bottom: -10px;
+}
+
+#appgallery h4 {
+    color: #555;
+    font-size: 13px;
+}
+
+/* !AppGallery Content */
+#appgallery-content {
+    float: left;
+    width: 500px;
+}
+
+.appgallery-seperator {
+    margin: 15px 0 5px;
+}
+
+#appgallery-slider {
+}
+
+ul#appgallery-menu {
+    list-style: none;
+    margin: 0 0 -1px;
+    overflow: auto;
+    -webkit-padding-start: 0;
+}
+
+ul#appgallery-menu li {
+    float: left;
+    line-height: 50px;
+}
+
+ul#appgallery-menu li a {
+    color: #a8a8a8;
+    display: block;
+    padding: 0 10px;
+}
+
+ul#appgallery-menu li a:hover {
+    color: #555;
+    text-decoration: none;
+}
+
+ul#appgallery-menu li.on a {
+    background: url('/static/img/menu-bg.gif') bottom center no-repeat;
+    color: #2bb8e1;
+}
+
+/* !AppGallery Listings */
+#appgallery-listings {
+    background: #fafafa;
+    border: 1px solid #ededed;
+    overflow: auto;
+    padding: 10px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+}
+
+#appgallery-settings {
+    border-bottom: 1px solid #e9e9e9;
+    font-size: 12px;
+    overflow: auto;
+}
+
+#appgallery-settings p#appgallery-catdescription {
+    color: #777;
+    float: left;
+    margin: 5px 0;
+}
+
+#appgallery-settings p#appgallery-viewsetting {
+    float: right;
+    margin: 5px 0;
+}
+
+#appgallery-gridview,
+#appgallery-listview {
+    display: block;
+    height: 19px;
+    float: right;
+    text-indent: -9999px;
+    width: 19px;
+}
+
+#appgallery-gridview {
+    background: url('/static/img/icon-gridview.gif') top left no-repeat;
+}
+
+#appgallery-listview {
+    background: url('/static/img/icon-listview.gif') top left no-repeat;
+    margin-left: 5px;
+}
+
+#appgallery-gridview:hover {
+    background: url('/static/img/icon-gridview.gif') left no-repeat;
+}
+
+#appgallery-listview:hover {
+    background: url('/static/img/icon-listview.gif') left no-repeat;
+}
+
+.appgallery-listview-on {
+    background: url('/static/img/icon-listview.gif') bottom left no-repeat !important;
+}
+
+.appgallery-gridview-on {
+    background: url('/static/img/icon-gridview.gif') bottom left no-repeat !important;
+}
+
+.appgallery-app {
+    border-bottom: 1px solid #E9E9E9;
+    float: left;
+    height: 250px;
+    margin: 20px 9px 0;
+    overflow: hidden;
+    width: 220px;
+    height: 275px;
+}
+
+.appgallery-app h4 {
+    margin: 10px 0 -10px;
+}
+
+.appgallery-app em {
+    color: #aaa
+}
+
+p.app-link a {
+    background: url('/static/img/app-button.gif') top left no-repeat;
+    display: block;
+    height: 25px;
+    line-height: 25px;
+    margin-left: 10px;
+    text-align: center;
+    text-shadow: #fff 0 1px 0;
+    width: 200px;
+}
+
+.appgallery-app p.app-link a:hover {
+    background: url('/static/img/app-button.gif') left no-repeat;
+    text-decoration: none;
+}
+
+.appgallery-app p.app-link a:active {
+    background: url('/static/img/app-button.gif') bottom left no-repeat;
+}
+
+#appgallery-pagination {
+    clear: both;
+    line-height: 35px;
+}
+
+#appgallery-pagination p {
+    color: #999;
+    margin: 0;
+    text-align: center;
+}
+
+#appgallery-pagination-prev {
+    color: #bbb !important;
+    float: left;
+    font-weight: bold;
+    text-align: left !important;
+    padding-left: 10px;
+    width: 30%;
+}
+
+#appgallery-pagination-next {
+    color: #bbb !important;
+    float: right;
+    font-weight: bold;
+    text-align: right !important;
+    padding-right: 10px;
+    width: 30%;
+}
+
+/* !AppGallery Sidebar */
+#appgallery-sidebar {
+    float: right;
+    width: 310px;
+}
+
+#appgallery ol {
+    background: #fafafa;
+    border: 1px solid #ededed;
+    line-height: 30px;
+    margin: 0;
+    padding: 0;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+}
+
+#appgallery ol li {
+    border-bottom: 1px dotted #ccc;
+    clear: both;
+    color: #bbb;
+    font-style: italic;
+    line-height: 18px;
+    list-style: decimal;
+    list-style-position: inside;
+    padding: 12px 10px;
+}
+
+#appgallery ol li:last-child {
+    border: none;
+}
+
+#appgallery ol li a {
+    font-style: normal;
+}
+
+#appgallery ol li strong {
+    color: #777;
+    font-weight: normal;
+    font-style: normal;
+    padding-left: 15px;
+}
+
+#appgallery-backto {
+    color: #999;
+    font-size: 11px;
+    margin-bottom: 20px;
+    margin-top: 0;
+    text-align: right;
+}
+
+#appgallery-backto a {
+    color: #999;
+}
+
+#appgallery-details {
+    background: #fafafa;
+    border: 1px solid #ededed;
+    color: #777;
+    margin-bottom: 20px;
+    padding: 20px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+}
+
+#appgallery-details h3 {
+    margin-bottom: -15px;
+}
+
+#appgallery-details p {
+    font-size: 12 x;
+}
+
+#appgallery-details-logo {
+    background: #fff;
+    border: 1px solid #f2f2f2;
+    margin-bottom: 15px;
+    text-align: center;
+    padding: 15px 0;
+    width: 270px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+}
+
+#appgallery-details-logo img {
+    max-height: 200px;
+    max-width: 250px;
+}
+
+#appgallery-details dl {
+    line-height: 20px;
+    margin-bottom: 20px;
+    overflow: hidden;
+}
+
+#appgallery-details dt {
+    color: #bbb;
+    float: left;
+    width: 95px;
+}
+
+#appgallery-details dd {
+    color: #999;
+    display: block;
+    float: left;
+    font-weight: normal !important;
+    margin: 0;
+    width: 170px;
+}
+
+#appgallery-details dd a {
+    font-weight: normal !important;
+}
+
+p#appgallery-downlink {
+    margin: 0;
+}
+
+p#appgallery-downlink a {
+    background: url('/static/img/button-download.jpg') top left no-repeat;
+    color: #fff;
+    display: block;
+    height: 44px;
+    line-height: 43px;
+    margin: 0 0 20px 20px;
+    text-align: center;
+    text-shadow: rgba(0, 0, 0, .22) 0 -1px 0;
+    width: 270px;
+}
+
+p#appgallery-downlink a:hover {
+    background: url('/static/img/button-download.jpg') left no-repeat;
+    text-decoration: none;
+}
+
+p#appgallery-downlink a:active {
+    background: url('/static/img/button-download.jpg') bottom left no-repeat;
+}
+
+#appgallery-details p#appgallery-downlink a {
+    margin: 0 !important;
+}
+
+p#appgallery-apidocu a {
+    background: url('/static/img/button-apidoc.gif') top left no-repeat;
+    color: #98cd00;
+    display: block;
+    font-size: 12px;
+    font-weight: bold;
+    height: 25px;
+    line-height: 25px;
+    text-align: center;
+    text-shadow: #fff 0 1px 0;
+    width: 270px;
+}
+
+p#appgallery-apidocu a:hover {
+    background: url('/static/img/button-apidoc.gif') left no-repeat;
+    color: #85ad18;
+    text-decoration: none;
+}
+
+p#appgallery-apidocu a:active {
+    background: url('/static/img/button-apidoc.gif') bottom left no-repeat;
+}
+
+p.appgallery-centerbold {
+    font-size: 11px;
+    font-weight: bold;
+    margin: 0 0 -10px;
+    text-align: center;
+}
+
+p.appgallery-centerbold a {
+    color: #a6a6a6 !important;
+}
+
+p.appgallery-tweet {
+    font-size: 12px;
+    padding: 5px 10px;
+}
+
+p.appgallery-tweet {
+    margin: 0;
+}
+
+p.appgallery-tweet em {
+    color: #c4c4c4;
+}
+
+/* !AppGallery Form */
+#appgallery-form {
+    display: block;
+}
+
+#appgallery-form fieldset {
+    border: 1px solid #e6ecee;
+    margin-bottom: 20px;
+    padding: 10px 20px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+}
+
+#appgallery-form fieldset legend {
+    color: #2bb8e1;
+    font-size: 11px;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+#appgallery-form fieldset p {
+    margin: 0 auto 10px;
+    width: 350px;
+}
+
+#appgallery-form label {
+    font-size: 11px;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+#appgallery-form label em {
+    color: #bbb;
+    font-style: normal;
+}
+
+#appgallery-form input,
+#appgallery-form textarea,
+#appgallery-form select {
+    font-size: 13px;
+    padding: 3px;
+    width: 340px;
+    margin-bottom: 3px;
+}
+
+#appgallery-form textarea {
+    height: 100px;
+}
+
+#appgallery-form .submit_button {
+    background: url('/static/img/button-download.jpg') top left no-repeat;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+    display: block;
+    font: bold 13px/43px "Helvetica Neue", Helvetica, Arial, sans-serif;
+    height: 44px;
+    line-height: 40px;
+    margin: 0 auto;
+    text-align: center;
+    text-shadow: rgba(0, 0, 0, .22) 0 -1px 0;
+    width: 270px;
+}
+
+#appgallery-form .submit_button:hover {
+    background: url('/static/img/button-download.jpg') left no-repeat;
+}
+
+#appgallery-form .submit_button:active {
+    background: url('/static/img/button-download.jpg') bottom left no-repeat;
+}
+
+#appgallery-form .author:first-child {
+    border-top: none;
+    padding: 0px;
+    margin: 0px;
+}
+
+#appgallery-form .author {
+    border-top: 1px solid #E6ECEE;
+    clear: both;
+    margin-top: 15px;
+    padding-top: 10px;
+}
+
+/* Tabs */
+
+#standardTabs {
+    background-color: #F7F6F6;
+    border-bottom: 1px solid #CCCCCC;
+    border-top: 1px solid #CCCCCC;
+    float: left;
+    padding: 0;
+    width: 100%;
+}
+
+#standardTabs li {
+    float: left;
+    list-style: none;
+}
+
+#standardTabs a {
+    border-right: 1px solid #CCCCCC;
+    float: left;
+    margin: 7px 0;
+    padding: 2px 15px;
+}
+
+#standardTabs a.active {
+    color: #666666
+}
+
+#standardTabs a.active:hover {
+    text-decoration: none
+}
+
+.contentContainer .header {
+    background: #00bae1;
+    border-bottom: 1px solid rgba(0, 0, 0, .1);
+    font-weight: bold;
+    height: 16px;
+    margin-bottom: -1px !important;
+    z-index: 40;
+    padding: 8px 10px;
+    position: relative;
+
+    -moz-border-radius-topright: 5px;
+    -moz-border-radius-topleft: 5px;
+    -webkit-border-top-right-radius: 5px;
+    -webkit-border-top-left-radius: 5px;
+    border-radius: 5px 5px 0px 0px;
+    -webkit-text-stroke: 1px transparent;
+}
+
+.contentContainer .header p,
+.contentContainer .header p a {
+    margin: 0px;
+    padding: 0px;
+    color: #fff;
+    font-size: 15px;
+}
+
+.contentContainer .header ul,
+.contentContainer .header em {
+    position: absolute;
+    right: 0;
+    top: 9px;
+}
+
+.contentContainer .header em {
+    margin: 0px;
+    padding: 0px;
+    color: #FFFFFF;
+    font-size: 12px;
+    right: 10px;
+}
+
+.contentContainer .header em a {
+    border-bottom: 1px dotted #ffffff;
+    color: #FFFFFF;
+    font-style: normal;
+}
+
+.contentContainer .header em a:hover {
+    text-decoration: none;
+    border-bottom: 1px solid #ffffff;
+}
+
+.contentContainer .header ul {
+    margin-right: 5px;
+    margin-top: -1px;
+}
+
+.contentContainer .header li {
+    float: left;
+    padding: 0;
+}
+
+.contentContainer .header li a {
+    color: #FFFFFF;
+    font-size: 11px;
+    font-weight: normal;
+    padding: 4px 8px;
+    font-weight: bold;
+
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+}
+
+.contentContainer .header li a.selected {
+    background: rgba(0, 0, 0, 0.1);
+    text-decoration: none;
+}
+
+.contentContainer .header li a:hover {
+    text-decoration: underline;
+}
+
+/********************************************************************************
+* Shared (new)
+********************************************************************************/
+
+.fullPage {
+    margin-bottom: 30px;
+    float: left;
+    text-rendering: optimizelegibility;
+}
+
+.fullPage li {
+    list-style: none;
+}
+
+.fullPage ul {
+    padding: 0px;
+    margin: 0px;
+}
+
+.fullPage .fullContainer {
+    position: relative;
+}
+
+.fullPage .grayBox {
+    background-color: #f9f9f9;
+    border: 1px solid #cccccc;
+    margin-bottom: 13px;
+    overflow: hidden;
+    padding: 10px;
+    position: relative;
+
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+}
+
+.fullPage .grayBox.flatTop {
+    -moz-border-radius-topright: 0px;
+    -moz-border-radius-topleft: 0px;
+    -webkit-border-top-right-radius: 0px;
+    -webkit-border-top-left-radius: 0px;
+    border-radius: 0px 0px 5px 5px;
+}
+
+.fullPage .tipContainer {
+    clear: both;
+}
+
+.fullPage .tipContainer .userImage {
+    float: left;
+}
+
+.fullPage .tipContainer .content {
+    float: left;
+    margin-left: 10px;
+}
+
+.fullPage .tipContainer .content p {
+    line-height: 18px;
+    margin: -2px 0 0;
+    padding: 0px;
+}
+
+.fullPage .tipContainer .content p {
+    padding: 0 0 5px;
+}
+
+.fullPage .tipContainer .content .tipStatus {
+    color: #777777;
+    font-size: 12px;
+    position: absolute;
+    right: 32px;
+    top: 4px;
+}
+
+.fullPage .tipContainer .content .dogEarContainer,
+.fullPage .tipContainer .content .dogear {
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+
+.fullPage .tipContainer .content .dogEarContainer {
+    width: 22px;
+    height: 22px;
+    overflow: hidden;
+}
+
+.fullPage .tipContainer .content .check {
+    position: absolute;
+    right: 5px;
+    top: 5px;
+}
+
+.fullPage .tipContainer .date,
+.fullPage .tipContainer .date a,
+.fullPage .tipContainer .location,
+.fullPage .tipContainer .attribution {
+    color: #999999;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 12px;
+}
+
+.fullPage .tipContainer em a {
+    text-decoration: underline;
+}
+
+.fullPage .tipContainer .actions {
+    margin-bottom: 5px;
+    margin-top: 3px;
+    float: left;
+    height: 15px;
+}
+
+.fullPage .tipContainer .actions .done {
+    color: #888888;
+    font-size: 12px;
+    font-weight: bold;
+    padding-right: 6px;
+}
+
+.fullPage .tipContainer .actions .todoCount {
+    margin-left: 3px;
+}
+
+.fullPage .tipContainer .actions .url {
+    font-size: 12px;
+    padding-left: 6px;
+}
+
+.fullPage .tipContainer .actions .done img {
+    height: 9px;
+}
+
+.fullPage .tipContainer .actions  .date {
+    border-left: 1px dotted #CCCCCC;
+    margin-left: 5px;
+    padding-left: 6px;
+}
+
+.fullPage .tipContainer .actions  .location {
+    border-left: 1px dotted #CCCCCC;
+    margin-left: 1px;
+    padding-left: 6px;
+}
+
+.fullPage .leftColumn {
+    width: 555px;
+    float: left;
+    overflow: hidden;
+    margin-right: 20px;
+}
+
+.fullPage .rightColumn {
+    width: 285px;
+    float: left;
+    overflow: hidden;
+}
+
+/********************************************************************************
+* Pagination
+********************************************************************************/
+
+.pagination {
+    float: right;
+    margin-top: 10px;
+}
+
+.pagination a,
+.pagination span,
+.pagination b {
+    background-color: #2398C9;
+    border: 1px solid #517996;
+    color: #FFFFFF;
+    display: block;
+    float: left;
+    font-weight: normal;
+    margin-left: 5px;
+    padding: 3px 7px;
+}
+
+.pagination .selected {
+    background-color: #FFFFFF;
+    color: #333333;
+}
+
+/********************************************************************************
+* Venue page (new)
+********************************************************************************/
+
+#adminNavigation {
+    background-color: #E6F0F2;
+    border: 1px solid #CCCCCC;
+    width: 100%;
+    overflow: hidden;
+    margin-bottom: 15px;
+    height: 34px;
+
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+}
+
+#adminNavigation ul {
+    float: left;
+    left: 50%;
+    margin: 0px;
+    padding: 0px;
+    position: relative;
+}
+
+#adminNavigation li {
+    float: left;
+    padding: 2px 10px;
+    margin: 8px 0px;
+    position: relative;
+    right: 50%;
+    border-left: 1px solid #CCCCCC;
+    list-style: none;
+}
+
+#adminNavigation li:last-child {
+    border-right: 1px solid #CCCCCC;
+}
+
+#adminNavigation a {
+    color: #3AA9D6;
+}
+
+#venuePage textarea {
+    resize: none;
+}
+
+.venueInfo {
+    background-color: #F9F8F7;
+    border: 1px solid #CCCCCC;
+    padding: 10px;
+    overflow: hidden;
+    margin-bottom: 15px;
+    position: relative;
+
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+}
+
+.venueInfo li {
+    list-style: none;
+}
+
+.venueInfo ul {
+    padding: 0px;
+    margin: 0px;
+}
+
+.venueInfo .venueDogear {
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    margin: 0px;
+    z-index: 2;
+}
+
+.venueInfo .addVenueToToDoList {
+    position: absolute;
+    width: 163px;
+    height: 25px;
+    top: 12px;
+    right: 10px;
+    margin: 0px;
+    text-indent: -9999px;
+    display: block;
+    text-align: left;
+    background: url(/static/img/addVenueToToDoList.png);
+}
+
+.venueInfo .addVenueToToDoList:hover {
+    background: url("/static/img/addVenueToToDoList.png") no-repeat scroll 0 -25px transparent;
+}
+
+.venueInfo .addVenueToToDoList:active {
+    background: url("/static/img/addVenueToToDoList.png") no-repeat scroll 0 -50px transparent;
+}
+
+.venueInfo .addVenueToToDoList.success {
+    background: url("/static/img/addVenueToToDoList.png") no-repeat scroll 0 -75px transparent;
+    cursor: inherit;
+}
+
+.venueInfo img {
+    float: left;
+    margin-right: 5px;
+}
+
+.venueInfo h1 {
+    color: #444444;
+    font-size: 20px;
+    margin-top: 6px;
+    width: 360px;
+}
+
+.venueInfo #details {
+    background-color: #E6E6E6;
+    clear: both;
+    float: left;
+    height: 150px;
+    margin-right: 5px;
+    margin-top: 7px;
+    padding: 10px;
+    width: 200px;
+    position: relative;
+}
+
+.venueInfo #details .twitter {
+    margin-top: 10px;
+}
+
+.venueInfo #details iframe {
+    position: absolute;
+    bottom: 5px;
+    left: 10px;
+}
+
+.venueInfo #details .embed {
+    position: absolute;
+    bottom: 9px;
+    right: 7px;
+}
+
+.venueInfo #mapContainer {
+    float: right;
+    height: 185px;
+    width: 305px;
+    margin-top: 7px;
+}
+
+#venueTodoPopup textarea {
+    border: 1px solid #CCCCCC;
+    color: #666666;
+    font-family: Helvetica, arial, sans-serif;
+    font-size: 12px;
+    padding: 5px;
+    width: 360px;
+    height: 42px;
+}
+
+#venueTodoPopup textarea.default {
+    font-style: italic;
+}
+
+#venueTodoPopup .count {
+    color: #AAAAAA;
+    position: absolute;
+    right: 25px;
+    top: 95px;
+}
+
+#venueTodoPopup .buttons {
+    float: left;
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+#venueTodoPopup .buttons .newGreenButton {
+    float: right;
+    margin-top: 8px;
+}
+
+#venuePage .tips,
+#venuePage .tipInput,
+#venuePage .tiplogin,
+#userPage #tipsList {
+    border-left: 1px solid #cccccc;
+    border-right: 1px solid #cccccc;
+    border-top: none !important;
+}
+
+.fullPage .tip, #venuePage .tipInput, #venuePage .tiplogin {
+    background: #f9f9f9;
+    border-bottom: 1px solid #cccccc;
+    border-top: 1px solid #ffffff;
+    padding: 15px;
+    position: relative;
+}
+
+.fullPage .tip:hover {
+    background: #f3f3f3;
+}
+
+#venuePage .header p {
+    float: left;
+}
+
+.fullPage #tipInputError {
+    background: none repeat scroll 0 0 #FFFFFF;
+    float: left;
+    font-size: 12px;
+    margin-left: 10px;
+    padding: 3px 7px;
+    position: relative;
+    top: -2px;
+
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+}
+
+.fullPage .tip {
+    padding-bottom: 5px;
+}
+
+.fullPage .tip:hover .tip_activity_buttons {
+    display: block;
+}
+
+.fullPage .tip .tip_activity_buttons {
+
+}
+
+.fullPage .tip .image {
+    float: left;
+}
+
+.fullPage .tip .image img {
+    border: 1px solid #CCCCCC;
+    padding: 3px;
+    background-color: #ffffff;
+}
+
+.fullPage .tip .image img.venue {
+    border: medium none;
+    margin-top: 3px;
+    padding: 0;
+}
+
+.fullPage .tip .content {
+    float: left;
+    margin-left: 10px;
+    overflow: hidden;
+    width: 475px;
+}
+
+#venuePage .tip .buttons:hover {
+    display: inline;
+}
+
+#venuePage .tipInput {
+    height: 65px;
+}
+
+#venuePage .tipInput textarea {
+    border: 1px solid #AAAAAA;
+    color: #333333;
+    font-family: helvetica, arial, sans-serif;
+    font-size: 16px;
+    height: 18px;
+    margin: 0;
+    padding: 8px;
+    width: 501px;
+}
+
+#venuePage .tipInput em,
+#venuePage .tipInput .url a {
+    color: #888888;
+    display: block;
+    font-size: 13px;
+    margin-top: 14px;
+}
+
+#venuePage .tipInput input[type=submit] {
+    position: absolute;
+    bottom: 7px;
+    right: 18px;
+    font-size: 11px;
+}
+
+#venuePage .tipInput .url {
+    position: absolute;
+    right: 20px;
+    top: 53px;
+    width: 517px;
+}
+
+#venuePage .tipInput .url a {
+    color: #999999;
+    float: right;
+    font-size: 11px;
+    margin-right: 95px;
+    margin-top: 8px;
+}
+
+#venuePage .tipInput .url a:hover {
+    text-decoration: none;
+}
+
+#venuePage .tipInput .url img {
+    height: 15px;
+    left: -4px;
+    position: relative;
+    top: 3px;
+}
+
+#venuePage .tipInput .url input {
+    border: 1px solid #AAAAAA;
+    color: #333333;
+    display: none;
+    font-family: helvetica, arial, sans-serif;
+    font-size: 12px;
+    height: 20px;
+    left: -1px;
+    padding: 0 5px;
+    position: absolute;
+    top: 9px;
+    width: 356px;
+    z-index: 2;
+}
+
+#venuePage .tipInput label {
+    display: none;
+}
+
+#venuePage .special {
+    background-color: #FFF6B5;
+    padding: 10px;
+    border: 1px solid #F4E89E;
+    margin-bottom: 13px;
+    min-height: 22px;
+
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+}
+
+#venuePage .special .banner {
+    background: url("/static/img/specialsFlag.png") no-repeat scroll 0 0 transparent;
+    color: #FFFFFF;
+    font-size: 14px;
+    height: 35px;
+    letter-spacing: 0.5px;
+    padding-top: 6px;
+    position: absolute;
+    right: -8px;
+    text-align: center;
+    top: 5px;
+    width: 303px;
+}
+
+#venuePage .special .banner a {
+    color: #ffffff;
+}
+
+#venuePage .special p {
+    background-color: #FEF9D3;
+    margin: 34px 0 0;
+    padding: 10px 20px;
+}
+
+#venuePage .stats {
+    background-color: #f9f9f9;
+    border: 1px solid #cccccc;
+    margin-bottom: 13px;
+    overflow: hidden;
+    height: 60px;
+
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+}
+
+#venuePage .stats li {
+    border-right: 1px dotted #CCCCCC;
+    float: left;
+    font-size: 8.5px;
+    text-align: center;
+    padding: 0px 6px;
+    margin: 10px 0;
+}
+
+#venuePage .stats li:last-child {
+    border-right: 0px;
+}
+
+#venuePage .stats strong {
+    color: #555555;
+    display: block;
+    font-size: 24px;
+    font-weight: bold;
+    margin-top: 6px;
+}
+
+#venuePage .noTips {
+    background-color: #FFEB66;
+    border: 1px solid #FFDE21;
+    color: #444444;
+    font-size: 16px;
+    font-weight: bold;
+    padding: 15px;
+    margin-bottom: 15px;
+    position: relative;
+
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+}
+
+#venuePage .noTips #yellowCarrot {
+    bottom: -11px;
+    height: 11px;
+    left: 20px;
+    position: absolute;
+    width: 20px;
+}
+
+#venuePage .noTips img {
+    display: block;
+    float: left;
+    margin-right: 15px;
+    width: 32px;
+}
+
+#venuePage .mayor .noMayor {
+    line-height: 19px;
+}
+
+#venuePage .mayor img {
+    border: 1px solid #CCCCCC !important;
+    float: left;
+    height: 36px;
+    margin-right: 15px;
+    padding: 3px;
+    width: 36px;
+}
+
+#venuePage .mayor img.crown {
+    border: none !important;
+    height: 45px;
+    padding: 0;
+    position: absolute;
+    right: 0;
+    top: 8px;
+    width: 45px;
+}
+
+#venuePage .mayor .name {
+    font-size: 14px;
+    margin-top: 5px;
+}
+
+#venuePage .mayor em {
+    display: block;
+    font-style: normal;
+    margin-top: 1px;
+}
+
+#venuePage .venueStaff .staff:last-child {
+    border-bottom: none;
+}
+
+#venuePage .venueStaff table.user_grid tr td {
+    padding: 0 3px 1px 0;
+}
+
+.venueInfo .categoryTags {
+    clear: both;
+    float: left;
+    position: relative;
+    width: 100%;
+}
+
+.venueInfo .categoryTags ul {
+    clear: both;
+    float: left;
+    line-height: 16px;
+    margin-bottom: 4px;
+    width: 485px;
+}
+
+.venueInfo .categoryTags ul li {
+    float: left;
+    padding-right: 4px;
+}
+
+#venuePage ul li:last-child span {
+    display: none;
+}
+
+.venueInfo .categoryTagsEditTrigger {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    color: #666666;
+    padding: 3px 8px;
+    background-color: #FFFFFF;
+    border: 1px solid #CCCCCC;
+
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+}
+
+.categoryTagsEdit {
+    width: 400px;
+}
+
+.categoryTagsEdit h3 {
+    color: #555555;
+    font-weight: bold;
+}
+
+.categoryTagsEdit h4 {
+    color: #555555;
+    font-weight: bold;
+    font-size: 12px;
+}
+
+.categoryTagsEdit .categories {
+    border-bottom: 1px solid #CCCCCC;
+    margin-bottom: 10px;
+    padding-bottom: 10px;
+}
+
+.categoryTagsEdit .green_button {
+    font-size: 10px;
+    padding: 1px 5px;
+}
+
+#editVenuePage #venueInfo img {
+    float: left;
+    margin-right: 8px;
+}
+
+#editVenuePage #venueInfo h1 {
+    color: #555555;
+    font-size: 20px;
+    margin-top: 6px;
+}
+
+#editVenuePage #venueInfo #details {
+    margin-bottom: 10px;
+    margin-top: 12px;
+}
+
+#editVenuePage h2 {
+    color: #444444;
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+#editVenuePage h3 {
+    color: #5A5858;
+    font-weight: bold;
+    font-size: 14px;
+    margin-top: 15px;
+}
+
+#editVenuePage .leftColumn {
+    float: left;
+    width: 540px;
+}
+
+#editVenuePage .rightColumn {
+    float: right;
+    width: 300px;
+}
+
+#editVenuePage .toolContainer {
+    background-color: #f9f9f9;
+    border: 1px solid #cccccc;
+    margin-bottom: 15px;
+    padding: 15px;
+    overflow: hidden;
+
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+}
+
+/********************************************************************************
+* User page (new)
+********************************************************************************/
+.fullPage .lazyLoad {
+    font-size: 14px;
+    position: relative;
+    text-align: center;
+    height: 80px;
+}
+
+.fullPage .lazyLoad img {
+    display: block;
+    margin: 8px auto 0;
+    text-align: center;
+}
+
+#userPage #userInfo .pic {
+    float: left;
+    margin-right: 10px;
+}
+
+#userPage #userInfo .pic img {
+    background-color: #FFFFFF;
+    border: 1px solid #CCCCCC;
+    padding: 5px;
+}
+
+#userPage #userInfo .data {
+    background-color: #E6E6E6;
+    float: left;
+    padding: 10px;
+    width: 380px;
+    position: relative;
+    height: 102px;
+}
+
+#userPage #userInfo .data h1 {
+    color: #444444;
+    font-size: 20px;
+    font-weight: bold;
+    margin-left: 7px;
+}
+
+#userPage #userInfo .data h2 {
+    color: #666666;
+    float: left;
+    font-size: 13px;
+    margin-right: 8px;
+    margin-top: 3px;
+    margin-left: 8px;
+}
+
+#userPage #userInfo .data .suStatus {
+    border-left: 1px solid #CCCCCC;
+    color: #666666;
+    float: left;
+    font-size: 12px;
+    padding-left: 8px;
+    position: relative;
+    top: 3px;
+}
+
+#userPage #userInfo .data .links {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+}
+
+#userPage #userInfo .data .stats {
+    border-left: 1px solid #CCCCCC;
+    color: #666666;
+    float: left;
+    font-size: 12px;
+    padding-left: 8px;
+    position: relative;
+    top: 4px;
+}
+
+#userPage #userInfo .data .separator {
+    border-bottom: 1px solid #CCCCCC;
+    clear: both;
+    float: left;
+    margin-top: 8px;
+    width: 378px;
+    height: 1px;
+}
+
+#userPage #userInfo .data ul {
+    border-top: 1px solid #FFFFFF;
+    float: left;
+    width: 378px;
+}
+
+#userPage #userInfo .data ul li {
+    border-right: 1px dotted #CCCCCC;
+    float: left;
+    font-size: 8.5px;
+    margin: 10px 0 0;
+    padding: 0 0 0 12px;
+    position: relative;
+    height: 47px;
+}
+
+#userPage #userInfo .data ul li strong {
+    color: #444444;
+    display: block;
+    font-size: 39px;
+    font-weight: bold;
+    position: absolute;
+    top: 12px;
+    line-height: 37px;
+    left: 11px;
+}
+
+#userPage .tip .content {
+    width: 460px;
+}
+
+#userPage .tips .tipContainer .userImage img {
+    background-color: transparent;
+    border: none;
+}
+
+#userPage .mayorships .grayBox,
+#userPage .history .grayBox,
+#userPage .friends .grayBox,
+#userPage .followers .grayBox {
+    padding: 0px;
+}
+
+#userPage .friends .grayBox,
+#userPage .followers .grayBox {
+    border-top: 0px;
+}
+
+#userPage .mayorships .tipContainer,
+#userPage .history .tipContainer {
+    border-bottom: 1px solid #CCCCCC;
+    border-top: 1px solid #FFFFFF;
+    float: left;
+    padding: 10px;
+    width: 100%;
+    margin: 0px
+}
+
+#userPage .mayorships .tipContainer:last-child,
+#userPage .history .tipContainer:last-child {
+    border-bottom: 0px;
+}
+
+#userPage .mayorships .tipContainer h3,
+#userPage .history .tipContainer h3 {
+    font-size: 13px;
+    height: 14px;
+    line-height: 14px;
+    margin-bottom: 2px;
+    margin-top: 1px;
+    overflow: hidden;
+    width: 170px;
+}
+
+#userPage .mayorships .tipContainer .content p {
+    padding: 0;
+}
+
+#userPage .mayorships .content,
+#userPage .history .content {
+    width: 220px;
+}
+
+#userPage .mayorships .delete,
+#userPage .history .delete {
+    font-size: 10px;
+}
+
+#userPage .mayorships .content {
+    position: relative;
+}
+
+#userPage .mayorships .delete {
+    position: absolute;
+    right: 0;
+    top: 2px;
+    display: none;
+}
+
+#userPage .mayorships .tipContainer:hover .delete {
+    display: block;
+}
+
+#userPage .badges .grayBox a {
+    float: left;
+    margin: 0 4px 8px;
+}
+
+#userPage .badges .minimizedBox {
+    max-height: 260px;
+}
+
+#userPage .mayorships .minimizedBox {
+    max-height: 279px;
+}
+
+#userPage #mayorFaq {
+    display: block;
+    font-size: 12px;
+    margin-bottom: 15px;
+    margin-right: 5px;
+    margin-top: -9px;
+    text-align: right;
+}
+
+#userPage .friend {
+    border-top: 1px solid #CCCCCC;
+    float: left;
+    height: 32px;
+    padding: 5px 0 5px 12px;
+    width: 129px;
+}
+
+#userPage .friend img {
+    border: 1px solid #CCCCCC;
+    float: left;
+    padding: 2px;
+}
+
+#userPage .friend .friendName a {
+    display: block;
+    float: left;
+    font-size: 12px;
+    line-height: 14px;
+    margin-left: 10px;
+    margin-top: 8px;
+    overflow: hidden;
+    width: 82px;
+}
+
+#userPage #tipsNav.header p {
+    float: left;
+    font-size: 15px;
+    margin-right: 15px;
+    text-align: center;
+    width: 60px;
+}
+
+#userPage #tipsTrigger .carrot,
+#userPage #todosTrigger .carrot {
+    height: 16px;
+    position: absolute;
+    top: 18px;
+    width: 30px;
+    z-index: 1;
+}
+
+#userPage #tipsTrigger .carrot {
+    left: 14px;
+}
+
+#userPage #todosTrigger .carrot {
+    left: 37px;
+}
+
+.fullPage .friendStatus {
+    background: url("/static/img/friendStatusGrad.png") repeat scroll 0 0 transparent;
+    font-size: 12px;
+    margin-bottom: 10px;
+    padding: 10px;
+    text-align: center;
+
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+}
+
+.fullPage .friendStatus p {
+    margin: 0 0 8px;
+}
+
+.friendStatus .newGreenButton,
+.friendStatus .newGreyButton {
+    float: left;
+    width: 60px;
+}
+
+.friendStatus .newGreenButton {
+    margin-left: 40px;
+    margin-right: 10px;
+}
+
+/*#userPage .addFriend {
+background: #ff8100;
+background: -webkit-gradient(linear, left top, left bottom, from(#ff9900), to(#ff6100));
+background: -moz-linear-gradient(top,  #ff9900,  #ff6100);
+filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff9900', endColorstr='#ff6100');
+font-size:13px;
+height:14px;
+line-height:14px;
+margin-bottom:10px;
+padding:10px;
+text-align:center;
+border: 2px solid #ff8707;
+cursor: pointer;
+
+-moz-border-radius:5px;
+-webkit-border-radius: 5px;
+border-radius:5px;
+}
+
+#userPage .addFriend:hover {
+background: #fec900;
+background: -webkit-gradient(linear, left top, left bottom, from(#fec900), to(#fe9a00));
+background: -moz-linear-gradient(top,  #fec900,  #fe9a00);
+filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#fec900', endColorstr='#fe9a00');
+}
+
+#userPage .addFriend:active {
+background: #dd690e;
+background: -webkit-gradient(linear, left top, left bottom, from(#dd690e), to(#dd4906));
+background: -moz-linear-gradient(top,  #dd690e,  #dd4906);
+filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#dd690e', endColorstr='#dd4906');
+}
+
+#userPage .addFriend,
+#userPage .addFriend a {
+color: #fff;
+}*/
+
+#userPage .addFriend a:hover {
+    text-decoration: none;
+}
+
+div.tip_done_unchecked, div.tip_todo_unchecked {
+    background-color: inherit;
+    color: #555555;
+}
+
+div.tip_done_unchecked, div.tip_todo_unchecked, div.tip_checked {
+    margin: 0px;
+    padding: 0px;
+}
+
+.tip_activity_buttons {
+    margin-top: -2px;
+    max-width: 500px;
+    position: absolute;
+    right: 3px;
+    z-index: 1;
+    display: none;
+}
+
+.tip:hover .tip_activity_buttons {
+    display: block;
+}
+
+.tip .content .text_mini {
+    display: block;
+    margin-top: 5px;
+}
+
+div.tip_activity_buttons div {
+    float: left;
+}
+
+.fullPage .employment .grayBox div {
+    border-top: 1px dotted #CCCCCC;
+    color: #777777;
+    font-size: 11px;
+    padding: 5px 0;
+}
+
+.fullPage .employment .grayBox div:first-child {
+    border-top: none;
+    padding: 0 0 5px;
+}
+
+.fullPage .employment .grayBox div.addEmployee {
+    border-top: none;
+    padding: 0px;
+}
+
+.fullPage .employment .grayBox div.addEmployee div {
+    margin-top: 5px;
+}
+
+.fullPage .employment .grayBox div a {
+    font-size: 13px;
+}
+
+#buttonEmbedTemplate textarea {
+    font-size: 11.5px;
+    height: 88px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    padding: 5px;
+    width: 263px;
+}
+
+#buttonEmbedTemplate input {
+    clear: left;
+    float: left;
+    margin-top: 8px;
+}
+
+#buttonEmbedTemplate label {
+    display: block;
+    height: 25px;
+    float: left;
+    margin-bottom: 5px;
+    width: 163px;
+    width: 188px;
+}
+
+#buttonEmbedTemplate label.light {
+    background: url('/static/img/addToFoursquare_white.png') no-repeat scroll 25px 0 transparent;
+}
+
+#buttonEmbedTemplate label.light:hover {
+    background: url('/static/img/addToFoursquare_white.png') no-repeat scroll 25px -25px transparent;
+}
+
+#buttonEmbedTemplate label.dark {
+    background: url('/static/img/addToFoursquare_black.png') no-repeat scroll 25px 0 transparent;
+}
+
+#buttonEmbedTemplate label.dark:hover {
+    background: url('/static/img/addToFoursquare_black.png') no-repeat scroll 25px -25px transparent;
+}
+
+#buttonEmbedTemplate label.blue {
+    background: url('/static/img/addToFoursquare_blue.png') no-repeat scroll 25px 0 transparent;
+}
+
+#buttonEmbedTemplate label.blue:hover {
+    background: url('/static/img/addToFoursquare_blue.png') no-repeat scroll 25px -25px transparent;
+}
+
+#buttonEmbedTemplate h3,
+#venueTodoPopup h3 {
+    border-bottom: 1px solid #eee;
+    color: #444;
+    font-weight: bold;
+    margin-bottom: 10px;
+    padding-bottom: 5px;
+}
+
+#buttonEmbedTemplate p,
+#venueTodoPopup h3 {
+    font-size: 14px;
+    line-height: 150%;
+    margin-top: 5px;
+    line-height: 18px;
+}
+
+#buttonEmbedTemplate strong,
+#venueTodoPopup strong {
+    color: #444;
+    font-size: 14px;
+}
+
+#buttonEmbedPreview {
+    clear: both;
+    margin-bottom: 15px;
+    padding-top: 10px;
+}
+
+#buttonEmbedButtons {
+    float: left;
+    margin: 15px 0;
+    width: 200px;
+}
+
+#buttonEmbedCode {
+    float: left;
+    margin: 15px 0 15px 15px;
+    width: 270px;
+}
+
+#buttonEmbedCode a.newGreenButton {
+    background: #A7E300;
+    background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#A7E300), to(#99D100));
+    background: -moz-linear-gradient(50% 100% 90deg, #99D100, #A7E300);
+    border: 1px solid #87b800;
+    color: #fff;
+    display: block;
+    font-size: 11px;
+    height: 30px;
+    line-height: 30px;
+    margin: 0 auto;
+    text-align: center;
+    text-decoration: none;
+    text-shadow: rgba(0, 0, 0, .1) 0 -1px 0;
+    text-transform: uppercase;
+    width: 125px;
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    border-radius: 3px;
+}
+
+#buttonEmbedCode a.newGreenButton.hover {
+    background: #b2eb14;
+    background: -webkit-gradient(linear, left top, left bottom, from(#b2eb14), to(#a4da14));
+    background: -moz-linear-gradient(top, #b2eb14, #a4da14);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr = '#b2eb14', endColorstr = '#a4da14');
+}
+
+#buttonEmbedCode a.newGreenButton.active {
+    background: #99D100;
+    background: -webkit-gradient(linear, left top, left bottom, from(#99D100), to(#A7E300));
+    background: -moz-linear-gradient(top, #99D100, #A7E300);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr = '#99D100', endColorstr = '#A7E300');
+}
+
+#buttonEmbedCode a.newGreenButton.copied {
+    background: #e5e5e5;
+    border: 1px solid #ccc;
+    color: #999;
+    text-shadow: none;
+}
+
+#userPage .noTipsMe {
+    height: 95px;
+}
+
+#userPage .noTipsMe img {
+    float: left;
+    margin-right: 30px;
+}
+
+#userPage .noTipsMe p {
+    color: #777777;
+    float: left;
+    font-size: 14px;
+    line-height: 17px;
+    margin-top: 1px;
+    width: 400px;
+}
+
+#userPage .noBadgesMe {
+    height: 125px;
+}
+
+#userPage .noBadgesMe img {
+    position: absolute;
+    top: 5px;
+    width: 260px;
+}
+
+#userPage .noBadgesMe p {
+    color: #777777;
+    font-size: 14px;
+    left: 36px;
+    line-height: 18px;
+    position: absolute;
+    top: 40px;
+    width: 230px;
+}
+
+#userPage .noMayorMe img {
+    float: left;
+    margin: 11px 12px 0 15px;
+    padding-bottom: 12px;
+}
+
+#userPage .noMayorMe p {
+    color: #777777;
+    float: left;
+    line-height: 15px;
+    width: 200px;
+    margin-top: 14px;
+}
+
+#userPage #tipsNav #tipsTrigger {
+    border-right: 1px solid #329CC3;
+    margin-right: 0;
+    line-height: 15px;
+}
+
+#userPage #tipsNav #todosTrigger {
+    border-left: 1px solid #73C5E4;
+    padding-left: 12px;
+    line-height: 15px;
+}
+
+#userPage #tipsNav #addATip {
+    color: #FFFFFF;
+    float: right;
+    margin-right: 5px;
+}
+
+#userPage #addATipContainer {
+    background: none repeat scroll 0 0 #F9F9F9;
+    border: 1px solid #CCCCCC;
+    color: #777777;
+    padding: 10px 15px;
+    line-height: 15px;
+}
+
+#mapContainer #mapStatus {
+    background-color: rgba(0, 0, 0, 0.5);
+    border: 1px solid #CCCCCC;
+    color: #FFFFFF;
+    font-size: 12px;
+    padding: 3px 6px;
+    position: absolute;
+    right: 5px;
+    text-align: right;
+    text-shadow: 1px 1px #000000;
+    top: 30px;
+    z-index: 100;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+}
+
+#mapContainer #mapSaving {
+    height: 14px;
+    left: 3px;
+    margin-right: 5px;
+    position: absolute;
+    top: 2px;
+}
+
+.hoverTip {
+    position: absolute;
+    z-index: 1;
+    background-repeat: no-repeat;
+    padding: 5px;
+    display: none;
+}
+
+.hoverTipInner {
+    background: rgb(0, 0, 0);
+    background: rgba(0, 0, 0, 0.8);
+    color: white;
+    font: bold 11px 'Lucida Grande', sans-serif;
+    padding: 8px;
+    text-align: left;
+
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+}
+
+.hoverTipTop {
+    background-image: url(/static/img/tipUp.gif);
+    background-position: center top;
+}
+
+.hoverTipBottom {
+    background-image: url(/static/img/tipDown.gif);
+    background-position: 25px bottom;
+}
+
+#tipCharCount {
+    color: #999999;
+    font-size: 12px;
+    position: absolute;
+    right: 25px;
+    top: 20px;
+}
+
+#privacy101 .leftColumn {
+    border-right: 2px dotted #666666;
+    float: left;
+    height: 240px;
+    margin-right: 30px;
+    margin-top: 10px;
+    width: 200px;
+}
+
+#privacy101 .leftColumn h1 {
+    color: #444444;
+    font-size: 33px;
+}
+
+#privacy101 .rightColumn {
+    width: 600px;
+    float: left;
+    color: #666666;
+}
+
+#privacy101 p {
+    font-size: 15px;
+    line-height: 18px;
+    margin-top: 5px;
+}
+
+#privacy101 p.big {
+    line-height: 25px;
+    font-size: 22px;
+}
+
+#privacy101 strong {
+    color: #555555;
+    display: block;
+    font-size: 18px;
+    font-weight: bold;
+    padding-top: 10px;
+    clear: both;
+}
+
+#privacy101 img {
+    float: left;
+    margin-bottom: 20px;
+    margin-right: 23px;
+    height: 300px;
+    display: block;
+}
+
+#privacyGrid table {
+    margin-bottom: 50px;
+}
+
+#privacyGrid strong {
+    display: block;
+    padding: 11px;
+    border: 1px solid #cccccc;
+    border-bottom: none;
+    background-color: #dceaed;
+}
+
+#privacyGrid #definitions div {
+    margin-left: 20px;
+}
+
+#privacyGrid #definitions strong {
+    background-color: #ffffff;
+    padding: 5px 0px 0px 0px;
+    border: none;
+    margin-top: 10px;
+    display: block;
+}
+
+#privacyGrid td {
+    width: 16%;
+}
+
+#privacyGrid td em {
+    font-size: 10px;
+    font-weight: normal;
+    display: block;
+}
+
+#privacyGrid td,
+#privacyGrid th {
+    border: 1px solid #CCCCCC;
+    color: #777777;
+    font-size: 12px;
+    line-height: 15px;
+    padding: 10px;
+}
+
+#privacyGrid .gray {
+    background-color: #F4F4F4;
+}
+
+#privacyGrid .bold {
+    font-weight: bold;
+}
+
+#privacyGrid .darkGray {
+    background-color: #E7E7E7;
+}
+
+#privacyGrid em {
+    font-weight: bold;
+}
+
+/************************************************************
+* API Doc
+************************************************************/
+#apiDoc {
+}
+
+#apiDoc pre, #apiDoc code, #apiDoc tt, #apiDoc .url {
+    background: #f9f9f9;
+    border: 1px solid #f3f3f3;
+    color: #cb763c;
+    font-family: Courier;
+    font-size: 10pt;
+    padding: 5px;
+    white-space: pre-wrap; /* css-3 */
+    white-space: -moz-pre-wrap !important; /* Mozilla, since 1999 */
+    white-space: -pre-wrap; /* Opera 4-6 */
+    white-space: -o-pre-wrap; /* Opera 7 */
+    word-wrap: break-word; /* Internet Explorer 5.5+ */
+}
+
+#apiDoc code, #apiDoc tt, #apiDoc .url {
+    background: none;
+    border: none;
+    padding: 0px;
+}
+
+#apiDoc h3 {
+    background: #f3f3f3;
+    border-bottom: 1px solid #ddd;
+    color: #777;
+    font-weight: bold;
+    padding: 5px 10px;
+    -webkit-border-top-left-radius: 5px;
+    -webkit-border-top-right-radius: 5px;
+    -moz-border-radius-topleft: 5px;
+    -moz-border-radius-topright: 5px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+
+#apiDocSidebar {
+    float: left;
+    margin-right: 20px;
+    width: 220px;
+}
+
+#apiDocSidebar h2 {
+    background: #f3f3f3;
+    border-bottom: 1px solid #ddd;
+    color: #555;
+    font-weight: bold;
+    font-size: 17px;
+    line-height: 30px;
+    margin: 0 0 0 -10px;
+    text-transform: capitalize;
+    padding: 2px 10px;
+    -webkit-border-top-left-radius: 5px;
+    -webkit-border-top-right-radius: 5px;
+    -moz-border-radius-topleft: 5px;
+    -moz-border-radius-topright: 5px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+
+#apiDocSidebar ul {
+    font-weight: bold;
+    list-style: none;
+    margin: 0;
+    padding: 0 10px;
+}
+
+#apiDocSidebar ul li ul {
+    padding: 10px 5px;
+}
+
+#apiDocSidebar strong {
+    color: #777;
+    display: block;
+    margin: 10px 0 -10px;
+}
+
+#apiDocContent {
+    line-height: 150%;
+    float: right;
+    margin-bottom: 20px;
+    width: 620px;
+}
+
+#apiDoc .newGreenButton {
+    margin-left: 240px;
+    width: 100px;
+}
+
+#apiDoc .title {
+    font-size: 200%;
+    font-weight: bold;
+    margin-bottom: 14px;
+}
+
+#apiDoc h1.big {
+    margin-bottom: 20px;
+}
+
+#apiDoc h1.big a {
+    color: #5a5858;
+}
+
+#apiDoc h1.big a:hover {
+    color: #2398c9;
+}
+
+#apiDoc .section {
+    font-size: 120%;
+    font-weight: bold;
+    margin-top: 35px;
+    margin-bottom: 5px
+}
+
+#apiDoc .url {
+    font-weight bold;
+    margin-bottom: 25px;
+}
+
+#apiDoc .description {
+    margin-bottom: 10px;
+}
+
+#apiDoc .sample {
+    white-space: pre;
+    background-color: #eee;
+    font-family: Courier;
+    font-size: 10pt;
+}
+
+#apiDoc th {
+    text-align: left
+}
+
+#apiDoc td, th {
+    vertical-align: top;
+    padding: 8px 6px;
+    border-width: 1px;
+    border-color: #CCC;
+    border-style: inset;
+}
+
+#apiDoc table {
+    border-width: 1px;
+    border-color: #CCC;
+    border-collapse: collapse;
+    border-spacing:;
+    margin: 10px 0;
+}
+
+#apiDoc .tocitem {
+    margin: 20px 0;
+}
+
+#apiDoc A.toclink,
+#apiDoc A:visited.toclink,
+#apiDoc A:active.toclink,
+#apiDoc A:hover.toclink {
+    color: #33F;
+    font-weight: bold;
+}
+
+#apiDocSidebar ul.sidebar {
+    border-top: 1px solid #ddd;
+    list-style: none;
+    margin: 5px 0 0;
+    padding: 0;
+}
+
+#apiDocSidebar ul.sidebar li {
+    border-bottom: 1px solid #ddd;
+    margin: 0;
+    padding: 6px 0;
+}
+
+#apiDocSidebar ul.sidebar li a {
+    color: #666;
+    display: block;
+    font-weight: bold;
+    padding: 6px 10px;
+}
+
+#apiDocSidebar ul.sidebar li a:hover {
+    color: #0cbadf;
+    text-decoration: none;
+}
+
+#apiDocSidebar ul.sidebar li.selected {
+    padding: 6px 0;
+}
+
+#apiDocSidebar ul.sidebar li.selected a {
+    background: #0cbadf;
+    color: #fff;
+    display: block;
+    -moz-border-radius: 25px;
+    -webkit-border-radius: 25px;
+    border-radius: 25px;
+}
+
+/************************************************************
+* New Green Buttons
+************************************************************/
+.newGreenButton {
+    background: #A7E300;
+    background: -webkit-gradient(linear, left top, left bottom, from(#A7E300), to(#99D100));
+    background: -moz-linear-gradient(top, #A7E300, #99D100);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr = '#A7E300', endColorstr = '#99D100');
+    border: 1px solid #87b800;
+    color: #fff;
+    cursor: pointer;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 11px;
+    font-weight: bold;
+    height: 30px;
+    line-height: 30px;
+    padding: 0 10px;
+    text-align: center;
+    text-shadow: rgba(0, 0, 0, .1) 0 -1px 0;
+    text-transform: uppercase;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+}
+
+.newGreenButton:hover {
+    background: #b2eb14;
+    background: -webkit-gradient(linear, left top, left bottom, from(#b2eb14), to(#a4da14));
+    background: -moz-linear-gradient(top, #b2eb14, #a4da14);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr = '#b2eb14', endColorstr = '#a4da14');
+}
+
+.newGreenButton:active {
+    background: #99D100;
+    background: -webkit-gradient(linear, left top, left bottom, from(#99D100), to(#A7E300));
+    background: -moz-linear-gradient(top, #99D100, #A7E300);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr = '#99D100', endColorstr = '#A7E300');
+}
+
+a.newGreenButton, .newGreenButton a {
+    color: #fff;
+    display: block;
+    text-decoration: none;
+}
+
+input.newGreenButton {
+    line-height: normal !important;
+}
+
+@-moz-document url-prefix() { input.newGreenButton {padding-bottom: 2px;} }
+
+/************************************************************
+* New Grey Button
+************************************************************/
+.newGreyButton {
+    background: #A7E300;
+    background: -webkit-gradient(linear, left top, left bottom, from(#f8f8f9), to(#e6e6e8));
+    background: -moz-linear-gradient(top, #f8f8f9, #e6e6e8);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr = '#f8f8f9', endColorstr = '#e6e6e8');
+    border: 1px solid #ccc;
+    color: #999;
+    cursor: pointer;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 11px;
+    font-weight: bold;
+    height: 30px;
+    line-height: 30px;
+    padding: 0 10px;
+    text-align: center;
+    text-shadow: rgba(255, 255, 255, 1) 0 1px 0;
+    text-transform: uppercase;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+}
+
+.newGreyButton:hover {
+    background: #fcfcfc;
+    background: -webkit-gradient(linear, left top, left bottom, from(#fcfcfc), to(#f3f2f3));
+    background: -moz-linear-gradient(top, #fcfcfc, #f3f2f3);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr = '#fcfcfc', endColorstr = '#f3f2f3');
+}
+
+.newGreyButton:active {
+    background: #f3f2f3;
+    background: -webkit-gradient(linear, left top, left bottom, from(#f3f2f3), to(#fcfcfc));
+    background: -moz-linear-gradient(top, #f3f2f3, #fcfcfc);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr = '#f3f2f3', endColorstr = '#fcfcfc');
+}
+
+a.newGreyButton, .newGreyButton a {
+    color: #999;
+    display: block;
+    text-decoration: none;
+}
+
+/************************************************************
+* New Orange Button
+************************************************************/
+.newOrangeButton {
+    background: #A7E300;
+    background: -webkit-gradient(linear, left top, left bottom, from(#ff9900), to(#ff6200));
+    background: -moz-linear-gradient(top, #ff9900, #ff6200);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr = '#ff9900', endColorstr = '#ff6200');
+    border: 1px solid #e55800;
+    color: #fff;
+    cursor: pointer;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 11px;
+    font-weight: bold;
+    height: 30px;
+    line-height: 30px;
+    padding: 0 10px;
+    text-align: center;
+    text-shadow: rgba(0, 0, 0, .1) 0 -1px 0;
+    text-transform: uppercase;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+}
+
+.newOrangeButton:hover {
+    background: #ffad32;
+    background: -webkit-gradient(linear, left top, left bottom, from(#ffad32), to(#ff8132));
+    background: -moz-linear-gradient(top, #ffad32, #ff8132);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr = '#ffad32', endColorstr = '#ff8132');
+}
+
+.newOrangeButton:active {
+    background: #ff8132;
+    background: -webkit-gradient(linear, left top, left bottom, from(#ff8132), to(#ffad32));
+    background: -moz-linear-gradient(top, #ff8132, #ffad32);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr = '#ff8132', endColorstr = '#ffad32');
+}
+
+a.newOrangeButton, .newOrangeButton a {
+    color: #fff;
+    display: block;
+    text-decoration: none;
+}
+
+#send_friend_request.newOrangeButton {
+    font-size: 14px;
+    height: 36px;
+    line-height: 36px;
+    margin-bottom: 10px;
+    text-transform: capitalize;
+}
+
+/************************************************************
+* Manage Friends
+************************************************************/
+
+#ManageFriends {
+    overflow: hidden;
+    margin-bottom: 15px;
+}
+
+#ManageFriends h1 {
+    color: #666;
+}
+
+#ManageFriends h2 {
+    color: #666;
+    font-size: 17px;
+    font-weight: bold;
+    margin: 0 0 -10px;
+}
+
+#ManageFriends .lazyLoad {
+    margin: 50px auto 0px auto;
+    text-align: center;
+}
+
+/* =Tabs */
+#newStandardTabs {
+    margin-top: 20px;
+}
+
+#newStandardTabs ul {
+    float: left;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+#newStandardTabs ul li {
+    float: left;
+}
+
+#newStandardTabs ul li a {
+    background: #ebebeb;
+    border: 1px solid #d4d4d4;
+    border-bottom: none;
+    display: block;
+    font-size: 16px;
+    height: 45px;
+    line-height: 45px;
+    margin-right: 5px;
+    padding: 0 20px;
+    text-decoration: none;
+    -webkit-border-top-left-radius: 5px;
+    -webkit-border-top-right-radius: 5px;
+    -moz-border-radius-topleft: 5px;
+    -moz-border-radius-topright: 5px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+
+#newStandardTabs ul li a:hover {
+    background: #f2f2f1;
+}
+
+#newStandardTabs ul li.active a {
+    background: #fff;
+    background: -webkit-gradient(linear, left top, left bottom, from(#fff), to(#f9f8f6));
+    background: -moz-linear-gradient(top, #fff, #f9f8f6);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr = '#fff', endColorstr = '#f9f8f6');
+    border-bottom: 1px solid #f9f8f6;
+    color: #666;
+    position: relative;
+    z-index: 1000;
+}
+
+/* =FindNewFriends Button */
+#newStandardTabs a#FindNewFriends {
+    color: #fff;
+    float: right;
+    font-size: 16px;
+    height: 36px;
+    line-height: 36px;
+    margin: 0;
+    text-decoration: none;
+    text-transform: capitalize;
+}
+
+/* =Main Content Box */
+#newStandardTabsContent {
+    background: #f9f8f6;
+    border: 1px solid #d4d4d4;
+    margin-top: -1px;
+}
+
+/* =Friends Bar */
+#TitleBar {
+    background: #f9f8f6;
+    background: -webkit-gradient(linear, left top, left bottom, from(#f9f8f6), to(#e6e6e6));
+    background: -moz-linear-gradient(top, #f9f8f6, #e6e6e6);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr = '#f9f8f6', endColorstr = '#e6e6e6');
+    border-top: 1px solid #d4d4d4;
+    height: 40px;
+    line-height: 40px;
+    margin-top: -1px;
+    position: relative;
+}
+
+#TitleBar h2 {
+    font-size: 15px;
+    text-indent: 20px;
+}
+
+#TitleBar #SortOrder {
+    position: absolute;
+    right: 20px;
+    top: 0;
+}
+
+#TitleBar h3 {
+    color: #aaa;
+    font-size: 13px;
+    font-weight: bold;
+    position: absolute;
+    top: 7px;
+    left: 300px;
+}
+
+/* =Friends Listings */
+ul.ManageList {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+ul.ManageList li {
+    background: #f9f8f6;
+    border-top: 1px solid #d4d4d4;
+    color: #555; /*height: 60px;*/
+    min-height: 60px;
+    -moz-box-shadow: inset #fff 0 1px 0;
+    -webkit-box-shadow: inset #fff 0 1px 0;
+    box-shadow: inset #fff 0 1px 0;
+}
+
+ul.ManageList li:hover {
+    background: #f0f0ef;
+}
+
+ul.ManageList li .Column1 img,
+ul.ManageList li .Column2 img {
+    background: #fff;
+    border: 1px solid #ccc;
+    float: left;
+    margin-right: 10px;
+    padding: 3px;
+}
+
+ul.ManageList li .Column1 a:hover img {
+    border-color: #aaa;
+}
+
+/* =Column1 */
+ul.ManageList li .Column1 {
+    float: left;
+    padding: 10px 0;
+    width: 35%;
+}
+
+ul.ManageList li .Column1 h3 {
+    color: #555;
+    font-size: 13px;
+    font-weight: bold;
+    line-height: 25px;
+    margin: 0 0 0 60px;
+    padding: 0;
+}
+
+ul.ManageList li .Column1 h3 a {
+    color: #555;
+}
+
+ul.ManageList li .Column1 h3 a:hover {
+    color: #2398C9;
+}
+
+ul.ManageList li .Column1 img {
+    margin-left: 10px;
+}
+
+ul.ManageList li .Column1 p {
+    line-height: 10px;
+    margin: 0 0 0 60px;
+    padding: 0;
+}
+
+ul.ManageList li .Column1 p {
+    height: 12px;
+    line-height: 12px;
+}
+
+/* =Column2 */
+ul.ManageList li .Column2 {
+    float: left;
+    padding: 10px 0;
+    width: 45%;
+}
+
+#FriendsList .Column2 {
+    padding: 15px 0;
+}
+
+#FriendsList .Column2 p {
+    margin: 0;
+}
+
+ul.ManageList li .Column2 span.none {
+    font-style: italic;
+    position: relative;
+    top: 10px;
+}
+
+ul.ManageList li .Column2 span.moreFriends {
+    color: #aaa;
+    font-weight: bold;
+    line-height: 40px;
+}
+
+/* =Column3 */
+ul.ManageList li .Column3 {
+    float: left;
+    width: 20%;
+}
+
+ul.ManageList li .Column3 a.newGreenButton,
+ul.ManageList li .Column3 a.newOrangeButton {
+    margin-top: 15px;
+    float: left;
+    width: 50px;
+}
+
+#FollowersList li .Column3 a.newGreenButton,
+#FollowersList li .Column3 a.newOrangeButton {
+    float: right;
+    margin-right: 10px;
+    width: 100px;
+}
+
+ul.ManageList li .Column3 a.newGreyButton {
+    float: left;
+    margin: 15px 0 0 10px;
+    width: 50px;
+}
+
+#FriendsList .Column3,
+#PagesList .Column3 {
+    color: #aaa;
+    line-height: 60px;
+    position: relative;
+}
+
+#FriendsList .Column3 span,
+#PagesList .Column3 span {
+    float: right;
+    margin-right: 40px;
+}
+
+#FriendsList li a.DeleteFriend,
+#PagesList li a.DeleteFriend {
+    display: none;
+}
+
+#FriendsList li:hover a.DeleteFriend,
+#PagesList li:hover a.DeleteFriend {
+    background: url('/static/img/circle_x.png') 1px 1px no-repeat;
+    display: block;
+    height: 16px;
+    position: absolute;
+    right: 10px;
+    text-indent: -9999px;
+    top: 22px;
+    width: 16px;
+}
+
+/* =New Friend Requests Box */
+#NewFriendRequests {
+    background: #0cbadf;
+    margin: 20px;
+    padding: 2px;
+    position: relative;
+    -webkit-border-radius: 5px;
+    -webkit-border-bottom-right-radius: 2px;
+    -webkit-border-bottom-left-radius: 2px;
+    -moz-border-radius: 5px;
+    -moz-border-radius-bottomright: 2px;
+    -moz-border-radius-bottomleft: 2px;
+    border-radius: 5px;
+    border-bottom-right-radius: 2px;
+    border-bottom-left-radius: 2px;
+}
+
+#NewFriendRequests.hidden {
+    -moz-border-radius-bottomleft: 5px;
+    -moz-border-radius-bottomright: 5px;
+    -webkit-border-bottom-left-radius: 5px;
+    -webkit-border-bottom-right-radius: 5px;
+}
+
+#NewFriendRequests h2 {
+    color: #fff;
+    font-size: 13px;
+    height: 30px;
+    line-height: 30px;
+    margin: 0;
+    text-indent: 10px;
+}
+
+#NewFriendRequests #Column2Title {
+    position: absolute;
+    top: 2px;
+    left: 275px;
+}
+
+#NewFriendRequests #Column2Title h2 {
+    color: #fff;
+    color: rgba(255, 255, 255, .66);
+}
+
+#NewFriendRequests #HideThisSession {
+    position: absolute;
+    top: 2px;
+    right: 10px;
+}
+
+#NewFriendRequests #HideThisSession h2 a {
+    color: #fff;
+    color: rgba(255, 255, 255, .66);
+}
+
+#NewFriendRequests #HideThisSession h2 a:hover {
+    color: #fff;
+}
+
+#NewFriendRequestsMore {
+    margin: -10px 0 10px;
+    text-align: right;
+    padding-right: 20px;
+}
+
+#NewFriendRequests.hidden .ManageList,
+#NewFriendRequests.hidden #Column2Title h2 {
+    display: none !important;
+}
+
+/* =No Friends */
+#NoFriends {
+    padding: 20px;
+}
+
+#NoFriends h2 {
+    margin: 0 0 10px;
+}
+
+#NoFriends p {
+    font-size: 14px;
+}
+
+#NoFriends #AddFriends {
+    margin-bottom: 20px;
+}
+
+#NoFriends #AddFriends .AddService {
+    float: left;
+    margin-right: 20px;
+    margin-bottom: 20px;
+    text-align: center;
+    width: 189px;
+}
+
+#NoFriends #AddFriends .AddService a, #ManageFriends .logo {
+    background: #ebebeb;
+    background: -webkit-gradient(linear, left top, left bottom, from(#fff), to(#ebebeb));
+    background: -moz-linear-gradient(top, #fff, #ebebeb);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr = '#fff', endColorstr = '#ebebeb');
+    border: 1px solid #ccc;
+    display: block;
+    height: 62px;
+    padding: 20px;
+    text-decoration: none;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+}
+
+#NoFriends #AddFriends .AddService a:hover {
+    background: #f4f3f3;
+    background: -webkit-gradient(linear, left top, left bottom, from(#fff), to(#f4f3f3));
+    background: -moz-linear-gradient(top, #fff, #f4f3f3);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr = '#fff', endColorstr = '#f4f3f3');
+    border: 1px solid #bbb;
+}
+
+#NoFriends #AddFriends .AddService a:active {
+    background: #fff;
+    background: -webkit-gradient(linear, left top, left bottom, from(#f4f3f3), to(#fff));
+    background: -moz-linear-gradient(top, #f4f3f3, #fff);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr = '#f4f3f3', endColorstr = '#fff');
+    border: 1px solid #bbb;
+}
+
+#NoFriends #AddFriends .AddEmail {
+}
+
+#NoFriends #AddFriends .AddTwitter {
+}
+
+#NoFriends #AddFriends .AddFacebook {
+}
+
+#NoFriends #AddFriends .AddEmail {
+    margin: 0 0 20px;
+}
+
+#NoFriends #AddFriends .AddEmail img {
+    float: left;
+}
+
+#NoFriends #AddFriends .AddEmail h3 {
+    color: #999;
+    float: left;
+    font-weight: bold;
+    font-size: 17px;
+    line-height: 20px;
+    padding-top: 10px;
+}
+
+#NoFriends #AddFriends .newGreenButton {
+    color: #fff;
+    float: none;
+    font-size: 16px;
+    height: 36px;
+    line-height: 36px;
+    margin: 30px auto 0;
+    padding: 0 10px !important;
+    text-decoration: none;
+    text-transform: capitalize;
+    width: 130px;
+}
+
+/* =Search For Friends */
+#SearchForFriends {
+}
+
+#SearchForFriends form {
+}
+
+#SearchForFriends form input[type=text] {
+    border: 1px solid #ccc;
+    color: #555;
+    font: inherit;
+    font-size: 17px;
+    height: 40px;
+    line-height: 40px;
+    margin-right: 20px;
+    padding: 0 5px;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+    width: 386px;
+}
+
+#SearchForFriends form button {
+    float: none;
+    font: inherit;
+    font-weight: bold;
+    font-size: 17px;
+    height: 41px;
+    line-height: 41px;
+    margin: 0;
+    text-transform: capitalize;
+    width: 110px;
+}
+
+/* =NoPages */
+#NoPages {
+    padding: 20px;
+}
+
+#NoPages h2 {
+    margin: 0 0 10px;
+}
+
+#NoPages p {
+    font-size: 14px;
+}
+
+#PagesMatrix {
+    float: left;
+    margin-right: 15px;
+    width: 330px;
+}
+
+#PagesMatrix img.avatar {
+    background: #fff;
+    border: 1px solid #ccc;
+    margin: 0 2px 2px 0;
+    padding: 3px;
+}
+
+#PagesMatrix a:hover img.avatar {
+    border-color: #aaa;
+}
+
+#PagesCopy {
+    float: left;
+    width: 470px;
+}
+
+/* =AddSteps */
+#AddStep1,
+#AddStep2,
+#AddStep3 {
+    padding: 20px;
+}
+
+#AddStep1 .logo,
+#AddStep2 .logo,
+#AddStep3 .logo {
+    float: left;
+    margin-right: 20px;
+    margin-top: -7px;
+    padding-bottom: 20px;
+}
+
+#ManageFriends .invite {
+    text-align: right;
+}
+
+.AddFriend {
+    background: #fff;
+    float: left;
+    margin: 0 14px 14px 0;
+    padding: 10px 5px;
+    text-align: center;
+    width: 175px;
+    height: 140px;
+    -moz-box-shadow: rgba(0, 0, 0, .15) 0 1px 3px;
+    -webkit-box-shadow: rgba(0, 0, 0, .15) 0 1px 3px;
+    box-shadow: rgba(0, 0, 0, .15) 0 1px 3px;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+}
+
+.AddFriend p {
+    margin: 0 0 5px;
+}
+
+.AddFriend p.name {
+    height: 30px;
+    overflow: hidden;
+}
+
+.AddFriend .avatar {
+    background: #fff;
+    border: 1px solid #ccc;
+    padding: 3px;
+}
+
+.AddFriend .avatar:hover {
+    border-color: #aaa;
+}
+
+.AddFriend .newGreenButton,
+.AddFriend .newOrangeButton {
+    margin: 0 auto;
+    width: 100px;
+}
+
+#AddStep2 .next {
+    float: right;
+    text-align: right;
+    width: 300px;
+}
+
+#AddStep2 #twitter-searchuser {
+    float: left;
+    margin: 10px 0;
+    width: 50%;
+}
+
+#AddStep2 #twitter-searchuser input[type=text] {
+    border: 1px solid #ccc;
+    color: #555;
+    font: inherit;
+    font-size: 14px;
+    height: 28px;
+    margin-right: 10px;
+    margin-top: 10px;
+    padding: 0 5px;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+    width: 180px;
+    vertical-align: bottom;
+}
+
+#AddStep2 #twitter-searchuser .loading {
+    display: inline;
+    margin-left: 0px;
+}
+
+#AddStep2 #twitter-link {
+    float: left;
+    margin: 10px 0;
+    width: 50%;
+}
+
+#AddStep2 #twitter-link p {
+    margin: 0;
+}
+
+#AddStep3 #TheEmail {
+    background: #fff;
+    border: 1px solid #d1d1d1;
+    float: left;
+    width: 400px;
+}
+
+#AddStep3 tt {
+    display: block;
+    padding: 20px;
+    width: 360px;
+}
+
+#AddStep3 #TheEmail p {
+    color: #000;
+    margin: 6px 0;
+    text-indent: 10px;
+}
+
+#AddStep3 #TheEmail p label {
+    color: #999;
+    display: block;
+    float: left;
+    font-weight: bold;
+    text-align: right;
+    width: 70px;
+}
+
+#AddStep3 #TheEmail img {
+    vertical-align: text-bottom;
+}
+
+#AddStep3 #TheInvite {
+    float: right;
+    width: 400px;
+}
+
+#AddStep3 #TheInvite .newGreenButton {
+    float: right;
+}
+
+#AddStep3 #TheInvite #Invitees {
+    background: rgba(255, 255, 255, .75);
+    border: 1px solid #d1d1d1;
+    height: 340px;
+    margin-bottom: 15px;
+    overflow-y: auto;
+}
+
+#AddStep3 #TheInvite #Invitees p {
+    border-bottom: 1px solid #eee;
+    line-height: 25px;
+    margin: 0;
+}
+
+#AddStep3 #TheInvite #Invitees p:hover {
+    background: #fff;
+}
+
+#AddStep3 #TheInvite #Invitees p label {
+    cursor: pointer;
+    display: block;
+    padding: 5px 10px;
+}
+
+#AddStep3 #TheInvite #Invitees p input {
+    margin-right: 10px;
+}
+
+#AddStep3 #TheInvite textarea {
+    background: #fff;
+    border: 1px solid #d1d1d1;
+    font: inherit;
+    height: 100px;
+    margin-bottom: 15px;
+    width: 100%;
+}
+
+#AddFriendsSuccess {
+    background: #ecfcdb;
+    border: 1px solid #b8ed75;
+    margin: 15px 0;
+    padding: 10px;
+    text-align: center;
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    border-radius: 3px;
+}
+
+#AddFriendsSuccess h2 {
+    color: #1b6308;
+    margin: 0;
+}
+
+#ManageFriends .requestedButton {
+    background: #e5e5e5;
+    border: 1px solid #ccc;
+    color: #999;
+    cursor: default;
+    text-shadow: none;
+}
+
+.dc {
+    display: inline;
+    position: relative;
+    z-index: 0;
+    margin: 0;
+    padding: 0;
+    text-align: left;
+}
+
+.dc:hover {
+    background-color: transparent;
+    z-index: 50;
+}
+
+.dc ul {
+    margin: 0;
+    padding: 0;
+    position: absolute;
+    width: 106px;
+    background-color: #afd3e2;
+    left: -1000px;
+    list-style-type: none;
+    visibility: hidden;
+}
+
+.dc:hover ul {
+    visibility: visible;
+    top: 13px;
+    left: -4px;
+}
+
+/* -------------------- What the links look like inside the dropdown  ---------------------- */
+.dc ul li a {
+    display: block;
+    padding: 5px;
+    font-size: 11px;
+}
+
+.dc ul li a:link {
+    color: #03F;
+    text-decoration: none;
+}
+
+.dc ul li a:visited {
+    text-decoration: none;
+    color: #03F;
+}
+
+.dc ul li a:hover {
+    text-decoration: none;
+    color: #03F;
+}
+
+.dc ul li a:active {
+    text-decoration: none;
+    color: #03F;
+}
+
+/*------------Navigation Styles ----------*/
+
+.menu {
+    border: none;
+    border: 0px;
+    margin: 0px;
+    padding: 0px;
+    font: 67.5% "Lucida Sans Unicode", "Bitstream Vera Sans", "Trebuchet Unicode MS", "Lucida Grande", Verdana, Helvetica, sans-serif;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.menu ul {
+    background: #333333;
+    height: 35px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.menu li {
+    float: left;
+    padding: 0px;
+
+}
+
+.menu li a {
+    background: #333333  bottom right no-repeat;
+    color: #cccccc;
+    display: block;
+    font-weight: normal;
+    line-height: 35px;
+    margin: 0px;
+    padding: 0px 25px;
+    text-align: center;
+    text-decoration: none;
+}
+
+.menu li a:hover, .menu ul li:hover a {
+    background: #2580a2  bottom center no-repeat;
+    color: #FFFFFF;
+    text-decoration: none;
+}
+
+.menu li ul {
+    background: #333333;
+    display: none;
+    height: auto;
+    padding: 0px;
+    margin: 0px;
+    border: 0px;
+    position: absolute;
+    width: 100px;
+    z-index: 200;
+    /*top:1em;
+		/*left:0;*/
+}
+
+.menu li:hover ul {
+    display: block;
+
+}
+
+.menu li li {
+    background: bottom left no-repeat;
+    display: block;
+    float: none;
+    margin: 0px;
+    padding: 0px;
+    width: 225px;
+}
+
+.menu li:hover li a {
+    background: none;
+
+}
+
+.menu li ul a {
+    display: block;
+    height: 35px;
+    font-size: 12px;
+    font-style: normal;
+    margin: 0px;
+    padding: 0px 10px 0px 15px;
+    text-align: left;
+}
+
+.menu li ul a:hover, .menu li ul li:hover a {
+    background: #2580a2 center left no-repeat;
+    border: 0px;
+    color: #ffffff;
+    text-decoration: none;
+}
+
+.menu p {
+    clear: left;
+}	
