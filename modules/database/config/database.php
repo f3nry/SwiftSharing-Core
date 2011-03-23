@@ -17,10 +17,10 @@ return array
                          *
                          * Ports and sockets may be appended to the hostname.
                          */
-                        'hostname'   => 'localhost',
-                        'database'   => 'swshare_swift',
-                        'username'   => 'root',
-                        'password'   => 'patter5Dress',
+                        'hostname'   => 'app1.mphwebsystems.com',
+                        'database'   => 'swshare_remote',
+                        'username'   => 'swshare_remote',
+                        'password'   => 'jDcZ9hRaC76mvQX8',
                         'persistent' => TRUE,
                 ),
                 'table_prefix' => '',
