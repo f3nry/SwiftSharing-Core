@@ -1,4 +1,1 @@
-#!/bin/sh
-#
-$GIT_DIR = '/home/swshare/app/swiftsharing'
-git pull origin master
+

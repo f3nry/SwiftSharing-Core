@@ -44,3 +44,6 @@
 2011-03-21 01:08:32 --- ERROR: Http_Exception_404 [ 404 ]: Unable to find a route to match the URI: images/loading.gif ~ SYSPATH/classes/kohana/request.php [ 733 ]
 2011-03-21 01:08:32 --- ERROR: Http_Exception_404 [ 404 ]: Unable to find a route to match the URI: content/css/style/opaqueDark.png ~ SYSPATH/classes/kohana/request.php [ 733 ]
 2011-03-21 01:08:32 --- ERROR: Http_Exception_404 [ 404 ]: Unable to find a route to match the URI: images/loading.gif ~ SYSPATH/classes/kohana/request.php [ 733 ]
+2011-03-21 02:14:25 --- ERROR: ErrorException [ 8 ]: Undefined index:  default ~ MODPATH/database/classes/kohana/database.php [ 65 ]
+2011-03-21 02:16:32 --- ERROR: Database_Exception [ 0 ]: [1049] Unknown database 'swshare_swift' ~ MODPATH/database/classes/kohana/database/mysql.php [ 96 ]
+2011-03-21 02:17:24 --- ERROR: Database_Exception [ 0 ]: [1049] Unknown database 'swshare_swift' ~ MODPATH/database/classes/kohana/database/mysql.php [ 96 ]
