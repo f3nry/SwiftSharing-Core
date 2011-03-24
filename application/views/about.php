@@ -76,7 +76,7 @@ new TWTR.Widget({
 	</div>
 <div class="about">
     <h2>Magan Tyler</h2>
-    <p>Magan is 16, is a Sophomore, and attends Longview High School where she is a Pre-AP student. She has helped with numerous things with the site such as testing, communicating with our users, and keeping the team motivated.</p>
+    <p>Magan is 16, is a Sophomore, and attends Longview High School where she is a Pre-AP student. She has helped with numerous things with the site such as testing, communicating with our users, and keeping the team motivated. She currently serves as the Lead Documenter and User Experience Manager.</p>
 </div>
 </div>
 
