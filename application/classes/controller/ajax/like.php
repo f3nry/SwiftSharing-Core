@@ -2,6 +2,8 @@
 
 class Controller_Ajax_Like extends Controller_Ajax {
     public function action_index() {
+        $this->_requireAuth();
+        
         if(! isset($_POST['thumbsup_id']) || ! isset($_POST['thumbsup_rating'])) {
             return false;
         }

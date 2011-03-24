@@ -421,10 +421,14 @@ class Model_Member extends ORM {
      * @param <type> $max
      * @param <type> $start
      */
-    public function generateLongFriendsList($max = 1000, $start = 0) {
+    public function generateLongFriendsList($max = false, $start = 0) {
         $friends = explode(",", $this->friend_array);
 
         $friendCount = count($friends);
+
+        if(!$max) {
+            $max = $friendCount;
+        }
 
         $friendObjects = self::quickLoad(array_slice($friends, $start, $max));
 

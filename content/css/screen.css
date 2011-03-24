@@ -184,6 +184,7 @@ h4 {
 
 .searchContainer input[type="text"] {
     border: none;
+    background: none;
 }
 
 .searchContainer img {

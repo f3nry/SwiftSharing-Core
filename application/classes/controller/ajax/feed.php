@@ -13,6 +13,8 @@ class Controller_Ajax_Feed extends Controller_Ajax {
     }
 
     public function action_new() {
+        $this->_requireAuth();
+
         $post = $_POST;
 
         if($post) {
@@ -50,6 +52,8 @@ class Controller_Ajax_Feed extends Controller_Ajax {
     }
 
     public function action_more() {
+        $this->_requireAuth();
+
         $blab = Model_Blab::getById($_POST['lastmsg']);
 
         if($blab) {
@@ -60,6 +64,8 @@ class Controller_Ajax_Feed extends Controller_Ajax {
     }
 
     public function action_past() {
+        $this->_requireAuth();
+
         $blab = Model_Blab::getById($_POST['lastmsg']);
 
         if($blab) {
@@ -70,6 +76,8 @@ class Controller_Ajax_Feed extends Controller_Ajax {
     }
 
     public function action_delete() {
+        $this->_requireAuth();
+        
         $blab = Model_Blab::getById($this->request->post('id'));
 
         if($blab) {
@@ -94,6 +102,8 @@ class Controller_Ajax_Feed extends Controller_Ajax {
     }
 
     public function comment() {
+        $this->_requireAuth();
+        
         $post = $_POST;
 
         if($post) {

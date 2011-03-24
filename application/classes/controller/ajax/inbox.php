@@ -3,6 +3,8 @@
 class Controller_Ajax_Inbox extends Controller_Ajax {
 
     public function action_new() {
+        $this->_requireAuth();
+        
         if ($_POST['message']) {
             $to = preg_replace('#[^0-9]#i', '', $_POST['to']);
             $from = Session::instance()->get('user_id');
