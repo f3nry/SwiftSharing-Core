@@ -59,11 +59,11 @@ new TWTR.Widget({
 <p>Alaxic is a Freshman IB Student at Longview High School, in Longview, Tx. He is 15, and loves to code. He is the founder of SwiftSharing and the CEO.  He attended Foster Middle School where he was in Robotics.</p>
 	<div class="about">
 		<h2>Paul Henry</h2> 
-<p>Paul is a Junior, and Home Schooled in Longview, Tx. He met Alaxic while volunteering at Foster Middle School for the Robotics Team. He is taking advanced classes, and works at SwiftSharing as the Lead Software Engineer. </p>
+<p>Paul is a Junior, and Home Schooled in Longview, Tx. He met Alaxic while volunteering at Foster Middle School for the Robotics Team. He works at SwiftSharing as the Lead Software Engineer, and is a Co-Founder. </p>
 	</div>
 	<div class="about">
 		<h2>Nickson Ariemba</h2>
-<p>Nickson is a Junior from Kenya, Africa and moved to the United States 6 years ago. He plays Soccer, goes to Rosemont High School, and loves web developing. Nickson and Alaxic met on DevelopPHP, a website when Alaxic needed some guidance. Nickson builds Linux’s Os’ in his free time.</p>
+<p>Nickson is a Junior from Kenya, Africa and moved to the United States 6 years ago. He plays Soccer, goes to Rosemont High School, and loves web developing. Nickson and Alaxic met on DevelopPHP, a website when Alaxic needed some guidance. Nickson builds Linux’s Os’ in his free time. He works at SwiftSharing as a Co-founder and COO.</p>
 	</div>
 	<div class="about">
 	<h2>Neil Parikh</h2> 
