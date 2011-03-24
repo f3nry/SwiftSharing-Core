@@ -429,23 +429,23 @@ class Model_Member extends ORM {
 
         foreach ($friendObjects as $friend) {
             $i++;
-            $frnd_pic = $this->getProfileImage(50, 0);
+            $frnd_pic = Model_Member::getProfileImageStatic($friend, 50, 0);
 
-            $funame = $this->getName();
-            $ffname = $this->firstname;
-            $fcountry = $this->country;
-            $fstate = $this->state;
-            $fcity = $this->city;
+            $funame = ($friend->firstname) ? $friend->firstname : $friend->username;
+            $ffname = $friend->firstname;
+            $fcountry = $friend->country;
+            $fstate = $friend->state;
+            $fcity = $friend->city;
             
             if ($i % 2) {
                 $friendList .= '<tr bgcolor="#F4F4F4"><td width="14%" valign="top">
                                             <div style="width:56px; height:56px; overflow:hidden;" title="' . $funame . '">' . $frnd_pic . '</div></td>
-                                         <td width="86%" valign="top"><a href="/' . $this->username . '">' . $funame . '</a><br /><font size="-2"><em>' . $fcity . '<br />' . $fstate . '<br />' . $fcountry . '</em></font></td>
+                                         <td width="86%" valign="top"><a href="/' . $friend->username . '">' . $funame . '</a><br /><font size="-2"><em>' . $fcity . '<br />' . $fstate . '<br />' . $fcountry . '</em></font></td>
                                         </tr>';
             } else {
                 $friendList .= '<tr bgcolor="#E0E0E0"><td width="14%" valign="top">
                                             <div style="width:56px; height:56px; overflow:hidden;" title="' . $funame . '">' . $frnd_pic . '</div></td>
-                                         <td width="86%" valign="top"><a href="/' . $this->username . '">' . $funame . '</a><br /><font size="-2"><em>' . $fcity . '<br />' . $fstate . '<br />' . $fcountry . '</em></font></td>
+                                         <td width="86%" valign="top"><a href="/' . $friend->username . '">' . $funame . '</a><br /><font size="-2"><em>' . $fcity . '<br />' . $fstate . '<br />' . $fcountry . '</em></font></td>
                                         </tr>';
             }
         }
@@ -572,6 +572,22 @@ class Model_Member extends ORM {
             return "<img src=\"/content/images/image01.jpg\" width=\"$width\"/>";
         } else {
             return Images::getImage($this->id, 'image01.jpg', $width, $height, true, true);
+        }
+    }
+
+    /**
+     * Static version of getProfileImage.
+     *
+     * @param stdClass $member stdClass of a $member row.
+     * @param int $width The width of the image
+     * @param int $height The height of the image
+     * @return <type>
+     */
+    public static function getProfileImageStatic($member, $width, $height) {
+        if(!$member->has_profile_image) {
+            return "<img src=\"/content/images/image01.jpg\" width=\"$width\"/>";
+        } else {
+            return Images::getImage($member->id, 'image01.jpg', $width, $height, true, true);
         }
     }
 

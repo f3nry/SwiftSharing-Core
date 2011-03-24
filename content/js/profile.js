@@ -1,6 +1,6 @@
 $(".modal_link").fancybox({
     hideOnContentClick: false,
-    scrolling: 'auto',
+    scrolling: 'yes',
     showCloseButton: true,
     autoDimensions: true,
     titleShow: false,
