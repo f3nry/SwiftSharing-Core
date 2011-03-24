@@ -1,4 +1,3 @@
-asdfasdfasdf
 <?php
 
 /**
