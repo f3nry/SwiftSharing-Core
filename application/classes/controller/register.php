@@ -14,7 +14,7 @@ class Controller_Register extends Controller_App {
         if($this->request->post()) {
             $member = ORM::factory('member');
 
-            $post = $this->request->post();
+            $post = $_POST;
 
             if($member->validate($post)) {
                 $member->register($post);
@@ -35,6 +35,9 @@ class Controller_Register extends Controller_App {
                 $this->request->redirect("/");
             } else {
                 $this->template->errors = $member->errors;
+
+                $post['birth_month_text'] = date('F', mktime(0, 0, 0, $post['birth_month']));
+
                 $this->template->data = $post;
             }
         } else {
@@ -43,22 +46,22 @@ class Controller_Register extends Controller_App {
     }
     
     public function action_activate() {
-		$member = Model_Member::loadFromID($this->request->param('id'));
-		
-		$this->template = View::factory('activate');
-		
-		if($member) {
-			if($member->password == $this->request->param('sequence') && $member->email_activated == false) {
-				$member->email_activated = '1';
-				
-				$member->save();
-				
-				$this->template->message = 'Activation successful. <br/><br/>You may <a href="/login">Login</a> now.';
-			} else {
-				$this->template->message = 'Your activation is invalid.';
-			}
-		} else {
-			$this->template->message = 'Sorry, that user does not exist.';
-		}
-	}
+        $member = Model_Member::loadFromID($this->request->param('id'));
+
+        $this->template = View::factory('activate');
+
+        if($member) {
+                if($member->password == $this->request->param('sequence') && $member->email_activated == false) {
+                        $member->email_activated = '1';
+
+                        $member->save();
+
+                        $this->template->message = 'Activation successful. <br/><br/>You may <a href="/login">Login</a> now.';
+                } else {
+                        $this->template->message = 'Your activation is invalid.';
+                }
+        } else {
+                $this->template->message = 'Sorry, that user does not exist.';
+        }
+    }
 }

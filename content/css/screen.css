@@ -88,11 +88,12 @@ h4 {
     clear: both;
     color: black;
     font-size: 1em;
-    margin-right: 365px;
     width:895px;
     height:200px;
     margin-top: 20px;
     padding-top:20px;
+    margin-right:auto;
+    margin-left: auto;
 }
 
 .posts {
@@ -509,6 +510,15 @@ p#heading{
     height:500px;
     background-color: white;
     float:right;
+}
+
+input[type="text"], input[type="password"], textarea {
+    padding: 0px;
+    background: white url(/content/images/form_input_bg.gif) repeat-x;
+    border-color: #7C7C7C #C3C3C3 #DDD;
+    border-style: solid;
+    border-width: 1px;
+    padding: 2px 0px;
 }
 
 /* Reset form margin/padding */

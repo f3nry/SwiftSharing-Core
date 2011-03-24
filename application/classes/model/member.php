@@ -40,8 +40,16 @@ class Model_Member extends ORM {
     public function validate(array & $array) {
         $this->filter($array);
 
-        if (!empty($array['humancheck'])) {
+        if ($array['humancheck'] != '') {
             $this->errors = array('humancheck' => 'You must remove the text, to verify that you are human.');
+
+            return false;
+        }
+
+        $age = self::getAge($array['birth_year'] . "-" . $array["birth_month"] . "-" . $array["birth_date"]);
+
+        if($age < 13) {
+            $this->errors = array('age' => 'You must be at least 13 years of age to join SwiftSharing.');
 
             return false;
         }
@@ -52,7 +60,7 @@ class Model_Member extends ORM {
                          * must be greater than 4 characters and less than 20 characters.
                          */
                         ->rule('username', 'not_empty')
-                        ->rule('username', array($this, 'username_exists'), array(':validation', ':field'))
+                        ->rule('username', array($this, 'username_exists'))
                         ->rule('username', 'min_length', array(':field', 4))
                         ->rule('username', 'max_length', array(':field', 20))
 
@@ -70,7 +78,7 @@ class Model_Member extends ORM {
                         ->rule('email1', 'email')
                         ->rule('email1', 'email_domain')
                         ->rule('email1', 'matches', array(':validation', ':field', 'email2'))
-                        ->rule('email1', array($this, 'email_exists'), array(':validation', ':field'))
+                        ->rule('email1', array($this, 'email_exists'))
 
                         /**
                          * Password validation. The password must be longer than 6 characters, and less than 16 characters, and must
@@ -127,7 +135,7 @@ class Model_Member extends ORM {
      * @param  $field The username to check for.
      * @return bool True if it exists, false if it does not.
      */
-    public function username_exists($validation, $field) {
+    public function username_exists($field) {
         if ((bool) DB::select(array(DB::expr('COUNT(id)'), 'total'))
                         ->from('myMembers')
                         ->where('username', '=', $field)
@@ -145,7 +153,7 @@ class Model_Member extends ORM {
      * @param  $field The email to check for.
      * @return bool True if it exists, false it it does not exist.
      */
-    public function email_exists($validation, $field) {
+    public function email_exists($field) {
         if ((bool) DB::select(array(DB::expr('COUNT(id)'), 'total'))
                         ->from('myMembers')
                         ->where('email', '=', $field)
@@ -200,6 +208,13 @@ class Model_Member extends ORM {
         return $success;
     }
 
+    /**
+     * Updates the user's background image in S3.
+     *
+     * @param <type> $id
+     * @param <type> $localFileName
+     * @return <type>
+     */
     public static function updateBackground($id, $localFileName) {
         $s3 = new Amazon_S3();
 
@@ -313,6 +328,11 @@ class Model_Member extends ORM {
         return $member->save();
     }
 
+    /**
+     * Returns the properly formated member's name.
+     *
+     * @return <type>
+     */
     public function getName() {
         if ($this->firstname) {
             return $this->firstname;
@@ -321,8 +341,17 @@ class Model_Member extends ORM {
         }
     }
 
+    /**
+     * Returns the properly formated member's full name.
+     *
+     * @return <type>
+     */
     public function getFullName() {
-        return $this->firstname . ' ' . $this->lastname;
+        if($this->firstname && $this->lastname) {
+            return $this->firstname . ' ' . $this->lastname;
+        } else {
+            return $this->username;
+        }
     }
 
     /**
@@ -352,7 +381,7 @@ class Model_Member extends ORM {
         
         $friendObjects = self::quickLoad(array_slice($friends, rand(0, $friendCount - 1), 6));
 
-        $friendList .= '<div class="infoHeader" style="">' . $this->username . '\'s Friends (<a href="#" onclick="return false" onmousedown="javascript:toggleViewAllFriends(\'view_all_friends\');">' . $friendCount . '</a>)</div>';
+        $friendList .= '<div class="infoHeader" style="">' . $this->username . '\'s Friends (<a href="/ajax/profile/friends/' . $this->id . '" class="modal_link">' . $friendCount . '</a>)</div>';
         $i = 0; // create a varible that will tell us how many items we looped over
         $friendList .= '<div class="infoBody"><table id="friendTable" align="center" cellspacing="4"></tr>';
         foreach($friendObjects as $friendObject)  {
@@ -376,10 +405,52 @@ class Model_Member extends ORM {
             }
         }
         $friendList .= '</tr></table>
-	 <div align="right" ><a href="#" onclick="return false" onmousedown="javascript:toggleViewAllFriends(\'view_all_friends\');">view all</a></div>
+	 <div align="right" ><a href="/ajax/profile/friends/' . $this->id . '" class="modal_link">view all</a></div>
 	 </div>';
 
         return $friendList;
+    }
+
+    /**
+     * Generate a friends list.
+     *
+     * @param <type> $max
+     * @param <type> $start
+     */
+    public function generateLongFriendsList($max = 1000, $start = 0) {
+        $friends = explode(",", $this->friend_array);
+
+        $friendCount = count($friends);
+
+        $friendObjects = self::quickLoad(array_slice($friends, $start, $max));
+
+        $friendList = '<table id="friendPopBoxTable" width="200" align="center" cellpadding="6" cellspacing="0">';
+        $i = 0;
+
+        foreach ($friendObjects as $friend) {
+            $i++;
+            $frnd_pic = $this->getProfileImage(50, 0);
+
+            $funame = $this->getName();
+            $ffname = $this->firstname;
+            $fcountry = $this->country;
+            $fstate = $this->state;
+            $fcity = $this->city;
+            
+            if ($i % 2) {
+                $friendList .= '<tr bgcolor="#F4F4F4"><td width="14%" valign="top">
+                                            <div style="width:56px; height:56px; overflow:hidden;" title="' . $funame . '">' . $frnd_pic . '</div></td>
+                                         <td width="86%" valign="top"><a href="/' . $this->username . '">' . $funame . '</a><br /><font size="-2"><em>' . $fcity . '<br />' . $fstate . '<br />' . $fcountry . '</em></font></td>
+                                        </tr>';
+            } else {
+                $friendList .= '<tr bgcolor="#E0E0E0"><td width="14%" valign="top">
+                                            <div style="width:56px; height:56px; overflow:hidden;" title="' . $funame . '">' . $frnd_pic . '</div></td>
+                                         <td width="86%" valign="top"><a href="/' . $this->username . '">' . $funame . '</a><br /><font size="-2"><em>' . $fcity . '<br />' . $fstate . '<br />' . $fcountry . '</em></font></td>
+                                        </tr>';
+            }
+        }
+
+        return $friendList . '</table>';
     }
 
     /**
@@ -429,6 +500,11 @@ class Model_Member extends ORM {
                     ->get('total');
     }
 
+    /**
+     * Get's the feed content for the member's friends.
+     *
+     * @return string The generated blabs in HTML
+     */
     public function generateFriendBlabs() {
         $query = "SELECT b.id, b.mem_id, b.type, b.feed_id, b.text, b.`date`, b.likes as likes,
                          f.title as feed_title,
@@ -445,6 +521,11 @@ class Model_Member extends ORM {
             );
     }
 
+    /**
+     * Returns the total count of active members.
+     *
+     * @return int The total active members.
+     */
     public static function getTotalCount() {
         return DB::query(Database::SELECT, 'SELECT COUNT(*) as total
                                             FROM `myMembers`
@@ -453,6 +534,13 @@ class Model_Member extends ORM {
                     ->get('total');
     }
 
+    /**
+     * Returns an array of members that match the string in $data.
+     *
+     * @param string $data The data to search by.
+     * @param Util_Pager $pager Instance of a Util_Pager to use.
+     * @return array Array of Model_Members
+     */
     public static function doSearch($data, $pager) {
         if($data == "") {
             return Model_Member::factory('member')
@@ -472,11 +560,38 @@ class Model_Member extends ORM {
         }
     }
 
+    /**
+     * Returns the profile image of the user as HTML, given the width and height.
+     *
+     * @param int $width The width of the image
+     * @param int $height The height of the image
+     * @return string the HTML of the image
+     */
     public function getProfileImage($width = 50, $height = 0) {
         if(!$this->has_profile_image) {
             return "<img src=\"/content/images/image01.jpg\" width=\"$width\"/>";
         } else {
             return Images::getImage($this->id, 'image01.jpg', $width, $height, true, true);
         }
+    }
+
+    /**
+     * Static function to return the numeric age since $birthday.
+     *
+     * @param string $birthday YYYY-mm-DD formated date.
+     * @return int The age.
+     */
+    public static function getAge($birthday) {
+        list($year, $month, $day) = explode("-", $birthday);
+
+        $year_diff = date("Y") - $year;
+        $month_diff = date("m") - $month;
+        $day_diff = date("d") - $day;
+
+        if($day_diff < 0 || $month_diff < 0) {
+            $year_diff--;
+        }
+
+        return $year_diff;
     }
 }

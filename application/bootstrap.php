@@ -146,6 +146,12 @@ Route::set('inbox_ajax', 'ajax/inbox(/<action>)')
             'action' => 'index'
         ));
 
+Route::set('profile_ajax', 'ajax/profile/<action>/<id>')
+        ->defaults(array(
+            'controller' => 'ajax_profile',
+            'action' => 'index'
+        ));
+
 Route::set('feed', 'feed/<id>(/<action>)')
         ->defaults(array(
             'controller' => 'feed',

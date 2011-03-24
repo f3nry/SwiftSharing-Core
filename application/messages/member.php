@@ -71,5 +71,9 @@ return array(
     'birth_year' => array(
         'digit' => 'You must select a birth year.',
         'not_empty' => 'You must select a birth year.'
+    ),
+
+    'humancheck' => array(
+        'matches' => 'Please clear the human text.'
     )
 );

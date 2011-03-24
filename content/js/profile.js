@@ -1,11 +1,14 @@
 $(".modal_link").fancybox({
     hideOnContentClick: false,
-    scrolling: 'no',
+    scrolling: 'auto',
     showCloseButton: true,
+    autoDimensions: true,
     titleShow: false,
     onClosed: function() {
         $("#add_friend_loader").hide();
-    }
+    },
+    width:210,
+    height:500
 });
 
 function closeModal() {

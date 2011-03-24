@@ -15,4 +15,10 @@ class Controller_Ajax extends Controller {
     public function json($data) {
         echo json_encode($data);
     }
+
+    public function _requireAuth() {
+        if(!Session::instance()->get('user_id')) {
+            die("You are not logged in.");
+        }
+    }
 }
