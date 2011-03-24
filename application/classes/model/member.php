@@ -378,10 +378,14 @@ class Model_Member extends ORM {
         $friends = explode(",", $this->friend_array);
 
         $friendCount = count($friends);
+
+        if($friendCount < 6) {
+            $friendCount = 1;
+        }
         
         $friendObjects = self::quickLoad(array_slice($friends, rand(0, $friendCount - 1), 6));
 
-        $friendList .= '<div class="infoHeader" style="">' . $this->username . '\'s Friends (<a href="/ajax/profile/friends/' . $this->id . '" class="modal_link">' . $friendCount . '</a>)</div>';
+        $friendList .= '<div class="infoHeader" style="">' . $this->username . '\'s Friends (<a href="/ajax/profile/friends/' . $this->id . '" class="modal_link">' . count($friends) . '</a>)</div>';
         $i = 0; // create a varible that will tell us how many items we looped over
         $friendList .= '<div class="infoBody"><table id="friendTable" align="center" cellspacing="4"></tr>';
         foreach($friendObjects as $friendObject)  {
@@ -405,7 +409,7 @@ class Model_Member extends ORM {
             }
         }
         $friendList .= '</tr></table>
-	 <div align="right" ><a href="/ajax/profile/friends/' . $this->id . '" class="modal_link">view all</a></div>
+	 <div align="right" ><a href="/ajax/profile/friends/' . $this->id . '" class="short_friends_list">view all</a></div>
 	 </div>';
 
         return $friendList;

@@ -1,13 +1,22 @@
 $(".modal_link").fancybox({
     hideOnContentClick: false,
-    scrolling: 'yes',
     showCloseButton: true,
-    autoDimensions: true,
     titleShow: false,
     onClosed: function() {
         $("#add_friend_loader").hide();
     },
-    width:210,
+});
+
+$(".short_friends_list").fancybox({
+    hideOnContentClick: false,
+    scrolling: 'auto',
+    showCloseButton: true,
+    autoDimensions: false,
+    titleShow: false,
+    onClosed: function() {
+        $("#add_friend_loader").hide();
+    },
+    width:218,
     height:500
 });
 
