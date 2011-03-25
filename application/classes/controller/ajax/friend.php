@@ -12,6 +12,8 @@ class Controller_Ajax_Friend extends Controller_Ajax {
             echo "Request Denied.";
             return;
         } else if($_POST['request'] == 'removeFriendship') {
+            echo "Sorry, this feature is currently disabled due to some serious issues with removing friends. It will be available again in a few hours."; return;
+
             $to = preg_replace('#[^0-9]#i', '', $_POST['id']);
             $from = Session::instance()->get('user_id');
 
