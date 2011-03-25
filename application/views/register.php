@@ -119,7 +119,7 @@
                              <td bgcolor="#FFFFFF">Date of Birth <span class="brightRed"></td>
                              <td bgcolor="#FFFFFF">
                                  <select name="birth_month" class="formFields" id="birth_month">
-                                     <option value="<?php echo $data['birth_month'] ?>"><?php echo $data['birth_month_text'] ?></option>
+                                     <option value="<?php echo @$data['birth_month'] ?>"><?php echo @$data['birth_month_text'] ?></option>
                                      <option value="01">January</option>
                                      <option value="02">February</option>
                                      <option value="03">March</option>
@@ -134,7 +134,7 @@
                                      <option value="12">December</option>
                                  </select>
                                  <select name="birth_day" class="formFields" id="birth_day">
-                                     <option value="<?php echo $data['birth_date'] ?>"><?php echo $data['birth_date'] ?></option>
+                                     <option value="<?php echo @$data['birth_date'] ?>"><?php echo @$data['birth_date'] ?></option>
                                      <option value="01">1</option>
                                      <option value="02">2</option>
                                      <option value="03">3</option>
@@ -168,7 +168,7 @@
                                      <option value="31">31</option>
                                  </select>
                                  <select name="birth_year" class="formFields" id="birth_year">
-                                     <option value="<?php echo $data['birth_year'] ?>"><?php echo $data['birth_year'] ?></option>
+                                     <option value="<?php echo @$data['birth_year'] ?>"><?php echo @$data['birth_year'] ?></option>
                                      <option value="2010">2010</option>
                                      <option value="2009">2009</option>
                                      <option value="2008">2008</option>
