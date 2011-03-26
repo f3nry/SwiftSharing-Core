@@ -84,10 +84,26 @@ class Model_Relationship extends ORM {
      * @param integer $to To ID
      * @return array
      */
-    public static function findByTo($to) {
-        return Model_Relationship::factory('relationship')
-                            ->where('to', '=', $to)
-                            ->find_all();
+    public static function findByTo($to, $as_member_objects = false, $start = 0, $max = 6) {
+        if($as_member_objects) {
+            return Model_Member::factory('member')
+                    ->join('friend_relationships', 'INNER')
+                    ->on('friend_relationships.from', '=', 'myMembers.id')
+                    ->where('friend_relationships.to', '=', $to)
+                    ->limit($max)
+                    ->offset($start)
+                    ->find_all();
+        } else {
+            return Model_Relationship::factory('relationship')
+                                ->where('to', '=', $to)
+                                ->find_all();
+        }
+    }
+
+    public static function countByTo($to) {
+        return DB::query(Database::SELECT, "SELECT COUNT(*) as total FROM friend_relationships WHERE `to` = $to")
+                    ->execute()
+                    ->get('total');
     }
 
     /**

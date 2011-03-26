@@ -375,15 +375,13 @@ class Model_Member extends ORM {
      * @return string The generated list in HTML
      */
     public function generateShortFriendsList() {
-        $friends = Model_Relationship::findByTo($this->id);
+        $friendCount = Model_Relationship::countByTo($this->id);
 
-        $friendCount = $friends->count();
+        $start = ($friendCount < 6) ? 0 : rand(0, $friendCount - 6);
 
-        $start = ($friendCount < 6) ? 1 : rand(0, $friendCount - 6);
+        $friendObjects = Model_Relationship::findByTo($this->id, true, $start);
 
-        $friendObjects = self::quickLoad($friends, $start, 5);
-
-        $friendList .= '<div class="infoHeader" style="">' . $this->username . '\'s Friends (<a href="/ajax/profile/friends/' . $this->id . '" class="modal_link">' . (count($friends)) . '</a>)</div>';
+        $friendList .= '<div class="infoHeader" style="">' . $this->username . '\'s Friends (<a href="/ajax/profile/friends/' . $this->id . '" class="short_friends_list">' . ($friendCount) . '</a>)</div>';
         $i = 0; // create a varible that will tell us how many items we looped over
         $friendList .= '<div class="infoBody"><table id="friendTable" align="center" cellspacing="4"></tr>';
         foreach($friendObjects as $friendObject)  {
@@ -420,15 +418,13 @@ class Model_Member extends ORM {
      * @param <type> $start
      */
     public function generateLongFriendsList($max = false, $start = 0) {
-        $friends = Model_Relationship::findByTo($this->id);
-
-        $friendCount = $friends->count();
+        $friendCount = Model_Relationship::countByTo($this->id);
 
         if(!$max) {
             $max = $friendCount;
         }
 
-        $friendObjects = self::quickLoad($friends, $start + 1, $max);
+        $friendObjects = Model_Relationship::findByTo($this->id, true, $start, $max);
 
         $friendList = '<table id="friendPopBoxTable" width="200" align="center" cellpadding="6" cellspacing="0">';
         $i = 0;
