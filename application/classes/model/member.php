@@ -472,11 +472,11 @@ class Model_Member extends ORM {
             return array();
         }
 
-        if(is_array($id) || (is_object($id) && count($id) > 1)) {
+        if(is_array($id) || (is_object($id) && isset($id[0]))) {
             if($id[0] instanceof Model_Relationship) {
                 $ids = "";
 
-                for($i = $start - 1; $i < count($id) && ($i < ($start + $max) || $max == -1); $i++) {
+                for($i = $start - 1; $i < count($id) && (($i <= ($start + $max)) || $max == -1); $i++) {
                     $ids .= trim($id[$i]->from . ",", ",");
                 }
             } else {
