@@ -10,10 +10,11 @@ return array(
 		 * integer  gc     number of requests before gc is invoked
 		 * columns  array  custom column names
 		 */
-		'group'   => 'default',
-		'table'   => 'sessions',
-		'gc'      => 500,
-		'columns' => array(
+		'group'    => 'default',
+		'table'    => 'sessions',
+		'gc'       => 500,
+                'lifetime' => 86400,
+		'columns'  => array(
 			/**
 			 * session_id:  session identifier
 			 * last_active: timestamp of the last activity
