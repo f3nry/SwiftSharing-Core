@@ -34,19 +34,31 @@ class Controller_Members extends Controller_App {
 
         $searchField = addslashes($searchField);
 
+        if(count($names = explode(' ', $searchField)) > 1) {
+            $firstNameQuery = $names[0];
+            $lastNameQuery = implode(' ', array_slice($names, 1));
+            
+            $countQuery = "myMembers WHERE email_activated != '0'
+                                 AND firstname SOUNDS LIKE '$firstNameQuery'
+                                 OR lastname   SOUNDS LIKE '$lastNameQuery'
+                                 OR username   SOUNDS LIKE '$searchField' ";
+        } else {
+            $countQuery = "myMembers WHERE email_activated != '0'
+                                 AND firstname SOUNDS LIKE '$searchField'
+                                 OR lastname   SOUNDS LIKE '$searchField'
+                                 OR username   SOUNDS LIKE '$searchField' ";
+        }
+
         //Setup a pager
         $pager = Util_Pager::setup(
                 $this->request->param('page_number'),       //Page number
                 15,                                         //Max number of records to retrieve
-                "myMembers WHERE email_activated != '0'
-                                 AND firstname SOUNDS LIKE '%$searchField%'
-                                 OR lastname   SOUNDS LIKE '%$searchField%'
-                                 OR username   SOUNDS LIKE '%$searchField%' ", //Extra query to get count
+                $countQuery, //Extra query to get count
                 '/members/search'                           //URL to use in the pager. Will append /page/<new_pager_number>
             );
 
         $this->template->totalMembers = Model_Member::getTotalCount(); //Get total number of members
-        $this->template->members = Model_Member::doSearch(@$post['searchField'], $pager); //Perform the search
+        $this->template->members = Model_Member::doSearch($searchField, $pager); //Perform the search
         $this->template->pager = $pager->generateHTML(); //Generate the pager HTML
     }
 }

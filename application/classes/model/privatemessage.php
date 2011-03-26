@@ -57,7 +57,7 @@ class Model_PrivateMessage extends ORM {
      */
     public static function sendMessage($conversation, $message, $from_id, $to_id) {
         $first_message = DB::query(Database::INSERT,
-                "INSERT INTO private_conversation_messages
+                "INSERT INTO private_conversation_messages (id, conversation_id, message, date_sent, message_from, message_to, read_to) 
                     VALUES (0, :conversation_id, :message, NOW(), :from_id, :to_id, 0)");
 
         if(is_numeric($conversation)) {

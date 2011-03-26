@@ -526,6 +526,7 @@ class Model_Member extends ORM {
                     INNER JOIN friend_relationships fr ON fr.to = b.mem_id
                     LEFT JOIN feeds f ON f.id = b.feed_id
                     WHERE (b.type = 'STATUS' OR b.type = 'PHOTO' OR b.type = 'PROFILE') AND (fr.from = " . (integer)$this->id . " OR b.mem_id = {$this->id})
+                    GROUP BY b.id
                     ORDER BY date DESC LIMIT 15";
 
         return Model_Feed::getFeedContent(
@@ -561,6 +562,17 @@ class Model_Member extends ORM {
                         ->limit($pager->itemsPerPage)
                         ->find_all();
         } else {
+            if(count($names = explode(' ', $data)) > 1) {
+                return Model_Member::factory('member')
+                            ->where('email_activated', '=', 1)
+                            ->and_where('username', 'SOUNDS LIKE', $data)
+                            ->or_where('firstname', 'SOUNDS LIKE', $names[0])
+                            ->or_where('lastname', 'SOUNDS LIKE', implode(' ', array_slice($names, 1)))
+                            ->offset($pager->start)
+                            ->limit($pager->itemsPerPage)
+                            ->find_all();
+            }
+
             return Model_Member::factory('member')
                         ->where('email_activated', '=', 1)
                         ->and_where('username', 'SOUNDS LIKE', $data)
