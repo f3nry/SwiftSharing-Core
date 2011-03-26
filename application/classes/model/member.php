@@ -379,11 +379,9 @@ class Model_Member extends ORM {
 
         $friendCount = $friends->count();
 
-        if($friendCount < 6) {
-            $friendCount = 1;
-        }
+        $start = ($friendCount < 6) ? 1 : rand(0, $friendCount - 6);
 
-        $friendObjects = self::quickLoad($friends, $friendCount, 6);
+        $friendObjects = self::quickLoad($friends, $start, 6);
 
         $friendList .= '<div class="infoHeader" style="">' . $this->username . '\'s Friends (<a href="/ajax/profile/friends/' . $this->id . '" class="modal_link">' . (count($friends)) . '</a>)</div>';
         $i = 0; // create a varible that will tell us how many items we looped over
