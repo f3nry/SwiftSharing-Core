@@ -32,7 +32,7 @@ class Controller_Members extends Controller_App {
             Session::instance()->delete('searchField');
         }
 
-        $searchField = Database::instance()->escape($searchField);
+        $searchField = addslashes($searchField);
 
         //Setup a pager
         $pager = Util_Pager::setup(
@@ -41,7 +41,7 @@ class Controller_Members extends Controller_App {
                 "myMembers WHERE email_activated != '0'
                                  AND firstname SOUNDS LIKE '%$searchField%'
                                  OR lastname   SOUNDS LIKE '%$searchField%'
-                                 OR username    SOUNDS LIKE '%$searchField%' ", //Extra query to get count
+                                 OR username   SOUNDS LIKE '%$searchField%' ", //Extra query to get count
                 '/members/search'                           //URL to use in the pager. Will append /page/<new_pager_number>
             );
 
