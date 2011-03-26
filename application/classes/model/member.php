@@ -470,7 +470,7 @@ class Model_Member extends ORM {
             return array();
         }
 
-        if(is_array($id) || (is_object($id) && isset($id[0]))) {
+        if(is_array($id) || $id instanceof Database_MySQL_Result) {
             if($id[0] instanceof Model_Relationship) {
                 $ids = "";
 
