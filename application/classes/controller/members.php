@@ -39,14 +39,14 @@ class Controller_Members extends Controller_App {
             $lastNameQuery = implode(' ', array_slice($names, 1));
             
             $countQuery = "myMembers WHERE email_activated != '0'
-                                 AND firstname SOUNDS LIKE '$firstNameQuery'
-                                 OR lastname   SOUNDS LIKE '$lastNameQuery'
-                                 OR username   SOUNDS LIKE '$searchField' ";
+                                 AND firstname LIKE '%$firstNameQuery%'
+                                 OR lastname   LIKE '%$lastNameQuery%'
+                                 OR username   LIKE '%$searchField%' ";
         } else {
             $countQuery = "myMembers WHERE email_activated != '0'
-                                 AND firstname SOUNDS LIKE '$searchField'
-                                 OR lastname   SOUNDS LIKE '$searchField'
-                                 OR username   SOUNDS LIKE '$searchField' ";
+                                 AND firstname LIKE '%$searchField%'
+                                 OR lastname   LIKE '%$searchField%'
+                                 OR username   LIKE '%$searchField%' ";
         }
 
         //Setup a pager

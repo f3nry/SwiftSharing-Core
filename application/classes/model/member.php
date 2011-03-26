@@ -565,9 +565,9 @@ class Model_Member extends ORM {
             if(count($names = explode(' ', $data)) > 1) {
                 return Model_Member::factory('member')
                             ->where('email_activated', '=', 1)
-                            ->and_where('username', 'SOUNDS LIKE', $data)
-                            ->or_where('firstname', 'SOUNDS LIKE', $names[0])
-                            ->or_where('lastname', 'SOUNDS LIKE', implode(' ', array_slice($names, 1)))
+                            ->and_where('username', 'LIKE', '%' . $data . '%')
+                            ->or_where('firstname', 'LIKE', '%' . $names[0] . '%')
+                            ->or_where('lastname', 'LIKE', '%' . implode(' ', array_slice($names, 1)) . '%')
                             ->offset($pager->start)
                             ->limit($pager->itemsPerPage)
                             ->find_all();
@@ -575,9 +575,9 @@ class Model_Member extends ORM {
 
             return Model_Member::factory('member')
                         ->where('email_activated', '=', 1)
-                        ->and_where('username', 'SOUNDS LIKE', $data)
-                        ->or_where('firstname', 'SOUNDS LIKE', $data)
-                        ->or_where('lastname', 'SOUNDS LIKE', $data)
+                        ->and_where('username', 'LIKE', '%' . $data . '%')
+                        ->or_where('firstname', 'LIKE', '%' . $data . '%')
+                        ->or_where('lastname', 'LIKE', '%' . $data . '%')
                         ->offset($pager->start)
                         ->limit($pager->itemsPerPage)
                         ->find_all();
