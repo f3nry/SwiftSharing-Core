@@ -474,7 +474,7 @@ class Model_Member extends ORM {
             if($id[0] instanceof Model_Relationship) {
                 $ids = "";
 
-                for($i = $start - 1; $i <= count($id) && (($i < ($start + $max)) || $max == -1); $i++) {
+                for($i = $start - 1; $i < count($id) && (($i < ($start + $max)) || $max == -1); $i++) {
                     $ids .= $id[$i]->from . ",";
                 }
 
