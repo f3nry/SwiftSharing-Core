@@ -25,7 +25,7 @@ class Controller_Members extends Controller_App {
 
             Session::instance()->set('searchField', $searchField);
         } else if(Session::instance()->get('searchField') && $this->request->param('page_number')) {
-            $searchField = $post['searchField'];
+            $searchField = Session::instance()->get('searchField');
         } else {
             $searchField = "";
 
