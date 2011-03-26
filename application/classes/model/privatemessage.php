@@ -122,7 +122,7 @@ class Model_PrivateMessage extends ORM {
                 <div class="photo">' . $photo . '</div>
                 <div class="half">
                     <div class="sub">' . $row->subject . '</div>
-                    <div class="msg">' . $row->message . '</div>
+                    <div class="msg">' . stripslashes($row->message) . '</div>
                     <div class="person"><a href="/' . $row->member_from_username . '">' . $row->member_from_firstname . ' ' . $row->member_from_lastname . '</a></div>
                     <div class="read"><a href="/inbox/view/' . $row->id . '">Read</a></div>
                 </div>

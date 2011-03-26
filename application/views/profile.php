@@ -1,5 +1,5 @@
 <?php
-    $is_friend = in_array(Session::instance()->get('user_id'), explode(",", $member->friend_array));
+    $is_friend = (boolean)Model_Relationship::findRelationship($member->id, Session::instance()->get('user_id'))->is_loaded();
 ?>
 <style type="text/css">
     #header {

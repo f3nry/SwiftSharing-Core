@@ -54,33 +54,15 @@ class Model_FriendRequest extends Model {
         $fromMember = Model_Member::loadFromID($request->get('mem1'));
         $toMember = Model_Member::loadFromID($request->get('mem2'));
 
-        $fromMemberFriendArray = explode(",", $fromMember->friend_array);
-        $toMemberFriendArray = explode(",", $toMember->friend_array);
-
-        if(in_array($fromMember->id, $toMemberFriendArray)) {
+        if(Model_Relationship::findRelationship($toMember->id, $fromMember->id)->is_loaded()) {
             echo 'This member is already your Friend.';
             return;
         }
 
-        if(in_array($toMember->id, $fromMemberFriendArray)) {
-            echo 'This member is already your Friend.';
+        if(!Model_Relationship::addRelationship($toMember->id, $fromMember->id)) {
+            echo 'Failed to add friend. Please try again later.';
             return;
         }
-
-        if($fromMember->friend_array != "") {
-            $fromMember->friend_array .= "," . $toMember->id;
-        } else {
-            $fromMember->friend_array = $toMember->id;
-        }
-
-        if($toMember->friend_array != "") {
-            $toMember->friend_array .= "," . $fromMember->id;
-        } else {
-            $toMember->friend_array = $fromMember->id;
-        }
-
-        $fromMember->save();
-        $toMember->save();
 
         DB::delete('friends_requests')->where('id', '=', $id)->execute();
 

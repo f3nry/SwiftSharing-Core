@@ -12,8 +12,6 @@ class Controller_Ajax_Friend extends Controller_Ajax {
             echo "Request Denied.";
             return;
         } else if($_POST['request'] == 'removeFriendship') {
-            echo "Sorry, this feature is currently disabled due to some serious issues with removing friends. It will be available again in a few hours."; return;
-
             $to = preg_replace('#[^0-9]#i', '', $_POST['id']);
             $from = Session::instance()->get('user_id');
 
@@ -40,16 +38,12 @@ class Controller_Ajax_Friend extends Controller_Ajax {
                 exit;
             }
 
-            if(!in_array($from, explode(",", $toMember->friend_array))) {
+            if(!Model_Relationship::findRelationship($to, $from)->is_loaded()) {
                 echo '<img src="/content/images/round_error.png" width="20" height="20" alt="Error" /> This member is not your friend.';
                 exit();
             }
 
-            $toMember->friend_array = trim(str_replace($from, "", 1), ',');
-            $fromMember->friend_array = trim(str_replace($to, "", 1), ',');
-
-            $fromMember->save();
-            $toMember->save();
+            Model_Relationship::findRelationship($to, $from)->removeRelationship();
 
             echo 'You are no longer friends with this member.';
             exit();
@@ -80,7 +74,7 @@ class Controller_Ajax_Friend extends Controller_Ajax {
                 exit;
             }
 
-            if(in_array($from, explode(",", $toMember->friend_array))) {
+            if(Model_Relationship::findRelationship($to, $from)->is_loaded()) {
                 echo '<img src="/content/images/round_error.png" width="20" height="20" alt="Error" /> This member is already your friend.';
                 exit();
             }

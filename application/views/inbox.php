@@ -143,6 +143,9 @@
                         if(!Images::downloadResizeAndUpload($message->from->id, 'image01.jpg', 75, 75)) {
                             echo '<img src="/content/images/image01.jpg" width="75" height="75" />';
                         } else {
+                            $message->from->has_message_image = true;
+                            $message->from->save();
+
                             echo Images::getImage($message->from->id, 'image01.jpg', 75, 75, true, true);
                         }
                     }
@@ -165,6 +168,9 @@
                             if(!Images::downloadResizeAndUpload($message->to->id, 'image01.jpg', 75, 75)) {
                                 echo '<img src="/content/images/image01.jpg" width="75" height="75" />';
                             } else {
+                                $message->to->has_message_image = true;
+                                $message->to->save();
+
                                 echo Images::getImage($message->to->id, 'image01.jpg', 75, 75, true, true);
                             }
                         }
@@ -197,7 +203,7 @@
                     <?php endif; ?>
                 </div>
                 <div class="text" style="margin-top:10px;float:none;">
-                    <?php echo $response->message ?>
+                    <?php echo stripslashes($response->message) ?>
                     <div class="time"><a href="/<?php echo $response_member->username ?>"><?php echo $response_member->firstname ?></a> said on <?php echo date("n/j/Y \a\\t g:i a", strtotime($response->date_sent)) ?></div>
                 </div>
                 <div style="clear:both;height:4px;"></div>

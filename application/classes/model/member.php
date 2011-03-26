@@ -375,17 +375,17 @@ class Model_Member extends ORM {
      * @return string The generated list in HTML
      */
     public function generateShortFriendsList() {
-        $friends = explode(",", $this->friend_array);
+        $friends = Model_Relationship::findByTo($this->id);
 
-        $friendCount = count($friends);
+        $friendCount = $friends->count();
 
         if($friendCount < 6) {
             $friendCount = 1;
         }
-        
-        $friendObjects = self::quickLoad(array_slice($friends, rand(0, $friendCount - 1), 6));
 
-        $friendList .= '<div class="infoHeader" style="">' . $this->username . '\'s Friends (<a href="/ajax/profile/friends/' . $this->id . '" class="modal_link">' . count($friends) . '</a>)</div>';
+        $friendObjects = self::quickLoad($friends, $friendCount, 6);
+
+        $friendList .= '<div class="infoHeader" style="">' . $this->username . '\'s Friends (<a href="/ajax/profile/friends/' . $this->id . '" class="modal_link">' . (count($friends)) . '</a>)</div>';
         $i = 0; // create a varible that will tell us how many items we looped over
         $friendList .= '<div class="infoBody"><table id="friendTable" align="center" cellspacing="4"></tr>';
         foreach($friendObjects as $friendObject)  {
@@ -422,15 +422,15 @@ class Model_Member extends ORM {
      * @param <type> $start
      */
     public function generateLongFriendsList($max = false, $start = 0) {
-        $friends = explode(",", $this->friend_array);
+        $friends = Model_Relationship::findByTo($this->id);
 
-        $friendCount = count($friends);
+        $friendCount = $friends->count();
 
         if(!$max) {
             $max = $friendCount;
         }
 
-        $friendObjects = self::quickLoad(array_slice($friends, $start, $max));
+        $friendObjects = self::quickLoad($friends, $start + 1, $max);
 
         $friendList = '<table id="friendPopBoxTable" width="200" align="center" cellpadding="6" cellspacing="0">';
         $i = 0;
@@ -467,16 +467,24 @@ class Model_Member extends ORM {
      * @param integer|array $id A single, or multiple ids.
      * @return Database_Result The resulting member(s) as a database result, as an object.
      */
-    public static function quickLoad($id) {
+    public static function quickLoad($id, $start = 1, $max = -1) {
         if(empty($id)) {
             return array();
         }
 
-        if(is_array($id)) {
-            $ids = trim(implode(',', $id), ', ');
+        if(is_array($id) || (is_object($id) && count($id) > 1)) {
+            if($id[0] instanceof Model_Relationship) {
+                $ids = "";
 
-            if(empty($ids)) {
-                return false;
+                for($i = $start - 1; $i < count($id) && ($i < ($start + $max) || $max == -1); $i++) {
+                    $ids .= trim($id[$i]->from . ",", ",");
+                }
+            } else {
+                $ids = trim(implode(',', $id), ', ');
+            }
+
+            if(!$ids) {
+                $ids = -1;
             }
 
             return DB::query(Database::SELECT,
@@ -519,9 +527,9 @@ class Model_Member extends ORM {
                          m.username as username, m.firstname as firstname, m.lastname as lastname, m.friend_array as friends, m.privacy_option as privacy_option, m.has_profile_image
                     FROM blabs b
                     INNER JOIN myMembers m ON b.mem_id = m.id
+                    INNER JOIN friend_relationships fr ON fr.to = b.mem_id
                     LEFT JOIN feeds f ON f.id = b.feed_id
-                    WHERE (type = 'STATUS' OR type = 'PHOTO' OR type = 'PROFILE') AND (b.mem_id = {$this->id} OR m.friend_array = '{$this->id}' OR m.friend_array LIKE '%,{$this->id},%'
-									OR m.friend_array LIKE '{$this->id},%' OR m.friend_array LIKE '%,{$this->id}')
+                    WHERE (b.type = 'STATUS' OR b.type = 'PHOTO' OR b.type = 'PROFILE') AND (fr.from = " . (integer)$this->id . " OR b.mem_id = {$this->id})
                     ORDER BY date DESC LIMIT 15";
 
         return Model_Feed::getFeedContent(
