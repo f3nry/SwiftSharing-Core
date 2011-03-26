@@ -477,8 +477,10 @@ class Model_Member extends ORM {
                 $ids = "";
 
                 for($i = $start - 1; $i < count($id) && (($i <= ($start + $max)) || $max == -1); $i++) {
-                    $ids .= trim($id[$i]->from . ",", ",");
+                    $ids .= $id[$i]->from . ",";
                 }
+
+                $ids = trim($ids, ', ');
             } else {
                 $ids = trim(implode(',', $id), ', ');
             }
