@@ -68,7 +68,7 @@ abstract class Kohana_Session {
 	/**
 	 * @var  int  cookie lifetime
 	 */
-	protected $_lifetime = 0;
+	protected $_lifetime = 86400;
 
 	/**
 	 * @var  bool  encrypt session data?
