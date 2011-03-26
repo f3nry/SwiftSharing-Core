@@ -189,12 +189,14 @@
                 <input type="hidden" name="profile_flag" id="profile_flag" value="1" />
             </form>
         </div>
-        <div style="width:516px; overflow-x:hidden;padding-top:8px;" id="feed">
+        <div style="width:516px; overflow-x:hidden;padding-top:8px;">
+            <div id="feed">
             <?php echo @$blabs; ?>
-            <table style="background-color:#FFF; border:#999 1px solid; border-top:none;" cellpadding="5" width="94%">
+            </div>
+            <table style="background-color:#FFF;" cellpadding="5" width="94%">
                 <tr style="padding:4px;">
                     <td>
-                        <a href="#" onclick="loadMore()">more</a>
+                        <a href="javascript:void()" onclick="loadMore()">more</a>
                     </td>
                 </tr>
             </table>

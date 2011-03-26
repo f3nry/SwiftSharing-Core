@@ -387,11 +387,17 @@ function loadMore() {
     var url = "/ajax/feed/past";
 
     if(ID) {
+        var data = {
+            lastmsg: ID,
+            profile_flag: $("#profile_flag").val(),
+            feed_id: $("#current_feed_id").text()
+        };
+
         //Post to the server
         $.ajax({
             type: "POST",
             url: url,
-            data: "lastmsg="+ ID,
+            data: data,
             cache: false,
             success: function(html){
                 //Append the returned blabs

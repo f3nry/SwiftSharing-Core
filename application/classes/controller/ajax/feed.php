@@ -69,8 +69,12 @@ class Controller_Ajax_Feed extends Controller_Ajax {
         $blab = Model_Blab::getById($_POST['lastmsg']);
 
         if($blab) {
-            echo Model_Feed::getFeedContent($blab->feed_id, "'STATUS' OR type = 'PHOTO'", false, $blab->date, true);
-
+            if($_POST['profile_flag']) {
+                echo Model_Feed::getFeedContent('*', "'STATUS' OR type = 'PHOTO'", $_POST['feed_id'], $blab->date, true);
+            } else {
+                echo Model_Feed::getFeedContent($blab->feed_id, "'STATUS' OR type = 'PHOTO'", false, $blab->date, true);
+            }
+            
             exit;
         }
     }
