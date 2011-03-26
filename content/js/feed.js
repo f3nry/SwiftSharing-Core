@@ -405,6 +405,25 @@ function loadMore() {
 				
                 //Update the thumbs up
                 bindThumbsUp();
+                
+                $(".comments").fancybox({
+                    hideOnContentClick: false,
+                    scrolling: 'no',
+                    showCloseButton: true,
+                    titleShow: false,
+                    width:400,
+                    height:300,
+                    onComplete: function() {
+                        bindThumbsUp();
+                    }
+                });
+
+                $(".post_photo").fancybox({
+                    hideOnContentClick: true,
+                    showCloseButton: true,
+                    width:500,
+                    titleShow: true
+                })
             }
         });
     }
