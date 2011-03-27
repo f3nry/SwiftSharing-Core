@@ -122,7 +122,6 @@ class Session_Mango extends Session {
      * @return string New valid session id
      */
     protected function _regenerate() {
-        echo 'Regenerated';
         do {
             $id = str_replace('.', '-', uniqid(null, true));
 
