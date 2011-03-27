@@ -9,10 +9,21 @@
 
 class Model_Feed extends ORM
 {
+    /**
+     * Get an instance of the feed with the id of $id.
+     *
+     * @param integer $id Feed ID
+     * @return Model_Feed
+     */
     public static function getFeed($id) {
         return Model_Feed::factory('feed')->where('id', '=', $id)->find();
     }
 
+    /**
+     * Generates a list of all feeds.
+     *
+     * @return string The generated list
+     */
     public static function generateFeedList()
     {
         $result = DB::select('id', 'title')->from('feeds')->where('mem_id', '=', '-1')->order_by('index', 'ASC')->execute();
@@ -29,6 +40,16 @@ class Model_Feed extends ORM
         return $output;
     }
 
+    /**
+     * Returns the results for querying with the specified parameters
+     *
+     * @param integer $feed_id The feed to look for
+     * @param string $type The where clause for a type
+     * @param integer $member Specific member to look for
+     * @param string $lastdate The date compare against
+     * @param boolean $reverse Reverse the date query? true will return older blabs, false will return newer blabs.
+     * @return <type>
+     */
     public static function getFeedBlabs($feed_id, $type = "'STATUS'", $member = false, $lastdate = false, $reverse = false)
     {
         $where = "";
@@ -52,7 +73,20 @@ class Model_Feed extends ORM
                     LEFT JOIN myMembers m ON b.mem_id = m.id
                     LEFT JOIN feeds f ON f.id = b.feed_id";
 
-        $query .= " WHERE $feed_id AND (type = $type) ";
+        $privacy_option = Model_Member::getPrivacy(Session::instance()->get('user_id'));
+
+        if($privacy_option == 'locked') {
+            $query .= " LEFT JOIN friend_relationships fr ON fr.to = b.mem_id";
+
+            $where .= " AND (b.mem_id = " . Session::instance()->get('user_id') . " OR fr.from = b.mem_id)";
+        } else {
+            $query .= " LEFT JOIN friend_relationships fr ON fr.to = b.mem_id";
+
+            $where .= " AND ((m.privacy_option != 'locked' AND m.privacy_option != 'limited') OR ";
+            $where .= " (b.mem_id = " . Session::instance()->get('user_id') . " OR fr.from = b.mem_id)) ";
+        }
+
+        $query .= " WHERE $feed_id AND (b.type = $type) ";
 
         if($lastdate) {
             if($reverse) {
@@ -62,12 +96,12 @@ class Model_Feed extends ORM
             }
         }
 
-        $query .= "$where ORDER BY date DESC LIMIT 15";
+        $query .= "$where GROUP BY b.id ORDER BY date DESC LIMIT 15";
 
         return DB::query(Database::SELECT, $query)->execute()->as_array();
     }
 
-    public static function getFeedContent($feed_id, $type  = "'STATUS' OR type = 'PHOTO'", $member = false, $lastdate = false, $reverse = false) {
+    public static function getFeedContent($feed_id, $type  = "'STATUS' OR b.type = 'PHOTO'", $member = false, $lastdate = false, $reverse = false) {
         if(is_object($feed_id) && $feed_id instanceof Database_Result) {
             $blabs = $feed_id;
         } else {
@@ -187,7 +221,7 @@ class Model_Feed extends ORM
         $blab .= '</div>
                 <div class="likes">
                 ' . Model_Like::generateLikeBox($row['id'], $row['likes'],
-                    (Session::instance('database')->get('user_id') == $row['mem_id'] || ($row['type'] == 'PROFILE' && $row['feed_id'] == Session::instance('database')->get('user_id')))) . '
+                    (Session::instance()->get('user_id') == $row['mem_id'] || ($row['type'] == 'PROFILE' && $row['feed_id'] == Session::instance()->get('user_id')))) . '
                 </div>
                 <div style="clear:both;height:4px;"></div>
                 <div style="display:none;" id="blab_' . $row['id'] . '_timestamp">' . $convertedTime . '</div>

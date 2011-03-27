@@ -8,10 +8,6 @@
  */
  
 class Controller_Ajax extends Controller {
-    public function before() {
-        Session::$default = "database";
-    }
-
     public function json($data) {
         echo json_encode($data);
     }

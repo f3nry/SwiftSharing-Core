@@ -27,9 +27,9 @@ class Controller_Login extends Controller_App {
 
                 $this->request->redirect("/");
             } else if($member->email_activated == '0') {
-				$this->template->message = 'Your account is not activated yet. Please check your email.';
-				$this->template->email = $post['email'];
-			} else {
+                $this->template->message = 'Your account is not activated yet. Please check your email.';
+                $this->template->email = $post['email'];
+            } else {
                 $this->template->message = "Wrong username/password. Please try again.";
                 $this->template->email = $post['email'];
             }

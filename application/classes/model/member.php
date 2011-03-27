@@ -634,4 +634,37 @@ class Model_Member extends ORM {
 
         return $year_diff;
     }
+
+    /**
+     * Return the privacy option of the user with the id of $id.
+     *
+     * @param integer $id User ID
+     * @return string The text of the privacy option.
+     */
+    public static function getPrivacy($id) {
+        return DB::select('privacy_option')
+                    ->from('myMembers')
+                    ->where('id', '=', $id)
+                    ->execute()
+                    ->get('privacy_option');
+    }
+
+    public function getNiceGender($option) {
+        switch($option) {
+            case 'his':
+                if($this->gender == 'm') {
+                    return 'his';
+                } else {
+                    return 'her';
+                }
+                break;
+            case 'him':
+                if($this->gender == 'm') {
+                    return 'him';
+                } else {
+                    return 'her';
+                }
+                break;
+        }
+    }
 }

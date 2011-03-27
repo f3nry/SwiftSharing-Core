@@ -10,8 +10,8 @@ class Controller_Ajax_Inbox extends Controller_Ajax {
             $from = Session::instance()->get('user_id');
             $subject = htmlspecialchars($_POST['subject']); // Convert html tags and such to html entities which are safer to store and display
             $message = htmlspecialchars($_POST['message']); // Convert html tags and such to html entities which are safer to store and display
-            $subject = mysql_real_escape_string($subject); // Just in case anything malicious is not converted, we escape those characters here
-            $message = mysql_real_escape_string($message); // Just in case anything malicious is not converted, we escape those characters here
+            $subject = addslashes($subject); // Just in case anything malicious is not converted, we escape those characters here
+            $message = addslashes($message); // Just in case anything malicious is not converted, we escape those characters here
 
             $data = array(
                 'to' => $to,

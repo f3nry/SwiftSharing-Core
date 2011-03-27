@@ -1,5 +1,7 @@
 <?php
     $is_friend = (boolean)Model_Relationship::findRelationship($member->id, Session::instance()->get('user_id'))->is_loaded();
+
+    $hideContent = !($is_friend || $member->privacy_option == '' || $member->privacy_option == 'public');
 ?>
 <style type="text/css">
     #header {
@@ -81,6 +83,7 @@
                 </form>
             </div>
         </div>
+        <?php if(!$hideContent): ?>
         <div style="width:218px;">
             <?php echo @$interactionBox ?>
             <?php if($member->music || $member->tv || $member->books || $member->movies): ?>
@@ -121,9 +124,9 @@
                 <?php endif; ?>
             </div>
             <?php endif; ?>
-            <?php echo @$website; ?>
-            <?php echo @$youtube; ?>
-            <?php echo @$facebook; ?>
+            <?php echo @$member->website; ?>
+            <?php echo @$member->youtube; ?>
+            <?php echo @$member->facebook; ?>
         </div>
         <div id="short_friend_list">
             <?php echo @$member->generateShortFriendsList(); ?>
@@ -170,11 +173,13 @@
         }).render().setUser('<?php echo $member->twitter ?>').start();
         </script>
         <?php endif; ?>
+        <?php endif; ?>
     </div>
     <div class="text_block">
         <div class="text_block_content">
         <h1 style="padding-bottom:0px;margin:0;"><?php echo $member->firstname . " " . $member->lastname; ?></h1>
         <p><?php echo @$member->bio_body; ?></p>
+        <?php if(!$hideContent): ?>
         <div style="background-color:#BDF; border:#999 1px solid; padding:2px;max-width:506px;">
             <div style="display:none;" id="current_feed_id"><?php echo $member->id; ?></div>
             <form action="/ajax/feed/new" id="share" method="post" enctype="multipart/form-data">
@@ -201,6 +206,12 @@
                 </tr>
             </table>
         </div>
+        <?php else: ?>
+        <p>
+        <b><?php echo $member->getName() ?> has chosen to only show <?php echo $member->getNiceGender('his') ?> profile to friends.</b>
+        You will need to add <?php echo $member->getNiceGender('him') ?> as a friend in order to view <?php echo $member->getNiceGender('his') ?> posts and content.
+        </p>
+        <?php endif; ?>
         </div>
         <br/>
     </div>

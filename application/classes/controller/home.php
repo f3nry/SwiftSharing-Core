@@ -15,7 +15,7 @@ class Controller_Home extends Controller_App {
     );
 
     public function before() {
-        if(Session::instance('database')->get('user_id')) {
+        if(Session::instance('mango')->get('user_id')) {
             $this->template = 'dashboard';
 
             $this->layout = 'layouts/template';
@@ -33,10 +33,6 @@ class Controller_Home extends Controller_App {
             $this->layout->hideContentPane = false;
 
             $this->template->feed_list = Model_Feed::generateFeedList();
-
-            $this->template->feed_content = Model_Feed::getFeedContent(1);
-
-            $this->template->feed = Model_Feed::getFeed(1);
         } else {
             $this->layout->styles = array('home');
         }

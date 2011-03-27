@@ -19,7 +19,7 @@ class Controller_Profile extends Controller_App {
             $this->request->redirect('/404');
         }
 
-        $this->template->blabs = Model_Feed::getFeedContent('*', "'STATUS' OR type = 'PHOTO'", $this->template->member->id);
+        $this->template->blabs = Model_Feed::getFeedContent('*', "'STATUS' OR b.type = 'PHOTO'", $this->template->member->id);
     }
     
     public function action_edit() {
