@@ -76,11 +76,11 @@ class Model_Feed extends ORM
         $privacy_option = Model_Member::getPrivacy(Session::instance()->get('user_id'));
 
         if($privacy_option == 'locked') {
-            $query .= " INNER JOIN friend_relationships fr ON fr.to = b.mem_id";
+            $query .= " LEFT JOIN friend_relationships fr ON fr.to = b.mem_id";
 
             $where .= " AND (b.mem_id = " . Session::instance()->get('user_id') . " OR fr.from = b.mem_id)";
         } else {
-            $query .= " INNER JOIN friend_relationships fr ON fr.to = b.mem_id";
+            $query .= " LEFT JOIN friend_relationships fr ON fr.to = b.mem_id";
 
             $where .= " AND ((m.privacy_option != 'locked' AND m.privacy_option != 'limited') OR ";
             $where .= " (b.mem_id = " . Session::instance()->get('user_id') . " OR fr.from = b.mem_id)) ";
