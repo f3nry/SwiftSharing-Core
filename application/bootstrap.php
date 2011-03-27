@@ -182,6 +182,12 @@ Route::set('about', 'about')
             'action' => 'index'
         ));
 
+Route::set('page', 'page')
+        ->defaults(array(
+            'controller' => 'page',
+            'action' => 'index'
+        ));
+
 Route::set('help', 'help')
 		->defaults(array(
 			'controller' => 'help',

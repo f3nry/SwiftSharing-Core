@@ -17,10 +17,10 @@ return array
                          *
                          * Ports and sockets may be appended to the hostname.
                          */
-                        'hostname'   => 'app1.mphwebsystems.com',
-                        'database'   => 'swshare_remote',
-                        'username'   => 'swshare_remote',
-                        'password'   => 'jDcZ9hRaC76mvQX8',
+                        'hostname'   => 'localhost',
+                        'database'   => 'swiftsharing-phpfog-com',
+                        'username'   => 'root',
+                        'password'   => '',
                         'persistent' => TRUE,
                 ),
                 'table_prefix' => '',
