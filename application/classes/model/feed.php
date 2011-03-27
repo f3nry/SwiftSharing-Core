@@ -96,7 +96,7 @@ class Model_Feed extends ORM
             }
         }
 
-        $query .= "$where ORDER BY date DESC LIMIT 15";
+        $query .= "$where GROUP BY b.id ORDER BY date DESC LIMIT 15";
 
         return DB::query(Database::SELECT, $query)->execute()->as_array();
     }
