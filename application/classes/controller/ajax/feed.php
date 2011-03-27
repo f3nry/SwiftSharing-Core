@@ -85,7 +85,7 @@ class Controller_Ajax_Feed extends Controller_Ajax {
         $blab = Model_Blab::getById($this->request->post('id'));
 
         if($blab) {
-            if(Session::instance('database')->get('user_id') != $blab->mem_id && !($blab->type == 'PROFILE' && $blab->feed_id == Session::instance('database')->get('user_id'))) {
+            if(Session::instance()->get('user_id') != $blab->mem_id && !($blab->type == 'PROFILE' && $blab->feed_id == Session::instance()->get('user_id'))) {
                 echo json_encode(array(
                     "success" => false,
                     "message" => "Sorry, you don't own that blab, and so you cannot delete it."
