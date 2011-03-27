@@ -9,8 +9,6 @@ class Controller_Ajax_Like extends Controller_Ajax {
         }
 
         $blab = Model_Blab::getById($_POST['thumbsup_id']);
-
-        Session::$default = 'database';
         
         if(Model_Like::checkExists(Session::instance()->get('user_id'), $_POST['thumbsup_id'])) {
             return $this->json(array(

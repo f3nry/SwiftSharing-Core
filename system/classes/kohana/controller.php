@@ -58,6 +58,7 @@ abstract class Kohana_Controller {
 	public function before()
 	{
 		// Nothing by default
+            Session::$default = 'mango';
 	}
 
 	/**

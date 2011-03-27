@@ -187,7 +187,7 @@ class Model_Feed extends ORM
         $blab .= '</div>
                 <div class="likes">
                 ' . Model_Like::generateLikeBox($row['id'], $row['likes'],
-                    (Session::instance('database')->get('user_id') == $row['mem_id'] || ($row['type'] == 'PROFILE' && $row['feed_id'] == Session::instance('database')->get('user_id')))) . '
+                    (Session::instance()->get('user_id') == $row['mem_id'] || ($row['type'] == 'PROFILE' && $row['feed_id'] == Session::instance()->get('user_id')))) . '
                 </div>
                 <div style="clear:both;height:4px;"></div>
                 <div style="display:none;" id="blab_' . $row['id'] . '_timestamp">' . $convertedTime . '</div>

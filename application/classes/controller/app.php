@@ -12,8 +12,6 @@ class Controller_App extends Controller_Template {
     public function before() {
         parent::before();
 
-        Session::$default = "database";
-
         if($this->template) {
             $this->template->session = Session::instance();
         }
