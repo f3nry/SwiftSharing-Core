@@ -1,7 +1,7 @@
 <?php
     $is_friend = (boolean)Model_Relationship::findRelationship($member->id, Session::instance()->get('user_id'))->is_loaded();
 
-    $hideContent = !($is_friend || $member->privacy_option == '' || $member->privacy_option == 'public');
+    $hideContent = !($is_friend || $member->privacy_option == '' || $member->privacy_option == 'public' || Session::instance()->get('user_id') == $member->id);
 ?>
 <style type="text/css">
     #header {
