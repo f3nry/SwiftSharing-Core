@@ -56,11 +56,11 @@ class Controller_Register extends Controller_App {
                 $member = Kohana_Facebook::instance()->account();
 
                 $this->template->data = array(
-                    'username' => $member['username'],
-                    'firstname' => $member['first_name'],
-                    'lastname' => $member['last_name'],
-                    'email1' => $member['email'],
-                    'email2' => $member['email'],
+                    'username' => @$member['username'],
+                    'firstname' => @$member['first_name'],
+                    'lastname' => @$member['last_name'],
+                    'email1' => @$member['email'],
+                    'email2' => @$member['email'],
                     'humantext' => true
                 );
 
