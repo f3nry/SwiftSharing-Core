@@ -78,6 +78,8 @@ class Model_PrivateMessage extends ORM {
         if(!$message_id) {
             return false;
         } else {
+            DB::query(Database::UPDATE, "UPDATE private_conversations SET date_updated = NOW() WHERE id = $conversation_id")->execute();
+
             return true;
         }
     }
