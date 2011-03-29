@@ -100,7 +100,7 @@ class Model_PrivateMessage extends ORM {
                   JOIN myMembers m ON m.id = pcm.message_from
                   WHERE pc.to = $member_to OR pc.from = $member_to
                   GROUP BY pc.id
-                  ORDER BY pc.date_updated DESC, pcm.read_to
+                  ORDER BY pc.date_updated DESC
                   LIMIT 8";
 
         $result = DB::query(Database::SELECT, $query)->as_object()->execute();
