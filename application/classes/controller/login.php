@@ -44,7 +44,7 @@ class Controller_Login extends Controller_App {
         if(Kohana_Facebook::instance()->logged_in()) {
             $facebook_account = Kohana_Facebook::instance()->account();
 
-            $member = Model_Member::loadFromEmailAndUsername($facebook_account['username'], $facebook_account['email']);
+            $member = Model_Member::loadFromEmail($facebook_account['email']);
 
             if(!$member->is_loaded()) {
                 Session::instance()->set('from_facebook', true);
