@@ -1,9 +1,9 @@
 <?php
 
-define('HOST', 'app1.competitionsquared.com');
-define('USER', 'swshare_remote');
-define('PASSWORD', 'jDcZ9hRaC76mvQX8');
-define('DATABASE', 'swshare_swift');
+define('HOST', 'localhost');
+define('USER', 'root');
+define('PASSWORD', '');
+define('DATABASE', 'swiftsharing-phpfog-com');
 
 $mysqli = new mysqli(HOST, USER, PASSWORD, DATABASE);
 
