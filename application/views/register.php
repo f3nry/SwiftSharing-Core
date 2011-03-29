@@ -79,6 +79,9 @@
                                             <br/>
                                     <?php endif; ?>
                                         </font>
+                                <font color="#00FF00">
+                                    <?php echo @$message ?>
+                                </font>
                                     </td>
                                 </tr>
                                 <tr>
@@ -305,7 +308,7 @@
                         <tr>
                             <td bgcolor="#EFEFEF">Human Check <span class="brightRed">*</span></td>
                             <td bgcolor="#EFEFEF"><input name="humancheck" type="text" class="formFields" id="humancheck"
-                                                         value="Please remove all of this text" size="32" maxlength="32"/>
+                                                         value="<?php if(!@$data['humantext']): ?>Please remove all of this text<?php endif; ?>" size="32" maxlength="32"/>
                             </td>
                         </tr>
                         <tr>

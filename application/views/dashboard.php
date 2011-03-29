@@ -198,3 +198,23 @@ h2{
 		</ul>
 	</div>
 	</div>
+<?php if(Session::instance()->get('flash_facebook')): ?>
+<?php Session::instance()->delete('flash_facebook'); ?>
+<div id="fb-root"></div>
+      <script src="http://connect.facebook.net/en_US/all.js">
+      </script>
+      <script>
+         FB.init({
+            appId:'204162316278860', cookie:true,
+            status:true, xfbml:true
+         });
+
+         FB.ui({
+             method: 'feed',
+             link: 'http://swiftsharing.net',
+             description: 'SwiftSharing is a new way to share what you\'re doing with friends, fast. We\'re busy improving the beta version we released on January 11, 2011',
+             message: 'I just signed up for SwiftSharing with my Facebook account! Check it out - http://swiftsharing.net/',
+             caption: 'A New, Fresh Social Network'
+        });
+      </script>
+<?php endif; ?>

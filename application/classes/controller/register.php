@@ -19,29 +19,55 @@ class Controller_Register extends Controller_App {
             if($member->validate($post)) {
                 $member->register($post);
 
-                $email = View::factory('emails/welcome')
-                        ->set('id', $member->id)
-                        ->set('firstname', $member->firstname)
-                        ->set('email1', $member->email)
-                        ->set('password', $post['pass1'])
-                        ->render();
+                if(!Session::instance()->get('from_facebook')) {
+                    $email = View::factory('emails/welcome')
+                            ->set('id', $member->id)
+                            ->set('firstname', $member->firstname)
+                            ->set('email1', $member->email)
+                            ->set('password', $post['pass1'])
+                            ->render();
 
-                $email = (string) $email;
-                
-                $headers = "From: noreply@swiftsharing.net\r\n";
+                    $email = (string) $email;
 
-                mail($member->email, '[SwiftSharing] Welcome to SwiftSharing!', $email, $headers);
+                    $headers = "From: noreply@swiftsharing.net\r\n";
+
+                    mail($member->email, '[SwiftSharing] Welcome to SwiftSharing!', $email, $headers);
+                } else {
+                    $member->email_activated = true;
+                    $member->fb_authorized = true;
+
+                    $member->save();
+                    $member->login();
+
+                    Session::instance()->set('flash_facebook', true);
+                    Session::instance()->delete('from_facebook');
+                }
 
                 $this->request->redirect("/");
             } else {
                 $this->template->errors = $member->errors;
 
-                $post['birth_month_text'] = date('F', mktime(0, 0, 0, $post['birth_month']));
+                $post['birth_month_text'] = date('F', mktime(0, 0, 0, @$post['birth_month']));
 
                 $this->template->data = $post;
             }
         } else {
-            $this->template->data = array();
+            if(Session::instance()->get('from_facebook')) {
+                $member = Kohana_Facebook::instance()->account();
+
+                $this->template->data = array(
+                    'username' => $member['username'],
+                    'firstname' => $member['first_name'],
+                    'lastname' => $member['last_name'],
+                    'email1' => $member['email'],
+                    'email2' => $member['email'],
+                    'humantext' => true
+                );
+
+                $this->template->message = 'Please fill out this quick registration page, to login to SwiftSharing. We\'ve already filled it out partially for you with information you gave us from Facebook.';
+            } else {
+                $this->template->data = array();
+            }
         }
     }
     

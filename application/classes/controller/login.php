@@ -38,6 +38,55 @@ class Controller_Login extends Controller_App {
         $this->layout->hideContentPane = true;
     }
 
+    public function action_facebook() {
+        parent::_checkSession("/", true);
+
+        if(Kohana_Facebook::instance()->logged_in()) {
+            $facebook_account = Kohana_Facebook::instance()->account();
+
+            $member = Model_Member::loadFromEmailAndUsername($facebook_account['username'], $facebook_account['email']);
+
+            if(!$member->is_loaded()) {
+                Session::instance()->set('from_facebook', true);
+
+                $this->request->redirect("/register");
+            } else {
+                if($member->fb_authorized && $member->email_activated) {
+                    $member->login();
+
+                    $this->request->redirect("/");
+                } else {
+                    if(!$member->email_activated) {
+                        $this->template->message = 'Your account is not activated yet. Please check your email.';
+                    } else {
+                        $this->template = View::factory('facebook/confirm');
+
+                        if($this->request->post('pass')) {
+                            if($member->password == md5($this->request->post('pass'))) {
+                                $member->login();
+
+                                $member->fb_authorized = true;
+                                $member->save();
+
+                                Session::instance()->set('flash_facebook', true);
+
+                                $this->request->redirect("/");
+                            } else {
+                                $this->template->message = 'You entered the wrong password. Please try again.';
+                            }
+                        }
+
+                        $this->template->member = $member;
+                    }
+                }
+            }
+        } else {
+            $this->template->message = 'You have not authorized SwiftSharing access, and we are unable to log you in. Please try again.';
+        }
+
+        $this->layout->hideContentPane = true;
+    }
+
     public function action_forgot() {
         parent::_checkSession("/", true);
 

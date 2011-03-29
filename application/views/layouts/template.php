@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html >
     <head>
         <title>SwiftSharing</title>
         <link rel="stylesheet" type="text/css" href="/content/css/new.css"/>

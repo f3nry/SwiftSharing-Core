@@ -369,6 +369,13 @@ class Model_Member extends ORM {
         return Model_Member::factory('member')->where('email', '=', $email)->find();
     }
 
+    public static function loadFromEmailAndUsername($username, $email) {
+        return Model_Member::factory('member')
+                    ->where('username', '=', $username)
+                    ->where('email', '=', $email)
+                    ->find();
+    }
+
     /**
      * Builds a 6 member long friends list for the current member.
      *
@@ -666,5 +673,10 @@ class Model_Member extends ORM {
                 }
                 break;
         }
+    }
+
+    public function login() {
+        Session::instance()->set('user_id', $this->id);
+        Session::instance()->set('username', $this->username);
     }
 }
