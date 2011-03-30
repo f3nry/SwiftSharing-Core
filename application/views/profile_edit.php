@@ -390,7 +390,7 @@
                                 <tr>
                                     <td width="111">Music</span></td>
                                     <td width="471">
-                                        <input name="music" type="text" class="formFields" id="musicField" value="<?php echo @$member->music ?>" size="300" maxlength="300" /></td>
+                                        <input name="music" type="text" class="formFields" id="musicField" value="<?php echo @$member->music ?>" size="60" maxlength="300" /></td>
                                     <td width="56" rowspan="3" valign="top"><input name="updateBtn3" type="submit" value="Update" />
                                         <input name="parse_var" type="hidden" value="interests" />
                                         <input name="thisWipit" type="hidden" value="<?php echo @$thisRandNum; ?>" /></td>
@@ -398,17 +398,17 @@
                                 <tr>
                                     <td>Movies:</span></td>
                                     <td>
-                                        <input name="movies" type="text" class="formFields" id="movieField" value="<?php echo @$member->movies ?>" size="300" maxlength="300" /></td>
+                                        <input name="movies" type="text" class="formFields" id="movieField" value="<?php echo @$member->movies ?>" size="60" maxlength="300" /></td>
                                 </tr>
                                 <tr>
                                     <td>TV:</span></td>
                                     <td>
-                                        <input name="tv" type="text" class="formFields" id="tvField" value="<?php echo @$member->tv ?>" size="300" maxlength="300" /></td>
+                                        <input name="tv" type="text" class="formFields" id="tvField" value="<?php echo @$member->tv ?>" size="60" maxlength="300" /></td>
                                 </tr>
                                 <tr>
                                     <td>Books:</span></td>
                                     <td>
-                                        <input name="books" type="text" class="formFields" id="bookField" value="<?php echo @$member->books ?>" size="300" maxlength="300" /></td>
+                                        <input name="books" type="text" class="formFields" id="bookField" value="<?php echo @$member->books ?>" size="60" maxlength="300" /></td>
                                 </tr>
                             </form>
                         </table>
