@@ -176,7 +176,7 @@ class Model_Feed extends ORM
         $blab .= '
                 </div>
                 <div class="text">
-                    ' . htmlentities($the_blab);
+                    ' . Text::auto_link(htmlentities($the_blab));
 
         if($row['type'] == "PHOTO") {
             $image = Images::getImage($row['mem_id'], $row['id'] . '.jpg');
