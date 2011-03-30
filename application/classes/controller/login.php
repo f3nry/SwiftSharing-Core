@@ -101,7 +101,7 @@ class Controller_Login extends Controller_App {
                 $emailcut = substr($member->email, 0, 4); // Takes first four characters from the user email address
                 $randNum = rand();
                 $tempPass = "$emailcut$randNum";
-                $hashTempPass = sha1($tempPass);
+                $hashTempPass = md5($tempPass);
 
                 $member->password = $hashTempPass;
 
