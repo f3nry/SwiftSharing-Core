@@ -72,7 +72,7 @@ class Controller_Ajax_Feed extends Controller_Ajax {
             if($_POST['profile_flag']) {
                 echo Model_Feed::getFeedContent('*', "'STATUS' OR b.type = 'PHOTO'", $_POST['feed_id'], $blab->date, true);
             } else {
-                echo Model_Feed::getFeedContent($blab->feed_id, "'STATUS' OR type = 'PHOTO'", false, $blab->date, true);
+                echo Model_Feed::getFeedContent($blab->feed_id, "'STATUS' OR b.type = 'PHOTO'", false, $blab->date, true);
             }
             
             exit;
