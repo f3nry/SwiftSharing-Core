@@ -6,7 +6,7 @@ var lengths = new Array("60","60","24","7","4.35","12","10");
 var now = new Date();
 var difference = 0;
 var i = 0;
-var id = -1;
+var id = '-1';
 var tmpTable = null;
 
 $(document).ready(function() {
