@@ -448,7 +448,7 @@ function updateBlabs() {
     } else {
         blabs = $('#feed').children();
 
-	if(blabs[0] == null) {
+	if(blabs.length == 0) {
             return;
         }
         
