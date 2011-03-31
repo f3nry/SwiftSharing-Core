@@ -141,36 +141,36 @@
             </div>
         </div>
         <?php if($member->twitter): ?>
-        <script src="http://widgets.twimg.com/j/2/widget.js" type="text/javascript"></script>
-        <script type="text/javascript">
+        <script src="http://widgets.twimg.com/j/2/widget.js"></script>
+        <script>
         new TWTR.Widget({
           version: 2,
           type: 'profile',
-          rpp: 5,
+          rpp: 4,
           interval: 6000,
           width: 218,
           height: 160,
           theme: {
-                shell: {
-                  background: '#BDF',
-                  color: '#000000'
-                },
-                tweets: {
-                  background: '#ffffff',
-                  color: '#000000',
-                  links: '#0066FF'
-                }
+            shell: {
+              background: '#bbddff',
+              color: '#000000'
+            },
+            tweets: {
+              background: '#ffffff',
+              color: '#000000',
+              links: '#0066ff'
+            }
           },
           features: {
-                scrollbar: true,
-                loop: false,
-                live: false,
-                hashtags: true,
-                timestamp: true,
-                avatars: false,
-                behavior: 'all'
+            scrollbar: true,
+            loop: true,
+            live: true,
+            hashtags: true,
+            timestamp: true,
+            avatars: false,
+            behavior: 'default'
           }
-        }).render().setUser('<?php echo $member->twitter ?>').start();
+        }).render().setUser('<?php echo $member->username ?>').start();
         </script>
         <?php endif; ?>
         <?php endif; ?>
