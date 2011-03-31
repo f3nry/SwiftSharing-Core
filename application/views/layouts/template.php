@@ -70,7 +70,7 @@
                 <?php endif; ?>
                     <div id="footer">
                     <div style="float:left;">
-                        <span>SwiftSharing</span> | <a href="/help">Help</a> | <a href="/about">About</a> | <a href="/privacy">Privacy</a> | <a href="/page">Pages</a>
+                        <span>SwiftSharing</span> | <a href="/help">Help</a> | <a href="/about">About</a> | <a href="/privacy">Privacy</a>
                     </div>
                         <div style="float:right;">
                             <div style="width:250px;float:left;height:62px;">
