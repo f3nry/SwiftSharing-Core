@@ -447,7 +447,11 @@ function updateBlabs() {
         id = temp_blabs[0].id.replace("blab_", "");
     } else {
         blabs = $('#feed').children();
-		
+
+	if(!blabs) {
+            return;
+        }
+        
         id = blabs[0].id.replace("blab_", "")
     }
 	
