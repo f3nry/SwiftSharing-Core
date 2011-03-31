@@ -6,7 +6,6 @@ var lengths = new Array("60","60","24","7","4.35","12","10");
 var now = new Date();
 var difference = 0;
 var i = 0;
-var id = '-1';
 var tmpTable = null;
 
 $(document).ready(function() {
@@ -443,11 +442,11 @@ function updateBlabs() {
         return;
     }
 
-    id = -1;
+    var blabId = -1;
 	
     //Are we looking for the most recent blab, in the table, or in our temp variable?
     if(temp_blabs != null && $("#auto-update").val() != "on") {
-        id = temp_blabs[0].id.replace("blab_", "");
+        blabId = temp_blabs[0].id.replace("blab_", "");
     } else {
         blabs = $('#feed').children();
 
@@ -455,13 +454,13 @@ function updateBlabs() {
             return;
         }
         
-        id = blabs[0].id.replace("blab_", "")
+        blabId = blabs[0].id.replace("blab_", "")
     }
 	
     //Post to the server to get more blabs.
     $.post("/ajax/feed/more",
     {
-        lastmsg: id
+        lastmsg: blabId
     },
     function(data) {
         if(data != "") {
