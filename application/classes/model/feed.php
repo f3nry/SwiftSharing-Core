@@ -83,7 +83,7 @@ class Model_Feed extends ORM
             $query .= " LEFT JOIN friend_relationships fr ON fr.to = b.mem_id";
 
             $where .= " AND ((m.privacy_option != 'locked' AND m.privacy_option != 'limited') OR ";
-            $where .= " (b.mem_id = " . Session::instance()->get('user_id') . " OR fr.from = b.mem_id)) ";
+            $where .= " (b.mem_id = " . Session::instance()->get('user_id') . " OR fr.from = " . Session::instance()->get('user_id') . ")) ";
         }
 
         $query .= " WHERE $feed_id AND (b.type = $type) ";
