@@ -20,7 +20,7 @@ return array
                         'hostname'   => 'localhost',
                         'database'   => 'swiftsharing-phpfog-com',
                         'username'   => 'root',
-                        'password'   => 'patter5Dress',
+                        'password'   => '',
                         'persistent' => TRUE,
                 ),
                 'table_prefix' => '',
