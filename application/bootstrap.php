@@ -247,7 +247,7 @@ Route::set('404', '404')
         
 Route::set('profile', '<username>(/<action>)',
     array(
-        'username' => '\w{2,20}'
+        'username' => '\w{2,40}'
     ))
     ->defaults(array(
         'controller' => 'profile',
