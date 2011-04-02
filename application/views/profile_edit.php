@@ -1,4 +1,4 @@
-<!--<table class="mainBodyTable" border="0" align="center" cellpadding="0" cellspacing="0">
+<table class="mainBodyTable" border="0" align="center" cellpadding="0" cellspacing="0">
     <tr>
         <td width="738" valign="top">
             <?php if (isset($success_msg)): ?>
@@ -459,7 +459,8 @@
                         theme_advanced_toolbar_align: "left",
                         theme_advanced_statusbar_location: "bottom"
                     });
-                </script>--!>
+                </script>
+<!--
 <style type="text/css">
 #right{
 	border-left: 1px solid;
@@ -483,3 +484,4 @@ p{
 <div id="left">
 
 	</div>
+-->
