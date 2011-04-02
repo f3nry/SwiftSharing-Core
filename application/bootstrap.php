@@ -192,6 +192,11 @@ Route::set('help', 'help')
 			'controller' => 'help',
 			'action' => 'index'
 		));
+Route::set('refer', 'refer')
+		->defaults(array(
+			'controller' => 'refer',
+			'action' => 'index'
+		));
 		
 Route::set('privact', 'privacy')
 		->defaults(array(

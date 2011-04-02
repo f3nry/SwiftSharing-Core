@@ -1,4 +1,4 @@
-<div id="content">
+ <div id="content">
 <h1>SwiftSharing Privacy Policy</h1>
 <small>Last Updated: March 18, 2011</small>
 <h2>This Policy Covers</h2>

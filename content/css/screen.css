@@ -522,7 +522,6 @@ input[type="text"], input[type="password"], textarea {
     border-width: 1px;
     padding: 2px 0px;
 }
-
 /* Reset form margin/padding */
 .thumbsup_template_mini-thumbs form { position:relative; margin:0; padding:0; height:16px; color:#000; }
 
@@ -553,3 +552,4 @@ input[type="text"], input[type="password"], textarea {
 .thumbsup_template_mini-thumbs input { font-size:0; line-height:999px; }
 
 .thumbsup_template_mini-thumbs { position: relative; }
+

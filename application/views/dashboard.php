@@ -114,20 +114,10 @@ h2{
                 <li><a href="/<?php echo Session::instance()->get('username') ?>">View Profile</a></li>
             </div>
             <h2>Your Status</h2>
-    <!---<div class="suggestions">
+    <div class="suggestions">
     <h2>Friend Suggestions</h2>
 
     </div>
-    <div class="notifications">
-    <h2>Notifications</h2>
-    <p><a href="#">Johnny</a> commented on your <a href="#">Music</a> <a href="#">status</a>.</p>
-    <p><a href="#">Jasmine</a> commented on your <a href="#">photo</a>.</p>
-    <p><a href="#">Paul</a> wrote on your <a href="#">profile</a>.</p>
-    <p><a href="#">Neil</a> commented on your <a href="#">Reading</a> <a href="#">status</a>.</p>
-    <p><a href="#">Nickson</a> commented on your <a href="#">Thoughts</a> <a href="#">status</a>.</p>
-    <p><a href="#">Tyler</a> commented on your <a href="#">Movie</a> <a href="#">status</a>.</p>
-    
-    </div>-->
 	</div>
 <div id="content">
 <div class='thumbnailWrapper'>

@@ -1,12 +1,4 @@
 <style type="text/css">
-#page{
-	width:900px;
-	height:500px;
-	background-color:white;
-	 -moz-border-radius: 20px;
-    -webkit-border-radius: 20px;
-    -khtml-border-radius: 20px;
-}
 .title{
 	font-size:40px;
 	margin-left:10px;
@@ -51,12 +43,12 @@ small{
 	font-size:30px;
 }
 </style>
-	<div id="page">
 		<div class="title">
 		Pages <small>Find Artists, Brands/Products, and Topics you Can Relate to.</small>
 			</div>
 	<div id="categories">
 		<div class="bands">
+		
 			</div>
 		<div class="products">
 			</div>
@@ -67,5 +59,4 @@ small{
 		<div class="new">	
 		Or, <a href="#">Create</a> a New Fan Page
 		</div>
-	</div>
 	</div>

@@ -14,3 +14,5 @@
                     FROM blabs b
                     LEFT JOIN myMembers m ON b.mem_id = m.id
                     LEFT JOIN feeds f ON f.id = b.feed_id WHERE feed_id =  AND (type = 'STATUS' OR type = 'PHOTO')  ORDER BY date DESC LIMIT 15 ) ~ MODPATH/database/classes/kohana/database/mysql.php [ 181 ]
+2011-03-27 16:23:36 --- ERROR: ErrorException [ 1 ]: Class 'Mongo' not found ~ MODPATH/mango/classes/mangodb.php [ 123 ]
+2011-03-27 16:23:56 --- ERROR: ErrorException [ 1 ]: Class 'Mongo' not found ~ MODPATH/mango/classes/mangodb.php [ 123 ]
