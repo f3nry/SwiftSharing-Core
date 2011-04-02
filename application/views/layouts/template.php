@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html >
     <head>
-        <title>SlowSharing</title>
+        <title>SwiftSharing</title>
         <link rel="stylesheet" type="text/css" href="/content/css/new.css"/>
         <link rel="stylesheet" type="text/css" href="/content/css/screen.css" />
         <?php if(is_array(@$styles)): ?>
@@ -70,7 +70,7 @@
                 <?php endif; ?>
                     <div id="footer">
                     <div style="float:left;">
-                        <span>SlowSharing</span> | <a href="/help">Help</a> | <a href="/about">About</a> | <a href="/privacy">Privacy</a>
+                        <span>SwiftSharing</span> | <a href="/help">Help</a> | <a href="/about">About</a> | <a href="/privacy">Privacy</a>
                     </div>
                         <div style="float:right;">
                             <div style="width:250px;float:left;height:62px;">
