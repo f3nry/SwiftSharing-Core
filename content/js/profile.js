@@ -4,7 +4,7 @@ $(".modal_link").fancybox({
     titleShow: false,
     onClosed: function() {
         $("#add_friend_loader").hide();
-    },
+    }
 });
 
 $(".short_friends_list").fancybox({

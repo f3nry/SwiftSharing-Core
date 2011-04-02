@@ -25,8 +25,16 @@
                     </p>
 
                     <p>
-                        <label style="width:140px;">&nbsp;</label>
+                        <label style="width:150px;"><fb:login-button on-login="facebookLogin()" perms="email,publish_stream">Login with Facebook</fb:login-button></label>
                         <input type="submit" value="Login" name="login" id="submit"/>
+                        <div id="fb-root"></div>
+                        <script src="http://connect.facebook.net/en_US/all.js"></script>
+                        <script>
+                            FB.init({
+                            appId:'204162316278860', cookie:true,
+                            status:true, xfbml:true
+                        });
+                        </script>
                     </p>
                 </form>
             </div>
@@ -46,3 +54,4 @@
         </div>
     </div>
 </div>
+<script src="/content/js/login.js" type="text/javascript"></script>

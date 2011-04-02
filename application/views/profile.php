@@ -1,7 +1,7 @@
 <?php
     $is_friend = (boolean)Model_Relationship::findRelationship($member->id, Session::instance()->get('user_id'))->is_loaded();
 
-    $hideContent = !($is_friend || $member->privacy_option == '' || $member->privacy_option == 'public');
+    $hideContent = !($is_friend || $member->privacy_option == '' || $member->privacy_option == 'public' || Session::instance()->get('user_id') == $member->id);
 ?>
 <style type="text/css">
     #header {
@@ -143,34 +143,34 @@
         <?php if($member->twitter): ?>
         <script src="http://widgets.twimg.com/j/2/widget.js" type="text/javascript"></script>
         <script type="text/javascript">
-        new TWTR.Widget({
-          version: 2,
-          type: 'profile',
-          rpp: 5,
-          interval: 6000,
-          width: 218,
-          height: 160,
-          theme: {
-                shell: {
-                  background: '#BDF',
-                  color: '#000000'
-                },
-                tweets: {
-                  background: '#ffffff',
-                  color: '#000000',
-                  links: '#0066FF',
-                }
-          },
-          features: {
-                scrollbar: true,
-                loop: false,
-                live: false,
-                hashtags: true,
-                timestamp: true,
-                avatars: false,
-                behavior: 'all'
-          }
-        }).render().setUser('<?php echo $member->twitter ?>').start();
+            new TWTR.Widget({
+              version: 2,
+              type: 'profile',
+              rpp: 5,
+              interval: 6000,
+              width: 218,
+              height: 160,
+              theme: {
+                    shell: {
+                      background: '#BDF',
+                      color: '#000000'
+                    },
+                    tweets: {
+                      background: '#ffffff',
+                      color: '#000000',
+                      links: '#0066FF'
+                    }
+              },
+              features: {
+                    scrollbar: true,
+                    loop: false,
+                    live: false,
+                    hashtags: true,
+                    timestamp: true,
+                    avatars: false,
+                    behavior: 'all'
+              }
+            }).render().setUser('<?php echo $member->twitter ?>').start();
         </script>
         <?php endif; ?>
         <?php endif; ?>

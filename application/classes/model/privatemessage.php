@@ -78,6 +78,8 @@ class Model_PrivateMessage extends ORM {
         if(!$message_id) {
             return false;
         } else {
+            DB::query(Database::UPDATE, "UPDATE private_conversations SET date_updated = NOW() WHERE id = $conversation_id")->execute();
+
             return true;
         }
     }
@@ -100,7 +102,7 @@ class Model_PrivateMessage extends ORM {
                   JOIN myMembers m ON m.id = pcm.message_from
                   WHERE pc.to = $member_to OR pc.from = $member_to
                   GROUP BY pc.id
-                  ORDER BY pc.date_updated DESC, pcm.read_to
+                  ORDER BY pc.date_updated DESC
                   LIMIT 8";
 
         $result = DB::query(Database::SELECT, $query)->as_object()->execute();
@@ -188,4 +190,4 @@ class Model_PrivateMessage extends ORM {
         }
     }
 }
-?>
+

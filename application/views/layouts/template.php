@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html >
     <head>
         <title>SwiftSharing</title>
         <link rel="stylesheet" type="text/css" href="/content/css/new.css"/>
@@ -70,15 +70,16 @@
                 <?php endif; ?>
                     <div id="footer">
                     <div style="float:left;">
-                        <span>SwiftSharing</span> | <a href="/help">Help</a> | <a href="/about">About</a> | <a href="/privacy">Privacy</a> | <a href="/page">Pages</a>
+                        <span>SwiftSharing</span> | <a href="/help">Help</a> | <a href="/about">About</a> | <a href="/privacy">Privacy</a>
                     </div>
                         <div style="float:right;">
                             <div style="width:250px;float:left;height:62px;">
                                 <iframe src="http://www.facebook.com/plugins/likebox.php?href=http%3A%2F%2Fwww.facebook.com%2Flosangeleslakers%3Fv%3Dinfo%23%21%2Fpages%2FSwiftSharing%2F151280171581392&amp;width=292&amp;colorscheme=light&amp;show_faces=false&amp;stream=false&amp;header=true&amp;height=62" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:292px; height:62px;" allowTransparency="true"></iframe>
                             </div>
+                            <!--
                             <div style="height:62px;float:right;padding-top:20px;">
                                 <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://swiftsharing.net/" data-text="Check this out!" data-count="horizontal" data-via="swiftsharing" style="top:0;margin-top:auto;">Tweet</a><script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
-                            </div>
+                            </div>-->
                         </div>
                     </div>
                 </div>

@@ -53,3 +53,22 @@
         </div>
     </div>
 </div>
+<?php if ($feed->allowed_post_types == 'PHOTO'): ?>
+<link href="/content/js/uploadify/uploadify.css" type="text/css" rel="stylesheet" />
+<script type="text/javascript" src="/content/js/uploadify/swfobject.js"></script>
+<script type="text/javascript" src="/content/js/uploadify/jquery.uploadify.v2.1.4.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function() {
+  $('#file_upload').uploadify({
+    'uploader'  : '/uploadify/uploadify.swf',
+    'script'    : '',
+    'cancelImg' : '/uploadify/cancel.png',
+    'folder'    : '/uploads',
+    'auto'      : false,
+    'method'    : 'post',
+    'multi'     : false,
+    
+  });
+});
+</script>
+<?php endif; ?>
