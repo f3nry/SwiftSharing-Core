@@ -86,7 +86,7 @@
                                 </tr>
                                 <tr>
                                     <td width="130" bgcolor="#FFFFFF">User Name<span class="brightRed"></td>
-                                    <td width="402" bgcolor="#FFFFFF"><input name="username" type="text" class="formFields" id="username"
+                                     <td width="402" bgcolor="#FFFFFF"><input name="username" type="text" class="formFields" id="username"
                                                                              value="<?php echo @$data['username'] ?>" size="32" maxlength="20"/>
                                         <span id="nameresponse"><span class="textSize_9px"><span
                                                     class="greyColor">Alphanumeric Characters Only</span></span></span></td>

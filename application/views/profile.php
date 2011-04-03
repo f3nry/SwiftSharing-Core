@@ -13,7 +13,7 @@
     }
 
     .postbody .text {
-        max-width:70%;
+        max-width:60%;
     }
 </style>
 <div id="is_profile" style="display:none;" >1</div>
