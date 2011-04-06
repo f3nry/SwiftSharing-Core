@@ -43,7 +43,7 @@ class Controller_Register extends Controller_App {
                     Session::instance()->delete('from_facebook');
                 }
 
-                $this->request->redirect("/");
+                $this->request->redirect("/refer");
             } else {
                 $this->template->errors = $member->errors;
 
@@ -81,6 +81,8 @@ class Controller_Register extends Controller_App {
                         $member->email_activated = '1';
 
                         $member->save();
+
+                        Session::instance()->set('refer', true);
 
                         $this->template->message = 'Activation successful. <br/><br/>You may <a href="/login">Login</a> now.';
                 } else {

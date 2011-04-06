@@ -70,7 +70,7 @@
                 <?php endif; ?>
                     <div id="footer">
                     <div style="float:left;">
-                        <span>SwiftSharing</span> | <a href="/help">Help</a> | <a href="/about">About</a> | <a href="/privacy">Privacy</a>
+                        <span>SwiftSharing</span> | <a href="/help">Help</a> | <a href="/about">About</a> | <a href="/privacy">Privacy</a> | <a href="/refer">Refer</a>
                     </div>
                     <div style="float:right;">
                         <div style="width:250px;float:left;height:62px;">
@@ -84,13 +84,5 @@
                 </div>
             </div>
         </div>
-        <?php if(Session::instance()->get('user_id')): ?>
-            <div id="bottom-bar">
-                    <h3>Alaxic Smith</h3>
-                    <div class="left">
-                        <a href="#"><img src="notification.png"></img></a>
-                    </div>
-            </div>
-        <?php endif; ?>
     </body>
 </html>

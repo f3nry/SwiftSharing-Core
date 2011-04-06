@@ -113,11 +113,6 @@ h2{
                 <li><a href="/<?php echo Session::instance()->get('username') ?>">Friend Request</a></li>
                 <li><a href="/<?php echo Session::instance()->get('username') ?>">View Profile</a></li>
             </div>
-            <h2>Your Status</h2>
-    <div class="suggestions">
-    <h2>Friend Suggestions</h2>
-
-    </div>
 	</div>
 <div id="content">
 <div class='thumbnailWrapper'>

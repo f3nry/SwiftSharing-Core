@@ -25,7 +25,12 @@ class Controller_Login extends Controller_App {
                 Session::instance()->set('user_id', $member->id);
                 Session::instance()->set('username', $member->username);
 
-                $this->request->redirect("/");
+                if(Session::instance()->get('refer')) {
+                    $this->request->redirect("/refer");
+                } else {
+                    $this->request->redirect("/");
+                }
+                
             } else if($member->email_activated == '0') {
                 $this->template->message = 'Your account is not activated yet. Please check your email.';
                 $this->template->email = $post['email'];
