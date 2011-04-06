@@ -28,6 +28,7 @@
                 , by <a href="/<?php echo $blab['username'] ?>"><?php echo $blab['username'] ?></a> in <a href="/feed/<?php echo $blab['feed_id'] ?>"><?php echo $row['feed_title'] ?></a>
                 <?php endif; ?>
             <?php else: ?>
+                by <a href="/<?php echo $blab["username"] ?>"><?php echo ($blab['firstname']) ? $blab['firstname'] : $blab["username"] ?></a>
             <?php endif; ?>
         </div>
         <?php if($blab['type'] != 'COMMENT'): ?>
