@@ -45,7 +45,7 @@ class Util_Feed_Generator {
     public function load($blabs = null) {
         if($blabs == null) {
             //Initial query
-            $query = "SELECT b.id, b.mem_id, b.type, b.feed_id, b.text, b.`date`, b.likes as likes,
+            $query = "SELECT DISTINCT(b.id), b.mem_id, b.type, b.feed_id, b.text, b.`date`, b.likes as likes,
                              f.title as feed_title,
                              m.username as username, m.firstname as firstname, m.lastname as lastname, m.friend_array as friends, m.privacy_option as privacy_option, m.has_profile_image
                         FROM blabs b
