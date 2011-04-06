@@ -13,7 +13,7 @@
         <?php if($blab['type'] == 'PHOTO'): ?>
         <br/>
         <a class="post_photo" href="$image" title="<?php echo $blab['text'] ?>">
-            <?php echo Images::getImage($row['mem_id'], $row['id'] . '.jpg', 120, 0, true, true); ?>
+            <?php echo Images::getImage($blab['mem_id'], $blab['id'] . '.jpg', 120, 0, true, true); ?>
         </a>
         <?php endif; ?>
         <div class="time">
