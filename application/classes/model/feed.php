@@ -66,7 +66,7 @@ class Model_Feed extends ORM
             $feed_id = "feed_id = $feed_id";
         }
 
-        $query = "SELECT b.id, b.mem_id, b.type, b.feed_id, b.text, b.`date`, b.likes as likes,
+        $query = "SELECT DISTINCT(b.id), b.mem_id, b.type, b.feed_id, b.text, b.`date`, b.likes as likes,
                          f.title as feed_title,
                          m.username as username, m.firstname as firstname, m.lastname as lastname, m.friend_array as friends, m.privacy_option as privacy_option, m.has_profile_image
                     FROM blabs b
@@ -76,14 +76,12 @@ class Model_Feed extends ORM
         $privacy_option = Model_Member::getPrivacy(Session::instance()->get('user_id'));
 
         if($privacy_option == 'locked') {
-            $query .= " LEFT JOIN friend_relationships fr ON fr.to = b.mem_id";
+            $query .= " JOIN friend_relationships fr ON fr.to = b.mem_id";
 
             $where .= " AND (b.mem_id = " . Session::instance()->get('user_id') . " OR fr.from = b.mem_id)";
         } else {
-            $query .= " LEFT JOIN friend_relationships fr ON fr.to = b.mem_id";
-
             $where .= " AND ((m.privacy_option != 'locked' AND m.privacy_option != 'limited') OR ";
-            $where .= " (b.mem_id = " . Session::instance()->get('user_id') . " OR fr.from = " . Session::instance()->get('user_id') . ")) ";
+            $where .= " (EXISTS (SELECT 1 FROM friend_relationships fr WHERE fr.to = " . Session::instance()->get('user_id') . " AND fr.from = b.mem_id) OR b.mem_id = " . Session::instance()->get('user_id') . "))";
         }
 
         $query .= " WHERE $feed_id AND (b.type = $type) ";
@@ -96,7 +94,7 @@ class Model_Feed extends ORM
             }
         }
 
-        $query .= "$where GROUP BY b.id ORDER BY date DESC LIMIT 15";
+        $query .= "$where ORDER BY date DESC LIMIT 15";
 
         return DB::query(Database::SELECT, $query)->execute()->as_array();
     }
