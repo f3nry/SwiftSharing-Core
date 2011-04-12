@@ -243,6 +243,10 @@ class Model_Member extends ORM {
     public static function updateLocation($id, $data) {
         $member = self::factory('member')->where('id', '=', $id)->find();
 
+        foreach($data as &$item) {
+            $item = strip_tags($item);
+        }
+
         $member->firstname = preg_replace('#[^A-Z a-z]#i', '', $data['firstname']);
         $member->lastname = preg_replace('#[^A-Z a-z]#i', '', $data['lastname']);
         $member->country = str_replace("'", "&#39;", strip_tags($data['country']));
@@ -274,6 +278,10 @@ class Model_Member extends ORM {
     public static function updateInterests($id, $data) {
         $member = self::factory('member')->where('id', '=', $id)->find();
 
+        foreach($data as &$item) {
+            $item = strip_tags($item);
+        }
+
         $member->music = $data['music'];
         $member->movies = $data['movies'];
         $member->tv = $data['tv'];
@@ -304,6 +312,10 @@ class Model_Member extends ORM {
     public static function updateLinks($id, $data) {
         $member = self::factory('member')->where('id', '=', $id)->find();
 
+        foreach($data as &$item) {
+            $item = strip_tags($item);
+        }
+
         $member->website = $data['website'];
         $member->youtube = $data['youtube'];
         $member->facebook = $data['facebook'];
@@ -323,7 +335,7 @@ class Model_Member extends ORM {
     public static function updateBio($id, $data) {
         $member = self::factory('member')->where('id', '=', $id)->find();
 
-        $member->bio_body = $data['bio_body'];
+        $member->bio_body = strip_tags($data['bio_body'], '<p><a><h1><h2><h3><h4><h5><h6><font><span>');
 
         return $member->save();
     }

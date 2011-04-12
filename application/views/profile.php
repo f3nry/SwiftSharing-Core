@@ -92,41 +92,41 @@
                 <div class="interest">
                     <p id="heading">Country:&nbsp;</p>
 
-                    <p><?php echo @$member->country ?></p>
+                    <p><?php echo strip_tags(@$member->country) ?></p>
                 </div>
                 <?php endif; ?>
                 <?php if (@$member->music): ?>
                 <div class="interest">
                     <p id="heading">Music:&nbsp;</p>
-                    <p><?php echo @$member->music ?></p>
+                    <p><?php echo strip_tags(@$member->music) ?></p>
                 </div>
                 <?php endif; ?>
                 <?php if (@$member->tv): ?>
                 <div class="interest">
                     <p id="heading">TV:&nbsp;</p>
 
-                    <p><?php echo @$member->tv ?></p>
+                    <p><?php echo strip_tags(@$member->tv) ?></p>
                 </div>
                 <?php endif; ?>
                 <?php if (@$member->books): ?>
                 <div class="interest">
                     <p id="heading">Books:&nbsp;</p>
 
-                    <p><?php echo @$member->books ?></p>
+                    <p><?php echo strip_tags(@$member->books) ?></p>
                 </div>
                 <?php endif; ?>
                 <?php if (@$member->movies): ?>
                 <div class="interest">
                     <p id="heading">Movies:&nbsp;</p>
 
-                    <p><?php echo @$member->movies ?></p>
+                    <p><?php echo strip_tags(@$member->movies) ?></p>
                 </div>
                 <?php endif; ?>
             </div>
             <?php endif; ?>
-            <?php echo @$member->website; ?>
-            <?php echo @$member->youtube; ?>
-            <?php echo @$member->facebook; ?>
+            <?php echo strip_tags(@$member->website); ?>
+            <?php echo strip_tags(@$member->youtube); ?>
+            <?php echo strip_tags(@$member->facebook); ?>
         </div>
         <div id="short_friend_list">
             <?php echo @$member->generateShortFriendsList(); ?>
