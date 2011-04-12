@@ -12,7 +12,7 @@
         <?php echo Text::auto_link(htmlentities($blab['text'])) ?>
         <?php if($blab['type'] == 'PHOTO'): ?>
         <br/>
-        <a class="post_photo" href="$image" title="<?php echo $blab['text'] ?>">
+        <a class="post_photo" href="https://s3.amazonaws.com/swiftsharing-cdn/members/<?php echo $blab['mem_id'] ?>/<?php echo $blab['id'] ?>.jpg" title="<?php echo $blab['text'] ?>">
             <?php echo Images::getImage($blab['mem_id'], $blab['id'] . '.jpg', 120, 0, true, true); ?>
         </a>
         <?php endif; ?>
