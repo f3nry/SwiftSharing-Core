@@ -539,12 +539,11 @@ class Model_Member extends ORM {
     public function generateFriendBlabs() {
         $query = "SELECT DISTINCT(b.id), b.mem_id, b.type, b.feed_id, b.text, b.`date`, b.likes as likes,
                          f.title as feed_title,
-                         m.username as username, m.firstname as firstname, m.lastname as lastname, m.friend_array as friends, m.privacy_option as privacy_option, m.has_profile_image
+                         m.username as username, m.firstname as firstname, m.privacy_option as privacy_option, m.has_profile_image
                     FROM blabs b
                     JOIN myMembers m ON b.mem_id = m.id
-                    JOIN friend_relationships fr ON fr.to = b.mem_id
                     LEFT JOIN feeds f ON f.id = b.feed_id
-                    WHERE (b.type = 'STATUS' OR b.type = 'PHOTO' OR b.type = 'PROFILE') AND (fr.from = " . (integer)$this->id . " OR b.mem_id = {$this->id})
+                    WHERE (b.type != 'COMMENT') AND (EXISTS (SELECT 1 FROM friend_relationships fr WHERE fr.to = {$this->id} AND fr.from = b.mem_id) OR b.mem_id = {$this->id})
                     ORDER BY date DESC LIMIT 15";
 
         return Model_Feed::getFeedContent(
