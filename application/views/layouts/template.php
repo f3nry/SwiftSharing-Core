@@ -84,5 +84,30 @@
                 </div>
             </div>
         </div>
+        <?php if(Session::instance()->get('user_id')): ?>
+            <div id="bottom-bar">
+                <h3><a href="/<?php echo $member->username ?>"><?php echo $member->getFullName(); ?></a></h3>
+                <div class="left">
+                    <a href="#" id="notifications">
+                        <img width="20" height="20" src="/content/images/information.png"/>
+                        <span id="notification-text">Notifications</span>
+                        <div id="notifications-popout">
+                            Testtest
+                        </div>
+                    </a>
+                </div>
+            </div>
+        <script type="text/javascript">
+            $("#notifications").click(function() {
+                if($("#notifications-popout").css('display') == 'none') {
+                    $("#notifications-popout").show();
+                    $("#notifications").addClass('open');
+                } else {
+                    $("#notifications-popout").hide();
+                    $("#notifications").removeClass('open');
+                }
+            });
+        </script>
+        <?php endif; ?>
     </body>
 </html>
