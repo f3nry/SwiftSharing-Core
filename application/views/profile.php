@@ -1,4 +1,4 @@
-<?php
+<!--<?php
     $is_friend = (boolean)Model_Relationship::findRelationship($member->id, Session::instance()->get('user_id'))->is_loaded();
 
     $hideContent = !($is_friend || $member->privacy_option == '' || $member->privacy_option == 'public' || Session::instance()->get('user_id') == $member->id);
@@ -244,3 +244,254 @@
 <script type="text/javascript">
     bindThumbsUp();
 </script>
+--!>
+<?php
+    $is_friend = (boolean)Model_Relationship::findRelationship($member->id, Session::instance()->get('user_id'))->is_loaded();
+
+    $hideContent = !($is_friend || $member->privacy_option == '' || $member->privacy_option == 'public' || Session::instance()->get('user_id') == $member->id);
+?>
+<html>
+<head>
+	<title>SwiftSharing</title>
+	<link rel="stylesheet" href="css/general.css" type="text/css" media="screen" />
+	<!--[if IE 6]>
+		<link rel="stylesheet" href="css/ie6.css" type="text/css" media="screen," />
+	<![endif]-->	
+	<style type="text/css">
+.clear{
+	clear: both;
+	height: 0;
+	visibility: hidden;
+	display: block;
+}
+a{
+	text-decoration: none;
+}
+#logo{
+	margin-top: 1em;
+	display: block;
+}
+#page{
+	background-color:white;
+	min-height:825px;
+	width:765px;
+	margin-top:-20px;
+	margin-right:auto;
+	margin-left:auto;
+}
+#container2{
+	margin-top:10px;
+	width: 500px;
+	float:right;
+	margin-right:20px;
+}
+.name{
+	font-size:30px;
+	padding-top:20px;
+	margin-left:250px;
+}
+.location{
+	margin-top:10px;
+	margin-left:250px;
+	color:gray;
+}
+#container ul{
+	list-style: none;
+	list-style-position: outside;
+}
+#container ul.menu li{
+	float: left;
+	margin-right: 5px;
+	margin-bottom: -1px;
+}
+#container ul.menu li{
+	font-weight: 700;
+	display: block;
+	padding: 5px 10px 5px 10px;
+	background: #efefef;
+	margin-bottom: -1px;
+	border: 1px solid #d0ccc9;
+	border-width: 1px 1px 1px 1px;
+	position: relative;
+	color: #898989;
+	cursor: pointer;
+}
+#container ul.menu li.active{
+	background: #fff;
+	top: 1px;
+	border-bottom: 0;
+	color: #5f95ef;
+}
+.content{
+	margin: 0pt auto;
+	background: #efefef;
+	background: #fff;
+	border: 1px solid #d0ccc9;
+	text-align: left;
+	padding: 10px;
+	padding-bottom: 20px;
+	font-size: 11px;
+}
+.content h1{
+	line-height: 1em;
+	vertical-align: middle;
+	height: 48px;
+	padding: 10px 10px 10px 52px;
+	font-size: 32px;
+}
+.content.news h1{
+	background: transparent url(images/news.jpg) no-repeat scroll left top;
+}
+.content.news{
+	display: block;
+}
+.content.tutorials h1{
+	background: transparent url(images/tuts.jpg) no-repeat scroll left top;
+}
+.content.tutorials{
+	display: none;
+}
+.content.links h1{
+	background: transparent url(images/links.jpg) no-repeat scroll left top;
+}
+.content.links{
+	display: none;
+}
+.content.links a{
+	color: #5f95ef;
+}
+.stbody
+{
+min-height:70px;
+ 
+}
+.stbody
+{
+min-height:70px;
+margin-bottom:10px;
+border-bottom: 1px solid #eeeeee;
+}
+.stimg
+{
+float:left;
+height:50px;
+width:50px;
+border:solid 1px #dedede;
+padding:5px;
+}
+.sttext
+{
+margin-left:70px;
+ 
+min-height:50px;
+word-wrap:break-word;
+overflow:hidden;
+padding:5px;
+display:block;
+font-family:'Georgia', Times New Roman, Times, serif
+}
+.sttime
+{
+font-size:11px;
+color:#999;
+font-family:Arial, Helvetica, sans-serif;
+margin-top:5px;
+}
+h2{
+	font-size:30px;
+	padding-bottom:15px;
+}
+p{
+	font-size:15px;
+}
+#left{
+	float:left;
+}
+.photo{
+	width:200px;
+	height:200px;
+	background-color:black;
+	margin-left:15px;
+	margin-top:-60px;
+}
+.form{
+	width:475px;
+	height:100px;
+	background-color:#eee;
+	margin-bottom:10px;
+}
+p.header{
+	border-bottom: 1px solid;
+	font-size:20px;
+}
+</style>
+</head>
+<body>
+<div id="is_profile" style="display:none;" >1</div>
+<div id="page">
+	<div class="name"><?php echo $member->firstname . " " . $member->lastname; ?></div>
+	<div class="location"><?php echo @$member->country ?></div>
+	<div id="left">
+		<div class="photo">
+		        <div id="edit_profile">
+                <a href="/profile/edit">Edit Profile</a>
+            </div>
+            <?php if($member->has_profile_image): ?>
+            <?php echo Images::getImage($member->id, 'image01.jpg', 218, 0, true, true) ?>
+            <?php else: ?>
+            <img src="/content/images/image01.jpg" width="218"/>
+            <?php endif; ?>
+        </div>
+		<div class="friends"></div>
+	</div>
+	<div id="container2">
+		<ul class="menu">
+			<li id="news" class="active">Wall</li>
+			<li id="tutorials">Info</li>
+			<li id="interests">Interests</li>
+			<li id="links">Photos</li>
+		</ul>
+		<span class="clear"></span>
+		<div class="content news">
+			<div class="form">	
+				<div style="display:none;" id="current_feed_id"><?php echo $member->id; ?></div>
+            <form action="/ajax/feed/new" id="share" method="post" enctype="multipart/form-data">
+                <textarea name="text" cols="30" rows="3" style="width: 445px" id="sharetext"></textarea><br/>
+              <?php if($member->id == Session::instance()->get('user_id')): ?>
+              <strong>Say something <?php echo $member->firstname ?>...</strong> (220 char max)
+              <?php else: ?>
+              <strong>Write on <?php echo $member->firstname ?>'s profile</strong> (220 char max)
+              <?php endif; ?>
+                <input name="submit" type="submit" value="Share!"/>&nbsp;
+                <input type="checkbox" checked="checked" id="auto-update">Auto-update Profile
+                <input type="hidden" name="profile_flag" id="profile_flag" value="1" />
+            </form>
+			</div>
+			<div style="width:485px; overflow-x:hidden;padding-top:8px;">
+            <div id="feed">
+            <?php echo @$blabs; ?>
+            </div>
+            <table style="background-color:#FFF;" cellpadding="5" width="94%">
+                <tr style="padding:4px;">
+                    <td>
+                        <a href="javascript:void()" onclick="loadMore()">more</a>
+                    </td>
+                </tr>
+            </table>
+        </div>
+		</div>
+		<div class="content tutorials">
+			<div class="parts">
+			<p class="header">My Bio</p>
+				<?php echo @$member->bio_body; ?>
+			</div>
+		</div>
+		<div class="content links">
+			
+		</div>
+	</div>
+</div>
+	<script type="text/javascript" src="http://jqueryjs.googlecode.com/files/jquery-1.2.6.min.js"></script>
+	<script type="text/javascript" src="/content/js/tabs.js"></script>
+</body>
+</html>

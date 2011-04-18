@@ -27,7 +27,7 @@ class Controller_Profile extends Controller_App {
         
         $this->template = View::factory('profile_edit');
 
-        $this->layout->fullWidthLayout = true;
+        $this->layout->hideContentPane = true;
 
         if($post = $this->request->post()) {
             if($post['parse_var'] == 'pic') {
