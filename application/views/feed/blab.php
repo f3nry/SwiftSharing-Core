@@ -21,7 +21,7 @@
                 <a href="/<?php echo $blab['username'] ?>"><?php echo $blab['username'] ?></a> wrote
                 <?php elseif($blab['type'] == 'PROFILE' && $blab['mem_id'] == $config['member']): ?>
                 <?php $otherMember = Model_Member::quickLoad($blab['feed_id']); ?>
-                , by <a href="/<?php echo $blab['username'] ?>"><?php echo $blab['username'] ?></a> wrote on <a href="/<?php echo $otherMember->username ?>"><?php echo $otherMember->firstname ?>'s profile</a>
+                , by <a href="/<?php echo $blab['username'] ?>"><?php echo $blab['username'] ?></a> wrote on <a href="/<?php echo $otherMember->username ?>"><?php echo $otherMember->firstname ?>'s</a> profile
                 <?php else: ?>
                 , by <a href="/<?php echo $blab['username'] ?>"><?php echo $blab['username'] ?></a> in <a href="/feed/<?php echo $blab['feed_id'] ?>"><?php echo $blab['feed_title'] ?></a>
                 <?php endif; ?>
