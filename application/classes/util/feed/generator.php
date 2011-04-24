@@ -53,13 +53,21 @@ class Util_Feed_Generator {
                         LEFT JOIN feeds f ON f.id = b.feed_id";
 
             if(@$this->config['friends_only']) {
-                $addQuery = " LEFT JOIN friend_relationships fr ON fr.to = b.mem_id";
+                $addQuery = " INNER JOIN friend_relationships fr ON fr.to = b.mem_id";
 
                 if($member = Session::instance()->get('user_id')) {
                     $where = " AND (b.mem_id = " . $member . " OR fr.from = b.mem_id) ";
                 }
             } else {
                 list($addQuery, $where) = $this->getPrivacyQuery();
+            }
+
+            if($this->config['member']) {
+                $member = $this->config['member'];
+                
+                $where .= " AND (b.mem_id = $member OR b.type = 'PROFILE')";
+
+                $where .= " OR (b.type = 'PROFILE' AND (b.feed_id = $member OR b.mem_id = $member))";
             }
 
             $query .= $addQuery;

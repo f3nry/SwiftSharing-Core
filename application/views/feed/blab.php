@@ -17,7 +17,7 @@
         <div class="time">
             <?php echo Date::fuzzy_span(strtotime($blab['date'])); ?>
             <?php if($config['show_from']): ?>
-                <?php if($blab['type'] == 'PROFILE' && $row['feed_id'] == $config['member']): ?>
+                <?php if($blab['type'] == 'PROFILE' && $blab['feed_id'] == $config['member']): ?>
                 <a href="/<?php echo $blab['username'] ?>"><?php echo $blab['username'] ?></a> wrote
                 <?php elseif($blab['type'] == 'PROFILE' && $blab['mem_id'] == $config['member']): ?>
                 <?php $otherMember = Model_Member::quickLoad($blab['feed_id']); ?>
