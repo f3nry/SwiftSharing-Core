@@ -38,4 +38,10 @@ RETURN;
                     ->execute()
                     ->count();
     }
+
+    public static function getTotalCount() {
+        return DB::query(Database::SELECT, "SELECT COUNT(*) as total FROM likes")
+                ->execute()
+                ->get('total');
+    }
 }

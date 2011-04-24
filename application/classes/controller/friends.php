@@ -16,11 +16,21 @@ class Controller_Friends extends Controller_App {
         $feed->full_title = 'Your Friend\'s posts';
 
         $this->template->feed = $feed;
-        $this->template->feed_content = $member->generateFriendBlabs();
+        $this->template->feed_content = Util_Feed_Generator::factory()
+                        ->set('feed_id', '*')
+                        ->set('friends_only', true)
+                        ->set('show_from', true)
+                        ->set('types', array(
+                            'STATUS', 'PHOTO'
+                        ))
+                        ->load()
+                        ->render();
+        
         $this->template->feed_list = Model_Feed::generateFeedList();
 
         $this->layout->hideContentPane = true;
         $this->template->hideShareForm = true;
+        $this->template->onlyFriends = true;
     }
 }
 ?>

@@ -79,12 +79,25 @@ class Controller_Ajax_Feed extends Controller_Ajax {
         $blab = Model_Blab::getById($_POST['lastmsg']);
 
         if($blab) {
-            if($_POST['profile_flag']) {
+            if(isset($_POST['profile_flag']) && $_POST['profile_flag']) {
                 echo Util_Feed_Generator::factory()
                         ->set('feed_id', '*')
                         ->set('member', $_POST['feed_id'])
                         ->set('lastdate', $blab->date)
                         ->set('reverse', true)
+                        ->set('show_from', true)
+                        ->set('types', array(
+                            'STATUS', 'PHOTO'
+                        ))
+                        ->load()
+                        ->render();
+            } else if(isset($_POST['friends_flag']) && $_POST['friends_flag']) {
+                echo Util_Feed_Generator::factory()
+                        ->set('feed_id', '*')
+                        ->set('lastdate', $blab->date)
+                        ->set('friends_only', true)
+                        ->set('reverse', true)
+                        ->set('show_from', true)
                         ->set('types', array(
                             'STATUS', 'PHOTO'
                         ))
@@ -152,6 +165,9 @@ class Controller_Ajax_Feed extends Controller_Ajax {
             $blab->type = "STATUS";
 
             $blab->save();
+
+            Cache::instance()->delete("blab-from-" . $post['feed_id']);
+            Cache::instance()->delete("blab-non-from-" . $post['feed_id']);
 
            echo Util_Feed_Generator::factory()
                     ->load($blab->id)

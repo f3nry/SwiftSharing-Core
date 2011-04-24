@@ -52,6 +52,31 @@
             }
         }).render().setUser('swiftsharing').start();
     </script>
+    <h2>SwiftSharing Statics</h2>
+    <p>
+        <em>
+            <b>Total Registered Members:</b>
+        </em>
+        <?php echo intval(Model_Member::getTotalCount()) ?>
+    </p>
+    <p>
+        <em>
+            <b>Total Posts: </b>
+        </em>
+        <?php echo intval(Model_Blab::getTotalCount()) ?>
+    </p>
+    <p>
+        <em>
+            <b>Total Friend Relationships: </b>
+        </em>
+        <?php echo intval(Model_Relationship::getTotalCount()) ?>
+    </p>
+    <p>
+        <em>
+            <b>Total Likes/Dislikes: </b>
+        </em>
+        <?php echo intval(Model_Like::getTotalCount()) ?>
+    </p>
 </div>
 <div class="about">
     <h2>Alaxic smith</h2>

@@ -52,7 +52,15 @@ class Util_Feed_Generator {
                         INNER JOIN myMembers m ON b.mem_id = m.id
                         LEFT JOIN feeds f ON f.id = b.feed_id";
 
-            list($addQuery, $where) = $this->getPrivacyQuery();
+            if(@$this->config['friends_only']) {
+                $addQuery = " LEFT JOIN friend_relationships fr ON fr.to = b.mem_id";
+
+                if($member = Session::instance()->get('user_id')) {
+                    $where = " AND (b.mem_id = " . $member . " OR fr.from = b.mem_id) ";
+                }
+            } else {
+                list($addQuery, $where) = $this->getPrivacyQuery();
+            }
 
             $query .= $addQuery;
 

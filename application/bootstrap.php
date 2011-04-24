@@ -56,14 +56,17 @@ ini_set('unserialize_callback_func', 'spl_autoload_call');
 I18n::lang('en-us');
 
 /**
- * Set Kohana::$environment if a 'KOHANA_ENV' environment variable has been supplied.
- *
- * Note: If you supply an invalid environment name, a PHP warning will be thrown
- * saying "Couldn't find constant Kohana::<INVALID_ENV_NAME>"
+ * Set the environment status by the domain.
  */
-if (isset($_SERVER['KOHANA_ENV']))
+if (strpos($_SERVER['HTTP_HOST'], 'swiftsharing.net') !== FALSE)
 {
-	Kohana::$environment = constant('Kohana::'.strtoupper($_SERVER['KOHANA_ENV']));
+    // We are live!
+    Kohana::$environment = Kohana::PRODUCTION;
+
+    // Turn off notices and strict errors
+    error_reporting(E_ALL ^ E_NOTICE ^ E_STRICT);
+} else {
+    Kohana::$environment = Kohana::DEVELOPMENT;
 }
 
 /**
@@ -80,8 +83,9 @@ if (isset($_SERVER['KOHANA_ENV']))
  * - boolean  caching     enable or disable internal caching                 FALSE
  */
 Kohana::init(array(
-	'base_url'   => '/',
-    'index_file' => false
+    'base_url'   => '/',
+    'index_file' => false,
+    'caching' => true
  ));
 
 /**
@@ -108,6 +112,8 @@ Kohana::modules(array(
          'mango'      => MODPATH.'mango',
          'facebook'   => MODPATH.'facebook'
     ));
+
+Cache::$default = 'memcache';
 
 Route::set('login', 'login(/<action>)')
         ->defaults(array(

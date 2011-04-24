@@ -17,4 +17,17 @@ class Model_Blab extends ORM {
                     ->execute()
                     ->get('total');
     }
+
+    public static function getTotalCount() {
+        return DB::query(Database::SELECT, "SELECT COUNT(*) as total FROM blabs WHERE type != 'COMMENT'")
+                ->execute()
+                ->get('total');
+    }
+
+    public function deleteFromCache() {
+        $cache = Cache::instance();
+
+        $cache->delete("blab-from-" . $this->id);
+        $cache->delete("blab-non-from-" . $this->id);
+    }
 }

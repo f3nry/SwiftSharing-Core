@@ -34,6 +34,8 @@ class Controller_Ajax_Like extends Controller_Ajax {
         $blab->likes += $like->value;
         $blab->save();
 
+        $blab->deleteFromCache();
+
         return $this->json(array(
             'likes' => $blab->likes,
         ));
