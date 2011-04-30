@@ -74,7 +74,7 @@
         float:right;
         background-color:white;
         width:255px;
-        height:660px;
+        min-height:660px;
         -moz-border-radius: 20px;
         -webkit-border-radius: 20px;
         -khtml-border-radius: 20px;
@@ -269,11 +269,11 @@ p.note {
 					<p class='captionInside'>My Friends</p>
 				</div>
 			</li>
-			<div class='clear'></div>
 			
 		</ul>
 	</div>
 	</div>
+<div style="clear:both;"></div>
 <?php if(Session::instance()->get('flash_facebook')): ?>
 <?php Session::instance()->delete('flash_facebook'); ?>
 <div id="fb-root"></div>
@@ -305,3 +305,4 @@ p.note {
     </div>
 </div>
 <script type="text/javascript" src="/content/js/profile.js"></script>
+    <div style="clear:both;"></div>

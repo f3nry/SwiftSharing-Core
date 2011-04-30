@@ -36,6 +36,7 @@ class Controller_Feed extends Controller_App {
         $data['comments'] = Util_Feed_Generator::factory()
                 ->set('feed_id', $this->request->param('id'))
                 ->set('types', array('COMMENT'))
+                ->set('ignore_privacy', true)
                 ->load()
                 ->render();
 

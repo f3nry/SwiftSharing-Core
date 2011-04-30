@@ -10,9 +10,9 @@
 class Controller_App extends Controller_Template {
 
     public function before() {
-        Util_Analytics_Engine::record($this->request);
-
         parent::before();
+
+        Util_Analytics_Engine::record($this->request);
 
         if($this->template) {
             $this->template->session = Session::instance();

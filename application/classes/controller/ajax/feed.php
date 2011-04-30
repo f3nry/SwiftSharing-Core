@@ -47,6 +47,12 @@ class Controller_Ajax_Feed extends Controller_Ajax {
                 exit;
             }
 
+            if($blab->type == "COMMENT") {
+                $parent_blab = Model_Blab::getById($post['feed_id']);
+
+                $parent_blab->deleteFromCache();
+            }
+
             echo Util_Feed_Generator::factory()
                     ->load($blab->id)
                     ->render();
@@ -165,9 +171,6 @@ class Controller_Ajax_Feed extends Controller_Ajax {
             $blab->type = "STATUS";
 
             $blab->save();
-
-            Cache::instance()->delete("blab-from-" . $post['feed_id']);
-            Cache::instance()->delete("blab-non-from-" . $post['feed_id']);
 
            echo Util_Feed_Generator::factory()
                     ->load($blab->id)

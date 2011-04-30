@@ -9,9 +9,9 @@
  
 class Controller_Ajax extends Controller {
     public function before() {
-        Util_Analytics_Engine::record($this->request);
-
         parent::before();
+
+        Util_Analytics_Engine::record($this->request);
     }
 
     public function json($data) {

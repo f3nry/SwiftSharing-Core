@@ -20,7 +20,8 @@ class Util_Feed_Generator {
         'reverse'   => false,
         'member'    => false,
         'show_from' => false,
-        'blab_id'   => false
+        'blab_id'   => false,
+        'ignore_privacy' => false
     );
 
     /**
@@ -59,8 +60,11 @@ class Util_Feed_Generator {
                 $id = Session::instance()->get('user_id');
                 
                 $where = " AND (EXISTS (SELECT 1 FROM friend_relationships fr WHERE fr.to = {$id} AND fr.from = b.mem_id) OR b.mem_id = {$id})";
-            } else {
+            } else if(!$this->config['ignore_privacy']) {
                 list($addQuery, $where) = $this->getPrivacyQuery();
+            } else {
+                $addQuery = "";
+                $where = "";
             }
 
             if($this->config['member']) {

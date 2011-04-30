@@ -21,7 +21,7 @@ class Util_Analytics_Engine  {
                 'robot' => $request->user_agent('robot'),
                 'ajax' => $request->is_ajax(),
                 'username' => Session::instance()->get('username'),
-                'id' => Session::instance()->Get('user_id')
+                'id' => Session::instance()->get('user_id')
             );
 
             $db->insert('access_logs', $document);
