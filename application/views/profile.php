@@ -395,6 +395,10 @@ $hideContent = !($is_friend || $member->privacy_option == '' || $member->privacy
     .relationships{
         padding-top:10px;
     }
+    .interactionLinksDiv{
+        padding-top:30px;
+    }
+}
 </style>
     <div id="is_profile" style="display:none;" >1</div>
     <div id="page">
