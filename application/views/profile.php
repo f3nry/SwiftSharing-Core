@@ -400,6 +400,9 @@ p.header{
 .relationships{
 	padding-top:10px;
 }
+.interactionLinksDiv{
+	padding-top:30px;
+}
 </style>
 </head>
 <body>
@@ -521,7 +524,7 @@ p.header{
 			<li id="links">About Me</li>
 		</ul>
 		<span class="clear"></span>
-		<div class="content wall">
+		<div class="content news">
 		
 			<div class="form">	
 				<div style="display:none;" id="current_feed_id"><?php echo $member->id; ?></div>
