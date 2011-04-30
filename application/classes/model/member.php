@@ -730,7 +730,7 @@ END;
                          "SELECT blabs.id, text, type, f.title as feed_title, f.id as feed_id
                             FROM blabs
                             LEFT JOIN feeds f ON blabs.feed_id = f.id
-                            WHERE blabs.mem_id = {$this->id} AND type != 'COMMENT' ORDER BY date DESC LIMIT 1")
+                            WHERE blabs.mem_id = {$this->id} AND type != 'COMMENT' AND type != 'PROFILE' ORDER BY date DESC LIMIT 1")
                 ->execute()
                 ->as_array();
     }

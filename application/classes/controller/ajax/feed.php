@@ -138,6 +138,11 @@ class Controller_Ajax_Feed extends Controller_Ajax {
                     "message" => "Sorry, you don't own that blab, and so you cannot delete it."
                 ));
             } else {
+                if($blab->type == "COMMENT") {
+                    $parent_blab = Model_Blab::getById($blab->feed_id);
+                    $parent_blab->deleteFromCache();
+                }
+
                 $blab->delete();
 
                 echo json_encode(array(
