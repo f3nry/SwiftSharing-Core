@@ -432,7 +432,7 @@ END;
 
         $friendObjects = Model_Relationship::findByTo($this->id, true, $start);
 
-        $friendList .= '<div class="infoHeader" style="">' . $this->username . '\'s Friends (<a href="/ajax/profile/friends/' . $this->id . '" class="short_friends_list">' . ($friendCount) . '</a>)</div>';
+        $friendList .= '<div class="infoHeader" style="border-bottom: 1px solid #eeeeee;font-size:17px;color:#8B8989;width:218px;">' . $this->firstname . '\'s Friends (<a href="/ajax/profile/friends/' . $this->id . '" class="short_friends_list">' . ($friendCount) . '</a>)</div>';
         $i = 0; // create a varible that will tell us how many items we looped over
         $friendList .= '<div class="infoBody"><table id="friendTable" align="center" cellspacing="4"></tr>';
         foreach($friendObjects as $friendObject)  {

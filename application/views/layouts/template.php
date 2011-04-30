@@ -70,7 +70,7 @@
                 <?php endif; ?>
                     <div id="footer">
                     <div style="float:left;">
-                        <span>SwiftSharing</span> | <a href="/help">Help</a> | <a href="/about">About</a> | <a href="/privacy">Privacy</a> | <a href="/refer">Refer</a>
+                        <span>SwiftSharing</span> | <a href="/help">Help</a> | <a href="/about">About</a> | <a href="/privacy">Privacy</a> | <a href="/refer">Refer</a> | <a href="/networks">Networks</a>
                     </div>
                     <div style="float:right;">
                         <div style="width:250px;float:left;height:62px;">
@@ -84,5 +84,32 @@
                 </div>
             </div>
         </div>
+        <?php if(Session::instance()->get('user_id')): ?>
+            <div id="bottom-bar">
+                <h3><a href="/<?php echo $member->username ?>"><?php echo $member->getFullName(); ?></a></h3>
+                <div class="left">
+                    <a href="#" id="notifications">
+                        <img width="20" height="20" src="/content/images/information.png"/>
+                        <span id="notification-text">Notifications</span>
+                        <div id="notifications-popout">
+                            <div class="top-row">
+                            	My Notifications
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        <script type="text/javascript">
+            $("#notifications").click(function() {
+                if($("#notifications-popout").css('display') == 'none') {
+                    $("#notifications-popout").show();
+                    $("#notifications").addClass('open');
+                } else {
+                    $("#notifications-popout").hide();
+                    $("#notifications").removeClass('open');
+                }
+            });
+        </script>
+        <?php endif; ?>
     </body>
 </html>

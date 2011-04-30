@@ -31,9 +31,10 @@
                 <?php print @$blabber_pic; ?>
             </div>
             <div class="options">
-                <li><a href="/profile/edit">Edit Profile</a></li>
-                <li><a href="#">Friend Request</a></li>
-                <li><a href="/<?php echo $session->get('username') ?>">View Profile</a></li>
+                <li><a href="/<?php echo Session::instance()->get('username') ?>">My Profile</a>
+				<li><a href="/<?php echo Session::instance()->get('username') ?>">Friend Request</a>
+				<li><a href="<a href="/profile/edit">Edit Profile</a>
+				<li><a href="/stats">My Stats</a>
             </div>
             <div class="feed">
                 <h3>Your Feeds</h3>

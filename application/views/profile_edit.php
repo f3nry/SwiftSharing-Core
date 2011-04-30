@@ -459,29 +459,172 @@
                         theme_advanced_toolbar_align: "left",
                         theme_advanced_statusbar_location: "bottom"
                     });
+
                 </script>
-<!--
+                
+<!--<script type="text/javascript" src="http://ajax.googleapis.com/
+ajax/libs/jquery/1.4.2/jquery.min.js"></script> 
+<script> 
+$(document).ready(function() {
+ 
+  
+   $('.block').click(function()
+   {
+   var id= $(this).attr('id');
+   var data_id= $(".data").html();
+  
+    var panel= $('.panel');
+	var panel_width=$('.panel').css('left');
+	
+	
+	if(data_id==id)
+	{
+	panel.animate({left: parseInt(panel.css('left'),0) == 0 ? +panel.outerWidth() : 0});
+	}
+	else
+	{
+	
+	
+	if(panel_width=='341px')
+	{
+	
+	}
+	else
+	{
+	
+    panel.animate({left: parseInt(panel.css('left'),0) == 0 ? +panel.outerWidth() : 0});
+	
+	}
+	
+	}
+	$('.data').html(id);
+	return false;
+	
+  });
+  
+ 
+  
+  $('.close').click(function() 
+   {
+   
+    var panel= $('.panel');
+    panel.animate({left: parseInt(panel.css('left'),0) == 0 ? +panel.outerWidth() : 0});
+	return false;
+	
+  });
+  
+  
+  
+});
+ 
+</script> 
+<style> 
+h4{
+	padding:5px;
+                </script>
+
 <style type="text/css">
 #right{
 	border-left: 1px solid;
 	height:650px;
 }
-p{
-	font-family: Helvetica, Arial, Sans-serif;
-	font-size:25px;
-	margin-left:20px;
+a{ 
+	color:#333 
 }
-</style>
-<div id="right">
-	<p>Profile Picture</p>
-	<p>Profile Description</p>
-	<p>Name, City, State, and Country</p>
-	<p>Profile Links</p>
-	<p>Profile Background</p>
-	<p>Interests</p>
-	<p>Privacy</p>
-	</div>
-<div id="left">
+a:hover {color:#cc0000
+}
+#profile-options{
+	width:900px;
+	margin:0 auto; 
+	background-color:#fff; 
+	min-height:420px; 
+	overflow:auto;
+ 	-moz-border-radius:5px;
+ 	-webkit-border-radius:6px;
+	border:solid 1px #999999;
+	margin-top:50px;
+}
+.edit-right{
+	float:right; 
+	width:450px;
+	text-align:center;
+	font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+}
+.edit-left{
+	float:left; 
+	background-color:#fff; 
+	width:441px; 
+	min-height:300px;
+ 	position:relative;
+ 	
+}
+.block{
+	border-bottom: solid 1px #999999;
+	padding:15px;
+	border-right:solid 1px #999999;
+	height:30px;
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+}
+ .block:hover{
+ 	background-color:#f2f2f2;
+	cursor:pointer;
+}
+#panel-frame{
+	position:relative; 
+	max-width:700px; 
+	position:fixed;
+}
+.panel{
+	background-color:#f2f2f2; 
+	width:440px; 
+	height:400px;
+	margin-top:20px;
+	position:relative;
+	position:absolute;
+	border:solid 1px #999999;
+	border-left:0px;
+	left:0;
+}
+.data{
+	font-size:30px
+}
+.head{
+	background-color:#a9a9a9;
+	padding:10px;
+	text-align:right;
+}
+</style> 
+<div id="profile-options"> 
+ 
+<div class="edit-right"> 
+<h4>(To Edit Your Profile, Select an Option on the left)</h4> 
 
+</div> 
+<div id="panel-frame"> 
+<div class="panel"> 
+<div class="head"> 
+<a href="#" class="close">Done</a> 
+</div> 
+<div class="data" style="padding:20px"></div> 
+</div> 
+</div> 
+ 
+<div class="edit-left"> 
+<div class="block" id="">Profile Photo</div>
+<div class="block" id="">Profile Description</div>  
+<div class="block" id="<form>
+	First name: <input type='text' name='firstname' /><br />
+	Last name: <input type='text' name='lastname' />
+</form>">Your Infomation</div>
+<div class="block" id="">Profile Links</div> 
+<div class="block" id="">Profile Background</div> 
+<div class="block" id="">Interests</div>
+<div class="block" id="">Privacy</div> 
+</div> 
+ 
+ 
+ 
+</div> 
 	</div>
 -->
+

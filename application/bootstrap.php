@@ -187,6 +187,18 @@ Route::set('about', 'about')
             'action' => 'index'
         ));
 
+Route::set('networks', 'networks')
+        ->defaults(array(
+            'controller' => 'networks',
+            'action' => 'index'
+        ));
+        
+Route::set('stats', 'stats')
+        ->defaults(array(
+            'controller' => 'stats',
+            'action' => 'index'
+        ));
+        
 Route::set('page', 'page')
         ->defaults(array(
             'controller' => 'page',
