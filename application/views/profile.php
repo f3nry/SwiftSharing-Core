@@ -289,6 +289,7 @@ $hideContent = !($is_friend || $member->privacy_option == '' || $member->privacy
         margin-top:10px;
         margin-left:250px;
         color:gray;
+        font-size: 16px;
     }
     #container ul{
         list-style: none;
