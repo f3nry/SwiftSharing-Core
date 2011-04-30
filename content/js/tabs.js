@@ -8,51 +8,51 @@
 $(document).ready(function(){
 	$(".menu > li").click(function(e){
 		switch(e.target.id){
-			case "news":
+			case "wall":
 				//change status & style menu
-				$("#news").addClass("active");
-				$("#tutorials").removeClass("active");
+				$("#wall").addClass("active");
+				$("#info").removeClass("active");
 				$("#links").removeClass("active");
 				$("#interests").removeClass("active");
 				//display selected division, hide others
-				$("div.news").fadeIn();
-				$("div.tutorials").css("display", "none");
+				$("div.wall").fadeIn();
+				$("div.info").css("display", "none");
 				$("div.links").css("display", "none");
 				$("div.interests").css("display", "none");
 			break;
-			case "tutorials":
+			case "info":
 				//change status & style menu
-				$("#news").removeClass("active");
-				$("#tutorials").addClass("active");
+				$("#wall").removeClass("active");
+				$("#info").addClass("active");
 				$("#links").removeClass("active");
 				$("#interests").removeClass("active");
 				//display selected division, hide others
-				$("div.tutorials").fadeIn();
-				$("div.news").css("display", "none");
+				$("div.info").fadeIn();
+				$("div.wall").css("display", "none");
 				$("div.links").css("display", "none");
 				$("div.interests").css("display", "none");
 			break;
 			case "links":
 				//change status & style menu
-				$("#news").removeClass("active");
-				$("#tutorials").removeClass("active");
+				$("#wall").removeClass("active");
+				$("#info").removeClass("active");
 				$("#links").addClass("active");
 				$("#interests").removeClass("active");
 				//display selected division, hide others
 				$("div.links").fadeIn();
-				$("div.news").css("display", "none");
-				$("div.tutorials").css("display", "none");
+				$("div.wall").css("display", "none");
+				$("div.info").css("display", "none");
 				$("div.interests").css("display", "none");
 			break;
 			case "interests":
 				//change status & style menu
-				$("#news").removeClass("active");
-				$("#tutorials").removeClass("active");
+				$("#wall").removeClass("active");
+				$("#info").removeClass("active");
 				$("#links").removeClass("active");
 				$("#interests").addClass("active");
 				//display selected division, hide others
-				$("div.tutorials").css("display", "none");
-				$("div.news").css("display", "none");
+				$("div.info").css("display", "none");
+				$("div.wall").css("display", "none");
 				$("div.links").css("display", "none");
 				$("div.interests").fadeIn();
 			break;

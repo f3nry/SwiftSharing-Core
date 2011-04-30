@@ -259,11 +259,12 @@ h4 {
     padding: 5px;
     display: block;
     font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
-    max-width:80%;
+    max-width:70%;
 }
 
 .postbody .likes {
     float: right;
+    width:80px;
 }
 
 .postbody .time {
@@ -311,9 +312,11 @@ body {
 
 /* ------- Interaction Links Class -------- */
 .interactionLinksDiv {
-    margin-bottom:15px;
-    float:left;
-    padding-right: 8px;
+   float:right;
+   margin-right:20px;
+   margin-top:-60px;
+   
+    
 }
 
 .interactionLinksDiv a {

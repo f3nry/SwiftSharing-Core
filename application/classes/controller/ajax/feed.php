@@ -47,7 +47,9 @@ class Controller_Ajax_Feed extends Controller_Ajax {
                 exit;
             }
 
-            echo Model_Feed::getBlab($blab->id, true);
+            echo Util_Feed_Generator::factory()
+                    ->load($blab->id)
+                    ->render();
         }
     }
 
@@ -57,8 +59,16 @@ class Controller_Ajax_Feed extends Controller_Ajax {
         $blab = Model_Blab::getById($_POST['lastmsg']);
 
         if($blab) {
-            echo Model_Feed::getFeedContent($blab->feed_id, "'STATUS' OR b.type = 'PHOTO'", false, $blab->date);
-
+            echo Util_Feed_Generator::factory()
+                        ->set('feed_id', $blab->feed_id)
+                        ->set('member', false)
+                        ->set('lastdate', $blab->date)
+                        ->set('reverse', false)
+                        ->set('types', array(
+                            'STATUS', 'PHOTO'
+                        ))
+                        ->load()
+                        ->render();
             exit;
         }
     }
@@ -70,9 +80,27 @@ class Controller_Ajax_Feed extends Controller_Ajax {
 
         if($blab) {
             if($_POST['profile_flag']) {
-                echo Model_Feed::getFeedContent('*', "'STATUS' OR b.type = 'PHOTO'", $_POST['feed_id'], $blab->date, true);
+                echo Util_Feed_Generator::factory()
+                        ->set('feed_id', '*')
+                        ->set('member', $_POST['feed_id'])
+                        ->set('lastdate', $blab->date)
+                        ->set('reverse', true)
+                        ->set('types', array(
+                            'STATUS', 'PHOTO'
+                        ))
+                        ->load()
+                        ->render();
             } else {
-                echo Model_Feed::getFeedContent($blab->feed_id, "'STATUS' OR b.type = 'PHOTO'", false, $blab->date, true);
+                echo Util_Feed_Generator::factory()
+                        ->set('feed_id', $blab->feed_id)
+                        ->set('member', false)
+                        ->set('lastdate', $blab->date)
+                        ->set('reverse', true)
+                        ->set('types', array(
+                            'STATUS', 'PHOTO'
+                        ))
+                        ->load()
+                        ->render();
             }
             
             exit;
@@ -125,7 +153,10 @@ class Controller_Ajax_Feed extends Controller_Ajax {
 
             $blab->save();
 
-            echo Model_Feed::getBlab($blab->id, true);
+           echo Util_Feed_Generator::factory()
+                    ->load($blab->id)
+                    ->render();
+
         }
     }
 }

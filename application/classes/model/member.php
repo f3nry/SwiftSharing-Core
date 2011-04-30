@@ -243,6 +243,10 @@ class Model_Member extends ORM {
     public static function updateLocation($id, $data) {
         $member = self::factory('member')->where('id', '=', $id)->find();
 
+        foreach($data as &$item) {
+            $item = strip_tags($item);
+        }
+
         $member->firstname = preg_replace('#[^A-Z a-z]#i', '', $data['firstname']);
         $member->lastname = preg_replace('#[^A-Z a-z]#i', '', $data['lastname']);
         $member->country = str_replace("'", "&#39;", strip_tags($data['country']));
@@ -274,6 +278,10 @@ class Model_Member extends ORM {
     public static function updateInterests($id, $data) {
         $member = self::factory('member')->where('id', '=', $id)->find();
 
+        foreach($data as &$item) {
+            $item = strip_tags($item);
+        }
+
         $member->music = $data['music'];
         $member->movies = $data['movies'];
         $member->tv = $data['tv'];
@@ -304,6 +312,10 @@ class Model_Member extends ORM {
     public static function updateLinks($id, $data) {
         $member = self::factory('member')->where('id', '=', $id)->find();
 
+        foreach($data as &$item) {
+            $item = strip_tags($item);
+        }
+
         $member->website = $data['website'];
         $member->youtube = $data['youtube'];
         $member->facebook = $data['facebook'];
@@ -323,7 +335,7 @@ class Model_Member extends ORM {
     public static function updateBio($id, $data) {
         $member = self::factory('member')->where('id', '=', $id)->find();
 
-        $member->bio_body = $data['bio_body'];
+        $member->bio_body = strip_tags($data['bio_body'], '<p><a><h1><h2><h3><h4><h5><h6><font><span>');
 
         return $member->save();
     }
@@ -388,7 +400,7 @@ class Model_Member extends ORM {
 
         $friendObjects = Model_Relationship::findByTo($this->id, true, $start);
 
-        $friendList .= '<div class="infoHeader" style="">' . $this->username . '\'s Friends (<a href="/ajax/profile/friends/' . $this->id . '" class="short_friends_list">' . ($friendCount) . '</a>)</div>';
+        $friendList .= '<div class="infoHeader" style="border-bottom: 1px solid #eeeeee;font-size:17px;color:#8B8989;width:218px;">' . $this->firstname . '\'s Friends (<a href="/ajax/profile/friends/' . $this->id . '" class="short_friends_list">' . ($friendCount) . '</a>)</div>';
         $i = 0; // create a varible that will tell us how many items we looped over
         $friendList .= '<div class="infoBody"><table id="friendTable" align="center" cellspacing="4"></tr>';
         foreach($friendObjects as $friendObject)  {
@@ -525,15 +537,13 @@ class Model_Member extends ORM {
      * @return string The generated blabs in HTML
      */
     public function generateFriendBlabs() {
-        $query = "SELECT b.id, b.mem_id, b.type, b.feed_id, b.text, b.`date`, b.likes as likes,
+        $query = "SELECT DISTINCT(b.id), b.mem_id, b.type, b.feed_id, b.text, b.`date`, b.likes as likes,
                          f.title as feed_title,
-                         m.username as username, m.firstname as firstname, m.lastname as lastname, m.friend_array as friends, m.privacy_option as privacy_option, m.has_profile_image
+                         m.username as username, m.firstname as firstname, m.privacy_option as privacy_option, m.has_profile_image
                     FROM blabs b
-                    INNER JOIN myMembers m ON b.mem_id = m.id
-                    INNER JOIN friend_relationships fr ON fr.to = b.mem_id
+                    JOIN myMembers m ON b.mem_id = m.id
                     LEFT JOIN feeds f ON f.id = b.feed_id
-                    WHERE (b.type = 'STATUS' OR b.type = 'PHOTO' OR b.type = 'PROFILE') AND (fr.from = " . (integer)$this->id . " OR b.mem_id = {$this->id})
-                    GROUP BY b.id
+                    WHERE (b.type != 'COMMENT') AND (EXISTS (SELECT 1 FROM friend_relationships fr WHERE fr.to = {$this->id} AND fr.from = b.mem_id) OR b.mem_id = {$this->id})
                     ORDER BY date DESC LIMIT 15";
 
         return Model_Feed::getFeedContent(

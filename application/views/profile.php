@@ -13,7 +13,7 @@
     }
 
     .postbody .text {
-        max-width:70%;
+        max-width:60%;
     }
 </style>
 <div id="is_profile" style="display:none;" >1</div>
@@ -92,41 +92,41 @@
                 <div class="interest">
                     <p id="heading">Country:&nbsp;</p>
 
-                    <p><?php echo @$member->country ?></p>
+                    <p><?php echo strip_tags(@$member->country) ?></p>
                 </div>
                 <?php endif; ?>
                 <?php if (@$member->music): ?>
                 <div class="interest">
                     <p id="heading">Music:&nbsp;</p>
-                    <p><?php echo @$member->music ?></p>
+                    <p><?php echo strip_tags(@$member->music) ?></p>
                 </div>
                 <?php endif; ?>
                 <?php if (@$member->tv): ?>
                 <div class="interest">
                     <p id="heading">TV:&nbsp;</p>
 
-                    <p><?php echo @$member->tv ?></p>
+                    <p><?php echo strip_tags(@$member->tv) ?></p>
                 </div>
                 <?php endif; ?>
                 <?php if (@$member->books): ?>
                 <div class="interest">
                     <p id="heading">Books:&nbsp;</p>
 
-                    <p><?php echo @$member->books ?></p>
+                    <p><?php echo strip_tags(@$member->books) ?></p>
                 </div>
                 <?php endif; ?>
                 <?php if (@$member->movies): ?>
                 <div class="interest">
                     <p id="heading">Movies:&nbsp;</p>
 
-                    <p><?php echo @$member->movies ?></p>
+                    <p><?php echo strip_tags(@$member->movies) ?></p>
                 </div>
                 <?php endif; ?>
             </div>
             <?php endif; ?>
-            <?php echo @$member->website; ?>
-            <?php echo @$member->youtube; ?>
-            <?php echo @$member->facebook; ?>
+            <?php echo strip_tags(@$member->website); ?>
+            <?php echo strip_tags(@$member->youtube); ?>
+            <?php echo strip_tags(@$member->facebook); ?>
         </div>
         <div id="short_friend_list">
             <?php echo @$member->generateShortFriendsList(); ?>
@@ -287,7 +287,7 @@ a{
 }
 .name{
 	font-size:30px;
-	padding-top:20px;
+	padding-top:25px;
 	margin-left:250px;
 }
 .location{
@@ -345,10 +345,10 @@ a{
 .content.news{
 	display: block;
 }
-.content.tutorials h1{
+.content.info h1{
 	background: transparent url(images/tuts.jpg) no-repeat scroll left top;
 }
-.content.tutorials{
+.content.info{
 	display: none;
 }
 .content.links h1{
@@ -357,45 +357,11 @@ a{
 .content.links{
 	display: none;
 }
-.content.links a{
-	color: #5f95ef;
+.content.interests h1{
+	background: transparent url(images/tuts.jpg) no-repeat scroll left top;
 }
-.stbody
-{
-min-height:70px;
- 
-}
-.stbody
-{
-min-height:70px;
-margin-bottom:10px;
-border-bottom: 1px solid #eeeeee;
-}
-.stimg
-{
-float:left;
-height:50px;
-width:50px;
-border:solid 1px #dedede;
-padding:5px;
-}
-.sttext
-{
-margin-left:70px;
- 
-min-height:50px;
-word-wrap:break-word;
-overflow:hidden;
-padding:5px;
-display:block;
-font-family:'Georgia', Times New Roman, Times, serif
-}
-.sttime
-{
-font-size:11px;
-color:#999;
-font-family:Arial, Helvetica, sans-serif;
-margin-top:5px;
+.content.interests{
+	display: none;
 }
 h2{
 	font-size:30px;
@@ -408,9 +374,6 @@ p{
 	float:left;
 }
 .photo{
-	width:200px;
-	height:200px;
-	background-color:black;
 	margin-left:15px;
 	margin-top:-60px;
 }
@@ -421,8 +384,21 @@ p{
 	margin-bottom:10px;
 }
 p.header{
-	border-bottom: 1px solid;
-	font-size:20px;
+	border-bottom: 1px solid #eeeeee;
+	font-size:17px;
+	color:#8B8989;
+}
+.infotxt{
+	font-size:14px;
+}
+.networktxt{
+	border-bottom: 1px solid #eeeeee;
+	font-size:17px;
+	color:#8B8989;
+	width:218px;
+}
+.relationships{
+	padding-top:10px;
 }
 </style>
 </head>
@@ -430,7 +406,63 @@ p.header{
 <div id="is_profile" style="display:none;" >1</div>
 <div id="page">
 	<div class="name"><?php echo $member->firstname . " " . $member->lastname; ?></div>
-	<div class="location"><?php echo @$member->country ?></div>
+	<div class="location">
+			<?php echo @$member->country ?>
+						</div>
+	 <?php if($member->id != Session::instance()->get('user_id') && !$is_friend): ?>
+        <div class="interactionLinksDiv">
+            <a class="modal_link" href="#add_friend" title="Add <?php echo $member->getName() ?> as a Friend">Add as Friend</a>
+        </div>
+        <?php endif; ?>
+        <?php if($member->id != Session::instance()->get('user_id') && $is_friend && Session::instance()->get('user_id') != false): ?>
+       <div class="interactionLinksDiv">
+            <a class="modal_link" href="#remove_friend" title="Remove <?php echo $member->getName() ?> as a Friend">Remove Friend</a>
+        </div>
+        <?php endif; ?>
+        <?php if($member->id == Session::instance()->get('user_id')): ?>
+        <div class="interactionLinksDiv">
+            <a class="modal_link" href="#friend_requests"><?php echo Model_FriendRequest::getCountRequestsTo($member->id, true) ?></a>
+        </div>
+        <?php endif; ?>
+        <?php if($member->id != Session::instance()->get('user_id') && Session::instance()->get('user_id')): ?>
+        <div class="interactionLinksDiv">
+            <a class="modal_link" href="#private_message">Private Message</a>
+        </div>
+        <?php endif; ?>
+        <div style="clear:both"></div>
+        <div style="display:none">
+            <div id="add_friend">
+                Add <?php echo $member->getName(); ?> as a friend? &nbsp;
+                <a href="#" onClick="return false"
+                   onmousedown="javascript:addAsFriend(<?php echo $member->id ?>);">Yes</a>
+                <span id="add_friend_loader"><img src="/content/images/loading.gif" width="28" height="10" alt="Loading"/></span>
+            </div>
+            <div id="remove_friend">
+                Remove <?php echo $member->getName(); ?> from your friend list? &nbsp;
+                <a href="#" onClick="return false" onMouseDown="javascript:removeAsFriend(<?php echo $member->id; ?>);">Yes</a>
+                <span id="remove_friend_loader"><img src="images/loading.gif" width="28" height="10" alt="Loading" /></span>
+            </div>
+            <div id="friend_requests">
+                <?php echo Model_FriendRequest::getRequestHTML($member->id) ?>
+            </div>
+            <div id="private_message">
+                <form action="javascript:sendPM();" name="pmForm" id="pmForm" method="post">
+                    <font size="+1">Sending Private Message to
+                        <strong><em><?php echo @$member->getName(); ?></em></strong></font><br/><br/>
+                    <div id="interactionResults"></div>
+                    Subject:
+                    <input name="pmSubject" id="pmSubject" type="text" maxlength="64" style="width:98%;"/>
+                    Message:
+                    <textarea name="pmTextArea" id="pmTextArea" class="pmTextArea" rows="8" style="width:98%;"></textarea>
+                    <input name="pm_rec_id" id="pm_rec_id" type="hidden" value="<?php echo @$member->id; ?>"/>
+                    <span id="PMStatus" style="color:#F00;"></span>
+                    <br/><input name="pmSubmit" type="submit" value="Send"/> or <a href="#" onClick="return false"
+                                                                                     onmousedown="javascript:closeModal()">Close</a>
+                    <span id="pmFormProcessGif" style="display:none;"><img src="/content/images/loading.gif" width="28"
+                                                                           height="10" alt="Loading"/></span>
+                </form>
+            </div>
+        </div>
 	<div id="left">
 		<div class="photo">
 		        <div id="edit_profile">
@@ -441,26 +473,64 @@ p.header{
             <?php else: ?>
             <img src="/content/images/image01.jpg" width="218"/>
             <?php endif; ?>
+        <div class="relationships"> 
+        	<?php echo @$member->generateShortFriendsList(); ?>
         </div>
-		<div class="friends"></div>
+        <div class="network">
+        	 <?php if($member->twitter): ?>
+        <script src="http://widgets.twimg.com/j/2/widget.js" type="text/javascript"></script>
+        <script type="text/javascript">
+            new TWTR.Widget({
+              version: 2,
+              type: 'profile',
+              rpp: 5,
+              interval: 6000,
+              width: 218,
+              height: 160,
+              theme: {
+                    shell: {
+                      background: '#BDF',
+                      color: '#000000'
+                    },
+                    tweets: {
+                      background: '#ffffff',
+                      color: '#000000',
+                      links: '#0066FF'
+                    }
+              },
+              features: {
+                    scrollbar: true,
+                    loop: false,
+                    live: false,
+                    hashtags: true,
+                    timestamp: true,
+                    avatars: false,
+                    behavior: 'all'
+              }
+            }).render().setUser('<?php echo $member->twitter ?>').start();
+        </script>
+        <?php endif; ?>
+        </div>
+        </div>
 	</div>
 	<div id="container2">
 		<ul class="menu">
-			<li id="news" class="active">Wall</li>
-			<li id="tutorials">Info</li>
+			<li id="wall" class="active">Wall</li>
+			<li id="info">Info</li>
 			<li id="interests">Interests</li>
-			<li id="links">Photos</li>
+			<li id="links">About Me</li>
 		</ul>
 		<span class="clear"></span>
-		<div class="content news">
+		<div class="content wall">
+		
 			<div class="form">	
 				<div style="display:none;" id="current_feed_id"><?php echo $member->id; ?></div>
             <form action="/ajax/feed/new" id="share" method="post" enctype="multipart/form-data">
                 <textarea name="text" cols="30" rows="3" style="width: 445px" id="sharetext"></textarea><br/>
               <?php if($member->id == Session::instance()->get('user_id')): ?>
-              <strong>Say something <?php echo $member->firstname ?>...</strong> (220 char max)
+              <strong>Say something <?php echo $member->firstname ?>...</strong> 
               <?php else: ?>
-              <strong>Write on <?php echo $member->firstname ?>'s profile</strong> (220 char max)
+              <strong>Write on <?php echo $member->firstname ?>'s profile</strong> 
               <?php endif; ?>
                 <input name="submit" type="submit" value="Share!"/>&nbsp;
                 <input type="checkbox" checked="checked" id="auto-update">Auto-update Profile
@@ -474,23 +544,75 @@ p.header{
             <table style="background-color:#FFF;" cellpadding="5" width="94%">
                 <tr style="padding:4px;">
                     <td>
-                        <a href="javascript:void()" onclick="loadMore()">more</a>
+                        <a href="javascript:void()" onClick="loadMore()">more</a>
                     </td>
                 </tr>
             </table>
         </div>
 		</div>
-		<div class="content tutorials">
+		<div class="content info">
 			<div class="parts">
-			<p class="header">My Bio</p>
-				<?php echo @$member->bio_body; ?>
+			<p class="header">Gender</p>
+			<p class="infotxt"><?php echo @$member->gender ?></p>
+			<p class="header">Facebook</p>
+			<p class="smalltxt"><?php echo strip_tags(@$member->facebook); ?></p>
+			<p class="header">YouTube</p>
+			<p class="smalltxt"><?php echo strip_tags(@$member->youtube); ?></p>
+			<p class="header">Website</p>
+			<p class="infotxt"><?php echo strip_tags(@$member->website); ?></p>
 			</div>
 		</div>
 		<div class="content links">
-			
+		<p class="header">About Me</p>
+		<p class="infotxt"><?php echo @$member->bio_body; ?></p>	
+		</div>
+		<div class="content interests">
+		<?php if (@$member->music): ?>
+			<p class="header">Music</p>
+			<p class="infotxt"><?php echo strip_tags(@$member->music) ?></p>
+			<?php endif; ?>
+			<?php if (@$member->tv): ?>
+			<p class="header">TV</p>
+			<p class="infotxt"><?php echo strip_tags(@$member->tv) ?></p>
+			<?php endif; ?>
+			<?php if (@$member->movies): ?>
+			<p class="header">Movies</p>
+			<p class="infotxt"><?php echo strip_tags(@$member->movies) ?></p>
+			<?php endif; ?>
+			<?php if (@$member->books): ?>
+			<p class="header">Books</p>
+			<p class="infotxt"><?php echo strip_tags(@$member->books) ?></p>
+			<?php endif; ?>
 		</div>
 	</div>
 </div>
+<script type="text/javascript" src="/content/js/profile.js" ></script>
+<style type="text/css">
+    <?php if($member->has_background_image): ?>
+    body {
+        background-image: url(<?php echo Images::getImage($member->id, 'image02.jpg', false, false) ?>);
+        background-repeat: repeat;
+        background-position: center top;
+    }
+    <?php endif; ?>
+</style>
+<div style="display:none;">
+    <div id="comment-dialog" style="width:500px;">
+        <div id="comment-dialog-blab"></div>
+        <form id="new_comment" action="sportsfeed.php?ajax=false" method="post">
+                <textarea name="blab_field" rows="3" style="width:480px" id="comment-text"></textarea>
+                <input name="feed_id" type="hidden" id="new-comment-feed-id" />
+                <input name="type" type="hidden" value="COMMENT" />
+                <input name="submit" type="submit" value="Comment!" class="button"/>
+        </form>
+        <div id="comment-dialog-comments" style="padding-top:8px;">
+
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+    bindThumbsUp();
+</script>
 	<script type="text/javascript" src="http://jqueryjs.googlecode.com/files/jquery-1.2.6.min.js"></script>
 	<script type="text/javascript" src="/content/js/tabs.js"></script>
 </body>

@@ -181,6 +181,18 @@ Route::set('about', 'about')
             'action' => 'index'
         ));
 
+Route::set('networks', 'networks')
+        ->defaults(array(
+            'controller' => 'networks',
+            'action' => 'index'
+        ));
+        
+Route::set('stats', 'stats')
+        ->defaults(array(
+            'controller' => 'stats',
+            'action' => 'index'
+        ));
+        
 Route::set('page', 'page')
         ->defaults(array(
             'controller' => 'page',
@@ -247,7 +259,7 @@ Route::set('404', '404')
         
 Route::set('profile', '<username>(/<action>)',
     array(
-        'username' => '\w{2,20}'
+        'username' => '\w{2,40}'
     ))
     ->defaults(array(
         'controller' => 'profile',

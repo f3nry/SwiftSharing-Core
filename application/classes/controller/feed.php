@@ -17,7 +17,11 @@ class Controller_Feed extends Controller_App {
 
         $this->template->feed_list = Model_Feed::generateFeedList();
 
-        $this->template->feed_content = Model_Feed::getFeedContent($this->request->param('id'));
+        $this->template->feed_content = Util_Feed_Generator::factory()
+                ->set('types', array('STATUS', 'PHOTO'))
+                ->set('feed_id', $this->request->param('id'))
+                ->load()
+                ->render();
 
         $this->template->feed = Model_Feed::getFeed($this->request->param('id'));
     }
@@ -27,7 +31,13 @@ class Controller_Feed extends Controller_App {
         
         $data['blab'] = Model_Feed::getBlab($this->request->param('id'), false, false);
         $data['blab_data'] = Model_Blab::getById($this->request->param('id'))->as_array();
-        $data['comments'] = Model_Feed::getFeedContent($this->request->param('id'), "'COMMENT'");
+        //$data['comments'] = Model_Feed::getFeedContent($this->request->param('id'), "'COMMENT'");
+
+        $data['comments'] = Util_Feed_Generator::factory()
+                ->set('feed_id', $this->request->param('id'))
+                ->set('types', array('COMMENT'))
+                ->load()
+                ->render();
 
         echo json_encode($data);
 

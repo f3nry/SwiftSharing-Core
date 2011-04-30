@@ -102,7 +102,7 @@ class Controller_Ajax_Friend extends Controller_Ajax {
 
     You can respond to this request by visiting the following URL:
 
-    http://swiftsharing.net/profile.php?id=$to
+    http://swiftsharing.net/{$toMember->username}
 
     Thanks,
     The SwiftSharing Team";

@@ -70,20 +70,46 @@
                 <?php endif; ?>
                     <div id="footer">
                     <div style="float:left;">
-                        <span>SwiftSharing</span> | <a href="/help">Help</a> | <a href="/about">About</a> | <a href="/privacy">Privacy</a>
+                        <span>SwiftSharing</span> | <a href="/help">Help</a> | <a href="/about">About</a> | <a href="/privacy">Privacy</a> | <a href="/refer">Refer</a> | <a href="/networks">Networks</a>
                     </div>
-                        <div style="float:right;">
-                            <div style="width:250px;float:left;height:62px;">
-                                <iframe src="http://www.facebook.com/plugins/likebox.php?href=http%3A%2F%2Fwww.facebook.com%2Flosangeleslakers%3Fv%3Dinfo%23%21%2Fpages%2FSwiftSharing%2F151280171581392&amp;width=292&amp;colorscheme=light&amp;show_faces=false&amp;stream=false&amp;header=true&amp;height=62" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:292px; height:62px;" allowTransparency="true"></iframe>
-                            </div>
-                            <!--
-                            <div style="height:62px;float:right;padding-top:20px;">
-                                <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://swiftsharing.net/" data-text="Check this out!" data-count="horizontal" data-via="swiftsharing" style="top:0;margin-top:auto;">Tweet</a><script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
-                            </div>-->
+                    <div style="float:right;">
+                        <div style="width:250px;float:left;height:62px;">
+                            <iframe src="http://www.facebook.com/plugins/likebox.php?href=http%3A%2F%2Fwww.facebook.com%2Flosangeleslakers%3Fv%3Dinfo%23%21%2Fpages%2FSwiftSharing%2F151280171581392&amp;width=292&amp;colorscheme=light&amp;show_faces=false&amp;stream=false&amp;header=true&amp;height=62" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:292px; height:62px;" allowTransparency="true"></iframe>
                         </div>
+                        <!--
+                        <div style="height:62px;float:right;padding-top:20px;">
+                            <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://swiftsharing.net/" data-text="Check this out!" data-count="horizontal" data-via="swiftsharing" style="top:0;margin-top:auto;">Tweet</a><script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
+                        </div>-->
                     </div>
                 </div>
             </div>
         </div>
+        <?php if(Session::instance()->get('user_id')): ?>
+            <div id="bottom-bar">
+                <h3><a href="/<?php echo $member->username ?>"><?php echo $member->getFullName(); ?></a></h3>
+                <div class="left">
+                    <a href="#" id="notifications">
+                        <img width="20" height="20" src="/content/images/information.png"/>
+                        <span id="notification-text">Notifications</span>
+                        <div id="notifications-popout">
+                            <div class="top-row">
+                            	My Notifications
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        <script type="text/javascript">
+            $("#notifications").click(function() {
+                if($("#notifications-popout").css('display') == 'none') {
+                    $("#notifications-popout").show();
+                    $("#notifications").addClass('open');
+                } else {
+                    $("#notifications-popout").hide();
+                    $("#notifications").removeClass('open');
+                }
+            });
+        </script>
+        <?php endif; ?>
     </body>
 </html>
