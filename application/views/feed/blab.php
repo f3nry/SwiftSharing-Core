@@ -18,12 +18,12 @@
             <?php echo Date::fuzzy_span(strtotime($blab['date'])); ?>
             <?php if($config['show_from']): ?>
                 <?php if($blab['type'] == 'PROFILE' && $blab['feed_id'] == $config['member']): ?>
-                <a href="/<?php echo $blab['username'] ?>"><?php echo $blab['username'] ?></a> wrote
+                <a href="/<?php echo $blab['username'] ?>"><?php echo ($blab['firstname']) ? $blab['firstname'] : $blab["username"] ?></a> wrote
                 <?php elseif($blab['type'] == 'PROFILE' && $blab['mem_id'] == $config['member']): ?>
                 <?php $otherMember = Model_Member::quickLoad($blab['feed_id']); ?>
-                , by <a href="/<?php echo $blab['username'] ?>"><?php echo $blab['username'] ?></a> wrote on <a href="/<?php echo $otherMember->username ?>"><?php echo $otherMember->firstname ?>'s</a> profile
+                , by <a href="/<?php echo $blab['username'] ?>"><?php echo ($blab['firstname']) ? $blab['firstname'] : $blab["username"] ?></a> wrote on <a href="/<?php echo $otherMember->username ?>"><?php echo $otherMember->firstname ?>'s</a> profile
                 <?php else: ?>
-                , by <a href="/<?php echo $blab['username'] ?>"><?php echo $blab['username'] ?></a> in <a href="/feed/<?php echo $blab['feed_id'] ?>"><?php echo $blab['feed_title'] ?></a>
+                , by <a href="/<?php echo $blab['username'] ?>"><?php echo ($blab['firstname']) ? $blab['firstname'] : $blab["username"] ?></a> in <a href="/feed/<?php echo $blab['feed_id'] ?>"><?php echo $blab['feed_title'] ?></a>
                 <?php endif; ?>
             <?php else: ?>
                 by <a href="/<?php echo $blab["username"] ?>"><?php echo ($blab['firstname']) ? $blab['firstname'] : $blab["username"] ?></a>
