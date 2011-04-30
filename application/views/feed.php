@@ -4,7 +4,7 @@
            <div class="posts">
                 <div style="display:none;" id="current_feed_id"><?php echo $feed->id ?></div>
                 <div id="profile_flag" style="display:none;">0</div>
-                <form action="/ajax/feed/new" id="<?php if($feed->allowed_post_types == "PHOTO"): ?>photo_share<?php else: ?>share<?php endif; ?>" method="post" enctype="multipart/form-data">
+                <form action="/ajax/feed/new" id="<?php if($feed->allowed_post_types == "PHOTO"): ?>share<?php else: ?>share<?php endif; ?>" method="post" enctype="multipart/form-data">
                     <?php if(@$onlyFriends): ?>
                     <div style="display:none;" id="friends_flag">1</div>
                     <?php endif; ?>
