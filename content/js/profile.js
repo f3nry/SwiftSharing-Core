@@ -33,8 +33,23 @@ function addAsFriend(id) {
     };
 
     $.post('/ajax/friend', post_data, function(data) {
-        $("#add_friend").html(data).show().fadeOut(12000);
+        $("#add_friend").html(data).show();
     });
+}
+
+function triggerAddFriend(id) {
+    var full_name = $("#friend_suggestion_" + id + " .name").text();
+
+    var src = $("#add_friend_template").html();
+
+    src = src.replace("{name}", full_name);
+    src = src.replace("{id}", id);
+
+    $("#add_friend").html(src);
+
+    $(".add_friend").trigger('click');
+
+    return false;
 }
 
 function removeAsFriend(id) {

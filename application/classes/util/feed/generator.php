@@ -19,7 +19,8 @@ class Util_Feed_Generator {
         'lastdate'  => false,
         'reverse'   => false,
         'member'    => false,
-        'show_from' => false
+        'show_from' => false,
+        'blab_id'   => false
     );
 
     /**

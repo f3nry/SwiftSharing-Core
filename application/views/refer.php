@@ -148,7 +148,7 @@ opacity:0.2; }
 		<img src="/content/images/icon.jpg"></img>
 	</div>
 	<div class="skip">
-		Or, <a href="#">skip</a> this step....
+		Or, <a href="/">skip</a> this step....
 	</div>
 </div>
 </div>

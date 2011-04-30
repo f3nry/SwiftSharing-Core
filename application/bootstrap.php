@@ -69,6 +69,8 @@ if (strpos($_SERVER['HTTP_HOST'], 'swiftsharing.net') !== FALSE)
     Kohana::$environment = Kohana::DEVELOPMENT;
 }
 
+Kohana::$environment = 'production';
+
 /**
  * Initialize Kohana, setting the default options.
  *

@@ -109,7 +109,6 @@ p{
 .blab_photo{
 	width:75px;
 	height:75px;
-	background-color:black;
 	float:left;
 	margin-top:15px;
 	margin-left:10px;
@@ -129,9 +128,7 @@ p{
 	font-family:'Myriad Pro',Arial, Helvetica, sans-serif;
 	font-size:17px;
 }
-.stbody{
-	min-height:70px;
-}
+
 .stbody{
 	min-height:70px;
 	margin-bottom:10px;
@@ -149,7 +146,6 @@ p{
 	margin-left:70px;
 	min-height:50px;
 	word-wrap:break-word;
-	overflow:hidden;
 	padding:5px;
 	display:block;
 	font-family:'Georgia', Times New Roman, Times, serif
@@ -164,60 +160,50 @@ p{
 .more{
 	margin-left:5px;
 }
+
+p.note {
+    font-size:10px;
+    color:#9e9e9e;
+    text-align:left;
+    padding:4px;
+}
 	</style>
 	<div id="right">
             <div class="top">
 			<div class="blab_photo">
-				</div>
+                            <?php echo $member->getProfileImage(75, 75); ?>
+                        </div>
 			<div class="links">
 				<ul>
-				<li><a href="/<?php echo Session::instance()->get('username') ?>">My Profile</a>
-				<li><a href="/<?php echo Session::instance()->get('username') ?>">Friend Request</a>
-				<li><a href="<a href="/profile/edit">Edit Profile</a>
-				<li><a href="/stats">My Stats</a>
+                                    <li><a href="/<?php echo Session::instance()->get('username') ?>">My Profile</a>
+                                    <li><a href="/<?php echo Session::instance()->get('username') ?>">Friend Request</a>
+                                    <li><a href="<a href="/profile/edit">Edit Profile</a>
+                                    <li><a href="/stats">My Stats</a>
+                                </ul>
 				</div>
 			</div>
 		<div class="recent_status">
-			<p>My Most Recent Update</p>
-			<p class="status">"Some random status goes here!" in <a href="#">thoughts</a></p>
+			<p><b>My Most Recent Update</b></p>
+			<p class="status">"<?php echo $latest_post['text'] ?>" in <a href="/feed/<?php echo $latest_post['feed_id'] ?>"><?php echo $latest_post['feed_title'] ?></a></p>
 		</div>
 		<div class="suggestions">
-			<p>Friend Suggestions</p>
-			<div class="stbody"> 
-			<div class="stimg"> 
-			</div> 
-			<div class="sttext"> 
-			<a href="#">Random User</a> 
-			<div class="sttime"><a href="#">Add as Friend</a> | <a href="#">Remove</a></div> 
-			</div> 
-			</div>
-			<div class="stbody"> 
-			<div class="stimg"> 
-			</div> 
-			<div class="sttext"> 
-			<a href="#">Random User</a> 
-			<div class="sttime"><a href="#">Add as Friend</a> | <a href="#">Remove</a></div> 
-			</div> 
-			</div>
-			<div class="stbody"> 
-			<div class="stimg"> 
-			</div> 
-			<div class="sttext"> 
-			<a href="#">Random User</a> 
-			<div class="sttime"><a href="#">Add as Friend</a> | <a href="#">Remove</a></div> 
-			</div> 
-			</div>
-			<div class="stbody"> 
-			<div class="stimg"> 
-			</div> 
-			<div class="sttext"> 
-			<a href="#">Random User</a> 
-			<div class="sttime"><a href="#">Add as Friend</a> | <a href="#">Remove</a></div> 
-			</div> 
-			</div>
-			<div class="more">
-			<a href="#">See more..</a>
-			</div>
+			<p style="margin-bottom:0px;"><b>Friend Suggestions</b></p>
+                        <p class="note">Note: These suggestions are completely random, and don't reflect any similarities. This will be added in the near future though!</p>
+                        <?php foreach($friend_suggestions as $friend_suggestion): ?>
+                        <div class="stbody">
+                            <div style="display:none" id="friend_suggestion_<?php echo $friend_suggestion->id ?>">
+                                <span class="name"><?php echo $friend_suggestion->getName() ?></span>
+                                <a href="#add_friend" class="add_friend modal_link"></a>
+                            </div>
+                            <div class="stimg">
+                                <?php echo $friend_suggestion->getProfileImage(50, 50); ?>
+                            </div>
+                            <div class="sttext">
+                                <a href="/<?php echo $friend_suggestion->username ?>"><?php echo $friend_suggestion->getFullName() ?></a>
+                                <div class="sttime"><a href="#" onclick="triggerAddFriend(<?php echo $friend_suggestion->id ?>)">Add as Friend</a></div>
+                            </div>
+                        </div>
+                        <?php endforeach; ?>
 		</div>
 	</div>
 <div id="content">
@@ -309,3 +295,14 @@ p{
         });
       </script>
 <?php endif; ?>
+<div style="display:none;">
+    <div id="add_friend">
+    </div>
+    <div id="add_friend_template">
+        Add {name} as a friend? &nbsp;
+        <a href="#" onClick="return false"
+           onmousedown="javascript:addAsFriend({id});">Yes</a>
+        <span id="add_friend_loader"><img src="/content/images/loading.gif" width="28" height="10" alt="Loading"/></span>
+    </div>
+</div>
+<script type="text/javascript" src="/content/js/profile.js"></script>

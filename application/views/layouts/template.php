@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html >
+<html>
     <head>
         <title>SwiftSharing</title>
         <link rel="stylesheet" type="text/css" href="/content/css/new.css"/>
@@ -70,7 +70,7 @@
                 <?php endif; ?>
                     <div id="footer">
                     <div style="float:left;">
-                        <span>SwiftSharing</span> | <a href="/help">Help</a> | <a href="/about">About</a> | <a href="/privacy">Privacy</a> | <a href="/refer">Refer</a> | <a href="/networks">Networks</a>
+                        <span>SwiftSharing</span> | <a href="/help">Help</a> | <a href="/about">About</a> | <a href="/privacy">Privacy</a> | <a href="/refer">Refer</a>
                     </div>
                     <div style="float:right;">
                         <div style="width:250px;float:left;height:62px;">
@@ -84,7 +84,7 @@
                 </div>
             </div>
         </div>
-        <?php if(Session::instance()->get('user_id')): ?>
+        <?php if(Session::instance()->get('user_id') && Kohana::$environment != 'production'): ?>
             <div id="bottom-bar">
                 <h3><a href="/<?php echo $member->username ?>"><?php echo $member->getFullName(); ?></a></h3>
                 <div class="left">

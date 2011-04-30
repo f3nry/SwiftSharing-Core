@@ -432,7 +432,7 @@ END;
 
         $friendObjects = Model_Relationship::findByTo($this->id, true, $start);
 
-        $friendList .= '<div class="infoHeader" style="border-bottom: 1px solid #eeeeee;font-size:17px;color:#8B8989;width:218px;">' . $this->firstname . '\'s Friends (<a href="/ajax/profile/friends/' . $this->id . '" class="short_friends_list">' . ($friendCount) . '</a>)</div>';
+        $friendList .= '<div class="infoHeader" style="border-bottom: 1px solid #eeeeee;font-size:17px;color:#8B8989;width:218px;">' . $this->getName() . '\'s Friends (<a href="/ajax/profile/friends/' . $this->id . '" class="short_friends_list">' . ($friendCount) . '</a>)</div>';
         $i = 0; // create a varible that will tell us how many items we looped over
         $friendList .= '<div class="infoBody"><table id="friendTable" align="center" cellspacing="4"></tr>';
         foreach($friendObjects as $friendObject)  {
@@ -720,5 +720,15 @@ END;
     public function login() {
         Session::instance()->set('user_id', $this->id);
         Session::instance()->set('username', $this->username);
+    }
+
+    public function getLatestPost() {
+        return DB::query(Database::SELECT,
+                         "SELECT blabs.id, text, type, f.title as feed_title, f.id as feed_id
+                            FROM blabs
+                            LEFT JOIN feeds f ON blabs.feed_id = f.id
+                            WHERE blabs.mem_id = {$this->id} AND type != 'COMMENT' ORDER BY date DESC LIMIT 1")
+                ->execute()
+                ->as_array();
     }
 }
