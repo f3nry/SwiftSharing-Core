@@ -42,11 +42,11 @@
     </div>
     <div class="row">
         <div id="fb">
-            <h2>Spread the Word</h2>
+            <h2 style="color:white;">Spread the Word</h2>
             <p>SwiftSharing is a growing social network. It allows you to share what YOU want, in a way you'd like to. Share what you're listening to in Music, and what you're thinking in thoughts.</p>
-        	<h2>Tell Your Friends</h2>
+        	<h2 style="color:white;">Tell Your Friends</h2>
         	<p>SwiftSharing is growing, fast. Tell everyone you know to join the site, so we can be the latest and greatest network of your friends!</p>
-        	<h2>Contact</h2>
+        	<h2 style="color:white;">Contact</h2>
         	<p>The Creators and Developers of SwiftSharing are always online. So, have a question? Ask!</p>
         </div>
         <div id="tweet">

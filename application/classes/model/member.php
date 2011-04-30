@@ -285,6 +285,9 @@ END;
         $member->country = str_replace("`", "&#39;", $member->country);
         $member->state = preg_replace('#[^A-Z a-z]#i', '', $data['state']);
         $member->city = preg_replace('#[^A-Z a-z]#i', '', $data['city']);
+        $member->gender = preg_replace('#[m][f]#i', '', $data['gender']);
+
+        $member->birthday = $data['birth_year'] . '-' . $data['birth_month'] . '-' . $data['birth_day'];
 
         if (strlen($data['password']) > 0) {
             $member->password = $data['password'];
