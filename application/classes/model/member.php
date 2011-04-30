@@ -12,6 +12,38 @@ class Model_Member extends ORM {
     protected $_table_name = "myMembers";
     public $errors;
 
+    public function save(Validation $validation = null) {
+        parent::save($validation);
+
+        if(Kohana::$environment == "production") {
+            return true;
+        }
+
+        $db = MangoDB::instance();
+
+        $document = $this->as_array();
+
+        $regex = <<<'END'
+/
+  ( [\x00-\x7F]                 # single-byte sequences   0xxxxxxx
+  | [\xC0-\xDF][\x80-\xBF]      # double-byte sequences   110xxxxx 10xxxxxx
+  | [\xE0-\xEF][\x80-\xBF]{2}   # triple-byte sequences   1110xxxx 10xxxxxx * 2
+  | [\xF0-\xF7][\x80-\xBF]{3}   # quadruple-byte sequence 11110xxx 10xxxxxx * 3
+  )
+| .                             # anything else
+/x
+END;
+
+        $document['birthday'] = new MongoDate(strtotime($document['birthday']));
+        $document['bio_body'] = preg_replace($regex, '$1', $document['bio_body']);
+
+        if($db->find_one('members', array('id' => $document['id']))) {
+            $db->update('members', array('id' => $document['id']), $document);
+        } else {
+            $db->insert('members', $document);
+        }
+    }
+
     public function __set($key, $value) {
         parent::__set($key, $value);
     }

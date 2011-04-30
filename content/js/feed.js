@@ -48,7 +48,7 @@ $(document).ready(function() {
     }).mouseover(function (){
 
         //mouse over LI and look for A element for transition
-        $(this).find('a')
+    $(this).find('a')
         .animate( {
             paddingLeft: padLeft,
             paddingRight: padRight

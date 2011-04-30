@@ -1,7 +1,7 @@
 <?php
  
 class Images {
-    const DEFAULT_BUCKET = 'swiftsharing-cdn';
+    const DEFAULT_BUCKET = 'swiftsharing-cdn-dev';
 
     /**
      * Resize a local temporary file.

@@ -30,6 +30,11 @@ class Controller_Ajax_Like extends Controller_Ajax {
         $like->blab_id = $blab->id;
         $like->value = min(1, max(-1, (int) $_POST['thumbsup_rating']));
 
+        if($blab->type == "COMMENT") {
+            $like->_type = "COMMENT";
+            $like->_parent_id = $blab->id;
+        }
+
         $like->save();
         $blab->likes += $like->value;
         $blab->save();
