@@ -586,6 +586,7 @@ $hideContent = !($is_friend || $member->privacy_option == '' || $member->privacy
 <?php endif; ?>
                                                 </div>
                                             </div>
+                <div class="clear"></div>
                                         </div>
                                         <script type="text/javascript" src="/content/js/profile.js" ></script>
                                     <style type="text/css">
