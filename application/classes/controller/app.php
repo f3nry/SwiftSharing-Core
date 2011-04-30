@@ -10,6 +10,8 @@
 class Controller_App extends Controller_Template {
 
     public function before() {
+        Util_Analytics_Engine::record($this->request);
+
         parent::before();
 
         if($this->template) {
