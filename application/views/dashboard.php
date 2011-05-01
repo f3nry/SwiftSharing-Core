@@ -177,7 +177,7 @@ p.note {
 				<ul>
                                     <li><a href="/<?php echo Session::instance()->get('username') ?>">My Profile</a>
                                     <li><a href="/<?php echo Session::instance()->get('username') ?>">Friend Request</a>
-                                    <li><a href="<a href="/profile/edit">Edit Profile</a>
+                                    <li><a href="/profile/edit">Edit Profile</a>
                                 </ul>
 				</div>
 			</div>
