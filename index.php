@@ -109,11 +109,11 @@ try {
     $request = Request::factory()
             ->execute();
     
-} catch (Exception $e) {
+} catch (Kohana_Exception $e) {
     if(Kohana::$environment == Kohana::DEVELOPMENT && $e->getCode() != 404) {
         throw $e;
     } else {
-        Kohana::$log->add(Log::ERROR, Kohana::exception_text($e));
+        Kohana::$log->add(Log::ERROR, $e->__toString());
 
         header("Location: /404");
 
