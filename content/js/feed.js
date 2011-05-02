@@ -48,7 +48,7 @@ $(document).ready(function() {
     }).mouseover(function (){
 
         //mouse over LI and look for A element for transition
-        $(this).find('a')
+    $(this).find('a')
         .animate( {
             paddingLeft: padLeft,
             paddingRight: padRight
@@ -389,6 +389,7 @@ function loadMore() {
         var data = {
             lastmsg: ID,
             profile_flag: $("#profile_flag").val(),
+            friends_flag: $("#friends_flag").val(),
             feed_id: $("#current_feed_id").text()
         };
 

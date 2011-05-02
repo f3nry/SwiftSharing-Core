@@ -19,7 +19,9 @@ class Util_Feed_Generator {
         'lastdate'  => false,
         'reverse'   => false,
         'member'    => false,
-        'show_from' => false
+        'show_from' => false,
+        'blab_id'   => false,
+        'ignore_privacy' => false
     );
 
     /**
@@ -45,14 +47,33 @@ class Util_Feed_Generator {
     public function load($blabs = null) {
         if($blabs == null) {
             //Initial query
-            $query = "SELECT DISTINCT(b.id), b.mem_id, b.type, b.feed_id, b.text, b.`date`, b.likes as likes,
+            $query = "SELECT b.id, b.mem_id, b.type, b.feed_id, b.text, b.`date`, b.likes as likes,
                              f.title as feed_title,
                              m.username as username, m.firstname as firstname, m.lastname as lastname, m.friend_array as friends, m.privacy_option as privacy_option, m.has_profile_image
                         FROM blabs b
                         INNER JOIN myMembers m ON b.mem_id = m.id
                         LEFT JOIN feeds f ON f.id = b.feed_id";
 
-            list($addQuery, $where) = $this->getPrivacyQuery();
+            if(@$this->config['friends_only']) {
+                $addQuery = "";
+                
+                $id = Session::instance()->get('user_id');
+                
+                $where = " AND (EXISTS (SELECT 1 FROM friend_relationships fr WHERE fr.to = {$id} AND fr.from = b.mem_id) OR b.mem_id = {$id})";
+            } else if(!$this->config['ignore_privacy']) {
+                list($addQuery, $where) = $this->getPrivacyQuery();
+            } else {
+                $addQuery = "";
+                $where = "";
+            }
+
+            if($this->config['member']) {
+                $member = $this->config['member'];
+                
+                $where .= " AND (b.mem_id = $member OR b.type = 'PROFILE')";
+
+                $where .= " OR (b.type = 'PROFILE' AND (b.feed_id = $member OR b.mem_id = $member))";
+            }
 
             $query .= $addQuery;
 
@@ -126,14 +147,10 @@ class Util_Feed_Generator {
         $where = "";
 
         if($privacy_option == 'locked') {
-            $query .= " LEFT JOIN friend_relationships fr ON fr.to = b.mem_id";
-
-            $where .= " AND (b.mem_id = " . $member . " OR fr.from = b.mem_id)";
+            $where = " AND (EXISTS (SELECT 1 FROM friend_relationships fr WHERE fr.to = {$member} AND fr.from = b.mem_id) OR b.mem_id = {$member})";
         } else {
-            $query .= " LEFT JOIN friend_relationships fr ON fr.to = b.mem_id";
-
-            $where .= " AND ((m.privacy_option != 'locked' AND m.privacy_option != 'limited') OR ";
-            $where .= " (b.mem_id = " . $member . " OR fr.from = b.mem_id)) ";
+            $where .= " AND ((m.privacy_option != 'locked' AND m.privacy_option != 'limited')";
+            $where .= " OR (EXISTS (SELECT 1 FROM friend_relationships fr WHERE fr.to = {$member} AND fr.from = b.mem_id) OR b.mem_id = {$member}))";
         }
 
         return array($query, $where);

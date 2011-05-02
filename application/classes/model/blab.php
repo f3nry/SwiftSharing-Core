@@ -8,6 +8,88 @@
  */
  
 class Model_Blab extends ORM {
+
+    /**
+     * Intercept saves, and send them to MongoDB as well.
+     *
+     * @param Validation $validation
+     */
+    public function save(Validation $validation = null) {
+        parent::save($validation);
+
+        if(Kohana::$environment == "production") {
+            return true;
+        }
+        
+        $db = MangoDB::instance();
+
+        if($this->type == 'COMMENT') {
+            $document = $this->as_array();
+
+            unset($document['type']);
+            unset($document['feed_id']);
+            unset($document['_id']);
+
+            $document = $this->_preProcessDocument($document);
+
+            $comment = $db->find_one('blabs', array('comments.id' => intval($this->id)), array("comments" => 1));
+
+            if($comment) {
+                $document = $this->_preProcessDocument($document);
+
+                $db->update('blabs',
+                    array('comments.id' => intval($this->id)),
+                    array(
+                        '$set' => array(
+                            'comments.$' => $document
+                        )
+                    )
+                );
+            } else {
+                $document = $this->_preProcessDocument($document);
+
+                $db->update('blabs',
+                    array('id' => intval($this->feed_id)),
+                    array(
+                        '$addToSet' =>
+                            array(
+                                'comments' => $document
+                            )
+                    )
+                );
+            }
+        } else {
+            if(!$this->is_loaded()) {
+                $db->insert('blabs', $document);
+            } else {
+                
+            }
+
+            $document = $this->as_array();
+
+            $document['user_likes'] = array();
+            $document['comments'] = array();
+
+            $document = $this->_preProcessDocument($document);
+
+
+        }
+    }
+
+    protected function _preProcessDocument($document) {
+        foreach($document as $key => $value) {
+            if(is_numeric($value)) {
+                $document[$key] = intval($value);
+            }
+
+            if($key == "date") {
+                $document[$key] = new MongoDate(strtotime($value));
+            }
+        }
+
+        return $document;
+    }
+
     public static function getById($id) {
         return self::factory('blab')->where('id', '=', $id)->find();
     }
@@ -16,5 +98,20 @@ class Model_Blab extends ORM {
         return DB::query(Database::SELECT, "SELECT COUNT(*) as total FROM blabs WHERE type = 'COMMENT' AND feed_id = $id")
                     ->execute()
                     ->get('total');
+    }
+
+    public static function getTotalCount() {
+        return DB::query(Database::SELECT, "SELECT COUNT(*) as total FROM blabs WHERE type != 'COMMENT'")
+                ->execute()
+                ->get('total');
+    }
+
+    public function deleteFromCache() {
+        $cache = Cache::instance();
+
+        $cache->delete("blab-from-" . $this->id);
+        $cache->delete("blab-non-from-" . $this->id);
+        $cache->delete("blab-from-" . $this->mem_id . $this->id);
+        $cache->delete("blab-non-from-" . $this->mem_id . $this->id);
     }
 }

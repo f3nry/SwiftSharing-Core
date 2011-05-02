@@ -12,6 +12,38 @@ class Model_Member extends ORM {
     protected $_table_name = "myMembers";
     public $errors;
 
+    public function save(Validation $validation = null) {
+        parent::save($validation);
+
+        if(Kohana::$environment == "production") {
+            return true;
+        }
+
+        $db = MangoDB::instance();
+
+        $document = $this->as_array();
+
+        $regex = <<<'END'
+/
+  ( [\x00-\x7F]                 # single-byte sequences   0xxxxxxx
+  | [\xC0-\xDF][\x80-\xBF]      # double-byte sequences   110xxxxx 10xxxxxx
+  | [\xE0-\xEF][\x80-\xBF]{2}   # triple-byte sequences   1110xxxx 10xxxxxx * 2
+  | [\xF0-\xF7][\x80-\xBF]{3}   # quadruple-byte sequence 11110xxx 10xxxxxx * 3
+  )
+| .                             # anything else
+/x
+END;
+
+        $document['birthday'] = new MongoDate(strtotime($document['birthday']));
+        $document['bio_body'] = preg_replace($regex, '$1', $document['bio_body']);
+
+        if($db->find_one('members', array('id' => $document['id']))) {
+            $db->update('members', array('id' => $document['id']), $document);
+        } else {
+            $db->insert('members', $document);
+        }
+    }
+
     public function __set($key, $value) {
         parent::__set($key, $value);
     }
@@ -253,6 +285,9 @@ class Model_Member extends ORM {
         $member->country = str_replace("`", "&#39;", $member->country);
         $member->state = preg_replace('#[^A-Z a-z]#i', '', $data['state']);
         $member->city = preg_replace('#[^A-Z a-z]#i', '', $data['city']);
+        $member->gender = preg_replace('#[m][f]#i', '', $data['gender']);
+
+        $member->birthday = $data['birth_year'] . '-' . $data['birth_month'] . '-' . $data['birth_day'];
 
         if (strlen($data['password']) > 0) {
             $member->password = $data['password'];
@@ -400,7 +435,7 @@ class Model_Member extends ORM {
 
         $friendObjects = Model_Relationship::findByTo($this->id, true, $start);
 
-        $friendList .= '<div class="infoHeader" style="border-bottom: 1px solid #eeeeee;font-size:17px;color:#8B8989;width:218px;">' . $this->firstname . '\'s Friends (<a href="/ajax/profile/friends/' . $this->id . '" class="short_friends_list">' . ($friendCount) . '</a>)</div>';
+        $friendList .= '<div class="infoHeader" style="border-bottom: 1px solid #eeeeee;font-size:17px;color:#8B8989;width:218px;">' . $this->getName() . '\'s Friends (<a href="/ajax/profile/friends/' . $this->id . '" class="short_friends_list">' . ($friendCount) . '</a>)</div>';
         $i = 0; // create a varible that will tell us how many items we looped over
         $friendList .= '<div class="infoBody"><table id="friendTable" align="center" cellspacing="4"></tr>';
         foreach($friendObjects as $friendObject)  {
@@ -688,5 +723,15 @@ class Model_Member extends ORM {
     public function login() {
         Session::instance()->set('user_id', $this->id);
         Session::instance()->set('username', $this->username);
+    }
+
+    public function getLatestPost() {
+        return DB::query(Database::SELECT,
+                         "SELECT blabs.id, text, type, f.title as feed_title, f.id as feed_id
+                            FROM blabs
+                            LEFT JOIN feeds f ON blabs.feed_id = f.id
+                            WHERE blabs.mem_id = {$this->id} AND type != 'COMMENT' AND type != 'PROFILE' ORDER BY date DESC LIMIT 1")
+                ->execute()
+                ->as_array();
     }
 }

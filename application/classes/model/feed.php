@@ -24,8 +24,7 @@ class Model_Feed extends ORM
      *
      * @return string The generated list
      */
-    public static function generateFeedList()
-    {
+    public static function generateFeedList() {
         $result = DB::select('id', 'title')->from('feeds')->where('mem_id', '=', '-1')->order_by('index', 'ASC')->execute();
 
         $output = "<ul id=\"navigationMenu\">";

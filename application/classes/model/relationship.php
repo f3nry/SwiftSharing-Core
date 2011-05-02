@@ -117,4 +117,10 @@ class Model_Relationship extends ORM {
                     ->where('from', '=', $from)
                     ->find_all();
     }
+
+    public static function getTotalCount() {
+        return DB::query(Database::SELECT, "SELECT COUNT(*) as total FROM friend_relationships")
+                ->execute()
+                ->get('total');
+    }
 }

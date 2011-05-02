@@ -5,6 +5,9 @@
                 <div style="display:none;" id="current_feed_id"><?php echo $feed->id ?></div>
                 <div id="profile_flag" style="display:none;">0</div>
                 <form action="/ajax/feed/new" id="<?php if($feed->allowed_post_types == "PHOTO"): ?>photo_share<?php else: ?>share<?php endif; ?>" method="post" enctype="multipart/form-data">
+                    <?php if(@$onlyFriends): ?>
+                    <div style="display:none;" id="friends_flag">1</div>
+                    <?php endif; ?>
                     <textarea name="text" cols="50" rows="2" style="width: 480px" id="sharetext"></textarea><br/>
                     <input name="submit" type="submit" value="Share!"/>&nbsp;
                     <?php if($feed->allowed_post_types == 'PHOTO'): ?>
@@ -60,16 +63,7 @@
 <script type="text/javascript" src="/content/js/uploadify/jquery.uploadify.v2.1.4.min.js"></script>
 <script type="text/javascript">
 $(document).ready(function() {
-  $('#file_upload').uploadify({
-    'uploader'  : '/uploadify/uploadify.swf',
-    'script'    : '',
-    'cancelImg' : '/uploadify/cancel.png',
-    'folder'    : '/uploads',
-    'auto'      : false,
-    'method'    : 'post',
-    'multi'     : false,
-    
-  });
+
 });
 </script>
 <?php endif; ?>

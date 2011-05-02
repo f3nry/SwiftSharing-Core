@@ -101,11 +101,25 @@ if ( ! defined('KOHANA_START_MEMORY'))
 // Bootstrap the application
 require APPPATH.'bootstrap'.EXT;
 
-/**
- * Execute the main request. A source of the URI can be passed, eg: $_SERVER['PATH_INFO'].
- * If no source is specified, the URI will be automatically detected.
- */
-echo Request::factory()
-	->execute()
-	->send_headers()
-	->body();
+try {
+    /**
+     * Execute the main request. A source of the URI can be passed, eg: $_SERVER['PATH_INFO'].
+     * If no source is specified, the URI will be automatically detected.
+     */
+    $request = Request::factory()
+            ->execute();
+    
+} catch (Exception $e) {
+    if(Kohana::$environment == Kohana::DEVELOPMENT && $e->getCode() != 404) {
+        throw $e;
+    } else {
+        Kohana::$log->add(Log::ERROR, Kohana::exception_text($e));
+
+        header("Location: /404");
+
+        mail("paul@swiftsharing.net,alaxic@swiftsharing.net", "[http://swiftsharing.net] " . Kohana_Exception::text($e), $e->error_view);
+    }
+}
+
+echo $request->send_headers()
+        ->body();

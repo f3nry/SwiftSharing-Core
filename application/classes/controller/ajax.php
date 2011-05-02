@@ -8,6 +8,12 @@
  */
  
 class Controller_Ajax extends Controller {
+    public function before() {
+        parent::before();
+
+        Util_Analytics_Engine::record($this->request);
+    }
+
     public function json($data) {
         echo json_encode($data);
     }

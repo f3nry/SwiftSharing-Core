@@ -1,6 +1,48 @@
 <?php
  
 class Model_Like extends ORM {
+    public $_type = 'NORMAL';
+    public $_parent_id = null;
+
+    public function save(Validation $validation = null) {
+        parent::save($validation);
+
+        if(Kohana::$environment == "production") {
+            return true;
+        }
+
+        $db = MangoDB::instance();
+
+        $document = $this->as_array();
+
+        foreach($document as $key => $field) {
+            if(is_numeric($field)) {
+                $document[$key] = intval($field);
+            }
+        }
+
+        unset($document['blab_id']);
+        unset($document['id']);
+
+        if($this->_type == 'COMMENT') {
+            $db->update('blabs',
+                array('comments.id' => intval($this->blab_id)),
+                    array('$addToSet' => array(
+                        'comments.$.user_likes' => $document
+                    )
+                )
+            );
+        } else {
+            $db->update('blabs',
+                array('id' => intval($this->blab_id)),
+                array('$addToSet' => array(
+                        'user_likes' => $document
+                    )
+                )
+            );
+        }
+    }
+
     public static function generateLikeBox($id, $likes, $showDelete) {
         if($likes >= 0) {
             $likes = "+$likes";
@@ -37,5 +79,11 @@ RETURN;
                     "SELECT * FROM likes WHERE mem_id = $mem_id AND blab_id = $blab_id")
                     ->execute()
                     ->count();
+    }
+
+    public static function getTotalCount() {
+        return DB::query(Database::SELECT, "SELECT COUNT(*) as total FROM likes")
+                ->execute()
+                ->get('total');
     }
 }
