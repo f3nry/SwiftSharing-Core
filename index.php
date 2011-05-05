@@ -118,6 +118,7 @@ try {
         header("Location: /404");
 
         mail("paul@swiftsharing.net", "[http://swiftsharing.net] " . Kohana_Exception::text($e), $e->__toString());
+        mail("alaxic@swiftsharing.net", "[http://swiftsharing.net] " . Kohana_Exception::text($e), $e->__toString());
         
         die();
     }
