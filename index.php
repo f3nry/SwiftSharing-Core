@@ -116,11 +116,17 @@ try {
         Kohana::$log->add(Log::ERROR, $e->__toString());
 
         header("Location: /404");
-
-        mail("paul@swiftsharing.net", "[http://swiftsharing.net] " . Kohana_Exception::text($e), $e->__toString());
-        mail("alaxic@swiftsharing.net", "[http://swiftsharing.net] " . Kohana_Exception::text($e), $e->__toString());
         
-        die();
+        if($e->getCode() != 404) {
+            $message = $e->__toString() . "\n\n";
+            $message .= "\nFile: " . $e->getFile();
+            $message .= "\nLine: " . $e->getLine();
+            $message .= "Stack Trace: " . $e->getTraceAsString();   
+            
+            mail("paul@swiftsharing.net", "[http://swiftsharing.net] " . Kohana_Exception::text($e), $message);
+
+            die();
+        }
     }
 }
 
