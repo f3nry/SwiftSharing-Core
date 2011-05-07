@@ -70,9 +70,9 @@ class Util_Feed_Generator {
             if($this->config['member']) {
                 $member = $this->config['member'];
                 
-                $where .= " AND (b.mem_id = $member OR b.type = 'PROFILE')";
+                //$where .= " AND (b.mem_id = $member OR b.type = 'PROFILE')";
 
-                $where .= " OR (b.type = 'PROFILE' AND (b.feed_id = $member OR b.mem_id = $member))";
+                //$where .= " OR (b.type = 'PROFILE' AND (b.feed_id = $member OR b.mem_id = $member))";
             }
 
             $query .= $addQuery;
@@ -119,7 +119,13 @@ class Util_Feed_Generator {
         $query .= " AND (";
 
         foreach($this->config['types'] as $type) {
-            $query .= " b.type = '$type' OR";
+            $query .= "b.type = '$type' OR ";
+        }
+        
+        if($this->config['member']) {
+            $member = $this->config['member'];
+            
+            $query .= "(b.type = 'PROFILE' AND (b.feed_id = $member OR b.mem_id = $member)) OR ";
         }
 
         $query .= " false )";
