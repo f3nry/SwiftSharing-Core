@@ -1,4 +1,4 @@
-<table class="mainBodyTable" border="0" align="center" cellpadding="0" cellspacing="0">
+<!--<table class="mainBodyTable" border="0" align="center" cellpadding="0" cellspacing="0">
     <tr>
         <td width="738" valign="top">
             <?php if (isset($success_msg)): ?>
@@ -642,8 +642,7 @@
                     });
 
                 </script>
-                
-<!--<script type="text/javascript" src="http://ajax.googleapis.com/
+                <script type="text/javascript" src="http://ajax.googleapis.com/
 ajax/libs/jquery/1.4.2/jquery.min.js"></script> 
 <script> 
 $(document).ready(function() {
@@ -808,4 +807,180 @@ a:hover {color:#cc0000
 </div> 
 	</div>
 -->
+<script> 
+$(document).ready(function() {
+ 
+  
+   $('.block').click(function() {
+		var id= $(this).attr('id');
+		var data_id= $(".initial_data").html();
+  
+		var panel= $('.panel');
+		var panel_width=$('.panel').css('left');
+	
+	
+	if(data_id == id) {
+		panel.animate({left: parseInt(panel.css('left'),0) == 0 ? +panel.outerWidth() : 0});
+	} else {	
+		if(panel_width=='341px') {
+		
+		} else {
+			panel.animate({left: parseInt(panel.css('left'),0) == 0 ? +panel.outerWidth() : 0});
+		}	
+	}
+	
+	$('.data').html(id);
+	
+	return false;
+	
+  });
+  
+ 
+  
+  $('.close').click(function() 
+   {
+   
+    var panel= $('.panel');
+    panel.animate({left: parseInt(panel.css('left'),0) == 0 ? +panel.outerWidth() : 0});
+	return false;
+	
+  });
+  
+  
+  
+});
+ 
+</script> 
+<style> 
+ 
+h4{
+	padding:5px;
+}
+#editprofilecontainer{
+	width:900px;
+	margin:0 auto; 
+	background-color:#fff; 
+	min-height:500px; 
+	overflow:auto;
+	-moz-border-radius: 20px;
+    -webkit-border-radius: 20px;
+    -khtml-border-radius: 20px;
+    border-radius: 20px;
+	
+ 
+} 
+.right{
+	float:right; 
+	width:450px;
+	text-align:cetner;
+	font-family: "Helvetica", Arial, sans-serif;
+	font-size:10px;
+}
+.left{
+	float:left; 
+	background-color:#fff; 
+	width:450px; 
+	min-height:300px;
+	position:relative;
+}
+.block{
+	border-bottom: solid 1px #999999;
+	padding:15px;
+	border-right:solid 1px #999999;
+	
+}
+.block:hover{
+	background-color:#A3A3A3; 
+}
+ 
+#panel-frame{
+	position:relative; 
+	max-width:700px; 
+	position:fixed;
+	margin-left:98px;
+}
+.panel{
+	background-color:#f2f2f2; 
+	width:350px; 
+	height:465px;
+	margin-top:20px;
+	position:relative;
+	position:absolute;
+	border:solid 1px #999999;
+	border-left:0px;
+	left:0;
+}
+.data{
+	font-size:15px
+}
+.head{
+	background-color:#A3A3A3;
+	padding:10px;
+t	ext-align:right;
+}
+
+</style> 
+</head> 
+ 
+<body> 
+ 
+ 
+ 
+ 
+<div id='editprofilecontainer'> 
+ 
+<div class='right'> 
+<h4>(Select an Option on the Left)</h4> 
+
+</div> 
+<div id="panel-frame"> 
+<div class="panel"> 
+<div class="head"> 
+<a href="#" class="close">Done</a> 
+</div> 
+<div class="data" style="padding:20px"></div> 
+</div> 
+</div> 
+ 
+<div class="left"> 
+<div class="block" id="1"> 
+	Profile Photo
+	<div class="intial_data"><?php echo Images::getImage(Session::instance()->get('user_id'), 'image01.jpg', 50, 0, true, true) ?></div>
+</div> 
+<div class="block" id="2"> 
+	Name
+</div> 
+<div class="block" id="3"> 
+	Location
+</div> 
+<div class="block" id="4"> 
+	Profile Links
+</div> 
+<div class="block" id="5"> 
+	About Me
+</div> 
+<div class="block" id="6"> 
+	Interests
+</div> 
+<div class="block" id="7"> 
+	Profile Background
+</div> 
+<div class="block" id="8"> 
+	Relationships
+</div> 
+<div class="block" id="9"> 
+	Password
+</div> 
+<div class="block" id="10"> 
+	Privacy
+</div> 
+
+</div>
+ 
+ 
+ 
+</div> 
+ 
+</body> 
+</html> 
 

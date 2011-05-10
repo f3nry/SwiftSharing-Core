@@ -33,14 +33,24 @@
 <p>Find the answers to your questions with the help topics below.</p>
 	<div class="topics">
 		<h2>How to Make a Post?</h2>
+		<small>Type text into a form on a feed page or on a friend or your profile.</small>
 		<h2>How to Add a Photo?</h2>
+		<small>Edit Profile -> Profile Photo -> Browse for Photo -> Update</small>
 		<h2>How to Add a Background to my Profile?</h2>
+		<small>Edit Profile -> Profile Background -> Update</small>
 		<h2>How to Find Friends?</h2>
+		<small>You can either search for people you know who have an account or look around and meet new people based on your interests.</small>
 		<h2>How to Send a Message?</h2>
+		<small>To send a message, go to the users profile and find send message in the top right hand corner.</small>
 		<h2>How to Change my Password?</h2>
+		<small>Edit Profile -> Account Information -> Password -> Type new password -> Update</small>
 		<h2>How to Create my Bio?</h2>
+		<small>Edit Profile -> Profile Description -> Stylize and Create a Description -> Update</small>
 		<h2>How to Delete Friends?</h2>
+		<small>Undesired Friends Profile -> Remove Friend Button </small>
 		<h2>How to Add my Interests?</h2>
+		<small>Edit Profile -> Interests -> Add Music, Movies, TV, and Books -> Update</small>
 		<h2>How to Add Other Accounts on other Sites to my Profile?</h2>
+		<small>Edit Profile -> Profile Links -> Add Other Sites -> Update</small>
 	</div>
 </div>

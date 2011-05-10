@@ -44,7 +44,15 @@
         width:95%;
         height:132px;
         background-color:#e3e3e3;
+        -moz-border-radius: 20px;
+		-webkit-border-radius: 20px;
+		-khtml-border-radius: 20px;
+		border-radius: 20px;
     }
+    .form-input{
+		padding-top:5px;
+		padding-left:0px;
+	}
     #recent{
         width:250px;
         height:425px;
@@ -70,9 +78,8 @@
     .section{
         min-height:55px;
         margin-top:10px;
-        background-color:#c2c2c2;
-        border: 1px solid #686868;
         padding:2px;
+        border-bottom: 1px solid #333333;
     }
     .person{
         color:blue;
@@ -84,6 +91,8 @@
 
     #current_users {
         float:right;
+        padding-right:35px;
+        padding-top:10px;
     }
 
     #message_header {
@@ -184,11 +193,13 @@
         <div style="clear:both"></div>
     </div>
     <div id="form">
+		<div class="form-input">
         <form action="/inbox/reply/<?php echo $message->id ?>" style="margin-left:8px" method="POST">
-            <textarea name="message" style="width:90%;margin-top:8px;" rows="5"></textarea><br/>
+            <textarea name="message" style="width:98%;margin-top:8px;" rows="5"></textarea><br/>
             <input type="hidden" name="from" value="<?php echo Session::instance()->get('user_id') ?>" />
             <input type="submit" value="Reply" />
         </form>
+        </div>
     </div>
     <div id="message_body_wrapper">
         <div id="message_body">
