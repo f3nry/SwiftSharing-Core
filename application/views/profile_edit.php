@@ -1,4 +1,4 @@
-<!--<table class="mainBodyTable" border="0" align="center" cellpadding="0" cellspacing="0">
+<table class="mainBodyTable" border="0" align="center" cellpadding="0" cellspacing="0">
     <tr>
         <td width="738" valign="top">
             <?php if (isset($success_msg)): ?>
@@ -642,6 +642,7 @@
                     });
 
                 </script>
+                <!--
                 <script type="text/javascript" src="http://ajax.googleapis.com/
 ajax/libs/jquery/1.4.2/jquery.min.js"></script> 
 <script> 
@@ -701,9 +702,7 @@ $(document).ready(function() {
 <style> 
 h4{
 	padding:5px;
-                </script>
-
-<style type="text/css">
+}
 #right{
 	border-left: 1px solid;
 	height:650px;
@@ -806,7 +805,6 @@ a:hover {color:#cc0000
  
 </div> 
 	</div>
--->
 <script> 
 $(document).ready(function() {
  
@@ -984,3 +982,4 @@ t	ext-align:right;
 </body> 
 </html> 
 
+-->
