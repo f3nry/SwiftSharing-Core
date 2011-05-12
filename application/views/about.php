@@ -75,7 +75,7 @@
         <img src="/content/images/paul.png" width="100" />
     </div>
     <p>
-        Paul Henry is a Co-Founder of SwiftSharing, and met Alaxic Smith in the Summer of 2010, coded LikeBench, and helped Alaxic Smith create this site.<br/><br/>
+        Paul Henry is a Co-Founder of SwiftSharing, and met Alaxic Smith in the Summer of 2010, coded LikeBench, and helped Alaxic Smith create the site.<br/><br/>
         Home Schooled - Longview, TX<br/>
         <a href="mailto:paul@swiftsharing.net">paul@swiftsharing.net</a>
     </p>
