@@ -111,6 +111,8 @@ Kohana::modules(array(
     'unittest' => MODPATH . 'unittest'
 ));
 
+Cache::$default = 'memcache';
+
 Route::set('login', 'login(/<action>)')
         ->defaults(array(
             'controller' => 'login',

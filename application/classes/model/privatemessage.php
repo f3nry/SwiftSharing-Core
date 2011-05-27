@@ -105,7 +105,7 @@ class Model_PrivateMessage extends ORM {
                        SELECT * FROM private_conversation_messages ORDER BY date_sent DESC
                   ) as pcm ON pcm.conversation_id = pc.id
                   JOIN myMembers m ON m.id = pcm.message_from
-                  WHERE pc.to = $member_to OR pc.from = $member_to AND pc.deleted = 0
+                  WHERE pc.to = $member_to OR pc.from = $member_to
                   GROUP BY pc.id
                   ORDER BY pc.date_updated DESC
                   LIMIT 8";
