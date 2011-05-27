@@ -20,10 +20,6 @@ class Controller_App extends Controller_Template {
 
         if($this->layout instanceof View) {
             $this->layout->session = Session::instance();
-
-            if($this->template) {
-                $this->__set("parent", &$this->layout);
-            }
         }
     }
 
