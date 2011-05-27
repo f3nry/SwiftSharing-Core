@@ -1,0 +1,152 @@
+body {
+		background-position:center top;
+		background-repeat:no-repeat;
+		background-attachment:scroll;
+		margin-left: 0px;
+		margin-top: 0px;
+		margin-right: 0px;
+		margin-bottom: 12px;
+}
+body,td,th {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	color: #333333;
+	text-align: left;
+}
+.orangeColor {color: #FF9900}
+.greenColor {color: #006600}
+.greyColor {color: #666666}
+
+.centerStuff {
+	text-align: center;
+}
+.boldStuff {
+	font-weight: bold;
+}
+.textsize10 {
+	font-size: 10px;
+}
+.textsize16 {
+	font-size: 16px;
+}
+.formFields {
+	background-color:#E7F3FE;
+	color:#000;
+}
+
+/*--------- Header Buttons Style -------------- */
+.headerBtns{
+	margin-bottom:4px;
+}
+.headerBtns a{
+	background-image:url(headerBtnsBG.jpg);
+	border:#999 1px solid;
+	color:#333;
+	text-decoration:none;
+	padding:6px;
+}
+.headerBtns a:link{
+	color:#333;
+}
+.headerBtns a:hover {
+	background-image:url(headerBtnsBGover.jpg);
+	border:#666 1px solid;
+	text-decoration:none;
+}
+.headerBtns a:visited {
+	color:#333;
+}
+/*--------- Main Body table styles -------------- */
+.mainBodyTable {
+	
+	width:900px;
+}
+
+ /*
+  PURE CSS DROP MENU - VALIDATES AND WORKS IN ALL MAJOR BROWSERS   
+*/
+.dc{
+    display:inline;
+    position: relative;
+    z-index: 0;
+    margin:0;
+    padding:0;
+	text-align:left;
+}
+.dc:hover{
+    background-color: transparent;
+    z-index: 50;
+}
+.dc ul{ 
+    margin:0;
+    padding:0;
+    position: absolute;
+    width:106px;
+    background-color: #6CB6FF;
+    left: -1000px;
+    list-style-type:none;
+    visibility: hidden;
+}
+.dc:hover ul{ 
+    visibility: visible;
+    top: 13px;
+    left:-4px;
+}
+/* -------------------- What the list items will look like inside the dropdown  ---------------------- */
+.dc ul li{
+    margin:0;
+    padding:0;
+    background-color: #D7EBFF;
+    margin:1px;
+}
+.dc ul li:hover {
+    background-color: #FFF;
+    margin:1px;
+}
+/* -------------------- What the links look like inside the dropdown  ---------------------- */
+.dc ul li a {
+    display:block;
+    padding:5px;
+    font-size:11px;
+}
+.dc ul li a:link {
+    color: #03F;
+    text-decoration: none;
+}
+.dc ul li a:visited {
+    text-decoration: none;
+    color: #03F;
+}
+.dc ul li a:hover {
+    text-decoration: none;
+    color: #03F;
+}
+.dc ul li a:active {
+    text-decoration: none;
+    color: #03F;
+}
+/*      END PURE CSS DROP MENU        */
+
+/*      DEFAULT SITEWIDE LINK STYLE        */
+a:link {
+	color: #06F;
+	text-decoration: none;
+}
+a:visited {
+	text-decoration: none;
+	color: #06F;
+}
+a:hover {
+	text-decoration: underline;
+	color: #090;
+}
+a:active {
+	text-decoration: none;
+	color: #06F;
+}
+/*      END DEFAULT SITEWIDE LINK STYLE        */
+#login_join_form { width: 500px; margin: auto; padding: 20px; background: #FFF; margin-left:auto; margin-right:auto; }
+	#login_join_form label { display: inline-block; width: 175px; font-size: 18px; color: #666; font-weight: normal; text-align: right;  margin-right: 20px; }
+	#login_join_form input { font-size: 18px; border: 1px solid #CCC;  padding: 5px; }  
+	#login_join_form p.form_text { margin-left: 195px; }
+	#login_join_form .info { border: 1px dashed #CCC; background: #E3E3E3; }

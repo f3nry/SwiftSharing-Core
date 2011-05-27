@@ -1,0 +1,221 @@
+/**
+ * Body, container
+ */
+body {
+    background: #eeeeee;
+    color: white;
+    font-family: "Myriad Pro", "Trebuchet MS";
+    font-size: 11pt;
+    margin: 0;
+}
+p{
+	color:black;
+}
+#container {
+    margin: 0 auto;
+    width: 960px;
+}
+
+/**
+ * Header
+ */
+#header {
+    color: black;
+    height: 66px;
+}
+
+/* Logo */
+h1 {
+    background: url('../images/logo.png') no-repeat;
+    display: block;
+    float: left;
+    height: 95px;
+    margin: 0;
+    width: 254px;
+}
+
+h1 span {
+    visibility: hidden;
+}
+
+/* Navigation */
+#navigation {
+    float: right;
+    margin: 20px 75px 0 0;
+}
+
+#navigation li {
+    display: inline;
+    list-style: none;
+}
+
+#navigation a {
+    color: black;
+    font-size: 11pt;
+    letter-spacing: -1px;
+    padding: 2px 35px;
+    text-decoration: none;
+    text-transform: uppercase;
+}
+
+#navigation a:hover, #active-page a {
+    background: #69f0ff;
+    color: white;
+}
+
+.intro {
+    float: right;
+    margin-top: 20px;
+}
+
+/**
+ * Headings
+ */
+h2 {
+    margin: 5px 0 5px 50px;
+}
+
+h3 {
+    font-size: 13pt;
+    font-weight: normal;
+    margin: 0;
+    padding: 5px 10px;
+    text-transform: uppercase;
+}
+
+/**
+ * Links
+ */
+a {
+    color: #ff0060;
+    text-decoration: none;
+}
+
+/**
+ * Latest project
+ */
+#latest-project-title {
+    margin-top: 50px;
+}
+
+#latest-project {
+    margin: 0 auto 20px auto;
+    width: 892px;
+}
+
+#latest-project .preview {
+    height: 330px;
+    text-align: center;
+}
+
+#latest-project .descr {
+    background: #323232 url('../images/latest-project-descr-background.png') repeat-x;
+    padding: 10px 0;
+}
+
+#latest-project .descr p {
+    margin: 5px 10px;
+}
+
+#latest-project .descr p.actions {
+    font-size: 10pt;
+    text-align: right;
+    text-transform: uppercase;
+    word-spacing: 15px
+}
+
+.changer {
+    height: 66px;
+    margin-top: 132px; /* (.preview(height) / 2) - (.changer(height) / 2) */
+    position: absolute;
+    width: 67px;
+}
+
+.prev {
+    margin-left: -33px; /* .changer(width) / 2 */
+}
+
+.next {
+   margin-left: 859px; /* .preview(width) - (.changer(width) / 2) */
+}
+
+/**
+ * Past work
+ */
+#past-work {
+    margin: 0 auto;
+    width: 892px;
+}
+
+#past-work .item {
+    background: url('../images/work_preview_border.png') no-repeat;
+    height: 152px;
+    display: block;
+    float: left;
+    margin: 0 2px;
+    padding: 3px;
+    width: 286px;
+}
+
+/**
+ * Footer
+ */
+#footer {
+    background: #303030;
+    font-size: 11pt;
+    margin: 20px auto 0 auto;
+    padding: 10px;
+    width: 892px;
+}
+
+#footer h2 {
+    margin: 0;
+    padding: 0;
+}
+
+#footer p {
+    margin: 0;
+    text-transform: lowercase;
+}
+
+#footer strong {
+    font-weight: normal;
+    text-transform: uppercase;
+}
+
+.lead {
+    font-weight: bold;
+}
+
+#footer .contact, #footer .about {
+    float: left;
+}
+
+#footer .contact {
+    width: 50%;
+}
+
+#footer .about {
+    width: 50%;
+}
+
+/**
+ * Fixes/tweaks
+ */
+.clear {
+    clear: both;
+    height: 0;
+}
+
+a img {
+    border: 0;
+}
+
+/*      END DEFAULT SITEWIDE LINK STYLE        */
+#login_join_form { width: 380px; float:right; background-color:white; height:255px;}
+	#login_join_form label { display: inline-block; width: 175px; font-size: 18px; color: #666; font-weight: normal; text-align: right;  margin-right: 20px; }
+	#login_join_form input { font-size: 18px; border: 1px solid #CCC;  padding: 5px; }  
+	#login_join_form p.form_text { margin-left: 195px; }
+	#login_join_form .info { border: 1px dashed #CCC; background: #E3E3E3; }
+
+
