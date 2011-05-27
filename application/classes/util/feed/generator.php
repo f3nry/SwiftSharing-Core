@@ -27,7 +27,7 @@ class Util_Feed_Generator {
         'ignore_privacy' => false,
         'view' => 'feed/blabs'
     );
-    
+        
     /**
      * @var array The found blabs
      */
@@ -36,6 +36,7 @@ class Util_Feed_Generator {
     public static function factory() {
         return new Util_Feed_Generator();
     }
+
 
     /**
      * Set configuration parameter for this generator.
@@ -99,12 +100,12 @@ class Util_Feed_Generator {
 
             $query .= " ORDER BY b.date DESC LIMIT 10";
             
-            
             try {
                 $this->blabs = DB::query(Database::SELECT, $query)->execute()->as_array();
             } catch (Database_Exception $e) {
                 return array();
             }
+
         } else {
             if (is_numeric($blabs)) {
                 $query = "SELECT b.id, b.type, feed_id, mem_id, text, `date`, b.likes as likes,

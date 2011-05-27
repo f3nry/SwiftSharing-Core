@@ -21,8 +21,6 @@ class Model_Feed extends ORM
 
     /**
      * Generates a list of all feeds.
-     * 
-     * TODO: Move to helper, and use View
      *
      * @return string The generated list
      */
@@ -43,8 +41,6 @@ class Model_Feed extends ORM
 
     /**
      * Returns the results for querying with the specified parameters
-     * 
-     * TODO: Kill me
      *
      * @param integer $feed_id The feed to look for
      * @param string $type The where clause for a type
@@ -102,16 +98,6 @@ class Model_Feed extends ORM
         return DB::query(Database::SELECT, $query)->execute()->as_array();
     }
 
-    /**
-     * TODO: Kill me as well
-     *
-     * @param Database_Result $feed_id
-     * @param type $type
-     * @param type $member
-     * @param type $lastdate
-     * @param type $reverse
-     * @return string 
-     */
     public static function getFeedContent($feed_id, $type  = "'STATUS' OR b.type = 'PHOTO'", $member = false, $lastdate = false, $reverse = false) {
         if(is_object($feed_id) && $feed_id instanceof Database_Result) {
             $blabs = $feed_id;
@@ -135,15 +121,6 @@ class Model_Feed extends ORM
         return $content;
     }
 
-    /**
-     * TODO: Kill me
-     *
-     * @param type $row
-     * @param type $show_id
-     * @param type $show_comment_link
-     * @param type $member
-     * @return string 
-     */
     public static function getBlab($row, $show_id, $show_comment_link = true, $member = false)
     {
         if(is_numeric($row)) {
