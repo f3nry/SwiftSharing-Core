@@ -52,12 +52,12 @@ class Controller_Ajax_Feed extends Controller_Ajax {
 
                 $parent_blab->deleteFromCache();
 
-                if($blab->mem_id != $parent_blab->mem_id) {
+                /*if($blab->mem_id != $parent_blab->mem_id) {
                     Model_Notification::notify($parent_blab->mem_id)
                             ->setText($parent_blab->member->getName() . " commented on your post.")
                             ->setLink("/blabs/" . $parent_blab->id)
                             ->save();
-                }
+                }*/
             }
 
             echo Util_Feed_Generator::factory()
