@@ -84,7 +84,8 @@
                 </div>
             </div>
         </div>
-        <?php if(Session::instance()->get('user_id') && Kohana::$environment != 'production'): ?>
+        <!--
+        <?php if(Session::instance()->get('user_id') && Kohana::$environment != Kohana::PRODUCTION): ?>
             <div id="bottom-bar">
                 <h3><a href="/<?php echo $member->username ?>"><?php echo $member->getFullName(); ?></a></h3>
                 <div class="left">
@@ -111,5 +112,6 @@
             });
         </script>
         <?php endif; ?>
+        -->
     </body>
 </html>
