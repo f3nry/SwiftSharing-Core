@@ -10,17 +10,23 @@
         margin-right:-270px;
         text-align:center;
     }
-    .about {
-        width:400px;
-        text-align:left;
-    }
     .photo {
         margin-top:-140px;
         margin-left:490px;
     }
+    .about .left {
+        float:left;
+        padding-right:8px;
+    }
+    .about {
+        clear:left;
+        width:500px;
+    }
+    h2 {
+        font-size: 110%;
+    }
 </style>
 <div id="right">
-    <h2>Find what's new.</h2>
     <script src="http://widgets.twimg.com/j/2/widget.js"></script>
     <script>
         new TWTR.Widget({
@@ -28,8 +34,8 @@
             type: 'profile',
             rpp: 4,
             interval: 2000,
-            width: 225,
-            height: 250,
+            width: 255,
+            height: 300,
             theme: {
                 shell: {
                     background: '#333333',
@@ -43,8 +49,7 @@
             },
             features: {
                 scrollbar: true,
-                loop: false,
-                live: true,
+                loop: true,
                 hashtags: true,
                 timestamp: true,
                 avatars: false,
@@ -52,56 +57,46 @@
             }
         }).render().setUser('swiftsharing').start();
     </script>
-    <h2>SwiftSharing Statics</h2>
+</div>
+<div class="about">
+    <h2>Alaxic Smith, 15, Founder, Chief Executive Officer</h2>
+    <div class="left">
+        <img src="/content/images/alaxic.png" width="100"/>
+    </div>
     <p>
-        <em>
-            <b>Total Registered Members:</b>
-        </em>
-        <?php echo intval(Model_Member::getTotalCount()) ?>
-    </p>
-    <p>
-        <em>
-            <b>Total Posts: </b>
-        </em>
-        <?php echo intval(Model_Blab::getTotalCount()) ?>
-    </p>
-    <p>
-        <em>
-            <b>Total Friend Relationships: </b>
-        </em>
-        <?php echo intval(Model_Relationship::getTotalCount()) ?>
-    </p>
-    <p>
-        <em>
-            <b>Total Likes/Dislikes: </b>
-        </em>
-        <?php echo intval(Model_Like::getTotalCount()) ?>
+        Alaxic Smith is the Founder of SwiftSharing, and he met Co-Founder Paul Henry in the Summer of 2010 while working on a previous project the LikeBench.<br/><br/>
+        Attending Longview High School - Longview, TX<br/>
+        <a href="mailto:alaxic@swiftsharing.net">alaxic@swiftsharing.net</a>
     </p>
 </div>
 <div class="about">
-    <h2>Alaxic smith</h2>
-    <p>Alaxic is a Freshman IB Student at Longview High School, in Longview, Tx. He is 15, and loves to code. He is the founder of SwiftSharing and the CEO.  He attended Foster Middle School where he was in Robotics.</p>
-    <div class="about">
-        <h2>Paul Henry</h2>
-        <p>Paul is a Junior, and Home Schooled in Longview, Tx. He met Alaxic while volunteering at Foster Middle School for the Robotics Team. He works at SwiftSharing as the Lead Software Engineer, and is a Co-Founder. </p>
+    <h2>Paul Henry, 16, Co-Founder, Chief Technology Officer</h2>
+    <div class="left">
+        <img src="/content/images/paul.png" width="100" />
     </div>
-    <div class="about">
-        <h2>Nickson Ariemba</h2>
-        <p>Nickson is a Junior from Kenya, Africa and moved to the United States 6 years ago. He plays Soccer, goes to Rosemont High School, and loves web developing. Nickson and Alaxic met on DevelopPHP, a website when Alaxic needed some guidance. Nickson builds Linux’s Os’ in his free time. He works at SwiftSharing as a Co-founder and COO.</p>
-    </div>
-    <div class="about">
-        <h2>Neil Parikh</h2>
-
-        <p>Neil is an Almeda High School graduate and is currently attending Diablo Valley College. He is 18, and a Business Major. He lives in Berkeley, California, and met Alaxic through Nickson. He is the current CFO.</p>
-    </div>
-    <div class="about">
-        <h2>Spencer Smith</h2>
-        <p>Spencer Smith is a frehsman who is the current Chief Marketing Officer of SwiftSharing. He came into contact with the company through a prior project, The LikeBench.</p>
-    </div>
-    <div class="about">
-        <h2>Magan Tyler</h2>
-        <p>Magan is 16, is a Sophomore, and attends Longview High School where she is a Pre-AP student. She has helped with numerous things with the site such as testing, communicating with our users, and keeping the team motivated. She currently serves as the Lead Documenter, User Experience Manager, and is a Co-Founder.</p>
-    </div>
+    <p>
+        Paul Henry is a Co-Founder of SwiftSharing, and met Alaxic Smith in the Summer of 2010, coded LikeBench, and helped Alaxic Smith create the site.<br/><br/>
+        Home Schooled - Longview, TX<br/>
+        <a href="mailto:paul@swiftsharing.net">paul@swiftsharing.net</a>
+    </p>
 </div>
-
-
+<div class="about">
+    <h2>Magan Tyler, 16, Co-Founder, Lead Documenter, User Experience Manager</h2>
+    <div class="left">
+        <img src="/content/images/magan.png" width="100"/>
+    </div>
+    <p>
+        Magan Tyler is a Co-Founder of SwiftSharing, and met Alaxic Smith at Longview High School, and immediately took an interest in SwiftSharing.<br/><br/>
+        Attending Longview High School - Longview, TX<br/>
+        <a href="mailto:magan@swiftsharing.net">magan@swiftsharing.net</a>
+    </p>
+</div>
+<div class="about">
+    <br/><br/>
+    <h2>Neil Parikh, 19, Chief Financial Officer</h2>
+    <p>Almeda High School Graduate, Attending Diablo Valley College in Berkeley, California and majoring in business.</p>
+</div>
+<div class="about">
+    <h2>Spencer Smith, 16, Chief Marketing Officer</h2>
+    <p>Attending Pine Tree High School - Longview, TX </p>
+</div>
