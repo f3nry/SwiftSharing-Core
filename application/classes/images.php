@@ -7,7 +7,7 @@
  * out of Amazon S3
  */
 class Images {
-  const DEFAULT_BUCKET = 'swiftsharing-cdn-dev';
+  const DEFAULT_BUCKET = 'swiftsharing-cdn';
 
   /**
    * Resize a local temporary file.
