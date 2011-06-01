@@ -40,7 +40,7 @@ Notifications.notify = function(notification) {
 	
 	if(notification.text) {
 		$.jGrowl(image + notification.text, {
-			life: 15000,
+			sticky: true,
 			click: function() {
 				if(notification.type == "REQUEST") {
 					openFriendRequest(notification.ref);
