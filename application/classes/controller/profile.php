@@ -250,4 +250,22 @@ class Controller_Profile extends Controller_App {
 
         $this->template->member = Model_Member::factory('member', Session::instance()->get('user_id'));
     }
+
+	public function action_redirect() {
+		$member = Model_Member::loadFromID($this->request->param('id'));
+		
+		$this->request->redirect('/' . $member->username);
+	}
+	
+	public function action_request() {
+		$this->layout = false;
+		
+		$request = Model_FriendRequest::findByID($this->request->param('id'));
+		
+		echo View::factory('profile/request')
+					->set('request', $request)
+					->render();
+		
+		die;
+	}
 }

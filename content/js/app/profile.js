@@ -1,23 +1,25 @@
-$(".modal_link").fancybox({
-    hideOnContentClick: false,
-    showCloseButton: true,
-    titleShow: false,
-    onClosed: function() {
-        $("#add_friend_loader").hide();
-    }
-});
+$(document).ready(function() {
+	$(".modal_link").fancybox({
+    	hideOnContentClick: false,
+    	showCloseButton: true,
+    	titleShow: false,
+    	onClosed: function() {
+        	$("#add_friend_loader").hide();
+    	}
+	});
 
-$(".short_friends_list").fancybox({
-    hideOnContentClick: false,
-    scrolling: 'auto',
-    showCloseButton: true,
-    autoDimensions: false,
-    titleShow: false,
-    onClosed: function() {
-        $("#add_friend_loader").hide();
-    },
-    width:218,
-    height:500
+	$(".short_friends_list").fancybox({
+    	hideOnContentClick: false,
+    	scrolling: 'auto',
+    	showCloseButton: true,
+    	autoDimensions: false,
+    	titleShow: false,
+    	onClosed: function() {
+        	$("#add_friend_loader").hide();
+    	},
+    	width:218,
+    	height:500
+	});
 });
 
 function closeModal() {
@@ -113,4 +115,16 @@ function sendPM ( ) {
             $("#pmFormProcessGif").hide();
         });
     }
+}
+
+function openFriendRequest(id) {
+	$("#friend_request_link").attr("href", "/profile/request/" + id);
+	
+	$("#friend_request_link").fancybox({
+	    hideOnContentClick: false,
+	    showCloseButton: true,
+	    titleShow: false,
+	});
+	
+	$("#friend_request_link").trigger('click');
 }

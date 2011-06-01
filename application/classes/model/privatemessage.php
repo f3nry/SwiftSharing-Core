@@ -81,6 +81,14 @@ class Model_PrivateMessage extends ORM {
         if(!$message_id) {
             return false;
         } else {
+			$member = Model_Member::loadFromID($from_id);
+		
+			Model_Notification::notify($to_id)
+				->setText($member->getName() . " sent you a message!")
+				->setType("MESSAGE")
+				->setRef($conversation_id)
+				->save();
+	
             DB::query(Database::UPDATE, "UPDATE private_conversations SET date_updated = NOW() WHERE id = $conversation_id")->execute();
 
             return true;

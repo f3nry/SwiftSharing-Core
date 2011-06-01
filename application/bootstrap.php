@@ -131,6 +131,18 @@ Route::set('register', 'register')
             'action' => 'index'
         ));
 
+Route::set('notifications_poll', 'notifications(/<action>)')
+		->defaults(array(
+			'controller' => 'ajax_notifications',
+			'action' => 'index'
+		));
+		
+Route::set('user_redirect', 'users/<id>')
+		->defaults(array(
+			'controller' => 'profile',
+			'action' => 'redirect'
+		));
+
 Route::set('feed_ajax', 'ajax/feed(/<action>)')
         ->defaults(array(
             'controller' => 'ajax_feed',
@@ -142,6 +154,12 @@ Route::set('friend_ajax', 'ajax/friend(/<action>)')
             'controller' => 'ajax_friend',
             'action' => 'index'
         ));
+
+Route::set('profile_request', 'profile/request/<id>')
+		->defaults(array(
+			'controller' => 'profile',
+			'action' => 'request'
+		));
 
 Route::set('inbox_ajax', 'ajax/inbox(/<action>)')
         ->defaults(array(

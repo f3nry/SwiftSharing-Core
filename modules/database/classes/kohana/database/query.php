@@ -220,9 +220,19 @@ class Kohana_Database_Query {
 				return new Database_Result_Cached($result, $sql, $this->_as_object, $this->_object_params);
 			}
 		}
+		
+		$message = "Query Executed. {$this->_type} :: $sql ";
 
+		$now = microtime();
+		
 		// Execute the query
 		$result = $db->query($this->_type, $sql, $this->_as_object, $this->_object_params);
+		
+		$seconds = (microtime() - $now);
+		
+		$message .= ":: Completed in $seconds seconds.";
+		
+		Log::instance()->add(Log::DEBUG, $message);
 
 		if (isset($cache_key))
 		{

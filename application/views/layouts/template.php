@@ -10,9 +10,13 @@
         <?php endforeach; ?>
         <?php endif; ?>
         <link rel="stylesheet" href="/content/js/fancybox/jquery.fancybox-1.3.4.css" type="text/css" media="screen" />
+		<link rel="stylesheet" href="/content/css/jquery.jgrowl.css" type="text/css" media="screen" />
         <script type="text/javascript" src="/content/js/js/jquery-1.4.4.min.js"></script>
         <script type="text/javascript" src="/content/js/fancybox/jquery.fancybox-1.3.4.pack.js"></script>
         <script type="text/javascript" src="/content/js/feed.js"></script>
+		<script type="text/javascript" src="/content/js/app/notifications.js"></script>
+		<script type="text/javascript" src="/content/js/app/profile.js"></script>
+		<script type="text/javascript" src="/content/js/jquery.jgrowl.dev.js"></script>
     </head>
     <body>
         <div id="wrapper">
@@ -84,6 +88,28 @@
                 </div>
             </div>
         </div>
+		<?php if(Session::instance()->get('user_id')): ?>
+			<div style="display:none;">
+			    <div id="comment-dialog" style="width:500px;">
+			        <div id="comment-dialog-blab"></div>
+			        <form id="new_comment" action="sportsfeed.php?ajax=false" method="post">
+			                <textarea name="blab_field" rows="3" style="width:480px" id="comment-text"></textarea>
+			                <input name="feed_id" type="hidden" id="new-comment-feed-id" />
+			                <input name="type" type="hidden" value="COMMENT" />
+			                <input name="submit" type="submit" value="Comment!" class="button"/>
+			        </form>
+			        <div id="comment-dialog-comments" style="padding-top:8px;">
+
+			        </div>
+			    </div>
+				<div class="comment">
+		            <a href="#comment-dialog" style="display:none;" class="comments"></a>
+		        </div>
+				<div class="friend_request_link">
+					<a hre="/profile/request" style="display:none" class="friend_request" id="friend_request_link"></a>
+				</div>
+			</div>
+		<?php endif; ?>
         <!--
         <?php if(Session::instance()->get('user_id') && Kohana::$environment != Kohana::PRODUCTION): ?>
             <div id="bottom-bar">

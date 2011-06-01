@@ -5,7 +5,18 @@
  */
 class Model_FriendRequest extends ORM {
 
-    protected $_table_name = "friend_requests";
+    protected $_table_name = "friends_requests";
+
+	protected $_belongs_to = array(
+        'from' => array(
+            'model' => 'member',
+            'foreign_key' => 'mem1'
+        ),
+		'to' => array(
+            'model' => 'member',
+            'foreign_key' => 'mem2'
+        )
+    );
 
     /**
      * Check if the user with the id of $from has any active requests for the user with the
@@ -24,6 +35,12 @@ class Model_FriendRequest extends ORM {
                 ->execute()
                 ->get('total');
     }
+
+	public static function findByID($id) {
+		return Model_FriendRequest::factory('friendrequest')
+				->where('id', '=', $id)
+				->find();
+	}
 
     /**
      * Creates a blank FriendRequest object.

@@ -144,4 +144,20 @@ class Model_Blab extends ORM {
         $cache->delete("blab-from-" . $this->mem_id . $this->id);
         $cache->delete("blab-non-from-" . $this->mem_id . $this->id);
     }
+	
+	/**
+	 * Get a list of members who have commented on this blab.
+	 */
+	public function getCommentees() {
+		$result = DB::query(Database::SELECT, "SELECT DISTINCT mem_id FROM blabs WHERE feed_id = {$this->id} AND type = 'COMMENT'")
+						->execute();
+		
+		$ids = array();
+		
+		foreach($result as $row) {
+			$ids[] = $row['mem_id'];
+		}
+		
+		return $ids;
+	}
 }

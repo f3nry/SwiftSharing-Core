@@ -212,7 +212,7 @@ END;
 
         $success = $s3->uploadFile(Images::DEFAULT_BUCKET, 'members/' . $id . '/image01.jpg', $localFileName);
 
-        $file218 = Images::resizeLocalTmpImage($localFileName, 'image01.jpg', 218, 0);
+        /*$file218 = Images::resizeLocalTmpImage($localFileName, 'image01.jpg', 218, 0);
         $file50 = Images::resizeLocalTmpImage($localFileName, 'image01.jpg', 50, 0);
         $file50x50 = Images::resizeLocalTmpImage($localFileName, 'image01.jpg', 50, 50);
         $file54 = Images::resizeLocalTmpImage($localFileName, 'image01.jpg', 54, 0);
@@ -229,6 +229,10 @@ END;
         unlink($file218['tmp_path']);
         unlink($file54['tmp_path']);
         unlink($file75x75['tmp_path']);
+         *
+         */
+        
+        Images::deleteCached($id, 'image01');
 
         if ($success) {
             $member = Model_Member::factory('member')->where('id', '=', $id)->find();

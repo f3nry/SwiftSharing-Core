@@ -52,13 +52,30 @@ class Controller_Ajax_Feed extends Controller_Ajax {
 
                 $parent_blab->deleteFromCache();
 
-                /*if($blab->mem_id != $parent_blab->mem_id) {
+                if($blab->mem_id != $parent_blab->mem_id) {
                     Model_Notification::notify($parent_blab->mem_id)
-                            ->setText($parent_blab->member->getName() . " commented on your post.")
-                            ->setLink("/blabs/" . $parent_blab->id)
+                            ->setText($blab->member->getName() . " commented on your post.")
+							->setType("COMMENT")
+                            ->setRef($parent_blab->id)
                             ->save();
-                }*/
-            }
+                } else {
+					Model_Notification::notify($parent_blab)
+                            ->setText($blab->member->getName() . " commented on your post.")
+							->setType("COMMENT")
+                            ->setRef($parent_blab->id)
+                            ->save();
+				}
+            } else if($blab->type == "PROFILE") {
+				if($blab->feed_id != Session::instance()->get('user_id')) {
+					$member = Model_Member::loadFromID(Session::instance()->get('user_id'));
+					
+					Model_Notification::notify($blab->feed_id)
+						->setText($member->getName() . " wrote on your wall.")
+						->setType("WALL")
+						->setRef($blab->id)
+						->save();
+				}
+			}
 
             echo Util_Feed_Generator::factory()
                     ->load($blab->id)

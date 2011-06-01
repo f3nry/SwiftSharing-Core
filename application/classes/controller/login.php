@@ -21,6 +21,8 @@ class Controller_Login extends Controller_App {
                         ->and_where('password', '=', md5($post['pass']))
                         ->find();
 
+			var_dump($member->is_loaded());
+			
             if($member->is_loaded() && $member->email_activated == '1') {
                 Session::instance()->set('user_id', $member->id);
                 Session::instance()->set('username', $member->username);

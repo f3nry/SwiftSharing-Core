@@ -101,7 +101,7 @@ class Controller_Ajax_Friend extends Controller_Ajax {
             exit();
         }
 
-        if(!Model_FriendRequest::createNew($from, $to)) {
+        if(!list($id, $affected) = Model_FriendRequest::createNew($from, $to)) {
             die('Failed to insert friend request. Please try again later.');
         }
 
@@ -114,8 +114,17 @@ class Controller_Ajax_Friend extends Controller_Ajax {
                 ->render();
         
         Email::connect();
-        Email::send($toMember->email, "noreply@swiftsharing.net", "[SwiftSharing] New Friend Request From " . $fromMember->getName() . "!", $message);
 
+		if(Kohana::$environment == Kohana::PRODUCTION) {
+        	Email::send($toMember->email, "noreply@swiftsharing.net", "[SwiftSharing] New Friend Request From " . $fromMember->getName() . "!", $message);
+		}
+
+		Model_Notification::notify($toMember)
+			->setText($fromMember->getName() . " would like to be your friend.")
+			->setType("REQUEST")
+			->setRef($id)
+			->save();
+		
         exit;
     }
 

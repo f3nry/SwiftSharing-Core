@@ -33,7 +33,7 @@
             <div class="options">
                 <li><a href="/<?php echo Session::instance()->get('username') ?>">My Profile</a>
 				<li><a href="/<?php echo Session::instance()->get('username') ?>">Friend Request</a>
-				<li><a href="<a href="/profile/edit">Edit Profile</a>
+				<li><a href="/profile/edit">Edit Profile</a>
 				<li><a href="/stats">My Stats</a>
             </div>
             <div class="feed">
@@ -43,20 +43,6 @@
                 <?php endif; ?>
             </div>
         </div>
-<div style="display:none;">
-    <div id="comment-dialog" style="width:500px;">
-        <div id="comment-dialog-blab"></div>
-        <form id="new_comment" action="sportsfeed.php?ajax=false" method="post">
-                <textarea name="blab_field" rows="3" style="width:480px" id="comment-text"></textarea>
-                <input name="feed_id" type="hidden" id="new-comment-feed-id" />
-                <input name="type" type="hidden" value="COMMENT" />
-                <input name="submit" type="submit" value="Comment!" class="button"/>
-        </form>
-        <div id="comment-dialog-comments" style="padding-top:8px;">
-
-        </div>
-    </div>
-</div>
 <?php if ($feed->allowed_post_types == 'PHOTO'): ?>
 <link href="/content/js/uploadify/uploadify.css" type="text/css" rel="stylesheet" />
 <script type="text/javascript" src="/content/js/uploadify/swfobject.js"></script>
