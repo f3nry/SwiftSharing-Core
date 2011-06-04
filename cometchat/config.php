@@ -205,9 +205,9 @@ define('DISABLE_LINKING','0');			// Set to 1 if you want to disable auto linking
 define('DISABLE_YOUTUBE','0');			// Set to 1 if you want to disable YouTube thumbnail
 define('CACHING_ENABLED','0');			// Set to 1 if you would like to cache CometChat
 define('GZIP_ENABLED','0');				// Set to 1 if you would like to compress output of JS and CSS
-define('DEV_MODE','1');					// Set to 1 only during development
-define('ERROR_LOGGING','1');			// Set to 1 to log all errors (error.log file)
-define('ONLINE_TIMEOUT',30000);			
+define('DEV_MODE','0');					// Set to 1 only during development
+define('ERROR_LOGGING','0');			// Set to 1 to log all errors (error.log file)
+define('ONLINE_TIMEOUT',300);			
 										// Time in seconds after which a user is considered offline
 define('DISABLE_ANNOUNCEMENTS','0');	// Reduce server stress by disabling announcements
 define('DISABLE_ISTYPING','1');			// Reduce server stress by disabling X is typing feature
