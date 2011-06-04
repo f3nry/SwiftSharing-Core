@@ -15,7 +15,6 @@ define('FORCE_MAGIC_QUOTES','0');
 
 /* DATABASE */
 
-if(strpos('swiftsharing.net', $_SERVER['SERVER_NAME']) !== false) {
 	define('DB_SERVER',					'mysql.mphwebsystems.com'								);
 	define('DB_PORT',					'3306'									);
 	define('DB_USERNAME',				'swshare_remote'									);
@@ -26,18 +25,6 @@ if(strpos('swiftsharing.net', $_SERVER['SERVER_NAME']) !== false) {
 	define('DB_USERTABLE_NAME',			'username'								);
 	define('DB_USERTABLE_USERID',		'id'								);
 	define('DB_USERTABLE_LASTACTIVITY',	'last_active'							);	
-} else {
-	define('DB_SERVER',					'localhost'								);
-	define('DB_PORT',					'3306'									);
-	define('DB_USERNAME',				'root'									);
-	define('DB_PASSWORD',				''								);
-	define('DB_NAME',					'swiftsharing'								);
-	define('TABLE_PREFIX',				''										);
-	define('DB_USERTABLE',				'myMembers'									);
-	define('DB_USERTABLE_NAME',			'username'								);
-	define('DB_USERTABLE_USERID',		'id'								);
-	define('DB_USERTABLE_LASTACTIVITY',	'last_active'							);
-}
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
