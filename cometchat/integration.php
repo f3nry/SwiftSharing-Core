@@ -205,7 +205,11 @@ function getUserStatus($userid) {
 }
 
 function getLink($link) {
-    return "/$link";
+	if(is_numeric($link)) {
+		return "/users/$link";
+	} else {
+    	return "/$link";
+	}
 }
 
 function getTimeStamp() {

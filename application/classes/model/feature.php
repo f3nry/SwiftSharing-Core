@@ -12,8 +12,6 @@ class Model_Feature extends Model {
 			'user_id' => (integer)$user_id
 		));
 		
-		var_dump($doc);
-		
 		if($doc) {
 			return true;
 		} else {
