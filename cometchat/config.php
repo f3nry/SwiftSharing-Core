@@ -199,7 +199,7 @@ define('TRANSPORT','cometservice');
 
 /* ADVANCED */
 
-define('REFRESH_BUDDYLIST','60');		// Time in seconds after which the user's "Who's Online" list is refreshed
+define('REFRESH_BUDDYLIST','30');		// Time in seconds after which the user's "Who's Online" list is refreshed
 define('DISABLE_SMILEYS','0');			// Set to 1 if you want to disable smileys
 define('DISABLE_LINKING','0');			// Set to 1 if you want to disable auto linking
 define('DISABLE_YOUTUBE','0');			// Set to 1 if you want to disable YouTube thumbnail
