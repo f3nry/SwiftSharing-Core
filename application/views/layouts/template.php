@@ -139,5 +139,9 @@
         </script>
         <?php endif; ?>
         -->
+		<?php if(Model_Feature::checkFeature('chat', Session::instance()->get('user_id'))): ?>
+		<link type="text/css" href="/cometchat/cometchatcss.php" rel="stylesheet" charset="utf-8">
+		<script type="text/javascript" src="/cometchat/cometchatjs.php" charset="utf-8"></script>
+		<?php endif; ?>
     </body>
 </html>

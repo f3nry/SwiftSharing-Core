@@ -29,6 +29,13 @@ class Controller_App extends Controller_Template {
         }
 
         parent::after();
+        
+        if($id = Session::instance()->get('user_id')) {
+          $query = "UPDATE myMembers SET last_active = NOW() WHERE myMembers.id = $id";
+
+          DB::query(Database::UPDATE, $query)
+            ->execute();
+        }
     }
 
     /**

@@ -70,7 +70,7 @@ class Controller_Ajax_Feed extends Controller_Ajax {
 					$member = Model_Member::loadFromID(Session::instance()->get('user_id'));
 					
 					Model_Notification::notify($blab->feed_id)
-						->setText($member->getName() . " wrote on your wall.")
+						->setText($member->getName() . " wrote on your profile.")
 						->setType("WALL")
 						->setRef($blab->id)
 						->save();
