@@ -224,6 +224,12 @@ Route::set('404', '404')
             'action' => '404'
         ));
 
+Route::set('preview', 'preview')
+		->defaults(array(
+			'controller' => 'preview',
+			'action' => 'index'
+		));
+
 require_once "application/config/routes/feed.php";
 require_once "application/config/routes/admin.php";
 require_once "application/config/routes/profile.php";
