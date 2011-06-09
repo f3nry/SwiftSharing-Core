@@ -13,6 +13,12 @@ class Controller_Admin extends Controller_App {
         $this->layout = "layouts/admin";
         
         parent::before();
+
+		if(Session::instance()->get('is_admin')) {
+			$this->layout->logged_in = true;
+		} else {
+			$this->layout->logged_in = false;
+		}
     }
     
     /**
@@ -23,15 +29,13 @@ class Controller_Admin extends Controller_App {
      * @return type 
      */
     protected function _checkSession($redirPath, $exists = false) {
-        if(!parent::_checkSession($redirPath, $exists)) {
+		if(!Session::instance()->get('is_admin') && !$exists) {
+        	$this->request->redirect($redirPath);
+               
             return false;
-        } else {
-            if(!Session::instance()->get('is_admin')) {
-                $this->request->redirect($redirPath);
-                
-                return false;
-            }
-        }
+        } else if(Session::instance()->get('is_admin') && $exists) {
+			$this->request->redirect($redirPath);
+		}
         
         return true;
     }
@@ -41,12 +45,16 @@ class Controller_Admin extends Controller_App {
      *
      * @return type 
      */
-    protected function _requireAuth() {
-        return $this->_checkSession("/admin/login");
+    protected function _requireAuth($path = "/admin/login") {
+        return $this->_checkSession($path);
     }
     
-    public function action_login() {
-        
+    public function action_login($admin = false) {
+		if(Session::instance()->get("is_admin")) {
+			$this->request->redirect("/admin");
+		}
+	
+        parent::action_login(true);
     }
     
     public function action_index() {

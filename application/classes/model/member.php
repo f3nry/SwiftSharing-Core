@@ -470,7 +470,7 @@ END;
 
             if ($i % 6 == 4) {
                 $friendList .= '<tr><td><div style="width:56px; height:68px; overflow:hidden;" title="' . $friendObject->firstname . '">
-				<a href="/' . $friendObject->username . '">' . $friendObject->firstname . '</a><br />' . $frnd_pic . '
+				<a href="/' . $friendObject->username . '">' . $friendObject->firstname . '<br />' . $frnd_pic . '</a>
 				</div></td>';
             } else {
                 $friendList .= '<td><div style="width:56px; height:68px; overflow:hidden;" title="' . $friendObject->firstname . '">
@@ -759,9 +759,13 @@ END;
      * 
      * TODO: Right admin login functions
      */
-    public function login() {
+    public function login($admin = false) {
         Session::instance()->set('user_id', $this->id);
         Session::instance()->set('username', $this->username);
+
+		if($admin) {
+			Session::instance()->set('is_admin', true);
+		}
     }
 
     /**
@@ -797,4 +801,34 @@ END;
     public function setBirthday($array) {
         $this->birthday = $array['birth_year'] . "-" . $array["birth_month"] . "-" . $array["birth_day"];
     }
+
+	public function checkAdmin() {
+		$email = $this->email;
+		
+		return DB::query(Database::SELECT, "SELECT COUNT(1) as total FROM admin WHERE email = :email LIMIT 1")
+					->bind(":email", $email)
+					->execute()
+					->get('total');
+	}
+	
+	public static function checkLogin($post, $admin = false) {
+		 $member = Model_Member::factory('member')
+                        ->where('email', '=', $post['email'])
+                        ->and_where('password', '=', md5($post['pass']))
+                        ->find();
+			
+   		if($member->is_loaded() && $member->email_activated == '1') {
+			if($admin) {
+				if(!$member->checkAdmin()) {
+					return "Wrong email/password. Please try again.";
+				}
+			}
+	
+			return $member;
+		} else if($member->email_activated == 0) {
+			return "Your account is not activated yet. Please check your email.";
+		} else {
+			return "Wrong email/password. Please try again.";
+		}
+	}
 }

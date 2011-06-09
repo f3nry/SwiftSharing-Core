@@ -1,2 +1,1 @@
-<?php
-
+<div class="admin_form_header_bar">Dashboard</div>

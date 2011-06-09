@@ -16,6 +16,22 @@
         <script type="text/javascript" src="/content/js/feed.js"></script>
     </head>
     <body>
-        <?php echo $body ?>
+		<?php if($logged_in): ?>
+			<div id="admin_container">
+				<div id="admin_menu">
+					<ol class="tabs">
+						<li><a href="/admin">Dashboard</a></li>
+						<li><a href="/admin/chat">Chat</a></li>
+					</ol>
+				</div>
+				<div style="clear:both;"></div>
+				<div id="admin_content">
+					<?php echo $body ?>
+					<div style="clear:both;"></div>
+				</div>
+			</div>
+		<?php else: ?>
+        	<?php echo $body ?>
+		<?php endif;?>
     </body>
 </html>

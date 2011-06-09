@@ -25,7 +25,7 @@
                     </p>
 
                     <p>
-                        <label style="width:150px;"><fb:login-button on-login="facebookLogin()" perms="email,publish_stream">Login with Facebook</fb:login-button></label>
+                        <label style="width:152px;"><fb:login-button on-login="facebookLogin()" perms="email,publish_stream">Login with Facebook</fb:login-button></label>
                         <input type="submit" value="Login" name="login" id="submit"/>
                         <div id="fb-root"></div>
                         <script src="http://connect.facebook.net/en_US/all.js"></script>

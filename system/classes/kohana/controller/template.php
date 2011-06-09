@@ -41,7 +41,9 @@ abstract class Kohana_Controller_Template extends Controller {
         // Load the template
 
         if (!$this->template) {
-            $this->template = $this->request->controller() . "/" . $this->request->action();
+			$controller = implode("/", explode("_", $this->request->controller()));
+	
+            $this->template = $controller . "/" . $this->request->action();
         }
         
         try {
@@ -92,15 +94,9 @@ abstract class Kohana_Controller_Template extends Controller {
      */
     public function after() {
         if ($this->auto_render === TRUE) {
-            if(!$this->template) {
-                try {
-                    $this->initializeTemplate();
-                } catch(Exception $e) { }
-            }
-            
             $this->setVars();
             
-            if ($this->template) {
+            if ($this->template instanceof View) {
                 if ($this->layout) {
                     $this->layout->body = $this->template->render();
 

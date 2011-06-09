@@ -13,34 +13,7 @@ class Controller_Login extends Controller_App {
     public function action_index() {
         parent::_checkSession("/", true);
 
-        $post = $this->request->post();
-
-        if($post) {
-            $member = ORM::factory('member')
-                        ->where('email', '=', $post['email'])
-                        ->and_where('password', '=', md5($post['pass']))
-                        ->find();
-
-			var_dump($member->is_loaded());
-			
-            if($member->is_loaded() && $member->email_activated == '1') {
-                Session::instance()->set('user_id', $member->id);
-                Session::instance()->set('username', $member->username);
-
-                if(Session::instance()->get('refer')) {
-                    $this->request->redirect("/refer");
-                } else {
-                    $this->request->redirect("/");
-                }
-                
-            } else if($member->email_activated == '0') {
-                $this->template->message = 'Your account is not activated yet. Please check your email.';
-                $this->template->email = $post['email'];
-            } else {
-                $this->template->message = "Wrong username/password. Please try again.";
-                $this->template->email = $post['email'];
-            }
-        }
+        parent::action_login(false);
 
         $this->layout->hideContentPane = true;
     }

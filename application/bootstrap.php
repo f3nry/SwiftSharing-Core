@@ -113,24 +113,6 @@ Kohana::modules(array(
 
 Cache::$default = 'memcache';
 
-Route::set('login', 'login(/<action>)')
-        ->defaults(array(
-            'controller' => 'login',
-            'action' => 'index'
-        ));
-
-Route::set('logout', 'logout')
-        ->defaults(array(
-            'controller' => 'logout',
-            'action' => 'index'
-        ));
-
-Route::set('register', 'register')
-        ->defaults(array(
-            'controller' => 'register',
-            'action' => 'index'
-        ));
-
 Route::set('notifications_poll', 'notifications(/<action>)')
 		->defaults(array(
 			'controller' => 'ajax_notifications',
@@ -167,33 +149,9 @@ Route::set('inbox_ajax', 'ajax/inbox(/<action>)')
             'action' => 'index'
         ));
 
-Route::set('profile_ajax', 'ajax/profile/<action>/<id>')
-        ->defaults(array(
-            'controller' => 'ajax_profile',
-            'action' => 'index'
-        ));
-
-Route::set('feed', 'feed/<id>(/<action>)')
-        ->defaults(array(
-            'controller' => 'feed',
-            'action' => 'index'
-        ));
-
 Route::set('friends', 'friends')
         ->defaults(array(
             'controller' => 'friends',
-            'action' => 'index'
-        ));
-
-Route::set('profile_edit', 'profile/edit(/<action>)')
-        ->defaults(array(
-            'controller' => 'profile',
-            'action' => 'edit'
-        ));
-
-Route::set('members', 'members(/<action>(/page/<page_number>))')
-        ->defaults(array(
-            'controller' => 'members',
             'action' => 'index'
         ));
 
@@ -226,6 +184,7 @@ Route::set('help', 'help')
             'controller' => 'help',
             'action' => 'index'
         ));
+
 Route::set('refer', 'refer')
         ->defaults(array(
             'controller' => 'refer',
@@ -253,23 +212,10 @@ Route::set('inbox', 'inbox(/<action>/<id>)', array(
             'action' => 'index'
         ));
 
-
-Route::set('likes', 'likes')
-        ->defaults(array(
-            'controller' => 'ajax_like',
-            'action' => 'index'
-        ));
-
 Route::set('friends', 'friends(/<page>)')
         ->defaults(array(
             'controller' => 'friends',
             'action' => 'index'
-        ));
-
-Route::set('activate', 'activate/<id>/<sequence>')
-        ->defaults(array(
-            'controller' => 'register',
-            'action' => 'activate'
         ));
 
 Route::set('404', '404')
@@ -278,19 +224,9 @@ Route::set('404', '404')
             'action' => '404'
         ));
 
-Route::set('admin', 'admin(/<action>)')
-        ->defaults(array(
-            'controller' => 'admin',
-            'action' => 'index'
-        ));
-
-Route::set('profile', '<username>(/<action>)', array(
-            'username' => '\w{2,40}'
-        ))
-        ->defaults(array(
-            'controller' => 'profile',
-            'action' => 'index'
-        ));
+require_once "application/config/routes/feed.php";
+require_once "application/config/routes/admin.php";
+require_once "application/config/routes/profile.php";
 
 /**
  * Set the routes. Each route must have a minimum of a name, a URI and a set of

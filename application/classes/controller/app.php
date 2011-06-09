@@ -38,6 +38,31 @@ class Controller_App extends Controller_Template {
         }
     }
 
+	public function action_login($admin = false) {
+		$post = $this->request->post();
+		
+		if($post) {
+			$member = Model_Member::checkLogin($post, $admin);
+	
+			if($member instanceof Model_Member) {
+				$member->login($admin);
+		
+				if(Session::instance()->get('refer')) {
+					$this->request->redirect("/refer");
+				} else {
+					if($admin) {
+						$this->request->redirect("/admin");
+					} else {
+						$this->request->redirect("/");
+					}
+				}
+			} else {
+				$this->template->message = $member;
+				$this->template->email = $post['email'];
+			}
+		}
+	}
+
     /**
      * Check the session, whether it exists or not. Or whether it doesn't exist or not.
      *
@@ -67,7 +92,7 @@ class Controller_App extends Controller_Template {
             
             exit;
         } else {
-            $this->request->redirect($redirPath);
+            $this->request->redirect($redirectPath);
         }
     }
 
