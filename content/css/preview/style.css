@@ -45,25 +45,25 @@ p.right{
 	width:500px;
 	height:500px;
 	float:left;
-}.stbody
+}.feature-body
 {
 min-height:150px;
 float:left;
  
 }
-.stbody
+.feature-body
 {
 min-height:70px;
 width:400px;
 }
-.stimg
+.feature-img
 {
 float:left;
 height:150px;
 width:160px;
 padding:5px;
 }
-.sttext
+.feature-text
 {
 min-height:50px;
 word-wrap:break-word;
@@ -72,11 +72,4 @@ padding:5px;
 display:block;
 font-family:'Georgia', Times New Roman, Times, serif
 }
-.sttime
-{
-font-size:11px;
-color:#999;
-font-family:Arial, Helvetica, sans-serif;
-margin-top:5px;
-}
- 
+
