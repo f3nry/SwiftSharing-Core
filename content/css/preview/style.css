@@ -1,0 +1,82 @@
+body{
+	background-color:#EEEEEE;
+}
+#container{
+	width:1000px;
+	height:500px;
+	margin-right:auto;
+	margin-left:auto;
+	margin-top:10px;
+}
+.logo{
+	margin-right:auto;
+	margin-left:auto;
+	width:400px;
+	height:85px;
+}
+#right{
+	width:500px;
+	height:500px;
+	float:right;
+}
+h1{
+	font-family:"Klavika Regular";
+	font-size:20px;
+	text-align:center;
+}
+h2{
+	font-family:"Klavika Regular";
+	font-size:20px;
+}
+h3{
+	font-family:"Klavika Regular";
+	text-align:center;
+	line-height:1.5;
+}
+p{
+	font-family:"Klavika Regular";
+	font-size:17px;
+}
+p.right{
+	text-align:center;
+	font-size:20px;
+}
+#left{
+	width:500px;
+	height:500px;
+	float:left;
+}.stbody
+{
+min-height:150px;
+float:left;
+ 
+}
+.stbody
+{
+min-height:70px;
+width:400px;
+}
+.stimg
+{
+float:left;
+height:150px;
+width:160px;
+padding:5px;
+}
+.sttext
+{
+min-height:50px;
+word-wrap:break-word;
+overflow:hidden;
+padding:5px;
+display:block;
+font-family:'Georgia', Times New Roman, Times, serif
+}
+.sttime
+{
+font-size:11px;
+color:#999;
+font-family:Arial, Helvetica, sans-serif;
+margin-top:5px;
+}
+ 
