@@ -15,7 +15,7 @@ define('FORCE_MAGIC_QUOTES','0');
 
 /* DATABASE */
 
-	define('DB_SERVER',					'localhost'								);
+	define('DB_SERVER',					'mysql.mphwebsystems.com'								);
 	define('DB_PORT',					'3306'									);
 	define('DB_USERNAME',				'swshare_remote'									);
 	define('DB_PASSWORD',				'jDcZ9hRaC76mvQX8'								);
