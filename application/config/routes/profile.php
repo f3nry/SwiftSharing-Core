@@ -35,6 +35,12 @@ Route::set('members', 'members(/<action>(/page/<page_number>))')
            'controller' => 'members',
            'action' => 'index'
        ));
+       
+Route::set('profile_ajax', 'ajax/profile/friends/<id>')
+				->defaults(array(
+					'controller' => 'ajax_profile',
+					'action' => 'friends'
+				));
 
 Route::set('profile', '<username>(/<action>)', array(
             'username' => '\w{2,40}'

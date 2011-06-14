@@ -110,7 +110,7 @@ try {
             ->execute();
     
 } catch (Kohana_Exception $e) {
-    if(Kohana::$environment == Kohana::DEVELOPMENT && $e->getCode() != 404) {
+    if(Kohana::$environment == Kohana::DEVELOPMENT) {
         throw $e;
     } else {
         Kohana::$log->add(Log::ERROR, $e->__toString());

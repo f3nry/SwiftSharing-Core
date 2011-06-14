@@ -11,7 +11,9 @@ class Controller_Ajax extends Controller {
     public function before() {
         parent::before();
 
-        Util_Analytics_Engine::record($this->request);
+		if(!isset($this->no_record)) {
+        	Util_Analytics_Engine::record($this->request);
+		}
     }
 
     public function json($data) {
