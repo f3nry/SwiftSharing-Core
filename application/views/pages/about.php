@@ -94,7 +94,7 @@
 <div class="about">
     <br/><br/>
     <h2>Neil Parikh, 19, Chief Financial Officer</h2>
-    <p>Almeda High School Graduate, Attending Diablo Valley College in Berkeley, California and majoring in business.</p>
+    <p>Neil is a business major in the Bay Area, in California.</p>
 </div>
 <div class="about">
     <h2>Spencer Smith, 16, Chief Marketing Officer</h2>
