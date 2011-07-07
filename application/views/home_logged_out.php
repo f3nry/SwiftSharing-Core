@@ -32,6 +32,6 @@
         <span  class='st_sharethis_large' ></span>
     </div>
 </div>
-<script src="/content/js/login.js" type="text/javascript"></script>
+<script src="/content/js/login.js?1" type="text/javascript"></script>
 <script type="text/javascript">var switchTo5x=true;</script><script type="text/javascript" src="http://w.sharethis.com/button/buttons.js"></script><script type="text/javascript">stLight.options({publisher:'ee9e5f4b-1502-41ba-8275-77d665e5ff79'});</script>
 <script type="text/javascript" src="https://apis.google.com/js/plusone.js"></script>

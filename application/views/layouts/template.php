@@ -4,12 +4,12 @@
         <title>SwiftSharing <?php echo (isset($title)) ? " - " . $title : "" ?></title>
         
         <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Metrophobic" />
-        <link type="text/css" href="/content/css/blueprint/screen.css" media="screen" rel="stylesheet" />
-        <link rel="stylesheet" type="text/css" href="/content/css/new.css"/>
-        <link rel="stylesheet" type="text/css" href="/content/css/screen.css" />
+        <link type="text/css" href="/content/css/blueprint/screen.css?1" media="screen" rel="stylesheet" />
+        <link rel="stylesheet" type="text/css" href="/content/css/new.css?1"/>
+        <link rel="stylesheet" type="text/css" href="/content/css/screen.css?1" />
         <?php if(is_array(@$styles)): ?>
         <?php foreach($styles as $style): ?>
-            <link rel="stylesheet" type="text/css" href="/content/css/<?php echo $style ?>.css" />
+            <link rel="stylesheet" type="text/css" href="/content/css/<?php echo $style ?>.css?1" />
         <?php endforeach; ?>
         <?php endif; ?>
         <link rel="stylesheet" href="/content/js/fancybox/jquery.fancybox-1.3.4.css" type="text/css" media="screen" />
