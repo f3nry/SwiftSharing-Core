@@ -68,7 +68,7 @@
         Attending Longview High School - Longview, TX<br/>
         <a href="mailto:magan@swiftsharing.net">magan@swiftsharing.net</a>
     </p>
-</div>
+</div><br/><br/>
 <div class="about">
     <h2>Paul Henry, 16, Co-Founder, Chief Technology Officer</h2>
     <div class="left">
@@ -91,8 +91,4 @@
 <div class="about">
     <h2>Neil Parikh, 19, Chief Financial Officer</h2>
     <p>Neil is a business major in the Bay Area, in California.</p>
-</div>
-<div class="about">
-    <h2>Spencer Smith, 16, Chief Marketing Officer</h2>
-    <p>Attending Pine Tree High School - Longview, TX </p>
 </div>
