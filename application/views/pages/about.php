@@ -82,11 +82,8 @@
 </div>
 <div class="about">
     <h2>Alaxic Smith, 15, Founder, Lead Graphics Designer</h2>
-    <div class="left">
-        <img src="/content/images/alaxic.png" width="100"/>
-    </div>
     <p>
-        Alaxic Smith is the Founder of SwiftSharing, and he met Co-Founder Paul Henry in the Summer of 2010 while working on a previous project the LikeBench.<br/><br/>
+        Alaxic Smith is the original Founder of SwiftSharing, and he met Co-Founder Paul Henry in the Summer of 2010 while working on a previous project the LikeBench.<br/><br/>
         Attending Longview High School - Longview, TX<br/>
         <a href="mailto:alaxic@swiftsharing.net">alaxic@swiftsharing.net</a>
     </p>
