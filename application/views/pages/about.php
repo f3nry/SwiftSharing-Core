@@ -81,6 +81,7 @@
     </p>
 </div>
 <div class="about">
+    <br/><br/>
     <h2>Alaxic Smith, 15, Founder, Lead Graphics Designer</h2>
     <p>
         Alaxic Smith is the original Founder of SwiftSharing, and he met Co-Founder Paul Henry in the Summer of 2010 while working on a previous project the LikeBench.<br/><br/>
@@ -89,7 +90,6 @@
     </p>
 </div>
 <div class="about">
-    <br/><br/>
     <h2>Neil Parikh, 19, Chief Financial Officer</h2>
     <p>Neil is a business major in the Bay Area, in California.</p>
 </div>
