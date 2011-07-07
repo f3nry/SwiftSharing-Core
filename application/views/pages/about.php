@@ -59,14 +59,14 @@
     </script>
 </div>
 <div class="about">
-    <h2>Alaxic Smith, 15, Founder, Chief Executive Officer</h2>
+    <h2>Magan Tyler, 16, CEO, Co-Founder, Lead Documenter, User Experience Manager</h2>
     <div class="left">
-        <img src="/content/images/alaxic.png" width="100"/>
+        <img src="/content/images/magan.png" width="100"/>
     </div>
     <p>
-        Alaxic Smith is the Founder of SwiftSharing, and he met Co-Founder Paul Henry in the Summer of 2010 while working on a previous project the LikeBench.<br/><br/>
+        Magan Tyler is a Co-Founder of SwiftSharing, and met Alaxic Smith at Longview High School, and immediately took an interest in SwiftSharing.<br/><br/>
         Attending Longview High School - Longview, TX<br/>
-        <a href="mailto:alaxic@swiftsharing.net">alaxic@swiftsharing.net</a>
+        <a href="mailto:magan@swiftsharing.net">magan@swiftsharing.net</a>
     </p>
 </div>
 <div class="about">
@@ -81,14 +81,14 @@
     </p>
 </div>
 <div class="about">
-    <h2>Magan Tyler, 16, Co-Founder, Lead Documenter, User Experience Manager</h2>
+    <h2>Alaxic Smith, 15, Founder, Lead Graphics Designer</h2>
     <div class="left">
-        <img src="/content/images/magan.png" width="100"/>
+        <img src="/content/images/alaxic.png" width="100"/>
     </div>
     <p>
-        Magan Tyler is a Co-Founder of SwiftSharing, and met Alaxic Smith at Longview High School, and immediately took an interest in SwiftSharing.<br/><br/>
+        Alaxic Smith is the Founder of SwiftSharing, and he met Co-Founder Paul Henry in the Summer of 2010 while working on a previous project the LikeBench.<br/><br/>
         Attending Longview High School - Longview, TX<br/>
-        <a href="mailto:magan@swiftsharing.net">magan@swiftsharing.net</a>
+        <a href="mailto:alaxic@swiftsharing.net">alaxic@swiftsharing.net</a>
     </p>
 </div>
 <div class="about">
