@@ -7,11 +7,11 @@ editBox h2{
     text-align:center;
 }
 
-p{
-    color:white;
-    font-family: "Futura", Medium;
-    float:left;
-    margin-top:-5px;
+p {
+    padding: 0px;
+    padding-bottom: 1.25em;
+    margin: 0px;
+    color: #989898;
 }
 
 #login_join_form {
@@ -23,14 +23,28 @@ p{
     padding-top:20px;
 }
 
+#description {
+    margin-top: 12px;
+    padding-top: 6px;
+    border-top: #bfbfbf 1px solid;
+}
+
+#social_icons_wrapper {
+    width: 550px;
+    margin-top:14px;
+}
+
+#social_icons {
+    margin: auto;
+    width: 416px;
+}
+
 #login_join_form { width: 290px; padding: 20px; background: #FFF;}
-	#login_join_form label { display: inline-block; width: 175px; font-size: 18px; color: #666; font-weight: normal; text-align: left;  margin-right: 20px; }
-	#login_join_form input { font-size: 18px; border: 1px solid #CCC;  padding: 5px; }
-	#login_join_form p.form_text { margin-left: 195px; }
-	#login_join_form .info { border: 1px dashed #CCC; background: #E3E3E3; }
-        #login_join_form #submit {
-            
-        }
+#login_join_form label { display: inline-block; width: 175px; font-size: 18px; color: #666; font-weight: normal; text-align: left;  margin-right: 20px; }
+#login_join_form input { font-size: 18px; border: 1px solid #CCC;  padding: 5px; }
+#login_join_form p.form_text { margin-left: 195px; }
+#login_join_form .info { border: 1px dashed #CCC; background: #E3E3E3; }
+#login_join_form #submit { cursor: pointer; }
 
 
 .row {

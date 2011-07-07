@@ -2,6 +2,9 @@
 <html>
     <head>
         <title>SwiftSharing <?php echo (isset($title)) ? " - " . $title : "" ?></title>
+        
+        <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Metrophobic" />
+        <link type="text/css" href="/content/css/blueprint/screen.css" media="screen" rel="stylesheet" />
         <link rel="stylesheet" type="text/css" href="/content/css/new.css"/>
         <link rel="stylesheet" type="text/css" href="/content/css/screen.css" />
         <?php if(is_array(@$styles)): ?>
@@ -10,31 +13,35 @@
         <?php endforeach; ?>
         <?php endif; ?>
         <link rel="stylesheet" href="/content/js/fancybox/jquery.fancybox-1.3.4.css" type="text/css" media="screen" />
-		<link rel="stylesheet" href="/content/css/jquery.jgrowl.css" type="text/css" media="screen" />
+        <link rel="stylesheet" href="/content/css/jquery.jgrowl.css" type="text/css" media="screen" />
+        <link rel="stylesheet" href="/content/css/flick/jquery-ui-1.8.14.custom.css" type="text/css" media="screen" />
+        
         <script type="text/javascript" src="/content/js/js/jquery-1.4.4.min.js"></script>
         <script type="text/javascript" src="/content/js/fancybox/jquery.fancybox-1.3.4.pack.js"></script>
         <script type="text/javascript" src="/content/js/feed.js"></script>
-		<script type="text/javascript" src="/content/js/app/notifications.js"></script>
-		<script type="text/javascript" src="/content/js/app/profile.js"></script>
-		<script type="text/javascript" src="/content/js/jquery.jgrowl.dev.js"></script>
+        <script type="text/javascript" src="/content/js/app/notifications.js"></script>
+        <script type="text/javascript" src="/content/js/app/profile.js"></script>
+        <script type="text/javascript" src="/content/js/jquery.jgrowl.dev.js"></script>
+        <script type="text/javascript" src="/content/js/jquery-ui-1.8.14.custom.min.js"></script>
     </head>
     <body>
         <div id="wrapper">
-            <div id="header">
+            <div id="header" class="<?php if(!$session->get('username')): ?>tall<?php endif; ?>">
                 <div style="margin-left:0px;">
                     <div class="logo">
                         <a href="/">
+                            <?php if(!$session->get('username')): ?>
+                            <img alt="" src="/content/images/swiftsharing_beta_logo.png"/>
+                            <?php else: ?>
                             <img alt="" src="/content/images/menu_left.png"/>
+                            <?php endif; ?>
                         </a>
                     </div>
-                    <div id="header_content">
-                        <ul id="menu">
-                            <?php if(!$session->get('username')): ?>
-                            <li><a href="/">Home</a></li>
-                            <li><a href="/about">About</a></li>
-                            <li><a href="/register">Register</a></li>
-                            <li><a href="/login">Login</a></li>
-                            <?php else: ?>
+                    <div id="header_content" class="<?php if(!$session->get('username')): ?>tall<?php endif; ?>">
+                        <?php if(!$session->get('username')): ?>
+                        <span id="everything">The Social Network<br/>That Changes Everything</span>
+                       <?php else: ?>     
+                       <ul id="menu">
                             <li><a href="/">Home</a></li>
                             <li style="margin-top:0px;">
                                 <a href="/inbox">
@@ -50,10 +57,12 @@
                             </li>
                             <li><a href="/friends">Friends</a></li>
                             <li><a href="/logout">Logout</a></li>
-                            <?php endif; ?>
                         </ul>
+                        <?php endif; ?>
+                        <?php if(!$session->get('username')): ?>
+                        <?php else: ?>
                         <div class="searchContainer">
-                            <div style="margin-top:8px;">
+                            <div style="margin-top:1px;">
                                 <form action="/members/search" method="post" id="searchForm">
                                     <input type="text" id="searchField" name="searchField" />
                                     <img src="/content/images/magnifier.png" alt="Search" onclick="$('#searchForm').trigger('submit')"/>
@@ -61,6 +70,7 @@
                             </div>
                             <img style="float:right;margin-right:-18px;" alt="" src="/content/images/menu_right.png"/>
                         </div>
+                        <?php endif; ?>
                     </div>
                 </div>
             </div>

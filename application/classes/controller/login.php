@@ -36,7 +36,7 @@ class Controller_Login extends Controller_App {
 
                     $this->request->redirect("/");
                 } else {
-                    if(!$member->email_activated) {
+                    if($member->is_loaded() && !$member->email_activated) {
                         $this->template->message = 'Your account is not activated yet. Please check your email.';
                     } else {
                         $this->template = View::factory('facebook/confirm');

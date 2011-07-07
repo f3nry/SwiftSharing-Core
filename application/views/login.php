@@ -22,15 +22,6 @@
         <p>
             <label for="login">&nbsp;</label>
             <input type="submit" value="Login" name="login"/>
-            <div id="fb-root"></div>
-          <fb:login-button on-login="facebookLogin()" perms="email,publish_stream">Login with Facebook</fb:login-button>
-          <script src="http://connect.facebook.net/en_US/all.js"></script>
-          <script>
-             FB.init({
-                appId:'204162316278860', cookie:true,
-                status:true, xfbml:true
-             });
-          </script>
         </p>
         <p class="right_align gray">Need an account? <?php echo HTML::anchor('/register', 'Join this site!') ?></p>
         <p class="right_align gray"><?php echo HTML::anchor('/login/forgot', 'Forgot your password?') ?></p>

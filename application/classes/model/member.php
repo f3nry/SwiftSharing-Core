@@ -813,7 +813,10 @@ END;
 	
 	public static function checkLogin($post, $admin = false) {
 		 $member = Model_Member::factory('member')
-                        ->where('email', '=', $post['email'])
+                         ->where_open()
+                            ->where('email', '=', $post['email'])
+                            ->or_where('username', '=', $post['email'])
+                         ->where_close()
                         ->and_where('password', '=', md5($post['pass']))
                         ->find();
 			
@@ -825,7 +828,7 @@ END;
 			}
 	
 			return $member;
-		} else if($member->email_activated == 0) {
+		} else if($member->is_loaded() && $member->email_activated == 0) {
 			return "Your account is not activated yet. Please check your email.";
 		} else {
 			return "Wrong email/password. Please try again.";

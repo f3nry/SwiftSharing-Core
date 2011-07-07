@@ -5,8 +5,8 @@ img, a {
 }
 
 body {
-    background-color: #000000;
-    font: 80%/1.5 Helvetica, Arial, Sans-serif;
+    background-color: #fcfcfc;
+    font: 80%/1.5 'Metrophobic', Helvetica, Arial, Sans-serif;
 }
 
 h3 {
@@ -34,11 +34,54 @@ h2 {
 }
 
 #header_content {
-    background-color: #1F1F1F;
+    font-family: 'Metrophobic';
+    background-color: #172322;
     float: left;
     height: 45px;
-    width: 735px;
+    color: #6a9ce2;
+    font-weight: bold;
 }
+
+#header_content.tall, #header.tall {
+    height: 75px;
+    background-color: #dedede;
+}
+
+#header_content.tall {
+    font-size: 1.9em;
+    text-align: center;
+    width: 550px;
+}
+
+#header_content #everything {
+    width: 100%;
+    height: 100%;
+}
+
+#login {
+    padding-left: 20px;
+    width: 300px;
+}
+
+#login h2 {
+    font-size: 1.6em;
+    font-weight: bold;
+    margin-bottom: 0.25em;
+    font-family: 'Metrophobic';
+}
+
+#login label {
+    font-size: 1.14em;
+}
+
+label {
+    display: block;
+}
+
+input.title {
+    padding: 4px;
+}
+
 h4 {
     font-size:1.75em;
     margin-left:40px;
@@ -154,7 +197,7 @@ h4 {
     position: relative;
     padding: 0px 10px;
     vertical-align: center;
-    height:40px;
+    height:45px;
 }
 
 #menu a {
@@ -299,12 +342,7 @@ h4 {
                   text-decoration: none
 }
 
-<!--
 body {
-    background-color: #eeeeee;
-    background-image: url();
-    background-repeat: repeat;
-    background-position: center top;
     margin: 0px;
     background-attachment: fixed;
 }
@@ -521,7 +559,7 @@ input[type="text"], input[type="password"], textarea {
     border-color: #7C7C7C #C3C3C3 #DDD;
     border-style: solid;
     border-width: 1px;
-    padding: 2px 0px;
+    padding: 4px 0px;
 }
 /* Reset form margin/padding */
 .thumbsup_template_mini-thumbs form { position:relative; margin:0; padding:0; height:16px; color:#000; }
