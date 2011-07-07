@@ -59,7 +59,7 @@
     </script>
 </div>
 <div class="about">
-    <h2>Magan Tyler, 16, CEO, Co-Founder, Lead Documenter, User Experience Manager</h2>
+    <h2>Magan Tyler, 16, Chief Executive Officer, Co-Founder, Lead Documenter, User Experience Manager</h2>
     <div class="left">
         <img src="/content/images/magan.png" width="100"/>
     </div>
@@ -82,7 +82,7 @@
 </div>
 <div class="about">
     <br/><br/>
-    <h2>Alaxic Smith, 15, Founder, Lead Graphics Designer</h2>
+    <h2>Alaxic Smith, 15, Co-Founder, Lead Graphics Designer</h2>
     <p>
         Alaxic Smith is the original Founder of SwiftSharing, and he met Co-Founder Paul Henry in the Summer of 2010 while working on a previous project the LikeBench.<br/><br/>
         Attending Longview High School - Longview, TX<br/>
