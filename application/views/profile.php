@@ -126,7 +126,6 @@ $hideContent = !($is_friend || $member->privacy_option == '' || $member->privacy
     }
     .form{
         width:475px;
-        height:100px;
         background-color:#eee;
         margin-bottom:10px;
     }
@@ -269,20 +268,14 @@ $hideContent = !($is_friend || $member->privacy_option == '' || $member->privacy
                         <div class="form">
                             <div style="display:none;" id="current_feed_id"><?php echo $member->id; ?></div>
                             <form action="/ajax/feed/new" id="share" method="post" enctype="multipart/form-data">
-                                <textarea name="text" cols="30" rows="3" style="width: 445px" id="sharetext"></textarea><br/>
-<?php if ($member->id == Session::instance()->get('user_id')): ?>
-                                <strong>Say something <?php echo $member->firstname ?>...</strong>
-<?php else: ?>
-                                    <strong>Write on <?php echo $member->firstname ?>'s profile</strong>
-<?php endif; ?>
+                                <textarea name="text" cols="30" rows="3" style="width: 445px" id="sharetext" placeholder="<?php if ($member->id == Session::instance()->get('user_id')): ?>Say something <?php echo $member->firstname ?>...<?php else: ?>Write on <?php echo $member->firstname ?>'s profile<?php endif; ?>"></textarea><br/>
                                     <input name="submit" type="submit" value="Share!"/>&nbsp;
-                                    <input type="checkbox" checked="checked" id="auto-update">Auto-update Profile
                                     <input type="hidden" name="profile_flag" id="profile_flag" value="1" />
                                 </form>
                             </div>
-                            <div style="width:485px; overflow-x:hidden;padding-top:8px;">
+                            <div style="width:485px; overflow:hidden;padding-top:8px;">
                                 <div id="feed">
-<?php echo @$blabs; ?>
+                                <?php echo @$blabs; ?>
                                 </div>
                                 <table style="background-color:#FFF;" cellpadding="5" width="94%">
                                     <tr style="padding:4px;">

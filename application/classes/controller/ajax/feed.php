@@ -28,9 +28,13 @@ class Controller_Ajax_Feed extends Controller_Ajax {
 
             $blab->mem_id = Session::instance()->get('user_id');
             $blab->date = date('Y-m-d H:i:s');
-            $blab->text = $post['text'];
+            $blab->text = trim($post['text']);
             $blab->feed_id = $post['feed_id'];
             $blab->type = (isset($post['type']) && ($post['type'] == 'PROFILE' || $post['type'] == 'PHOTO' || $post['type'] == 'COMMENT')) ? $post['type'] : "STATUS";
+            
+            if(empty($blab->text)) {
+                return;
+            }
 
             $blab->save();
 

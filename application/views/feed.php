@@ -15,7 +15,6 @@
                     <input type="hidden" name="type" value="PHOTO" />
                     <input type="hidden" name="feed_id" value="<?php echo $feed->id ?>" />
                     <?php endif; ?><br/>
-                    <input type="checkbox" checked="checked" id="auto-update">Auto-update feed
                 </form>
             </div>
            <?php endif; ?>
@@ -49,7 +48,7 @@
 <script type="text/javascript" src="/content/js/uploadify/jquery.uploadify.v2.1.4.min.js"></script>
 <script type="text/javascript">
 $(document).ready(function() {
-
+    $("input:submit").button();
 });
 </script>
 <?php endif; ?>

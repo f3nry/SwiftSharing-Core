@@ -23,6 +23,11 @@
         <script type="text/javascript" src="/content/js/app/profile.js"></script>
         <script type="text/javascript" src="/content/js/jquery.jgrowl.dev.js"></script>
         <script type="text/javascript" src="/content/js/jquery-ui-1.8.14.custom.min.js"></script>
+        <script type="text/javascript">
+            $(function() {
+                $("input:submit, .button").button();
+            });
+        </script>
     </head>
     <body>
         <div id="wrapper">
