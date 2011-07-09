@@ -120,6 +120,7 @@ h4 {
 
 .feed {
     margin-left: 70px;
+    padding-top:8px;
 }
 
 .options {
@@ -140,13 +141,10 @@ h4 {
 }
 
 .posts {
-    background-color: transparent;
-    background-image: url('/content/images/bubble.png');
-    background-repeat: no-repeat;
-    margin-top: 15px;
-    height:160px;
     color: white;
     padding: 8px;
+    border-bottom: 1px solid #BFBFBF;
+    margin-bottom: 8px;
 }
 
 #menu {
@@ -491,10 +489,6 @@ p#heading{
     border:1px solid #b5b5b5;
     width:220px;
 
-}
-
-#share, #photo_share {
-    padding: 14px;
 }
 
 .thumbnailWrapper { 

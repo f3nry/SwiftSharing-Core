@@ -108,10 +108,17 @@ Kohana::modules(array(
     'amazon'   => MODPATH . 'aws',
     'mango'    => MODPATH . 'mango',
     'facebook' => MODPATH . 'facebook',
-    'unittest' => MODPATH . 'unittest'
+    'unittest' => MODPATH . 'unittest',
+    'minify'   => MODPATH . 'minify'
 ));
 
 Cache::$default = 'memcache';
+
+Route::set('asset_js', 'js')
+        ->defaults(array(
+           'controller' => 'assets',
+            'action' => 'js'
+        ));
 
 Route::set('notifications_poll', 'notifications(/<action>)')
 		->defaults(array(

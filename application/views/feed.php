@@ -1,5 +1,5 @@
        <div id="content">
-           <h2><?php echo $feed->full_title; ?></h2>
+           <h2 style="margin-bottom: 0"><?php echo $feed->full_title; ?></h2>
            <?php if(!@$hideShareForm): ?>
            <div class="posts">
                 <div style="display:none;" id="current_feed_id"><?php echo $feed->id ?></div>

@@ -4,25 +4,29 @@
         <title>SwiftSharing <?php echo (isset($title)) ? " - " . $title : "" ?></title>
         
         <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Metrophobic" />
-        <link type="text/css" href="/content/css/blueprint/screen.css?1" media="screen" rel="stylesheet" />
+        
+        <!--<link type="text/css" href="/content/css/blueprint/screen.css?1" media="screen" rel="stylesheet" />
         <link rel="stylesheet" type="text/css" href="/content/css/new.css?1"/>
-        <link rel="stylesheet" type="text/css" href="/content/css/screen.css?1" />
+        <link rel="stylesheet" type="text/css" href="/content/css/screen.css?1" />-->
         <?php if(is_array(@$styles)): ?>
         <?php foreach($styles as $style): ?>
             <link rel="stylesheet" type="text/css" href="/content/css/<?php echo $style ?>.css?1" />
         <?php endforeach; ?>
         <?php endif; ?>
-        <link rel="stylesheet" href="/content/js/fancybox/jquery.fancybox-1.3.4.css" type="text/css" media="screen" />
+        <!--<link rel="stylesheet" href="/content/js/fancybox/jquery.fancybox-1.3.4.css" type="text/css" media="screen" />
         <link rel="stylesheet" href="/content/css/jquery.jgrowl.css" type="text/css" media="screen" />
-        <link rel="stylesheet" href="/content/css/flick/jquery-ui-1.8.14.custom.css" type="text/css" media="screen" />
+        <link rel="stylesheet" href="/content/css/flick/jquery-ui-1.8.14.custom.css" type="text/css" media="screen" />-->
         
-        <script type="text/javascript" src="/content/js/js/jquery-1.4.4.min.js"></script>
+        <link rel="stylesheet" href="/min?g=css" type="text/css"/>
+        <script type="text/javascript" src="/min?g=js"></script>
+        <!--<script type="text/javascript" src="/content/js/js/jquery-1.4.4.min.js"></script>
         <script type="text/javascript" src="/content/js/fancybox/jquery.fancybox-1.3.4.pack.js"></script>
         <script type="text/javascript" src="/content/js/feed.js"></script>
         <script type="text/javascript" src="/content/js/app/notifications.js"></script>
         <script type="text/javascript" src="/content/js/app/profile.js"></script>
         <script type="text/javascript" src="/content/js/jquery.jgrowl.dev.js"></script>
         <script type="text/javascript" src="/content/js/jquery-ui-1.8.14.custom.min.js"></script>
+        -->
         <script type="text/javascript">
             $(function() {
                 $("input:submit, .button").button();
