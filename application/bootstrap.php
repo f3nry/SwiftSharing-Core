@@ -99,17 +99,18 @@ Kohana::$config->attach(new Config_File);
  * Enable modules. Modules are referenced by a relative or absolute path.
  */
 Kohana::modules(array(
-    'auth'     => MODPATH . 'auth', // Basic authentication
-    'cache'    => MODPATH . 'cache', // Caching with multiple backends
-    'database' => MODPATH . 'database', // Database access
-    'image'    => MODPATH . 'image', // Image manipulation
-    'orm'      => MODPATH . 'orm', // Object Relationship Mapping
-    'email'    => MODPATH . 'email',
-    'amazon'   => MODPATH . 'aws',
-    'mango'    => MODPATH . 'mango',
-    'facebook' => MODPATH . 'facebook',
-    'unittest' => MODPATH . 'unittest',
-    'minify'   => MODPATH . 'minify'
+    'auth'      => MODPATH . 'auth', // Basic authentication
+    'cache'     => MODPATH . 'cache', // Caching with multiple backends
+    'database'  => MODPATH . 'database', // Database access
+    'image'     => MODPATH . 'image', // Image manipulation
+    'orm'       => MODPATH . 'orm', // Object Relationship Mapping
+    'email'     => MODPATH . 'email',
+    'amazon'    => MODPATH . 'aws',
+    'mango'     => MODPATH . 'mango',
+    'facebook'  => MODPATH . 'facebook',
+    'unittest'  => MODPATH . 'unittest',
+    'minify'    => MODPATH . 'minify',
+    'recaptcha' => MODPATH . 'recaptcha'
 ));
 
 Cache::$default = 'memcache';

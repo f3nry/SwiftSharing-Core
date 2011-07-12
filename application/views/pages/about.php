@@ -20,7 +20,7 @@
     }
     .about {
         clear:left;
-        width:500px;
+        width:600px;
     }
     h2 {
         font-size: 110%;
@@ -79,15 +79,7 @@
         Home Schooled - Longview, TX<br/>
         <a href="mailto:paul@swiftsharing.net">paul@swiftsharing.net</a>
     </p>
-</div>
-<div class="about">
-    <br/><br/>
-    <h2>Alaxic Smith, 15, Co-Founder, Lead Graphics Designer</h2>
-    <p>
-        Alaxic Smith is a Co-Founder of SwiftSharing, and he met Paul Henry in the Summer of 2010 while working on a previous project, the LikeBench.<br/><br/>
-        Attending Longview High School - Longview, TX<br/>
-    </p>
-</div>
+</div><br/><br/><br/><br/>
 <div class="about">
     <h2>Neil Parikh, 19, Chief Financial Officer</h2>
     <p>Neil is a business major in the Bay Area, in California.</p>

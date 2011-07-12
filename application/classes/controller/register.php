@@ -11,12 +11,14 @@ class Controller_Register extends Controller_App {
     public $template = 'register';
 
     public function action_index() {
+        $recaptcha = new Recaptcha();
+        
         if($this->request->post()) {
             $member = ORM::factory('member');
 
             $post = $_POST;
-
-            if($member->validate($post)) {
+            
+            if($member->validate($post, $recaptcha)) {
                 $member->register($post);
 
                 if(!Session::instance()->get('from_facebook')) {
@@ -24,7 +26,7 @@ class Controller_Register extends Controller_App {
                             ->set('id', $member->id)
                             ->set('firstname', $member->firstname)
                             ->set('email1', $member->email)
-                            ->set('password', $post['pass1'])
+                            ->set('password', $post['password'])
                             ->render();
 
                     $email = (string) $email;
@@ -69,6 +71,10 @@ class Controller_Register extends Controller_App {
                 $this->template->data = array();
             }
         }
+        
+        if($this->template instanceof View) {
+            $this->template->recaptcha = $recaptcha->html();
+        }
     }
     
     public function action_activate() {
@@ -90,6 +96,25 @@ class Controller_Register extends Controller_App {
                 }
         } else {
                 $this->template->message = 'Sorry, that user does not exist.';
+        }
+    }
+    
+    public function action_check() {
+        if($this->request->param('field')) {
+            $status = false;
+            $field = $this->request->param('field');
+            
+            if($field == "username") {
+                $status = Model_Member::checkUsername($_GET['fieldValue']);
+            } else if($field == "email") {
+                $status = Model_Member::checkEmail($_GET['fieldValue']);
+            }
+            
+            echo json_encode(array(
+                $field, $status
+            ));
+            
+            exit;
         }
     }
 }

@@ -12,7 +12,7 @@ Route::set('logout', 'logout')
             'action' => 'index'
         ));
 
-Route::set('register', 'register')
+Route::set('register', 'register(/<action>(/<field>))')
         ->defaults(array(
             'controller' => 'register',
             'action' => 'index'

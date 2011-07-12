@@ -50,12 +50,12 @@ END;
 
     public function register($data) {
         $this->username = $data['username'];
-        $this->firstname = $data['firstname'];
-        $this->lastname = $data['lastname'];
+        $this->firstname = $data['first_name'];
+        $this->lastname = $data['last_name'];
         $this->gender = $data['gender'];
-        $this->birthday = $data['birth_year'] . '-' . $data['birth_month'] . '-' . $data['birth_date'];
-        $this->email = $data['email1'];
-        $this->password = md5($data['pass1']);
+        $this->birthday = date("Y-m-d", strtotime($data['birthday']));
+        $this->email = $data['email'];
+        $this->password = md5($data['password']);
         $this->ipaddress = getenv('REMOTE_ADDR');
         $this->sign_up_date = date('Y-m-d H:i:s');
 
@@ -69,16 +69,16 @@ END;
      * @param bool $save save the record when validation success
      * @return void
      */
-    public function validate(array & $array) {
+    public function validate(array & $array, $recaptcha) {
         $this->filter($array);
 
-        if ($array['humancheck'] != '') {
-            $this->errors = array('humancheck' => 'You must remove the text, to verify that you are human.');
+        if (!$recaptcha->check($array)) {
+            $this->errors = array('humancheck' => 'You must correctly enter the captcha in order to register.');
 
             return false;
         }
 
-        $age = self::getAge($array['birth_year'] . "-" . $array["birth_month"] . "-" . $array["birth_date"]);
+        $age = self::getAge(date("Y-m-d", strtotime($array['birthday'])));
 
         if($age < 13) {
             $this->errors = array('age' => 'You must be at least 13 years of age to join SwiftSharing.');
@@ -99,37 +99,26 @@ END;
                         /**
                          * First Name, Lastname, and gender validation.
                          */
-                        ->rule('firstname', 'not_empty')
-                        ->rule('lastname', 'not_empty')
+                        ->rule('first_name', 'not_empty')
+                        ->rule('last_name', 'not_empty')
                         ->rule('gender', 'not_empty')
 
                         /**
                          * Email validation. The email must be a valid email address, the email domain must have an MX record,
                          * email 1 can't match email 2, and the email can't already exist in the database.
                          */
-                        ->rule('email1', 'email')
-                        ->rule('email1', 'email_domain')
-                        ->rule('email1', 'matches', array(':validation', ':field', 'email2'))
-                        ->rule('email1', array($this, 'email_exists'))
+                        ->rule('email', 'email')
+                        ->rule('email', 'email_domain')
+                        ->rule('email', array($this, 'email_exists'))
 
                         /**
                          * Password validation. The password must be longer than 6 characters, and less than 16 characters, and must
                          * match the second password.
                          */
-                        ->rule('pass1', 'not_empty')
-                        ->rule('pass1', 'min_length', array(':field', 5))
-                        ->rule('pass1', 'max_length', array(':field', 16))
-                        ->rule('pass1', 'matches', array(':validation', ':field', 'pass2'))
-
-                        /**
-                         * Simple birthdate validations.
-                         */
-                        ->rule('birth_month', 'digit')
-                        ->rule('birth_month', 'not_empty')
-                        ->rule('birth_date', 'digit')
-                        ->rule('birth_date', 'not_empty')
-                        ->rule('birth_year', 'digit')
-                        ->rule('birth_year', 'not_empty');
+                        ->rule('password', 'not_empty')
+                        ->rule('password', 'min_length', array(':field', 4))
+                        ->rule('password', 'max_length', array(':field', 16))
+                        ->rule('password', 'matches', array(':validation', ':field', 'confirm_password'));
 
         if (!$array->check()) {
             $this->errors = $array->errors('member');
@@ -148,12 +137,9 @@ END;
      */
     public function filter(array & $array) {
         $array['username'] = preg_replace('#[^A-Za-z0-9]#i', '', $array['username']);
-        $array['firstname'] = preg_replace('#[^A-Za-z]#i', '', $array['firstname']);
-        $array['lastname'] = preg_replace('#[^A-Za-z]#i', '', $array['lastname']);
+        $array['first_name'] = preg_replace('#[^A-Za-z]#i', '', $array['first_name']);
+        $array['last_name'] = preg_replace('#[^A-Za-z]#i', '', $array['last_name']);
         $array['gender'] = preg_replace('#[^a-z]#i', '', @$array['gender']);
-        $array['birth_month'] = preg_replace('#[^0-9]#i', '', $array['birth_month']);
-        $array['birth_date'] = preg_replace('#[^0-9]#i', '', $array['birth_day']);
-        $array['birth_year'] = preg_replace('#[^0-9]#i', '', $array['birth_year']);
 
         foreach ($array as &$element) {
             $element = stripslashes($element);
@@ -168,6 +154,10 @@ END;
      * @return bool True if it exists, false if it does not.
      */
     public function username_exists($field) {
+        return self::checkUsername($field);
+    }
+    
+    public static function checkUsername($field) {
         if ((bool) DB::select(array(DB::expr('COUNT(id)'), 'total'))
                         ->from('myMembers')
                         ->where('username', '=', $field)
@@ -186,6 +176,10 @@ END;
      * @return bool True if it exists, false it it does not exist.
      */
     public function email_exists($field) {
+        return self::checkEmail($field);
+    }
+    
+    public static function checkEmail($field) {
         if ((bool) DB::select(array(DB::expr('COUNT(id)'), 'total'))
                         ->from('myMembers')
                         ->where('email', '=', $field)
