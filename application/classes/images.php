@@ -20,7 +20,11 @@ class Images {
    * @return array
    */
   public static function resizeLocalTmpImage($tmp_path, $filename, $width = 0, $height = 0, $crop = false) {
-    $image = new Imagick($tmp_path);
+    try {
+        $image = new Imagick($tmp_path);
+    } catch(ImagickException $e) {
+        return false;
+    }
 
     if ($width == 0 || $height == 0 || !$crop) {
       $image->thumbnailImage($width, $height);
@@ -60,7 +64,11 @@ class Images {
     }
 
     $new_file = self::resizeLocalTmpImage($local_file_path, $image, $width, $height, $crop);
-
+    
+    if(!$new_file) {
+        return false;
+    }
+    
     $status = $s3->uploadFile(self::DEFAULT_BUCKET, "members/" . $id . "/" . $new_file['new_filename'], $new_file['tmp_path'], true);
 
     unlink($local_file_path);
