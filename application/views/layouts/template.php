@@ -97,7 +97,7 @@
                     </div>
                     <div style="float:right;">
                         <div style="width:250px;float:left;height:62px;">
-                            <iframe src="http://www.facebook.com/plugins/likebox.php?href=http%3A%2F%2Fwww.facebook.com%2Flosangeleslakers%3Fv%3Dinfo%23%21%2Fpages%2FSwiftSharing%2F151280171581392&amp;width=292&amp;colorscheme=light&amp;show_faces=false&amp;stream=false&amp;header=true&amp;height=62" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:292px; height:62px;" allowTransparency="true"></iframe>
+                            <iframe src="http://www.facebook.com/plugins/like.php?app_id=187254024667396&amp;href=http%3A%2F%2Fwww.facebook.com%2Fpages%2FSwiftSharing%2F229419637078420&amp;send=false&amp;layout=box_count&amp;width=292&amp;show_faces=true&amp;action=like&amp;colorscheme=light&amp;font=verdana&amp;height=90" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:292px; height:90px;" allowTransparency="true"></iframe>
                         </div>
                         <!--
                         <div style="height:62px;float:right;padding-top:20px;">
