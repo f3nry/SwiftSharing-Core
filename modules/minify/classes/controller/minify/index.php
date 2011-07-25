@@ -63,6 +63,7 @@ class Controller_minify_index extends Controller {
     if (isset($_GET['f']) || isset($_GET['g'])) {
         // serve!   
         Minify::serve('MinApp', $config['serveOptions']);
+        
         exit;
     }
   }

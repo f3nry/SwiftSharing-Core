@@ -59,7 +59,7 @@ class Model_Like extends ORM {
         }
 
         if($showDelete) {
-            $delete = '<a href="javascript:void()" onclick="deleteBlab(' . $id . ')" style="float:right;padding-left:5px;"><img src="/content/images/delete.jpg" /></a>';
+            $delete = '<a href="javascript:void()" onclick="deleteBlab(' . $id . ')" style="float:right;padding-left:5px;"><img src="/content/images/notifications/icon_close.png" width="16" height="16" /></a>';
         } else {
             $delete = '';
         }

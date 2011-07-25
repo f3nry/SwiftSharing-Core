@@ -819,6 +819,10 @@ class Kohana_ORM extends Model implements serializable {
 
 		return $object;
 	}
+	
+	public function loaded() {
+	  return $this->_loaded;
+	}
 
 	/**
 	 * Binds another one-to-one object to this model.  One-to-one objects

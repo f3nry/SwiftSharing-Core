@@ -8,6 +8,12 @@
  */
 class Images {
   const DEFAULT_BUCKET = 'swiftsharing-cdn';
+  
+  public static function uploadImage($remote_path, $local_path) {
+    $s3 = new Amazon_S3();
+    
+    return $s3->uploadFile(Images::DEFAULT_BUCKET, $remote_path, $local_path);
+  }
 
   /**
    * Resize a local temporary file.
@@ -100,7 +106,13 @@ class Images {
    */
   public static function getImage($id, $image, $width = 0, $height = 0, $noCache = false, $asHTML = false) {
     $real_image_path = 'members/' . $id . '/' . $image;
-
+    
+    return self::getImageViaUrl($real_image_path, $width, $height, $noCache, $asHTML, $id, $image);
+  }
+  
+  public static function getImageViaUrl($url, $width = 0, $height = 0, $noCache = false, $asHTML = false, $id = 0, $image = false) {
+    $real_image_path = $url;
+    
     $filename = strip_filename($real_image_path);
     $extension = strip_extension($real_image_path);
     $path = strip_path($real_image_path);
@@ -114,9 +126,9 @@ class Images {
     }
 
     if (!$width && !$height) {
-      $path = "https://s3.amazonaws.com/" . self::DEFAULT_BUCKET . "/" . $path . "/" . $filename . "." . $extension;
+      $path = "https://s3.amazonaws.com/" . self::DEFAULT_BUCKET . "/" . $path . "/" . $filename . ($extension) ?: "." . $extension;
     } else {
-      $path = "https://s3.amazonaws.com/" . self::DEFAULT_BUCKET . "/" . $path . "/" . $filename . "x$width" . "x$height" . "xed." . $extension;
+      $path = "https://s3.amazonaws.com/" . self::DEFAULT_BUCKET . "/" . $path . "/" . $filename . "x$width" . "x$height" . "xed" . ($extension) ?: "." . $extension;
     }
 
     if ($asHTML) {

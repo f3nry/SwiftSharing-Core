@@ -9,6 +9,8 @@
 
 class Model_Feed extends ORM
 {
+    const PHOTO_FEED = 7;
+  
     /**
      * Get an instance of the feed with the id of $id.
      *

@@ -32,6 +32,14 @@ class Controller_Profile extends Controller_App {
                         ->render();
     }
     
+    public function action_photos() {
+      $this->action_index();
+      
+      $this->template->photo = new Model_Photo(Session::instance()->get('photo_id'));
+      $this->template->photo->loadCollection();
+      //Session::instance()->delete('photo_id');
+    }
+    
     public function action_name() {
         $this->_requireAuth("You are not logged in, sorry.");
         

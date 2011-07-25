@@ -233,11 +233,11 @@
     font-size:25px;
     margin-right:10px;
     margin-top:0px;
-    font-family:"Futura",Medium;
+    font-family:"Helvetica",Medium;
 }
 #bottom-bar p {
     color:white;
-    font-family:"Futura",Medium;
+    font-family:"Helvetica",Medium;
     font-size:25px;
     display:inline;
     float:right;
@@ -310,4 +310,97 @@
 
 #content {
     font-size: 11px;
+}
+
+#lean_overlay {
+    position: fixed;
+    z-index:100;
+    top: 0px;
+    left: 0px;
+    height:100%;
+    width:100%;
+    background: #000;
+    display: none;
+}
+
+.modal {
+  background-color: white;
+  padding: 5px;
+  border-radius: 4px;
+  display: none;
+}
+
+.modal h2 {
+  font-size: 1.1em;
+  width:80%;
+  text-align: center;
+}
+
+.modal_header h2 {
+  font-size: 1.5em;
+  color: white;
+  margin-left: 24px;
+}
+
+.modal_header .modal_close {
+  float: left;
+}
+
+.modal .modal_header {
+  height: 30px;
+  background-color: #6b9ddc;
+  color: white;
+}
+
+.modal_body h1 {
+  font-weight: bold;
+  font-size: 1.6em;
+  margin-top:6px;
+  margin-bottom: 8px;
+}
+
+.modal_body .album_name {
+  width: 300px;
+}
+
+.modal .photo_drop {
+  width:300px;
+  padding:0px 24px 32px 24px;
+  border-right: #BFBFBF 1px solid;
+  height:370px;
+  float: left;
+}
+
+.photo_drop .photo_drop_area {
+  height:300px;
+}
+
+.photo_drop_area .qq-uploader {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.modal .close {
+  background-image: url(/content/images/notifications/icon_close.png);
+  width: 25px;
+  height: 25px;
+  background-repeat: no-repeat;
+  display: block;
+}
+
+.modal_close:hover, .modal_close, .modal_close:active {
+  text-decoration: none;
+  display: block;
+  width:25px;
+  height: 25px;
+  padding:2px 0px 0px 2px;
+}
+
+.photos {
+  width: 400px;
+  float: left;
+}
+
+.photos img {
+  padding: 8px;
 }

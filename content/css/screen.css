@@ -6,7 +6,7 @@ img, a {
 
 body {
     background-color: #fcfcfc;
-    font: 80%/1.5 'Metrophobic', Helvetica, Arial, Sans-serif;
+    font: 80%/1.5 Helvetica, Arial, Sans-serif;
 }
 
 h3 {
@@ -34,7 +34,7 @@ h2 {
 }
 
 #header_content {
-    font-family: 'Metrophobic';
+    font-family: 'Helvetica';
     background-color: #172322;
     float: left;
     height: 45px;
@@ -67,7 +67,7 @@ h2 {
     font-size: 1.6em;
     font-weight: bold;
     margin-bottom: 0.25em;
-    font-family: 'Metrophobic';
+    font-family: 'Helvetica';
 }
 
 #login label {
@@ -271,13 +271,13 @@ h4 {
     height: 20px;
     width: 115px;
     top: 0px;
-}#menu
+}
 
 .postbody {
     min-height: 70px;
     margin-bottom: 10px;
-    border-bottom: solid 1px #333333;
-    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    border-bottom: solid 1px #bfbfbf;
+    font-family: "Helvetica", Arial, Helvetica, sans-serif;
     margin-left: 5px;
     min-height: 70px;
     width: 98%;
@@ -298,13 +298,12 @@ h4 {
     overflow: hidden;
     padding: 5px;
     display: block;
-    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
-    max-width:70%;
+    font-family: "Helvetica", Arial, Helvetica, sans-serif;
 }
 
 .postbody .likes {
     float: right;
-    width:80px;
+    width:90px;
 }
 
 .postbody .time {
@@ -312,6 +311,20 @@ h4 {
     color: #999;
     font-family: Arial, Helvetica, sans-serif;
     margin-top: 5px;
+}
+
+.postbody .album_time {
+  padding-top: 48px;
+}
+
+.postbody .album_preview img {
+  padding: 4px;
+  border: #bfbfbf solid 1px;
+}
+
+.postbody .album_preview img:hover {
+  border: #6B9DDC solid 1px;
+  cursor: pointer;
 }
 
 .comment {
@@ -537,7 +550,7 @@ p#heading{
     margin-top:5px;
     text-align:center;
     color:white;
-    font-family: "Futura", Medium;
+    font-family: "Helvetica", Medium;
     font-size:1.2em;
 }
 #right {
@@ -585,4 +598,3 @@ input[type="text"], input[type="password"], textarea {
 .thumbsup_template_mini-thumbs input { font-size:0; line-height:999px; }
 
 .thumbsup_template_mini-thumbs { position: relative; }
-
