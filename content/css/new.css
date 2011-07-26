@@ -436,6 +436,7 @@ span.album_name {
 
 .album .album_0 {
 	z-index: 999;
+	padding-top: 20px;
 }
 
 .album .album_1 {
@@ -447,5 +448,4 @@ span.album_name {
 .album .album_2 {
 	z-index: 222;
 	padding-left: 30px;
-	padding-top: 20px;
 }
