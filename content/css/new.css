@@ -408,7 +408,7 @@
 .album {
 	float: left;
 	margin-right: 8px;
-	height: 270px;
+	min-height: 270px;
 	width: 220px;
 }
 
