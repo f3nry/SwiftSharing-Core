@@ -117,6 +117,10 @@ class Images {
     $extension = strip_extension($real_image_path);
     $path = strip_path($real_image_path);
     
+    if($extension) {
+      $extension = "." . $extension;
+    }
+    
     if($width != 0 || $height != 0) {
       if(!self::checkCached($id, $filename, $width, $height)) {
         self::downloadResizeAndUpload($id, $image, $width, $height);
@@ -126,9 +130,9 @@ class Images {
     }
 
     if (!$width && !$height) {
-      $path = "https://s3.amazonaws.com/" . self::DEFAULT_BUCKET . "/" . $path . "/" . $filename . ($extension) ?: "." . $extension;
+      $path = "https://s3.amazonaws.com/" . self::DEFAULT_BUCKET . "/" . $path . "/" . $filename . $extension;
     } else {
-      $path = "https://s3.amazonaws.com/" . self::DEFAULT_BUCKET . "/" . $path . "/" . $filename . "x$width" . "x$height" . "xed" . ($extension) ?: "." . $extension;
+      $path = "https://s3.amazonaws.com/" . self::DEFAULT_BUCKET . "/" . $path . "/" . $filename . "x$width" . "x$height" . "xed" . $extension;
     }
 
     if ($asHTML) {

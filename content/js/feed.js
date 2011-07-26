@@ -190,6 +190,7 @@ function bindThumbsUp() {
         // Collect the POST data to send to the server
         var postdata = {
             thumbsup_id : $('input[name=thumbsup_id]', $thumbsup_form).val(),
+	          thumbsup_type: $('input[name=type]', $thumbsup_form).val(),
             thumbsup_rating: $(this).val()
         };
 
@@ -540,11 +541,19 @@ function openBlabComments(id) {
     return false;
 }
 
-function deleteBlab(id) {
+function deleteBlab(id, type) {
+		if(type == "" || type == null) {
+			type = 'STATUS';
+		}
+
     if(confirm('Are you sure you want to delete that post?')) {
-        $.post('/ajax/feed/delete', {id: id}, function(data) {
+        $.post('/ajax/feed/delete', {id: id, type: type}, function(data) {
             if(data.success == 1) {
-                $("#blab_" + id).remove();
+	            if(type == 'ALBUM') {
+		            $("#album_" + id).remove();
+	            } else {
+		            $("#blab_" + id).remove();
+	            }
             } else {
                 alert(data.message);boboot
             }

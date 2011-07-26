@@ -20,7 +20,7 @@ $(document).ready(function(){
 				$("div.info").css("display", "none");
 				$("div.links").css("display", "none");
 				$("div.interests").css("display", "none");
-				$("div.photos").css("display", "none");
+				$("div.profile_photos").css("display", "none");
 			break;
 			case "info":
 				//change status & style menu
@@ -34,7 +34,7 @@ $(document).ready(function(){
 				$("div.wall").css("display", "none");
 				$("div.links").css("display", "none");
 				$("div.interests").css("display", "none");
-				$("div.photos").css("display", "none");
+				$("div.profile_photos").css("display", "none");
 			break;
 			case "links":
 				//change status & style menu
@@ -48,7 +48,7 @@ $(document).ready(function(){
 				$("div.wall").css("display", "none");
 				$("div.info").css("display", "none");
 				$("div.interests").css("display", "none");
-				$("div.photos").css("display", "none");
+				$("div.profile_photos").css("display", "none");
 			break;
 			case "interests":
 				//change status & style menu
@@ -62,7 +62,7 @@ $(document).ready(function(){
 				$("div.wall").css("display", "none");
 				$("div.links").css("display", "none");
 				$("div.interests").fadeIn();
-				$("div.photos").css("display", "none");
+				$("div.profile_photos").css("display", "none");
 			break;
 			case "photos":
 			  //change status & style menu
@@ -76,7 +76,11 @@ $(document).ready(function(){
 			  $("div.wall").css("display", "none");
 			  $("div.links").css("display", "none");
 			  $("div.interests").css("display", "none");
-			  $("div.photos").fadeIn();
+			  $("div.profile_photos").fadeIn();
+			  
+			  $.fancybox.showActivity();
+			  
+			  App.PhotoAlbum.loadProfile();
 			break;
 		}
 		//alert(e.target.id);

@@ -42,7 +42,7 @@ Route::set('profile_ajax', 'ajax/profile/friends/<id>')
 					'action' => 'friends'
 				));
 
-Route::set('profile', '<username>(/<action>)', array(
+Route::set('profile', '<username>(/<action>(/<id>))', array(
             'username' => '\w{2,40}'
         ))
         ->defaults(array(

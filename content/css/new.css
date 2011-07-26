@@ -404,3 +404,48 @@
 .photos img {
   padding: 8px;
 }
+
+.album {
+	float: left;
+	margin-right: 8px;
+	height: 270px;
+	width: 220px;
+}
+
+.album_photo a {
+	padding: 4px;
+	border: #bfbfbf solid 1px;
+	clear:both;
+	display: block;
+	height: 200px;
+}
+
+.album_photo a:hover {
+	border: #6B9DDC solid 1px;
+  cursor: pointer;
+}
+
+span.album_name {
+	font-weight: bold;
+	font-size: 1.4em;
+}
+
+.album_photo img {
+	position: absolute;
+}
+
+.album .album_0 {
+	z-index: 999;
+}
+
+.album .album_1 {
+	z-index: 555;
+	padding-left: 15px;
+	padding-top: 10px;
+}
+
+.album .album_2 {
+	z-index: 222;
+	padding-left: 30px;
+	padding-top: 20px;
+}

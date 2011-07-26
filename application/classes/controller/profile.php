@@ -34,10 +34,31 @@ class Controller_Profile extends Controller_App {
     
     public function action_photos() {
       $this->action_index();
-      
-      $this->template->photo = new Model_Photo(Session::instance()->get('photo_id'));
+
+	    $photo_id = Session::instance()->get('photo_id');
+
+	    if(empty($photo_id)) {
+		    $photo_id = $this->request->param('id');
+	    }
+
+      $this->template->photo = new Model_Photo($photo_id);
       $this->template->photo->loadCollection();
-      //Session::instance()->delete('photo_id');
+	    
+      Session::instance()->delete('photo_id');
+    }
+    
+    public function action_albums() {
+      $this->_requireAuth();
+
+      $this->layout = false;
+      $this->template = View::factory('profile/albums');
+
+			$collections = Model_Collection::factory('collection')
+							->where('created_by', '=', Session::instance()->get('user_id'))
+							->and_where('published', '=', 1)
+	            ->find_all();
+
+	    $this->template->collections = $collections;
     }
     
     public function action_name() {

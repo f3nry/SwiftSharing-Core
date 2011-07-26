@@ -44,6 +44,10 @@ class Model_Photo extends App_ORM {
   }
   
   public function previous() {
+	  if(empty($this->id)) {
+		  return 0;
+	  }
+
     $sql = "SELECT id FROM photos WHERE id < {$this->id} AND collection_id = {$this->getCollection()} ORDER BY id DESC LIMIT 1";
     
     return DB::query(Database::SELECT, $sql)
@@ -52,6 +56,10 @@ class Model_Photo extends App_ORM {
   }
   
   public function next() {
+	  if(empty($this->id)) {
+		  return 0;
+	  }
+
     $sql = "SELECT id FROM photos WHERE id > {$this->id} AND collection_id = {$this->getCollection()} LIMIT 1";
     
     return DB::query(Database::SELECT, $sql)
