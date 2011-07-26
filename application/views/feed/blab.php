@@ -6,7 +6,7 @@
         <img src="/content/images/image01.jpg" height="50" />
         <?php endif; ?>
     </div>
-    <div class="text" style="<?php if($blab['type'] == 'ALBUM'): ?>width:400px;<?php endif; ?>">
+    <div class="text" style="<?php if($blab['type'] == 'ALBUM'): ?>width:400px;<?php else: ?>width:300px;<?php endif; ?>">
 	<?php if($blab['type'] != 'ALBUM'): ?>
         <?php echo Text::auto_link(htmlentities($blab['text'])) ?>
 	<?php endif; ?>  
