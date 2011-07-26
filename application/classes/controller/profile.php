@@ -53,8 +53,10 @@ class Controller_Profile extends Controller_App {
       $this->layout = false;
       $this->template = View::factory('profile/albums');
 
+	    $member = Model_Member::factory('member')->where('username', '=', $this->request->param('username'))->find();
+
 			$collections = Model_Collection::factory('collection')
-							->where('created_by', '=', Session::instance()->get('user_id'))
+							->where('created_by', '=', $member->id)
 							->and_where('published', '=', 1)
 	            ->find_all();
 
