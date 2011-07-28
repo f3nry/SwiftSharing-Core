@@ -74,7 +74,7 @@
         float:right;
         background-color:white;
         width:255px;
-        min-height:660px;
+        min-height:40px;
         -moz-border-radius: 20px;
         -webkit-border-radius: 20px;
         -khtml-border-radius: 20px;

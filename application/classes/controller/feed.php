@@ -16,7 +16,7 @@ class Controller_Feed extends Controller_App {
 
     $this->layout->hideContentPane = true;
 
-    $this->template->feed_list = Model_Feed::generateFeedList();
+	  $this->template->feed_list = Model_Feed::generateFeedList();
 
     $this->template->feed_content = Util_Feed_Generator::factory()
 	    ->set('types', array('STATUS', 'PHOTO', 'ALBUM'))

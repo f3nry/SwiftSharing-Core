@@ -108,7 +108,7 @@ try {
      */
     $request = Request::factory()
             ->execute();
-    
+
 } catch (Kohana_Exception $e) {
     if(Kohana::$environment == Kohana::DEVELOPMENT) {
         throw $e;
@@ -116,13 +116,13 @@ try {
         Kohana::$log->add(Log::ERROR, $e->__toString());
 
         header("Location: /404");
-        
+
         if($e->getCode() != 404) {
             $message = $e->__toString() . "\n\n";
             $message .= "\nFile: " . $e->getFile();
             $message .= "\nLine: " . $e->getLine();
             $message .= "\n\nStack Trace: " . $e->getTraceAsString();
-            
+
             mail("paul@swiftsharing.net", "[http://swiftsharing.net] " . Kohana_Exception::text($e), $message);
 
             die();

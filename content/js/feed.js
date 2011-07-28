@@ -9,6 +9,19 @@ var i = 0;
 var tmpTable = null;
 
 $(document).ready(function() {
+		$(".quick_share_feed").click(function() {
+			if($(this).hasClass('active')) {
+				$(this).removeClass('active');
+			} else {
+				$(".quick_share_feed").removeClass('active');
+				$(this).addClass('active');
+			}
+		});
+
+		$(".quick_share_feed").focus(function() {
+			$(this).blur();
+		})
+
     $(".comments").fancybox({
         hideOnContentClick: false,
         scrolling: 'no',
@@ -162,6 +175,24 @@ $(document).ready(function() {
 		
         return false;
     });
+
+		$("#quick_share_wrapper").keyup(function(e) {
+			if(e.keyCode == 13) {
+				e.preventDefault();
+
+				var feed = $(".quick_share_feed.active").attr('data-id');
+
+				if(feed) {
+					$("#quick_share_text").attr('disabled', 'disabled');
+
+					$.post('/ajax/feed/new', { feed_id: feed, text: $("#quick_share_text").val(), type: 'STATUS' },
+						function() {
+							window.location = "/feed/" + feed;
+						}
+					);
+				}
+			}
+		});
 	
     //Begin async call to update the blabs as new blabs come in.
     setTimeout(updateBlabs, 4000);

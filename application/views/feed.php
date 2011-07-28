@@ -25,24 +25,6 @@
             <div style="clear:both"></div>
             <a href="javascript:void()" onclick="loadMore()">more</a>
        </div>
-
-        <div id="side-b">
-            <div class="photo">
-                <?php print @$blabber_pic; ?>
-            </div>
-            <div class="options">
-                <li><a href="/<?php echo Session::instance()->get('username') ?>">My Profile</a>
-				<li><a href="/<?php echo Session::instance()->get('username') ?>">Friend Request</a>
-				<li><a href="/profile/edit">Edit Profile</a>
-				<li><a href="/stats">My Stats</a>
-            </div>
-            <div class="feed">
-                <h3>Your Feeds</h3>
-                <?php if($feed_list): ?>
-                    <?php echo $feed_list; ?>
-                <?php endif; ?>
-            </div>
-        </div>
 <?php if ($feed->allowed_post_types == 'PHOTO'): ?>
 <link href="/content/js/uploadify/uploadify.css" type="text/css" rel="stylesheet" />
 <script type="text/javascript" src="/content/js/uploadify/swfobject.js"></script>

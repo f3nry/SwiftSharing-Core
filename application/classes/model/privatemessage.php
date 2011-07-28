@@ -147,6 +147,25 @@ class Model_PrivateMessage extends ORM {
         return $list;
     }
 
+	public static function getRecentMessagesQuickly() {
+		$member_to = Session::instance()->get('user_id');
+
+		$query = "SELECT pc.id, pc.date_updated, pc.subject,
+                       pcm.message,
+                       m.id as member_from_id, m.username as member_from_username, m.firstname as member_from_firstname, m.lastname as member_from_lastname, m.has_profile_image as has_profile_image
+                  FROM private_conversations pc
+                  JOIN (
+                       SELECT * FROM private_conversation_messages ORDER BY date_sent DESC
+                  ) as pcm ON pcm.conversation_id = pc.id
+                  JOIN myMembers m ON m.id = pcm.message_from
+                  WHERE pc.to = $member_to OR pc.from = $member_to
+                  GROUP BY pc.id
+                  ORDER BY pc.date_updated DESC
+                  LIMIT 8";
+
+		return DB::query(Database::SELECT, $query)->as_object()->execute();
+	}
+
     /**
      * Load responses for the current private message
      */

@@ -6,7 +6,7 @@
  * Home pages for SwiftSharing
  */
 class Controller_Home extends Controller_App {
-    public $template = 'home';
+    public $template = 'profile';
 
     public $layout = false;
 
@@ -15,9 +15,7 @@ class Controller_Home extends Controller_App {
     );
 
     public function before() {
-        if(Session::instance('mango')->get('user_id')) {
-            $this->template = 'dashboard';
-
+        if(Session::instance()->get('user_id')) {
             $this->layout = 'layouts/template';
         } else {
             $this->template = 'home_logged_out';
@@ -30,22 +28,27 @@ class Controller_Home extends Controller_App {
 
     public function action_index() {
         if(Session::instance()->get('username')) {
-            $this->layout->hideContentPane = false;
+	        $this->template = View::factory('profile');
 
-            $this->template->feed_list = Model_Feed::generateFeedList();
+          $this->layout->hideContentPane = true;
 
-            $member = Model_Member::loadFromID(Session::instance()->get('user_id'));
+					$this->template->member = Model_Member::factory('member')->where('id', '=', Session::instance()->get('user_id'))->find();
 
-            $this->template->member = $member;
-            $this->template->latest_post = $member->getLatestPost();
-            $this->template->latest_post = @$this->template->latest_post[0];
+					if(!$this->template->member->is_loaded()) {
+							$this->request->redirect('/404');
+					}
 
-            $this->template->friend_suggestions = Model_Member::factory('member')
-                    ->where('email_activated', '=', '1')
-                    ->and_where('', 'NOT', DB::expr('EXISTS(SELECT 1 FROM friend_relationships fr WHERE myMembers.id = fr.from AND fr.to = ' . $member->id . ')'))
-                    ->order_by(DB::expr('RAND()'))
-                    ->limit(4)
-                    ->find_all();
+					//$this->template->blabs = Model_Feed::getFeedContent('*', "'STATUS' OR b.type = 'PHOTO'", $this->template->member->id);
+
+					$this->template->blabs = Util_Feed_Generator::factory()
+													->set('feed_id', '*')
+													->set('member', $this->template->member->id)
+													->set('show_from', true)
+													->set('types', array(
+															'STATUS', 'PHOTO'
+													))
+													->load()
+													->render();
         } else {
             $this->layout->styles = array('home');
         }

@@ -175,11 +175,17 @@ Route::set('friends', 'friends')
             'action' => 'index'
         ));
 
-Route::set('about', 'about')
+Route::set('masthead', 'masthead')
         ->defaults(array(
             'controller' => 'about',
-            'action' => 'index'
+            'action' => 'masthead'
         ));
+
+Route::set('about', 'about')
+				->defaults(array(
+					'controller' => 'about',
+					'action' => 'about'
+			  ));
 
 Route::set('networks', 'networks')
         ->defaults(array(
@@ -225,7 +231,7 @@ Route::set('dashboard', 'dashboard')
 
 Route::set('inbox', 'inbox(/<action>/<id>)', array(
             'id' => '\d+',
-            'action' => '(view|delete|new)'
+            'action' => '(view|reply|delete|new)'
         ))
         ->defaults(array(
             'controller' => 'inbox',
