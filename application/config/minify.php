@@ -9,7 +9,10 @@ return array(
             '//content/js/app/notifications.js',
             '//content/js/app/profile.js',
             '//content/js/jquery.jgrowl.dev.js',
-            '//content/js/jquery-ui-1.8.14.custom.min.js'
+            '//content/js/jquery-ui-1.8.14.custom.min.js',
+	          '//content/js/app/app.js',
+	          '//content/js/app/photos.js',
+	          '//content/js/libs/fileuploader.js'
         ),
         'css' => array(
             '//content/css/blueprint/screen.css',

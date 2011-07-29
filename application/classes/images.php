@@ -1,5 +1,11 @@
 <?php
 
+if(Kohana::$environment == Kohana::PRODUCTION) {
+	Images::$bucket = "swiftsharing-cdn";
+} else {
+	Images::$bucket = "swiftsharing-cdn-dev";
+}
+
 /**
  * Class for handling interactions with Amazon S3
  * 
@@ -7,12 +13,12 @@
  * out of Amazon S3
  */
 class Images {
-  const DEFAULT_BUCKET = 'swiftsharing-cdn';
+  public static $bucket = 'swiftsharing-cdn';
   
   public static function uploadImage($remote_path, $local_path) {
     $s3 = new Amazon_S3();
     
-    return $s3->uploadFile(Images::DEFAULT_BUCKET, $remote_path, $local_path);
+    return $s3->uploadFile(Images::$bucket, $remote_path, $local_path);
   }
 
   /**
@@ -65,7 +71,7 @@ class Images {
     $local_file_path = "/tmp/" . uniqid(microtime());
     $remote_file_path = "members/" . $id . "/" . $image;
 
-    if (!$s3->downloadFile(self::DEFAULT_BUCKET, $remote_file_path, $local_file_path)) {
+    if (!$s3->downloadFile(self::$bucket, $remote_file_path, $local_file_path)) {
       return false;
     }
 
@@ -75,7 +81,7 @@ class Images {
         return false;
     }
     
-    $status = $s3->uploadFile(self::DEFAULT_BUCKET, "members/" . $id . "/" . $new_file['new_filename'], $new_file['tmp_path'], true);
+    $status = $s3->uploadFile(self::$bucket, "members/" . $id . "/" . $new_file['new_filename'], $new_file['tmp_path'], true);
 
     unlink($local_file_path);
     unlink($new_file['tmp_path']);
@@ -110,7 +116,7 @@ class Images {
     return self::getImageViaUrl($real_image_path, $width, $height, $noCache, $asHTML, $id, $image);
   }
   
-  public static function getImageViaUrl($url, $width = 0, $height = 0, $noCache = false, $asHTML = false, $id = 0, $image = false) {
+  public static function getImageViaUrl($url, $width = 0, $height = 0, $forceCache = false, $asHTML = false, $id = 0, $image = false) {
     $real_image_path = $url;
     
     $filename = strip_filename($real_image_path);
@@ -123,17 +129,34 @@ class Images {
     
     if($width != 0 || $height != 0) {
       if(!self::checkCached($id, $filename, $width, $height)) {
+	      if($forceCache) {
+					$path = "/images/get";
+					$path .= URL::query(array(
+						'id' => $id,
+						'path' => $url,
+						'width' => $width,
+						'height' => $height,
+						'images' => $image
+					));
+
+					if($asHTML) {
+						return "<img src=\"$path\" />";
+					} else {
+						return $path;
+					}
+		    }
+
         self::downloadResizeAndUpload($id, $image, $width, $height);
 
         self::setImageCached($id, $filename, $width, $height);
       }
     }
 
-    if (!$width && !$height) {
-      $path = "https://s3.amazonaws.com/" . self::DEFAULT_BUCKET . "/" . $path . "/" . $filename . $extension;
-    } else {
-      $path = "https://s3.amazonaws.com/" . self::DEFAULT_BUCKET . "/" . $path . "/" . $filename . "x$width" . "x$height" . "xed" . $extension;
-    }
+		if (!$width && !$height) {
+			$path = "https://s3.amazonaws.com/" . self::$bucket . "/" . $path . "/" . $filename . $extension;
+		} else {
+			$path = "https://s3.amazonaws.com/" . self::$bucket . "/" . $path . "/" . $filename . "x$width" . "x$height" . "xed" . $extension;
+		}
 
     if ($asHTML) {
       return "<img src=\"$path\" />";
@@ -169,7 +192,7 @@ class Images {
   protected static function setImageCached($id, $filename, $width, $height) {
     $document = array(
         'member'   => (integer)$id,
-        'bucket'   => self::DEFAULT_BUCKET,
+        'bucket'   => self::$bucket,
         'filename' => $filename,
         'width'    => (integer)$width,
         'height'   => (integer)$height
@@ -194,7 +217,7 @@ class Images {
 
     $file = $db->find_one('images', array(
                 'member'   => (integer)$id,
-                'bucket'   => self::DEFAULT_BUCKET,
+                'bucket'   => self::$bucket,
                 'filename' => $filename,
                 'width'    => (integer) $width,
                 'height'   => (integer) $height

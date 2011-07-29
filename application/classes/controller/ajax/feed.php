@@ -47,8 +47,8 @@ class Controller_Ajax_Feed extends Controller_Ajax
 
 				$photo = Images::resizeLocalTmpImage($_FILES['photo']['tmp_name'], $blab->id . '.jpg', 120, 0);
 
-				$s3->uploadFile(Images::DEFAULT_BUCKET, 'members/' . Session::instance()->get('user_id') . '/' . $photo['new_filename'], $photo['tmp_path'], true);
-				$s3->uploadFile(Images::DEFAULT_BUCKET, 'members/' . Session::instance()->get('user_id') . '/' . $blab->id . '.jpg', $_FILES['photo']['tmp_name'], true);
+				$s3->uploadFile(Images::$bucket, 'members/' . Session::instance()->get('user_id') . '/' . $photo['new_filename'], $photo['tmp_path'], true);
+				$s3->uploadFile(Images::$bucket, 'members/' . Session::instance()->get('user_id') . '/' . $blab->id . '.jpg', $_FILES['photo']['tmp_name'], true);
 
 				$this->request->redirect('/feed/' . $blab->feed_id);
 

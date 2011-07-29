@@ -115,6 +115,11 @@ Kohana::modules(array(
 
 Cache::$default = 'memcache';
 
+Route::set('images', 'images/<action>')
+	->defaults(array(
+		'controller' => 'util_images'
+  ));
+
 Route::set('photo_collections', 'photos/collections/<action>')
 	->defaults(array(
 	    'controller' => 'photos_collections',

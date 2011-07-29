@@ -204,7 +204,7 @@ END;
     public static function updateProfileImage($id, $localFileName) {
         $s3 = new Amazon_S3();
 
-        $success = $s3->uploadFile(Images::DEFAULT_BUCKET, 'members/' . $id . '/image01.jpg', $localFileName);
+        $success = $s3->uploadFile(Images::$bucket, 'members/' . $id . '/image01.jpg', $localFileName);
 
         /*$file218 = Images::resizeLocalTmpImage($localFileName, 'image01.jpg', 218, 0);
         $file50 = Images::resizeLocalTmpImage($localFileName, 'image01.jpg', 50, 0);
@@ -212,11 +212,11 @@ END;
         $file54 = Images::resizeLocalTmpImage($localFileName, 'image01.jpg', 54, 0);
         $file75x75 = Images::resizeLocalTmpImage($localFileName, 'image01.jpg', 75, 75);
 
-        $s3->uploadFile(Images::DEFAULT_BUCKET, 'members/' . $id . "/" . $file218['new_filename'],   $file218['tmp_path']);
-        $s3->uploadFile(Images::DEFAULT_BUCKET, 'members/' . $id . "/" . $file50['new_filename'],    $file50['tmp_path']);
-        $s3->uploadFile(Images::DEFAULT_BUCKET, 'members/' . $id . "/" . $file54['new_filename'],    $file54['tmp_path']);
-        $s3->uploadFile(Images::DEFAULT_BUCKET, 'members/' . $id . '/' . $file75x75['new_filename'], $file75x75['tmp_path']);
-        $s3->uploadFile(Images::DEFAULT_BUCKET, 'members/' . $id . '/' . $file50x50['new_filename'], $file50x50['tmp_path']);
+        $s3->uploadFile(Images::$bucket, 'members/' . $id . "/" . $file218['new_filename'],   $file218['tmp_path']);
+        $s3->uploadFile(Images::$bucket, 'members/' . $id . "/" . $file50['new_filename'],    $file50['tmp_path']);
+        $s3->uploadFile(Images::$bucket, 'members/' . $id . "/" . $file54['new_filename'],    $file54['tmp_path']);
+        $s3->uploadFile(Images::$bucket, 'members/' . $id . '/' . $file75x75['new_filename'], $file75x75['tmp_path']);
+        $s3->uploadFile(Images::$bucket, 'members/' . $id . '/' . $file50x50['new_filename'], $file50x50['tmp_path']);
 
         unlink($localFileName);
         unlink($file50['tmp_path']);
@@ -252,7 +252,7 @@ END;
     public static function updateBackground($id, $localFileName) {
         $s3 = new Amazon_S3();
 
-        $success = $s3->uploadFile(Images::DEFAULT_BUCKET, 'members/' . $id . '/image02.jpg', $localFileName);
+        $success = $s3->uploadFile(Images::$bucket, 'members/' . $id . '/image02.jpg', $localFileName);
 
         unlink($localFileName);
 

@@ -17,15 +17,14 @@
 			<link rel="stylesheet" href="/content/css/jquery.jgrowl.css" type="text/css" media="screen" />
 			<link rel="stylesheet" href="/content/css/flick/jquery-ui-1.8.14.custom.css" type="text/css" media="screen" />-->
 
-	<link rel="stylesheet" href="/min?g=css" type="text/css"/>
+	<link rel="stylesheet" href="/min?g=css&<?php echo App::c() ?>" type="text/css"/>
 
-	<script type="text/javascript" src="/min?g=js"></script>
-	<script type="text/javascript" src="/content/js/libs/jquery.leanModal.js"></script>
+	<script type="text/javascript" src="/min?g=js&<?php echo App::c() ?>"></script>
+	
+	<!--<script type="text/javascript" src="/content/js/libs/jquery.leanModal.js"></script>
 	<script type="text/javascript" src="/content/js/app/app.js"></script>
 	<script type="text/javascript" src="/content/js/app/photos.js"></script>
-	<script type="text/javascript" src="/content/js/libs/jquery.leanModal.js"></script>
 	<script type="text/javascript" src="/content/js/libs/fileuploader.js"></script>
-	<script type="text/javascript" src="/content/js/libs/colortip-1.0-jquery.js"></script>
 	<!--<script type="text/javascript" src="/content/js/js/jquery-1.4.4.min.js"></script>
 			<script type="text/javascript" src="/content/js/fancybox/jquery.fancybox-1.3.4.pack.js"></script>
 			<script type="text/javascript" src="/content/js/feed.js"></script>
@@ -37,8 +36,6 @@
 	<script type="text/javascript">
 		$(function() {
 			$("input:submit, .button").button();
-
-			$("#quick_share a").colorTip({ color:'white' });
 		});
 	</script>
 </head>

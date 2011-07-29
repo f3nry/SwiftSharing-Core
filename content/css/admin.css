@@ -88,3 +88,27 @@ ol.tabs {
 th {
 	text-align:left;
 }
+
+.admin_dashboard_content {
+	
+}
+
+.admin_dashboard_item {
+	float: left;
+	width: 200px;
+	height: 150px;
+}
+
+.admin_dashboard_item h2 {
+	font-size: 1.2em;
+	margin: 0;
+	padding: 0;
+	color: #8b8a8a;
+}
+
+.admin_dashboard_item h1 {
+	font-size: 5.0em;
+	margin: 0;
+	padding: 0;
+	line-height: 60px;
+}
