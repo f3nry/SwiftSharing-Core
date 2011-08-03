@@ -1,0 +1,5 @@
+application/cache/
+application/cache/*/
+application/logs/
+.idea/
+nbproject/

@@ -102,6 +102,7 @@
 								</a>
 							</li>
 						<?php endforeach; ?>
+						<li><a href="/friends">Friends</a></li>
 						</ul>
 					</li>
 				</ul>

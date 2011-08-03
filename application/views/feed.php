@@ -11,8 +11,8 @@
                     <textarea name="text" cols="50" rows="2" style="width: 480px" id="sharetext"></textarea><br/>
                     <input name="submit" type="submit" value="Share!"/>&nbsp;
                     <?php if($feed->allowed_post_types == 'PHOTO'): ?>
-		    <button name="photo_album" onclick="App.PhotoAlbum.create();return false;">Create Photo Album</button>
-                    <input type="file" name="photo" style="display:inline;color:white;" />&nbsp;
+				             <input type="file" name="photo" style="display:inline;color:white;" />&nbsp;
+		                <button name="photo_album" onclick="App.PhotoAlbum.create();return false;" style="float: right;">Create Photo Album</button>
                     <input type="hidden" name="type" value="PHOTO" />
                     <input type="hidden" name="feed_id" value="<?php echo $feed->id ?>" />
                     <?php endif; ?><br/>
