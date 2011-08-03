@@ -131,6 +131,9 @@ try {
 }
 
 if ( ! defined('SUPPRESS_REQUEST')) {
-    echo $request->send_headers()
-            ->body();
+    if(Kohana::$environment == Kohana::DEVELOPMENT) {
+			echo Minify_HTML::minify($request->send_headers()->body(), array('xhtml' => true) );
+		} else {
+			echo Minify_HTML::minify($request->send_headers()->body(), array('xhtml' => true));
+		}
 }

@@ -113,7 +113,7 @@
 							<?php foreach(Model_PrivateMessage::getRecentMessagesQuickly() as $message): ?>
 								<li>
 									<a href="/inbox/view/<?php echo $message->id ?>">
-										<span class="subject"><?php echo $message->subject ?></span>
+										<span class="subject"><?php echo Text::limit_words($message->subject, 5) ?>..</span>
 										<span class="from">From <?php echo $message->member_from_firstname ?></span>
 										<span class="preview"><?php echo Text::limit_words($message->message, 10) ?>..</span>
 									</a>
