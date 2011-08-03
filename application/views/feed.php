@@ -8,7 +8,7 @@
                     <?php if(@$onlyFriends): ?>
                     <div style="display:none;" id="friends_flag">1</div>
                     <?php endif; ?>
-                    <textarea name="text" cols="50" rows="2" style="width: 480px" id="sharetext"></textarea><br/>
+                    <textarea name="text" cols="50" rows="2" style="width: 570px" id="sharetext"></textarea><br/>
                     <input name="submit" type="submit" value="Share!"/>&nbsp;
                     <?php if($feed->allowed_post_types == 'PHOTO'): ?>
 				             <input type="file" name="photo" style="display:inline;color:white;" />&nbsp;
